@@ -24,8 +24,8 @@ import "@fontsource/tajawal/700.css";
 import lightThemeOptions from "@/theme/lightThemeOptions";
 import { Provider } from "react-redux";
 import { useRouter } from "next/router";
-import { Amplify, AuthModeStrategyType } from "aws-amplify";
-import config from "@/aws-exports";
+// import { Amplify, AuthModeStrategyType } from "aws-amplify";
+// import config from "@/aws-exports";
 import { Cookies, Responses, Routes } from "@/constants/enums";
 import { fetch as accountsFetch } from "@/services/account";
 import {
@@ -36,15 +36,15 @@ import {
 import { getSession } from "@/services/auth";
 import { setSession } from "@/store/appSlice";
 import { setSelected as accountsSelected } from "@/store/accountSlice";
-
+import Header from "@/components/Header/Header";
 // Amplify.Logger.LOG_LEVEL = "DEBUG";
-Amplify.configure({
-  ...config,
-  ssr: true,
-  DataStore: {
-    authModeStrategyType: AuthModeStrategyType.MULTI_AUTH,
-  },
-});
+// Amplify.configure({
+//   ...config,
+//   ssr: true,
+//   DataStore: {
+//     authModeStrategyType: AuthModeStrategyType.MULTI_AUTH,
+//   },
+// });
 
 const MyApp = ({ Component, ...rest }: AppProps) => {
   const { store, props } = wrapper.useWrappedStore(rest);
@@ -79,6 +79,7 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
               },
             }}
           />
+          <Header />
           <Component {...pageProps} />
         </ThemeProvider>
       </CacheProvider>

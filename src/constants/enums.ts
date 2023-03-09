@@ -24,8 +24,10 @@ export enum Pages {
   LOGOUT = "logout",
   DASHBOARD = "dashboard",
   USERS = "users",
-  OVERVIEW = "overview",
-  FEATURES = "features",
+  HOME = "home",
+  E_COMMERCE = "e-commerce",
+  CONTACT = "contact",
+  PRICING = "pricing",
 }
 
 export enum FormActions {

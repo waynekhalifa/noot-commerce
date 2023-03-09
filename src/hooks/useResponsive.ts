@@ -9,7 +9,7 @@ export default function useResponsive(props: IMediaQuery): boolean {
   const mediaDown = useMediaQuery(theme.breakpoints.down(key));
   const mediaBetween = useMediaQuery(theme.breakpoints.between(start!, end!));
   const mediaOnly = useMediaQuery(theme.breakpoints.only(key));
-
+  // sm md lg xl 2xl
   if (query === "up") return mediaUp;
   if (query === "down") return mediaDown;
   if (query === "between") return mediaBetween;

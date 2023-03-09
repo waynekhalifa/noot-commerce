@@ -8,8 +8,6 @@ import {
   Typography,
 } from "@mui/material";
 
-import bg from "@images/accounts-bg.png";
-import logo from "@images/logo.png";
 import useResponsive from "@/hooks/useResponsive";
 import {
   IFormField,
@@ -101,7 +99,6 @@ const Auth: React.FC<Props> = ({ slug }) => {
     if (slug === Pages.RESET_PASSWORD) return t("changePassword");
     if (slug === Pages.VERIFICATION_CODE || slug === Pages.FORGOT_PASSWORD)
       return t("continue");
-
     return null;
   };
 
@@ -308,46 +305,6 @@ const Auth: React.FC<Props> = ({ slug }) => {
           </Alert>
         </Box>
       </Box>
-      {mdUp && (
-        <Box
-          sx={{
-            position: "absolute",
-            width: "60vw",
-            height: "100vh",
-            right: "0px",
-            top: "0px",
-            background: `linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(${bg.src}) center center`,
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "column",
-              minHeight: "100%",
-              maxWidth: "640px",
-              m: "0 auto",
-            }}
-          >
-            <Box
-              component="img"
-              src={logo.src}
-              alt="logo"
-              sx={{ display: "block", m: "0 auto", mb: 4 }}
-            />
-            <Typography
-              variant="h4"
-              align="center"
-              color="common.white"
-              fontWeight={700}
-            >
-              منصتك الأولى للتحقق من صحة الأخبار المنشورة وتعلٌّم الأدوات
-              المخصصة لذلك
-            </Typography>
-          </Box>
-        </Box>
-      )}
     </>
   );
 };

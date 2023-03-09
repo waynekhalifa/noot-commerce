@@ -1,7 +1,5 @@
 import { useRouter } from "next/router";
 import { List } from "@mui/material";
-import SpeedIcon from "@mui/icons-material/Speed";
-import SettingsIcon from "@mui/icons-material/Settings";
 
 import MenuItem from "./MenuItem";
 import { Pages, Routes } from "@/constants/enums";
@@ -21,16 +19,22 @@ const NavMenu: React.FC<Props> = ({ handleDrawer }) => {
 
   return (
     <nav className="main-navigation">
-      <List disablePadding>
+      <List disablePadding sx={{ display: "flex" }}>
         <MenuItem
-          title={Pages.OVERVIEW}
-          icon={<SpeedIcon />}
-          handleClick={() => handleClick(Pages.OVERVIEW)}
+          title={Pages.HOME}
+          handleClick={() => handleClick(Pages.HOME)}
         />
         <MenuItem
-          title={Pages.FEATURES}
-          icon={<SettingsIcon />}
-          handleClick={() => handleClick(Pages.FEATURES)}
+          title={Pages.E_COMMERCE}
+          handleClick={() => handleClick(Pages.E_COMMERCE)}
+        />
+        <MenuItem
+          title={Pages.PRICING}
+          handleClick={() => handleClick(Pages.PRICING)}
+        />
+        <MenuItem
+          title={Pages.CONTACT}
+          handleClick={() => handleClick(Pages.CONTACT)}
         />
       </List>
     </nav>
