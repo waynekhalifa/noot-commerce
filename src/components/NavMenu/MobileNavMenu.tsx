@@ -30,6 +30,10 @@ function MobileNavMenu() {
             width: "35px",
             height: "35px",
             cursor: "pointer",
+            transition: "color 0.3s ease",
+            ":hover": {
+              color: "primary.main",
+            },
           }}
           onClick={handleNavMenu}
         />
@@ -42,6 +46,10 @@ function MobileNavMenu() {
             width: "35px",
             height: "35px",
             cursor: "pointer",
+            transition: "color 0.3s ease",
+            ":hover": {
+              color: "primary.main",
+            },
           }}
           onClick={handleNavMenu}
         />

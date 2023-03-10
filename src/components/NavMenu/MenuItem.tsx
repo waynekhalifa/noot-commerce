@@ -8,7 +8,16 @@ interface Props {
 
 const MenuItem: React.FC<Props> = ({ title, handleClick }) => {
   return (
-    <ListItemButton component="li" onClick={handleClick}>
+    <ListItemButton
+      component="li"
+      onClick={handleClick}
+      sx={{
+        margin: " 0 8px",
+        ":hover": {
+          backgroundColor: "primary.main",
+        },
+      }}
+    >
       <ListItemText
         primary={title}
         sx={{ textTransform: "capitalize", color: "white" }}
