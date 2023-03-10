@@ -1,4 +1,4 @@
-import { Feature } from "@/models";
+// import { Feature } from "@/models";
 import {
   fetch,
   get,
@@ -24,7 +24,7 @@ const useResource = (listingName: string) => {
   api[`${listingName}Options`] = options;
   api[`${listingName}HeadCells`] = headCells;
   api[`${listingName}DataCells`] = dataCells;
-  api[`${listingName}Model`] = Feature as any;
+  // api[`${listingName}Model`] = Feature as any;
 
   return api;
 };

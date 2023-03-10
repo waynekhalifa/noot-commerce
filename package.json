@@ -25,6 +25,7 @@
     "@tinymce/tinymce-react": "^4.3.0",
     "@types/react-slick": "^0.23.10",
     "@types/stylis": "^4.0.2",
+    "aws-amplify": "^5.0.18",
     "cookies-next": "^2.1.1",
     "next": "^13.2.3",
     "next-absolute-url": "^1.2.2",

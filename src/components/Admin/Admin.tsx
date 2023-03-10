@@ -186,7 +186,6 @@ const Admin: FC<Props> = ({ slug }) => {
       >
         <Toolbar />
         <NavMenu
-          handleDrawer={(value) => setState({ ...state, open: value })}
         />
         <Box
           sx={{

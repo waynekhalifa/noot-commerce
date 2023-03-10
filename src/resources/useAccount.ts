@@ -1,4 +1,4 @@
-import { Account } from "@/models";
+// import { Account } from "@/models";
 import {
   fetch,
   get,
@@ -9,7 +9,7 @@ import {
   remove,
   options,
   headCells,
-  dataCells,
+  dataCells
 } from "@/services/account";
 
 const useResource = (listingName: string) => {
@@ -24,7 +24,7 @@ const useResource = (listingName: string) => {
   api[`${listingName}Options`] = options;
   api[`${listingName}HeadCells`] = headCells;
   api[`${listingName}DataCells`] = dataCells;
-  api[`${listingName}Model`] = Account as any;
+  // api[`${listingName}Model`] = Account as any;
 
   return api;
 };

@@ -10,17 +10,16 @@ import {
   TableHead,
   TableRow,
   TableSortLabel,
-  Typography,
+  Typography
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import { Feature } from "@/models";
 import {
   DefaultFeature,
   IFeatureListingVariables,
   IResponse,
-  Order,
+  Order
 } from "@/models/app";
 import ExportSearch from "./ExportSearch";
 import ActionLoader from "@/components/UI/ActionLoader";
@@ -44,7 +43,7 @@ interface IState {
   isLoading: boolean;
   orderBy: keyof any;
   order: Order;
-  feature: Feature | DefaultFeature;
+  feature: DefaultFeature;
 }
 
 const Listing: React.FC<Props> = ({ slug }) => {
@@ -57,8 +56,8 @@ const Listing: React.FC<Props> = ({ slug }) => {
       icon: "FeatureIcon",
       slug: "features",
       singleName: "Feature",
-      precedence: "1",
-    },
+      precedence: "1"
+    }
   };
   const listing = useSelector(selectListing);
   const [state, setState] = useState(INITIAL_STATE);
@@ -75,12 +74,12 @@ const Listing: React.FC<Props> = ({ slug }) => {
     next,
     prev,
     reset,
-    handleSearch,
+    handleSearch
   } = useListing({
     slug,
     resourceModel: api.model,
     fetchListings: api.fetch,
-    changeListings: api.changeListing,
+    changeListings: api.changeListing
   });
 
   const fetchFeature = async () => {
@@ -89,7 +88,7 @@ const Listing: React.FC<Props> = ({ slug }) => {
         startIndex: 0,
         limit: 1,
         searchText: "",
-        slug,
+        slug
       };
 
       const response: IResponse = await featuresFetch(params);
@@ -150,7 +149,7 @@ const Listing: React.FC<Props> = ({ slug }) => {
     setState({
       ...state,
       order: isAsc ? SortOrder.DESC : SortOrder.ASC,
-      orderBy: property,
+      orderBy: property
     });
   };
 
@@ -187,7 +186,7 @@ const Listing: React.FC<Props> = ({ slug }) => {
             my: 2,
             position: "relative",
             backgroundColor: "common.white",
-            minHeight: 360,
+            minHeight: 360
           }}
         >
           <TableContainer>
@@ -205,7 +204,7 @@ const Listing: React.FC<Props> = ({ slug }) => {
                       }
                       onChange={handleSelectAll}
                       inputProps={{
-                        "aria-label": "select all listings",
+                        "aria-label": "select all listings"
                       }}
                     />
                   </TableCell>
@@ -250,7 +249,7 @@ const Listing: React.FC<Props> = ({ slug }) => {
                             checked={isItemSelected}
                             onChange={() => handleSelect(row.id)}
                             inputProps={{
-                              "aria-labelledby": labelId,
+                              "aria-labelledby": labelId
                             }}
                           />
                         </TableCell>
@@ -308,7 +307,7 @@ const Listing: React.FC<Props> = ({ slug }) => {
               width: "100%",
               display: "flex",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "center"
             }}
           >
             <EmptyContent title={feature.name} searchText={searchText} />

@@ -1,18 +1,18 @@
 import { HYDRATE } from "next-redux-wrapper";
 import { createSlice } from "@reduxjs/toolkit";
-import { Account } from "@/models";
+// import { Account } from "@/models";
 import { AppState } from "./store";
 
 // Type for our state
 export interface StateProps {
   listing: Readonly<Record<string, any>>[];
-  selected: Account | null;
+  selected: {} | null;
 }
 
 // Initial state
 const initialState: StateProps = {
   listing: [],
-  selected: null,
+  selected: null
 };
 
 // Actual Slice
@@ -25,16 +25,16 @@ export const slice = createSlice({
     },
     setSelected(state, action) {
       state.selected = action.payload;
-    },
+    }
   },
   extraReducers: {
     [HYDRATE]: (state, action) => {
       return {
         ...state,
-        ...action.payload.account,
+        ...action.payload.account
       };
-    },
-  },
+    }
+  }
 });
 
 export const { setListing, setSelected } = slice.actions;

@@ -1,12 +1,12 @@
 import { HYDRATE } from "next-redux-wrapper";
 import { createSlice } from "@reduxjs/toolkit";
-import { Page } from "@/models";
+// import { Page } from "@/models";
 import { AppState } from "./store";
 
 // Type for our state
 export interface StateProps {
   listing: Readonly<Record<string, any>>[];
-  selected: Page | null;
+  selected: {} | null;
 }
 
 // Initial state

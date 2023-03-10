@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Account, Feature } from "@/models";
+// import { Account, Feature } from "@/models";
 import { AppState } from "./store";
 
 // Type for our state
 export interface StateProps {
   listing: Readonly<Record<string, any>>[];
-  selected: Account | Feature | null;
+  selected: {} | null;
 }
 
 // Initial state
 const initialState: StateProps = {
   listing: [],
-  selected: null,
+  selected: null
 };
 
 // Actual Slice
@@ -24,8 +24,8 @@ export const slice = createSlice({
     },
     setSelected(state, action) {
       state.selected = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const { setListing, setSelected } = slice.actions;

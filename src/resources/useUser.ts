@@ -1,4 +1,4 @@
-import { User } from "@/models";
+// import { User } from "@/models";
 import {
   fetch,
   get,
@@ -24,7 +24,7 @@ const useResource = (listingName: string) => {
   api[`${listingName}Options`] = options;
   api[`${listingName}HeadCells`] = headCells;
   api[`${listingName}DataCells`] = dataCells;
-  api[`${listingName}Model`] = User as any;
+  // api[`${listingName}Model`] = User as any;
 
   return api;
 };
