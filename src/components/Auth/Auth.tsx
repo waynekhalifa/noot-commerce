@@ -36,7 +36,6 @@ import { useDispatch } from "react-redux";
 import { setSession } from "@/store/appSlice";
 import { useEffect } from "react";
 import useUpdating from "@/hooks/useUpdating";
-
 interface Props {
   slug: string;
 }
