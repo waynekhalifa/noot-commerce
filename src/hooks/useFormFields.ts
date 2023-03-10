@@ -8,13 +8,13 @@ const useFormFields = (props: IFormFieldsVariables) => {
 
   const loginFields = (): IFormField[] => [
     {
-      label: t("email"),
+      label: "",
       name: "email",
       type: "text",
       autoFocus: true,
     },
     {
-      label: t("password"),
+      label: "",
       name: "password",
       type: "password",
     },

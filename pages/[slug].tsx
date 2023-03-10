@@ -6,7 +6,7 @@ const PageTemplate: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Asten College</title>
+        <title>About - Asten College</title>
         <meta name="description" content={"Asten College"} />
       </Head>
       <>page</>
