@@ -28,6 +28,7 @@ export enum Pages {
   E_COMMERCE = "e-commerce",
   CONTACT = "contact",
   PRICING = "pricing",
+  OVERVIEW = "overview",
 }
 
 export enum FormActions {

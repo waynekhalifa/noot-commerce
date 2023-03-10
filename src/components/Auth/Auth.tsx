@@ -37,6 +37,8 @@ import { setSession } from "@/store/appSlice";
 import { useEffect } from "react";
 import useUpdating from "@/hooks/useUpdating";
 
+import bg from "@images/accounts-bg.png";
+
 interface Props {
   slug: string;
 }
@@ -152,158 +154,181 @@ const Auth: React.FC<Props> = ({ slug }) => {
     <>
       <Box
         sx={{
-          width: { md: "40vw" },
+          position: "absolute",
+          width: "100vw",
           height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          p: { xs: 4, md: 12 },
+          right: "0px",
+          top: "0px",
+          zIndex: -1,
+          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(${bg.src}) center center`,
         }}
       >
-        {renderTitle && (
-          <Typography variant="h4" fontWeight={700} paragraph>
-            {renderTitle()}
-          </Typography>
-        )}
-        {slug === Pages.FORGOT_PASSWORD && (
-          <Typography color="text.secondary" paragraph>
-            {t("weWillSendYou")}
-          </Typography>
-        )}
-        {slug === Pages.VERIFICATION_CODE && (
-          <Typography color="text.secondary" paragraph>
-            {t("verificationCodeHasBeenSent")}
-          </Typography>
-        )}
+        <Box sx={{ position: "absolute", top: 0 }}>header placeholder</Box>
         <Box
-          component="form"
-          onSubmit={handleSubmit(onSubmit)}
-          sx={{ display: "block", width: "100%" }}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            minHeight: "100%",
+            maxWidth: "640px",
+            m: "0 auto",
+          }}
         >
-          {getFormFields().map((field: IFormField) => (
-            <FormFields
-              key={field.name}
-              {...field}
-              control={control}
-              errors={errors}
-            />
-          ))}
-          {slug === Pages.LOGIN && (
-            <Link
-              href={`/${Routes.ACCOUNTS}/${Pages.FORGOT_PASSWORD}`}
+          <Box
+            sx={{
+              width: { md: "40vw" },
+              height: "100vh",
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              p: { xs: 4, md: 12 },
+            }}
+          >
+            <Box
+              component="form"
+              onSubmit={handleSubmit(onSubmit)}
               sx={{
                 display: "block",
-                mb: 1,
-                textDecoration: "none",
-                "&:hover": { textDecoration: "underline" },
+                width: "100%",
+                input: { borderRadius: 40 },
               }}
             >
-              {t("forgotPassword")}
-            </Link>
-          )}
-          {slug === Pages.REGISTER && (
-            <Typography variant="body2" gutterBottom>
-              {t("privacyPolicy")}
-            </Typography>
-          )}
-          {slug === Pages.VERIFICATION_CODE && (
-            <>
-              <Grid
-                container
-                flexDirection={
-                  locale === Languages.ARABIC ? "row-reverse" : "row"
-                }
-                sx={{ maxWidth: "fit-content" }}
-              >
-                <VerificationField
-                  value=""
-                  handleChange={(e) => console.log(e)}
+              {getFormFields().map((field: IFormField) => (
+                <FormFields
+                  key={field.name}
+                  {...field}
+                  control={control}
+                  errors={errors}
                 />
-                <VerificationField
-                  value=""
-                  handleChange={(e) => console.log(e)}
-                />
-                <VerificationField
-                  value=""
-                  handleChange={(e) => console.log(e)}
-                />
-                <VerificationField
-                  value=""
-                  handleChange={(e) => console.log(e)}
-                />
-              </Grid>
-              <Typography sx={{ display: "flex", mt: 4, mb: 2 }}>
-                <Typography component="span">
-                  {t("dontReceiveVerificationCode")}
+              ))}
+              {slug === Pages.LOGIN && (
+                <Link
+                  href={`/${Routes.ACCOUNTS}/${Pages.FORGOT_PASSWORD}`}
+                  sx={{
+                    display: "block",
+                    mb: 1,
+                    textDecoration: "none",
+                    "&:hover": { textDecoration: "underline" },
+                  }}
+                >
+                  {t("forgotPassword")}
+                </Link>
+              )}
+              {slug === Pages.REGISTER && (
+                <Typography variant="body2" gutterBottom>
+                  {t("privacyPolicy")}
                 </Typography>
+              )}
+              {slug === Pages.VERIFICATION_CODE && (
+                <>
+                  <Grid
+                    container
+                    flexDirection={
+                      locale === Languages.ARABIC ? "row-reverse" : "row"
+                    }
+                    sx={{ maxWidth: "fit-content" }}
+                  >
+                    <VerificationField
+                      value=""
+                      handleChange={(e) => console.log(e)}
+                    />
+                    <VerificationField
+                      value=""
+                      handleChange={(e) => console.log(e)}
+                    />
+                    <VerificationField
+                      value=""
+                      handleChange={(e) => console.log(e)}
+                    />
+                    <VerificationField
+                      value=""
+                      handleChange={(e) => console.log(e)}
+                    />
+                  </Grid>
+                  <Typography sx={{ display: "flex", mt: 4, mb: 2 }}>
+                    <Typography component="span">
+                      {t("dontReceiveVerificationCode")}
+                    </Typography>
+                    <Link
+                      href={`/${Routes.ACCOUNTS}/${Pages.REGISTER}`}
+                      sx={{ display: "block", ml: 2 }}
+                    >
+                      {t("resendCode")}
+                    </Link>
+                  </Typography>
+                </>
+              )}
+              {renderButtonText() && (
+                <Button
+                  fullWidth
+                  size="large"
+                  type="submit"
+                  variant="contained"
+                  disableElevation
+                  disableRipple
+                  disabled={updating}
+                >
+                  {updating ? (
+                    <CircularProgress thickness={8} size={26} color="primary" />
+                  ) : (
+                    renderButtonText()
+                  )}
+                </Button>
+              )}
+            </Box>
+            {slug === Pages.LOGIN && (
+              <Typography
+                sx={{ display: "flex", justifyContent: "center", mt: 4 }}
+              >
+                <Typography component="span">{t("dontHaveAccount")}</Typography>
                 <Link
                   href={`/${Routes.ACCOUNTS}/${Pages.REGISTER}`}
                   sx={{ display: "block", ml: 2 }}
                 >
-                  {t("resendCode")}
+                  {t("createAccount")}
                 </Link>
               </Typography>
-            </>
-          )}
-          {renderButtonText() && (
-            <Button
-              fullWidth
-              size="large"
-              type="submit"
-              variant="contained"
-              disableElevation
-              disableRipple
-              disabled={updating}
-            >
-              {updating ? (
-                <CircularProgress thickness={8} size={26} color="primary" />
-              ) : (
-                renderButtonText()
-              )}
-            </Button>
-          )}
-        </Box>
-        {slug === Pages.LOGIN && (
-          <Typography sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-            <Typography component="span">{t("dontHaveAccount")}</Typography>
-            <Link
-              href={`/${Routes.ACCOUNTS}/${Pages.REGISTER}`}
-              sx={{ display: "block", ml: 2 }}
-            >
-              {t("createAccount")}
-            </Link>
-          </Typography>
-        )}
-        {slug === Pages.REGISTER && (
-          <Typography sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-            <Typography component="span">{t("alreadyHaveAccount")}</Typography>
-            <Link
-              href={`/${Routes.ACCOUNTS}/${Pages.LOGIN}`}
-              sx={{ display: "block", ml: 2 }}
-            >
-              {t("login")}
-            </Link>
-          </Typography>
-        )}
-        {slug === Pages.FORGOT_PASSWORD ||
-          (slug === Pages.VERIFICATION_CODE && (
-            <Typography
-              sx={{ display: "flex", justifyContent: "center", mt: 4 }}
-            >
-              <Typography component="span">{t("backTo")}</Typography>
-              <Link
-                href={`/${Routes.ACCOUNTS}/${Pages.LOGIN}`}
-                sx={{ display: "block", ml: 2 }}
+            )}
+            {slug === Pages.REGISTER && (
+              <Typography
+                sx={{ display: "flex", justifyContent: "center", mt: 4 }}
               >
-                {t("login")}
-              </Link>
-            </Typography>
-          ))}
-        <Box sx={{ height: 48, mt: 2, opacity: confirm.length > 0 ? 1 : 0 }}>
-          <Alert variant="filled" severity="error">
-            {confirm}
-          </Alert>
+                <Typography component="span">
+                  {t("alreadyHaveAccount")}
+                </Typography>
+                <Link
+                  href={`/${Routes.ACCOUNTS}/${Pages.LOGIN}`}
+                  sx={{ display: "block", ml: 2 }}
+                >
+                  {t("login")}
+                </Link>
+              </Typography>
+            )}
+            {slug === Pages.FORGOT_PASSWORD ||
+              (slug === Pages.VERIFICATION_CODE && (
+                <Typography
+                  sx={{ display: "flex", justifyContent: "center", mt: 4 }}
+                >
+                  <Typography component="span">{t("backTo")}</Typography>
+                  <Link
+                    href={`/${Routes.ACCOUNTS}/${Pages.LOGIN}`}
+                    sx={{ display: "block", ml: 2 }}
+                  >
+                    {t("login")}
+                  </Link>
+                </Typography>
+              ))}
+            <Box
+              sx={{ height: 48, mt: 2, opacity: confirm.length > 0 ? 1 : 0 }}
+            >
+              <Alert variant="filled" severity="error">
+                {confirm}
+              </Alert>
+            </Box>
+          </Box>
         </Box>
+        <Box sx={{ position: "absolute", bottom: 0 }}>footer placeholder</Box>
       </Box>
     </>
   );

@@ -13,7 +13,7 @@ interface Props extends IFormField {
 const FormFields: FC<Props> = (props) => {
   const { type } = props;
 
-  const renderField = () => {
+  const renderField = (): React.ReactNode => {
     if (type === InputTypes.TEXT || type === InputTypes.HIDDEN) {
       return <RHTextField {...props} />;
     }

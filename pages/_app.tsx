@@ -36,7 +36,6 @@ import {
 import { getSession } from "@/services/auth";
 import { setSession } from "@/store/appSlice";
 import { setSelected as accountsSelected } from "@/store/accountSlice";
-import Header from "@/components/Header/Header";
 // Amplify.Logger.LOG_LEVEL = "DEBUG";
 // Amplify.configure({
 //   ...config,
@@ -79,7 +78,7 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
               },
             }}
           />
-          <Header />
+          {/* <Header /> */}
           <Component {...pageProps} />
         </ThemeProvider>
       </CacheProvider>
