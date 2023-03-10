@@ -3,22 +3,17 @@ import { List } from "@mui/material";
 
 import MenuItem from "./MenuItem";
 import { Pages, Routes } from "@/constants/enums";
+import { Box } from "@mui/system";
 
-interface Props {
-  handleDrawer: (value: boolean) => void;
-}
-
-const NavMenu: React.FC<Props> = ({ handleDrawer }) => {
+const NavMenu: React.FC = () => {
   const { push } = useRouter();
 
   const handleClick = (slug: string) => {
-    handleDrawer(false);
-
     push(`/${Routes.ADMIN}/${slug}`);
   };
 
   return (
-    <nav className="main-navigation">
+    <Box component={"nav"}>
       <List disablePadding sx={{ display: "flex" }}>
         <MenuItem
           title={Pages.HOME}
@@ -37,7 +32,7 @@ const NavMenu: React.FC<Props> = ({ handleDrawer }) => {
           handleClick={() => handleClick(Pages.CONTACT)}
         />
       </List>
-    </nav>
+    </Box>
   );
 };
 

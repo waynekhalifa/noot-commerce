@@ -27,8 +27,8 @@ function MobileNavMenu() {
             color: "white",
             position: "relative",
             zIndex: 100,
-            width: "30px",
-            height: "30px",
+            width: "35px",
+            height: "35px",
             cursor: "pointer",
           }}
           onClick={handleNavMenu}
@@ -39,8 +39,8 @@ function MobileNavMenu() {
             color: "white",
             position: "relative",
             zIndex: 100,
-            width: "30px",
-            height: "30px",
+            width: "35px",
+            height: "35px",
             cursor: "pointer",
           }}
           onClick={handleNavMenu}

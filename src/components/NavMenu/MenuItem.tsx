@@ -8,14 +8,10 @@ interface Props {
 
 const MenuItem: React.FC<Props> = ({ title, handleClick }) => {
   return (
-    <ListItemButton
-      component="li"
-      onClick={handleClick}
-      sx={{ borderBottom: "1px solid", borderColor: "divider" }}
-    >
+    <ListItemButton component="li" onClick={handleClick}>
       <ListItemText
         primary={title}
-        sx={{ pt: "4px", textTransform: "capitalize" }}
+        sx={{ textTransform: "capitalize", color: "white" }}
       />
     </ListItemButton>
   );

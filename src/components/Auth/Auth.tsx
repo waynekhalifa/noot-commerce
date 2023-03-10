@@ -38,6 +38,7 @@ import { useEffect } from "react";
 import useUpdating from "@/hooks/useUpdating";
 
 import bg from "@images/accounts-bg.png";
+import Header from "../Header";
 
 interface Props {
   slug: string;
@@ -163,7 +164,11 @@ const Auth: React.FC<Props> = ({ slug }) => {
           background: `linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(${bg.src}) center center`,
         }}
       >
-        <Box sx={{ position: "absolute", top: 0 }}>header placeholder</Box>
+        {/* Header */}
+        <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%" }}>
+          <Header />
+        </Box>
+        {/* Form */}
         <Box
           sx={{
             display: "flex",
@@ -328,6 +333,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
             </Box>
           </Box>
         </Box>
+        {/* Login Footer */}
         <Box sx={{ position: "absolute", bottom: 0 }}>footer placeholder</Box>
       </Box>
     </>
