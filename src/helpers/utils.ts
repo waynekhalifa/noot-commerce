@@ -212,3 +212,9 @@ export function validatePhone(phone: string) {
   var re = /^[0][1-9]\d{9}$|^[1-9]\d{9}$/;
   return re.test(phone);
 }
+
+export function excerpt(str: string, maxLength: number): string {
+  if (str.length > maxLength) return str.substring(0, maxLength) + "...";
+
+  return str;
+}
