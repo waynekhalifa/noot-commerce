@@ -13,7 +13,14 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
   const theme = useTheme();
 
   return (
-    <AppBar position="static" elevation={0} color="transparent">
+    <AppBar
+      position="static"
+      elevation={0}
+      color="transparent"
+      sx={{
+        backgroundColor: "background.default",
+      }}
+    >
       <Toolbar>
         <Logo />
         <Box sx={{ flex: 1 }} />
