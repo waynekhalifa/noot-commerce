@@ -7,15 +7,16 @@ import Logo from "./Logo";
 
 interface Props {
   toggleTheme?: React.MouseEventHandler<HTMLButtonElement>;
+  elevation?: number;
 }
 
-const Header: React.FC<Props> = ({ toggleTheme }) => {
+const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
   const theme = useTheme();
 
   return (
     <AppBar
       position="static"
-      elevation={0}
+      elevation={elevation ? elevation : 0}
       color="transparent"
       sx={{
         backgroundColor: "background.default",
