@@ -2,6 +2,8 @@ import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
 import Section from "../UI/Section";
+import CustomTitle from "../UI/CustomTitle";
+import AboutSuccessBtn from "../AboutSuccessBtn";
 
 interface NumberingTitleProps {
   title: string;
@@ -44,18 +46,13 @@ const Services: React.FC<ServicesProps> = ({}) => {
       <Container maxWidth="lg">
         <Grid container>
           <Grid item xs={12}>
-            <Typography
-              variant="h5"
-              fontWeight={700}
-              paragraph
-              sx={{ color: "primary.main" }}
-            >
+            <CustomTitle>
               GROW YOUR
               <br />
               BUSINESS
               <br />
               ONLINE
-            </Typography>
+            </CustomTitle>
             <Typography paragraph>
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -63,18 +60,7 @@ const Services: React.FC<ServicesProps> = ({}) => {
               dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
               sanctus est Lorem ipsum dolor sit amet
             </Typography>
-            <Button
-              size="large"
-              sx={{ p: 0, textTransform: "initial", fontSize: "1.15rem" }}
-              endIcon={
-                <ArrowRightAltIcon
-                  fontSize="large"
-                  sx={{ transform: "scale(1.5)" }}
-                />
-              }
-            >
-              Learn about our success
-            </Button>
+            <AboutSuccessBtn />
           </Grid>
           <Grid item xs={12} sx={{ pt: { xs: 8, md: 0 } }}>
             <Grid container>
