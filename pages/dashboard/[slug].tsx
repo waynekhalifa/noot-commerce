@@ -1,22 +1,20 @@
 import type { GetServerSideProps, NextPage } from "next";
-import { Suspense } from "react";
-
-import ContentLoader from "@/components/UI/ContentLoader";
-import { useRouter } from "next/router";
 import { Cookies, Pages, Routes } from "@/constants/enums";
-import { Button } from "@mui/material";
 import { CookieValueTypes, getCookie } from "cookies-next";
+import Header from "@/components/Header";
+import HomeSections from "@/components/HomeSections";
+import Footer from "@/components/Footer";
 
-const Dashboard: NextPage = () => {
-  const { push } = useRouter();
+interface Props {
+  toggleTheme?: React.MouseEventHandler<HTMLButtonElement>;
+}
 
-  const handleLogout = () => push(`/${Routes.ACCOUNTS}/${Pages.LOGOUT}`);
-
+const Dashboard: NextPage<Props> = ({ toggleTheme }) => {
   return (
     <>
-      <Suspense fallback={<ContentLoader />}>
-        <Button onClick={handleLogout}>logout</Button>
-      </Suspense>
+      <Header toggleTheme={toggleTheme} />
+      <HomeSections />
+      <Footer />
     </>
   );
 };

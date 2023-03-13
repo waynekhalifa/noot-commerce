@@ -1,17 +1,26 @@
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import HomeSections from "@/components/HomeSections";
 import type { NextPage } from "next";
 
 import Head from "next/head";
 
-const PageTemplate: NextPage = () => {
+interface Props {
+  toggleTheme?: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+const Page: NextPage<Props> = ({ toggleTheme }) => {
   return (
     <>
       <Head>
-        <title>Asten College</title>
-        <meta name="description" content={"Asten College"} />
+        <title>Noot</title>
+        <meta name="description" content={"Noot"} />
       </Head>
-      <>page</>
+      <Header toggleTheme={toggleTheme} />
+      <HomeSections />
+      <Footer />
     </>
   );
 };
 
-export default PageTemplate;
+export default Page;
