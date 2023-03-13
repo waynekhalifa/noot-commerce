@@ -16,10 +16,6 @@ const darkThemeOptions = (locale: string) => {
         main: "#047085",
         dark: "#024e5d",
       },
-      background: {
-        paper: "#fff",
-        default: "#fff",
-      },
     },
     typography: {
       fontFamily:

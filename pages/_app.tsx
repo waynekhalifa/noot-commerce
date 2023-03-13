@@ -20,21 +20,41 @@ import "@fontsource/tajawal/500.css";
 import "@fontsource/tajawal/700.css";
 
 import lightThemeOptions from "@/theme/lightThemeOptions";
-import { Provider, useSelector } from "react-redux";
+import { Provider } from "react-redux";
 import { useRouter } from "next/router";
 import { Cookies, Responses, Routes } from "@/constants/enums";
 import { IResponse, Mode } from "@/models/app";
 import { getSession } from "@/services/auth";
-import { selectMode, setSession } from "@/store/appSlice";
+import { setSession } from "@/store/appSlice";
 import darkThemeOptions from "@/theme/darkThemeOptions";
+import { useEffect, useState } from "react";
+
+function getActiveTheme(themeMode: Mode, locale: any) {
+  return themeMode === "light"
+    ? createTheme(lightThemeOptions(locale))
+    : createTheme(darkThemeOptions(locale!));
+}
 
 const MyApp = ({ Component, ...rest }: AppProps) => {
-  const mode: Mode = useSelector(selectMode);
-  const { store, props } = wrapper.useWrappedStore(rest);
   const { locale } = useRouter();
+  const [activeTheme, setActiveTheme] = useState(
+    getActiveTheme("light", locale!)
+  );
+  const [selectedTheme, setSelectedTheme] = useState<Mode>("light");
+
+  const toggleTheme: React.MouseEventHandler<HTMLAnchorElement> = () => {
+    const desiredTheme = selectedTheme === "light" ? "dark" : "light";
+
+    setSelectedTheme(desiredTheme);
+  };
+
+  useEffect(() => {
+    setActiveTheme(getActiveTheme(selectedTheme, locale!));
+  }, [selectedTheme]);
+
+  const { store, props } = wrapper.useWrappedStore(rest);
+
   const clientSideEmotionCache = createEmotionCache(locale!);
-  const lightTheme = createTheme(lightThemeOptions(locale!));
-  const darkTheme = createTheme(darkThemeOptions(locale!));
   const { emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
@@ -43,7 +63,7 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
-        <ThemeProvider theme={mode === "light" ? lightTheme : darkTheme}>
+        <ThemeProvider theme={activeTheme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
           <GlobalStyles
@@ -63,7 +83,7 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
               },
             }}
           />
-          <Component {...pageProps} />
+          <Component {...pageProps} toggleTheme={toggleTheme} />
         </ThemeProvider>
       </CacheProvider>
     </Provider>

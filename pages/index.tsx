@@ -1,15 +1,20 @@
+import Header from "@/components/Header";
 import type { NextPage } from "next";
 
 import Head from "next/head";
 
-const Home: NextPage = () => {
+interface Props {
+  toggleTheme?: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+const Home: NextPage<Props> = ({ toggleTheme }) => {
   return (
     <>
       <Head>
         <title>Noot</title>
         <meta name="description" content={"Noot"} />
       </Head>
-      <>home</>
+      <Header toggleTheme={toggleTheme} />
     </>
   );
 };
