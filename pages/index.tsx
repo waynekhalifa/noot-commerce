@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import Featured from "@/components/HomeSections/Featured";
+import HomeSections from "@/components/HomeSections";
 import type { NextPage } from "next";
 
 import Head from "next/head";
@@ -16,7 +16,7 @@ const Home: NextPage<Props> = ({ toggleTheme }) => {
         <meta name="description" content={"Noot"} />
       </Head>
       <Header toggleTheme={toggleTheme} />
-      <Featured />
+      <HomeSections />
     </>
   );
 };
