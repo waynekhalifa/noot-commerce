@@ -2,6 +2,7 @@ import { Responses } from "@/constants/enums";
 import { AppContext } from "next/app";
 
 export type Order = "asc" | "desc";
+export type Mode = "light" | "dark";
 
 export type Token = string | null | undefined;
 

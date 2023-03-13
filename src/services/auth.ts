@@ -11,7 +11,7 @@ import { AuthMessages } from "@/constants/enums";
  */
 export async function getSession(appContext: AppContext): Promise<IResponse> {
   try {
-    return successResponse({});
+    return errorResponse(new Error("Not implemented"));
   } catch (err: Error | any) {
     return errorResponse(err);
   }

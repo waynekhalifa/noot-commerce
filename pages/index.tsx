@@ -6,8 +6,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Asten College</title>
-        <meta name="description" content={"Asten College"} />
+        <title>Noot</title>
+        <meta name="description" content={"Noot"} />
       </Head>
       <>home</>
     </>

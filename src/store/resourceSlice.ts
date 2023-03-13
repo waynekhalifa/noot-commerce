@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Account, Feature } from "@/models";
 import { AppState } from "./store";
 
 // Type for our state
 export interface StateProps {
   listing: Readonly<Record<string, any>>[];
-  selected: Account | Feature | null;
+  selected: any;
 }
 
 // Initial state

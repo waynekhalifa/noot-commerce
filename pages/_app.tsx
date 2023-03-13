@@ -7,8 +7,6 @@ import createEmotionCache from "@/helpers/createEmotionCache";
 import { wrapper } from "@/store/store";
 import { createTheme, GlobalStyles } from "@mui/material";
 import { CookieValueTypes, getCookie, setCookie } from "cookies-next";
-import absoluteUrl from "next-absolute-url";
-import { fetch as usersFetch } from "@/services/user";
 
 // English Font Family
 import "@fontsource/roboto/300.css";
@@ -22,35 +20,21 @@ import "@fontsource/tajawal/500.css";
 import "@fontsource/tajawal/700.css";
 
 import lightThemeOptions from "@/theme/lightThemeOptions";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { Amplify, AuthModeStrategyType } from "aws-amplify";
-import config from "@/aws-exports";
 import { Cookies, Responses, Routes } from "@/constants/enums";
-import { fetch as accountsFetch } from "@/services/account";
-import {
-  IAccountListingVariables,
-  IResponse,
-  IUserListingVariables,
-} from "@/models/app";
+import { IResponse, Mode } from "@/models/app";
 import { getSession } from "@/services/auth";
-import { setSession } from "@/store/appSlice";
-import { setSelected as accountsSelected } from "@/store/accountSlice";
-
-// Amplify.Logger.LOG_LEVEL = "DEBUG";
-Amplify.configure({
-  ...config,
-  ssr: true,
-  DataStore: {
-    authModeStrategyType: AuthModeStrategyType.MULTI_AUTH,
-  },
-});
+import { selectMode, setSession } from "@/store/appSlice";
+import darkThemeOptions from "@/theme/darkThemeOptions";
 
 const MyApp = ({ Component, ...rest }: AppProps) => {
+  const mode: Mode = useSelector(selectMode);
   const { store, props } = wrapper.useWrappedStore(rest);
   const { locale } = useRouter();
   const clientSideEmotionCache = createEmotionCache(locale!);
   const lightTheme = createTheme(lightThemeOptions(locale!));
+  const darkTheme = createTheme(darkThemeOptions(locale!));
   const { emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
@@ -59,7 +43,7 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
-        <ThemeProvider theme={lightTheme}>
+        <ThemeProvider theme={mode === "light" ? lightTheme : darkTheme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
           <GlobalStyles
@@ -94,7 +78,6 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
 MyApp.getInitialProps = wrapper.getInitialAppProps(
   (store) => async (appContext: AppContext) => {
     const ctx = await App.getInitialProps(appContext);
-    const { origin } = absoluteUrl(appContext.ctx.req);
 
     if (!appContext.router.route.includes(Routes.ACCOUNTS)) {
       const cookieSession: CookieValueTypes = getCookie(Cookies.SESSION, {
@@ -103,44 +86,10 @@ MyApp.getInitialProps = wrapper.getInitialAppProps(
       });
 
       if (cookieSession === undefined) {
-        const params: IAccountListingVariables = {
-          searchText: "",
-          limit: 1000,
-          startIndex: 0,
-          domain: origin.includes("localhost") ? "localhost" : origin,
-        };
-
-        const result: IResponse[] = await Promise.all([
-          getSession(appContext),
-          accountsFetch(params),
-        ]);
-
-        const sessionResponse: IResponse = result[0];
-        const accountsResponse: IResponse = result[1];
-
-        if (accountsResponse.type === Responses.SUCCESS) {
-          store.dispatch(accountsSelected(accountsResponse.data));
-        }
+        const sessionResponse: IResponse = await getSession(appContext);
 
         if (sessionResponse.type === Responses.SUCCESS) {
-          const sessionParams: IUserListingVariables = {
-            searchText: "",
-            limit: 1000,
-            startIndex: 0,
-            email: sessionResponse.data!.email!,
-          };
-
-          const usersResponse: IResponse = await usersFetch(sessionParams);
-
-          if (
-            usersResponse.type === Responses.SUCCESS &&
-            usersResponse.data.length > 0
-          ) {
-            console.log("usersResponse.data[0]", usersResponse.data[0]);
-            store.dispatch(setSession(usersResponse.data[0]));
-          }
-
-          setCookie(Cookies.SESSION, JSON.stringify(usersResponse.data), {
+          setCookie(Cookies.SESSION, "true", {
             req: appContext.ctx.req,
             res: appContext.ctx.res,
             maxAge: 60 * 60 * 24,
@@ -153,7 +102,8 @@ MyApp.getInitialProps = wrapper.getInitialAppProps(
           });
         }
       } else {
-        store.dispatch(setSession(JSON.parse(cookieSession as string)));
+        const session: any = JSON.parse(cookieSession as string);
+        store.dispatch(setSession(session[0]));
       }
     }
 

@@ -1,11 +1,11 @@
 import { Directions, Languages } from "@/constants/enums";
 import { ThemeOptions } from "@mui/material/styles";
 
-const lightThemeOptions = (locale: string) => {
+const darkThemeOptions = (locale: string) => {
   const options: ThemeOptions = {
     direction: locale === Languages.ARABIC ? Directions.RTL : Directions.LTR,
     palette: {
-      mode: "light",
+      mode: "dark",
       primary: {
         light: "#41a9a5",
         main: "#12948f",
@@ -32,4 +32,4 @@ const lightThemeOptions = (locale: string) => {
   return options;
 };
 
-export default lightThemeOptions;
+export default darkThemeOptions;
