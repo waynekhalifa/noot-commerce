@@ -1,5 +1,6 @@
 import Clients from "./Clients";
 import Featured from "./Featured";
+import Services from "./Services";
 
 interface Props {}
 
@@ -8,6 +9,7 @@ const HomeSections: React.FC<Props> = ({}) => {
     <>
       <Featured />
       <Clients />
+      <Services />
     </>
   );
 };
