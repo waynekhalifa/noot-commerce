@@ -56,7 +56,10 @@ const ScrollToTop: FunctionComponent = () => {
             component="span"
             sx={{
               width: "3rem",
-              height: "3rem"
+              height: "3rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
             }}
             className=" rotate-45 border-t border-l border-white "
           >

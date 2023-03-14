@@ -12,8 +12,18 @@ const TryNoot: React.FC<Props> = ({}) => {
         <Typography paragraph textAlign={"center"}>
           Try Noot no credit required
         </Typography>
-        <Typography variant="h5" paragraph textAlign={"center"}>
-          Create a website with out limits
+        <Typography
+          // variant="h4"
+          paragraph
+          textAlign={"center"}
+          sx={{
+            color: "#6DC45E",
+            fontWeight: "700",
+            fontSize: "2rem",
+            lineHeight: "1,25"
+          }}
+        >
+          Create a website without limits
         </Typography>
         <Typography paragraph textAlign={"center"}>
           Build and scale with confidence. From powerful site infrastructure to
