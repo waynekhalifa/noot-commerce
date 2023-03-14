@@ -138,7 +138,7 @@ const Services: React.FC<ServicesProps> = ({}) => {
             lg={6}
             sx={{ pt: { xs: 8, md: 0, lineHeight: "1.4" } }}
           >
-            <Grid container>
+            <Grid container sx={{ position: "relative", zIndex: "1" }}>
               <Grid item xs={6} md={6} lg={6} sx={{ mb: 4 }}>
                 <NumberingTitle title="1" subtitle="Market Research" />
                 <Typography
@@ -169,6 +169,146 @@ const Services: React.FC<ServicesProps> = ({}) => {
                   aliquyam erat, sed diam voluptua.
                 </Typography>
               </Grid>
+              {/* ---------------------- */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  overflow: "hidden",
+                  background: {
+                    lg: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+                    md: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+                    xs: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)"
+                  },
+                  borderRadius: {
+                    lg: " 10% 10% 10% 10% / 10% 10% 10% 10%",
+                    md: " 10% 10% 10% 10% / 10% 10% 10% 10%",
+                    xs: " 10% 10% 10% 10% / 10% 10% 10% 10%"
+                  },
+
+                  width: {
+                    lg: "80%",
+                    md: "80%",
+                    xs: "100%"
+                  },
+                  height: {
+                    lg: "100%",
+                    md: "100%",
+                    xs: "80%"
+                  },
+                  clipPath: {
+                    lg: "none",
+                    md: "none",
+                    xs: "none"
+                  },
+                  transform: "rotate(45deg)",
+                  zIndex: "-1",
+                  left: {
+                    xs: "16rem",
+                    md: "23rem",
+                    lg: "45rem"
+                  },
+                  top: {
+                    xs: "none",
+                    md: "-3rem",
+                    lg: "-3rem"
+                  },
+                  opacity: "0.31"
+                }}
+              />
+              <Box
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  overflow: "hidden",
+                  background: {
+                    lg: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+                    md: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+                    xs: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)"
+                  },
+                  borderRadius: {
+                    lg: " 10% 10% 10% 10% / 10% 10% 10% 10%",
+                    md: " 10% 10% 10% 10% / 10% 10% 10% 10%",
+                    xs: " 10% 10% 10% 10% / 10% 10% 10% 10%"
+                  },
+
+                  width: {
+                    lg: "80%",
+                    md: "80%",
+                    xs: "100%"
+                  },
+                  height: {
+                    lg: "100%",
+                    md: "100%",
+                    xs: "80%"
+                  },
+                  clipPath: {
+                    lg: "none",
+                    md: "none",
+                    xs: "none"
+                  },
+                  transform: "rotate(45deg)",
+                  zIndex: "-1",
+                  left: {
+                    xs: "19rem",
+                    md: "25rem",
+                    lg: "48rem"
+                  },
+                  top: {
+                    xs: "none",
+                    md: "-3rem",
+                    lg: "-3rem"
+                  },
+                  opacity: "0.64"
+                }}
+              />
+              <Box
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  overflow: "hidden",
+                  background: {
+                    lg: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+                    md: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+                    xs: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)"
+                  },
+                  borderRadius: {
+                    lg: " 10% 10% 10% 10% / 10% 10% 10% 10%",
+                    md: " 10% 10% 10% 10% / 10% 10% 10% 10%",
+                    xs: " 10% 10% 10% 10% / 10% 10% 10% 10%"
+                  },
+
+                  width: {
+                    lg: "80%",
+                    md: "80%",
+                    xs: "100%"
+                  },
+                  height: {
+                    lg: "100%",
+                    md: "100%",
+                    xs: "80%"
+                  },
+                  clipPath: {
+                    lg: "none",
+                    md: "none",
+                    xs: "none"
+                  },
+                  transform: "rotate(45deg)",
+                  zIndex: "-1",
+                  left: {
+                    xs: "22rem",
+                    md: "27rem",
+                    lg: "52rem"
+                  },
+                  top: {
+                    xs: "none",
+                    md: "-3rem",
+                    lg: "-3rem"
+                  },
+                  opacity: "1.00"
+                }}
+              />
+              {/* ----------- */}
               <Grid item xs={6} md={6} lg={6} sx={{ mb: 4 }}>
                 <NumberingTitle title="3" subtitle="Market Research" />
                 <Typography

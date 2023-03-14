@@ -8,17 +8,61 @@ import circle from "@images/circle.png";
 
 const Featured: React.FC<Props> = ({}) => {
   return (
+
     <Box
       sx={{
         position: "relative",
         pt: 8,
         pb: 3,
-        background:
-          "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
-        borderRadius: "100% 0% 100% 0% / 0% 36% 64% 100%",
+
         color: "common.white"
       }}
     >
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          overflow: "hidden",
+          background: {
+            lg: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+            md: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+            xs: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)"
+          },
+          borderRadius: {
+            lg: " 0% 0% 100% 70% / 31% 69% 100% 0% ",
+            md: " 0% 0% 100% 70% / 31% 69% 100% 0% ",
+            xs: "none"
+          },
+
+          width: {
+            lg: "80%",
+            md: "80%",
+            xs: "100%"
+          },
+          height: {
+            lg: "100%",
+            md: "100%",
+            xs: "80%"
+          },
+          clipPath: {
+            lg: "none",
+            md: "none",
+            xs: "polygon(0% 0%, 100% 0%, 100% 40%, 50% 100%, 0 40%)"
+          }
+        }}
+      />
+      {/* <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          overflow: "hidden",
+       
+          // borderRadius: "48% 52% 50% 50% / 0% 0% 100% 100%",
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 40%, 50% 100%, 0 40%)",
+          width:''
+     
+        }}
+      /> */}
       <Box sx={{ position: "absolute", inset: 0, overflow: "hidden" }}>
         <Box
           sx={{

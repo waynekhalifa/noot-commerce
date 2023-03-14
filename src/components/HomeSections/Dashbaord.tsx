@@ -10,7 +10,7 @@ interface Props {}
 const CreateWebsite: React.FC<Props> = ({}) => {
   return (
     <Section background="transparent">
-      <Box sx={{ position: "relative", overflow: "hidden" }}>
+      <Box sx={{ position: "relative", overflow: "hidden", zIndex: "10" }}>
         <Container maxWidth="lg">
           {/* <Grid container>
             <Grid item xs={12}>
@@ -43,7 +43,58 @@ const CreateWebsite: React.FC<Props> = ({}) => {
               }
             }}
           >
-            <Grid container>
+            <Grid container sx={{ position: "relative", margin: "1rem 0rem" }}>
+              <Box
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  overflow: "hidden",
+                  background:
+                    "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+                  borderRadius: " 10% 10% 10% 10% / 10% 10% 10% 10%",
+                  width: "36%",
+                  height: "40%",
+                  transform: "rotate(150deg)",
+                  zIndex: "-1",
+                  left: "6rem",
+                  top: "24rem",
+                  opacity: "0.31"
+                }}
+              />
+              <Box
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  overflow: "hidden",
+                  background:
+                    "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+                  borderRadius: " 10% 10% 10% 10% / 10% 10% 10% 10%",
+                  width: "36%",
+                  height: "40%",
+                  transform: "rotate(150deg)",
+                  zIndex: "-1",
+                  left: "7rem",
+                  top: "25rem",
+                  opacity: "0.31"
+                }}
+              />
+              <Box
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  overflow: "hidden",
+                  background:
+                    "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+                  borderRadius: " 10% 10% 10% 10% / 10% 10% 10% 10%",
+                  width: "36%",
+                  height: "40%",
+                  transform: "rotate(150deg)",
+                  zIndex: "-1",
+                  left: "6rem",
+                  top: "25rem",
+                  opacity: "0.41"
+                }}
+              />
               <Grid item xs={12} md={6} lg={6} sx={{ pt: { xs: 8, md: 0 } }}>
                 <CenterTitle>
                   Best Platform for the Technological Era
@@ -78,7 +129,121 @@ const CreateWebsite: React.FC<Props> = ({}) => {
               }
             }}
           >
-            <Grid container>
+            <Grid container sx={{ margin: "5rem 0rem" }}>
+              <Box
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  overflow: "hidden",
+                  background: {
+                    lg: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+                    md: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)"
+                  },
+                  borderRadius: {
+                    md: " 10% 10% 10% 10% / 10% 10% 10% 10%",
+                    lg: " 10% 10% 10% 10% / 10% 10% 10% 10%"
+                  },
+
+                  width: {
+                    md: "14%",
+                    lg: "15%"
+                  },
+                  height: {
+                    md: "78%",
+                    lg: "78%"
+                  },
+
+                  transform: "rotate(45deg)",
+                  zIndex: "-1",
+                  left: {
+                    lg: "67rem",
+                    md: "47rem"
+                  },
+                  top: {
+                    lg: "3rem",
+                    md: "3rem"
+                  },
+                  opacity: "0.31"
+                }}
+              />
+              <Box
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  overflow: "hidden",
+                  background: {
+                    lg: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+                    md: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)"
+                  },
+                  borderRadius: {
+                    md: " 10% 10% 10% 10% / 10% 10% 10% 10%",
+                    lg: " 10% 10% 10% 10% / 10% 10% 10% 10%"
+                  },
+
+                  width: {
+                    md: "14%",
+                    lg: "16%"
+                  },
+                  height: {
+                    md: "78%",
+                    lg: "78%"
+                  },
+                  clipPath: {
+                    md: "none",
+                    lg: "none"
+                  },
+                  transform: "rotate(45deg)",
+                  zIndex: "-1",
+                  left: {
+                    md: "45rem",
+                    lg: "65rem"
+                  },
+                  top: {
+                    md: "2.8rem",
+                    lg: "2.7rem"
+                  },
+                  opacity: "0.31"
+                }}
+              />
+              <Box
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  overflow: "hidden",
+                  background: {
+                    lg: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
+                    md: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)"
+                  },
+                  borderRadius: {
+                    md: " 10% 10% 10% 10% / 10% 10% 10% 10%",
+                    lg: " 10% 10% 10% 10% / 10% 10% 10% 10%"
+                  },
+
+                  width: {
+                    md: "14%",
+                    lg: "13%"
+                  },
+                  height: {
+                    md: "78%",
+                    lg: "78%"
+                  },
+                  clipPath: {
+                    md: "none",
+                    lg: "none"
+                  },
+                  transform: "rotate(45deg)",
+                  zIndex: "-1",
+                  left: {
+                    md: "46rem",
+                    lg: "66rem"
+                  },
+                  top: {
+                    md: "3rem",
+                    lg: "2.4rem"
+                  },
+                  opacity: "0.31"
+                }}
+              />
               <Grid
                 item
                 md={6}
