@@ -10,7 +10,8 @@ const AboutUsBtn: React.FC<Props> = ({}) => {
       sx={{
         minWidth: 72,
         background:
-          "linear-gradient(-90deg, \nrgba(124,28,128,0.66 ) 0.00%, \n#ff6057 100.00%)",
+          "linear-gradient(-90deg, \n#76C95A 0.00%, \n#058E97  100.00%)",
+        borderRadius: "25px"
       }}
     >
       About Us

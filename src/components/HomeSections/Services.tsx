@@ -1,10 +1,10 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 
 import Section from "../UI/Section";
-import CustomTitle from "../UI/CustomTitle";
 import AboutSuccessBtn from "../AboutSuccessBtn";
 import Link from "next/link";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import CenterTitle from "../UI/CenterTitle";
 
 interface NumberingTitleProps {
   title: string;
@@ -47,11 +47,39 @@ const Services: React.FC<ServicesProps> = ({}) => {
       <Container maxWidth="lg">
         <Grid container>
           <Grid item xs={12} md={6} lg={6}>
-            <CustomTitle>
-              GROW YOUR
-              <br />
-              BUSINESS ONLINE
-            </CustomTitle>
+            {/* on large screens */}
+            <Box
+              sx={{
+                display: {
+                  lg: "none",
+                  md: "none",
+                  xs: "block"
+                }
+              }}
+            >
+              <CenterTitle>
+                GROW YOUR
+                <br />
+                BUSINESS ONLINE
+              </CenterTitle>
+            </Box>
+            {/* on small screens */}
+            <Box
+              sx={{
+                display: {
+                  lg: "block",
+                  md: "block",
+                  xs: "none"
+                }
+              }}
+            >
+              <CenterTitle>
+                GROW YOUR
+                <br />
+                BUSINESS
+                <br /> ONLINE
+              </CenterTitle>
+            </Box>
             <Typography paragraph>
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam

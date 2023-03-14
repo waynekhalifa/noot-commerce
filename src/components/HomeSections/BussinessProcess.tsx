@@ -1,15 +1,14 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 
 import Section from "../UI/Section";
-import CustomTitle from "../UI/CustomTitle";
 import AboutUsBtn from "../AboutUsBtn";
+import CenterTitle from "../UI/CenterTitle";
 
 interface NumberingTitleProps {
   title: string;
-  subtitle: string;
 }
 
-const NumberingTitle: React.FC<NumberingTitleProps> = ({ title, subtitle }) => {
+const NumberingTitle: React.FC<NumberingTitleProps> = ({ title }) => {
   return (
     <Box sx={{ mb: 3 }}>
       <Grid
@@ -22,17 +21,30 @@ const NumberingTitle: React.FC<NumberingTitleProps> = ({ title, subtitle }) => {
           color: "common.white",
           backgroundColor: "primary.light",
           borderRadius: "50%",
-          mb: 1,
+          mb: 1
         }}
       >
         <Typography variant="h5" fontWeight={700}>
           {title}
         </Typography>
       </Grid>
-      <Typography paragraph color="text.secondary" sx={{ mb: 1 }}>
-        {subtitle}
-      </Typography>
-      <Box sx={{ width: 80, height: 4, backgroundColor: "primary.main" }} />
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100%"
+        }}
+      >
+        <Box
+          sx={{
+            width: "3px",
+            height: "90%",
+            backgroundColor: "primary.main",
+            borderRadius: "4px"
+          }}
+        />
+      </Box>
     </Box>
   );
 };
@@ -44,12 +56,12 @@ const Services: React.FC<ServicesProps> = ({}) => {
     <Section background="transparent">
       <Container maxWidth="lg">
         <Grid container>
-          <Grid item xs={12}>
-            <CustomTitle>
+          <Grid item xs={12} md={6} lg={6}>
+            <CenterTitle>
               Acceleration Process to
               <br />
               Grow Your Business
-            </CustomTitle>
+            </CenterTitle>
             <Typography paragraph>
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -57,33 +69,93 @@ const Services: React.FC<ServicesProps> = ({}) => {
               dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
               sanctus est Lorem ipsum dolor sit amet
             </Typography>
-            <AboutUsBtn />
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: {
+                  xs: "center",
+                  md: "start",
+                  lg: "start"
+                }
+              }}
+            >
+              <AboutUsBtn />
+            </Box>
           </Grid>
-          <Grid item xs={12} sx={{ pt: { xs: 8, md: 0 } }}>
+
+          <Grid item xs={12} md={6} lg={6} sx={{ pt: { xs: 8, md: 0 } }}>
             <Grid container>
               <Grid item xs={12} sx={{ mb: 8 }}>
-                <NumberingTitle title="1" subtitle="Market Research" />
-                <Typography>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
-                </Typography>
+                <Box sx={{ display: "flex" }} gap={3}>
+                  <NumberingTitle title="1" />
+                  <Box>
+                    <Typography
+                      paragraph
+                      color="text.secondary"
+                      sx={{
+                        mb: 1,
+                        color: "#06B712",
+                        fontWeight: "700",
+                        fontSize: "1.4rem"
+                      }}
+                    >
+                      Market Research
+                    </Typography>
+                    <Typography>
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                      sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                      magna aliquyam erat, sed diam voluptua.
+                    </Typography>
+                  </Box>
+                </Box>
               </Grid>
               <Grid item xs={12} sx={{ mb: 8 }}>
-                <NumberingTitle title="2" subtitle="Market Research" />
-                <Typography>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
-                </Typography>
+                <Box sx={{ display: "flex" }} gap={3}>
+                  <NumberingTitle title="2" />
+                  <Box>
+                    <Typography
+                      paragraph
+                      color="text.secondary"
+                      sx={{
+                        mb: 1,
+                        color: "#06B712",
+                        fontWeight: "700",
+                        fontSize: "1.4rem"
+                      }}
+                    >
+                      Market Research
+                    </Typography>
+                    <Typography>
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                      sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                      magna aliquyam erat, sed diam voluptua.
+                    </Typography>
+                  </Box>
+                </Box>
               </Grid>
               <Grid item xs={12} sx={{ mb: 8 }}>
-                <NumberingTitle title="3" subtitle="Market Research" />
-                <Typography>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
-                </Typography>
+                <Box sx={{ display: "flex" }} gap={3}>
+                  <NumberingTitle title="3" />
+                  <Box>
+                    <Typography
+                      paragraph
+                      color="text.secondary"
+                      sx={{
+                        mb: 1,
+                        color: "#06B712",
+                        fontWeight: "700",
+                        fontSize: "1.4rem"
+                      }}
+                    >
+                      Market Research
+                    </Typography>
+                    <Typography>
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                      sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                      magna aliquyam erat, sed diam voluptua.
+                    </Typography>
+                  </Box>
+                </Box>
               </Grid>
             </Grid>
           </Grid>
