@@ -5,7 +5,6 @@ import client2 from "@images/client-2.png";
 import client3 from "@images/client-3.png";
 import client4 from "@images/client-4.png";
 import client5 from "@images/client-5.png";
-import Section from "../UI/Section";
 
 interface ClientProps {
   client: any;
@@ -14,7 +13,11 @@ interface ClientProps {
 const Client: React.FC<ClientProps> = ({ client }) => {
   return (
     <Box
-      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }}
     >
       <Box
         component="img"
@@ -32,11 +35,19 @@ const Clients: React.FC<Props> = ({}) => {
   const clients: any[] = [client1, client2, client3, client4, client5];
 
   return (
-    <Section background="transparent">
+    <Box
+      sx={{
+        flexDirection: "row",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "0rem 1rem"
+      }}
+    >
       {clients.map((client, index) => (
         <Client client={client} key={index} />
       ))}
-    </Section>
+    </Box>
   );
 };
 
