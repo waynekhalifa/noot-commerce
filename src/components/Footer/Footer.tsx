@@ -215,6 +215,7 @@ const Footer: React.FC = () => {
             alignSelf: "center"
           }}
         />
+
         <Typography textAlign={"center"} color="text.secondary" mb={1}>
           ©2022 Copyright noot.ae All Rights Reserved.
         </Typography>
