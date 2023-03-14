@@ -23,13 +23,18 @@ const useFormFields = (props: IFormFieldsVariables) => {
   const registerFields = (): IFormField[] => [
     {
       label: t("firstName"),
-      name: "firstName",
+      name: "first_name",
       type: "text",
       autoFocus: true,
     },
     {
       label: t("lastName"),
-      name: "lastName",
+      name: "last_name",
+      type: "text",
+    },
+    {
+      label: t("username"),
+      name: "username",
       type: "text",
     },
     {
@@ -37,24 +42,14 @@ const useFormFields = (props: IFormFieldsVariables) => {
       name: "email",
       type: "text",
     },
-    // {
-    //   label: t("socialNumber"),
-    //   name: "socialNumber",
-    //   type: "text",
-    // },
-    // {
-    //   label: t("job"),
-    //   name: "job",
-    //   type: "text",
-    // },
     {
       label: t("password"),
-      name: "password",
+      name: "password1",
       type: "password",
     },
     {
       label: t("confirmPassword"),
-      name: "confirmPassword",
+      name: "password2",
       type: "password",
     },
   ];

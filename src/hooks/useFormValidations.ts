@@ -17,17 +17,17 @@ const useFormValidations = (props: IFormFieldsVariables) => {
     });
   const registerValidation = () =>
     Yup.object().shape({
-      firstName: Yup.string().required("First name is required"),
-      lastName: Yup.string().required("Last name is required"),
+      first_name: Yup.string().required("First name is required"),
+      last_name: Yup.string().required("Last name is required"),
       email: Yup.string()
         .required("Email is required")
         .email("Email is invalid"),
-      password: Yup.string()
+      password1: Yup.string()
         .required("Password is required")
         .min(8, "Password must be at least 8 characters")
         .max(40, "Password must not exceed 40 characters"),
-      passwordConfirmation: Yup.string().oneOf(
-        [Yup.ref("password")],
+      password2: Yup.string().oneOf(
+        [Yup.ref("password1")],
         "Passwords must match"
       ),
     });

@@ -120,3 +120,11 @@ export enum AuthMessages {
   FORGET_PASSWORD_SUCCESS = "Forget password successfully",
   RESET_PASSWORD_SUCCESS = "Reset password successfully",
 }
+
+export enum Methods {
+  GET = "GET",
+  POST = "POST",
+  PUT = "PUT",
+  PATCH = "PATCH",
+  DELETE = "DELETE",
+}

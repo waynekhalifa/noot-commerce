@@ -1,8 +1,10 @@
 import { AppContext } from "next/app";
 
 import { errorResponse, successResponse } from "@/helpers/responser";
-import { IResponse } from "@/models/app";
-import { AuthMessages } from "@/constants/enums";
+import { IRequest, IResponse } from "@/models/app";
+import { AuthMessages, Methods } from "@/constants/enums";
+import sendRequest from "@/helpers/api";
+import { USER_SIGNUP } from "@/constants/endpoints";
 
 /**
  * getSession: Get the current session
@@ -24,8 +26,12 @@ export async function getSession(appContext: AppContext): Promise<IResponse> {
  * @returns response
  */
 export async function register(data: any): Promise<IResponse> {
+  const request: IRequest = { url: USER_SIGNUP, method: Methods.POST, data };
+
   try {
-    return successResponse(null, AuthMessages.REGISTER_SUCCESS);
+    const response: Response = await sendRequest(request);
+
+    return successResponse(response, AuthMessages.REGISTER_SUCCESS);
   } catch (err: Error | any) {
     return errorResponse(err);
   }
