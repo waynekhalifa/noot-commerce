@@ -10,7 +10,6 @@ import Logo from "./Logo";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
-import TextField from "@mui/material/TextField";
 
 interface Props {
   text: string;
@@ -106,7 +105,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer>
-      <Box sx={{ backgroundColor: "#f5f7fa", pt: 2, pb: 2 }}>
+      <Box sx={{ pt: 2, pb: 2, borderTop: "0.5px solid white" }}>
         <Container>
           <Box
             sx={{
@@ -124,12 +123,40 @@ const Footer: React.FC = () => {
                 <Typography sx={{ color: "#06B7B7", pb: 2 }}>
                   Sign up for Special Offers!
                 </Typography>
-                <TextField
+                {/* <TextField
                   label="Email"
                   id="outlined-size-small"
                   size="small"
                   sx={{ color: "#06B7B7" }}
-                />
+                /> */}
+                <form style={{ paddingBottom: "1rem" }}>
+                  <input
+                    type="email"
+                    placeholder="     Mail"
+                    style={{
+                      height: "2.5rem",
+                      width: "15rem",
+                      border: "2px solid #06B7B7",
+                      borderRadius: "20px",
+                      color: "#06B7B7"
+                    }}
+                  />
+                  <button
+                    type="button"
+                    style={{
+                      height: "2.5rem",
+                      width: "8rem",
+                      border: "2px solid #06B7B7",
+                      borderRadius: "20px",
+                      marginLeft: "-35px",
+                      cursor: "pointer",
+                      color: "white",
+                      backgroundColor: "#06B7B7"
+                    }}
+                  >
+                    Subscribe
+                  </button>
+                </form>
               </Box>
             </Box>
             {/* -------------------- */}
@@ -171,8 +198,24 @@ const Footer: React.FC = () => {
           </Box>
         </Container>
       </Box>
-      <Box sx={{ backgroundColor: "rgba(6,183,183,.1)", py: 3 }}>
-        <Typography textAlign={"center"} color="text.secondary">
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <Box
+          sx={{
+            py: 1,
+            borderTop: "1px solid gray",
+            width: "70%",
+            height: "1px",
+            alignSelf: "center"
+          }}
+        />
+        <Typography textAlign={"center"} color="text.secondary" mb={1}>
           ©2022 Copyright noot.ae All Rights Reserved.
         </Typography>
       </Box>
