@@ -140,7 +140,7 @@ const Footer: React.FC = () => {
                     placeholder="     Mail"
                     style={{
                       height: "2.5rem",
-                      width: "15rem",
+                      width: "14rem",
                       border: "2px solid #06B7B7",
                       borderRadius: "20px",
                       color: "#06B7B7"
