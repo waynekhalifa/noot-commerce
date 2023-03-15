@@ -51,7 +51,7 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               mr: 2,
               display: { xs: "none", md: "flex" },
               color: "transparent",
-              textDecoration: "none",
+              textDecoration: "none"
             }}
           >
             <Logo />
@@ -72,17 +72,17 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
-                horizontal: "left",
+                horizontal: "left"
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "left",
+                horizontal: "left"
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "block", md: "none" }
               }}
             >
               {pages.map((page) => (
@@ -159,7 +159,7 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               borderRadius: "25px",
               fontSize: "16px",
               color: "white",
-              fontWeight: "400",
+              fontWeight: "400"
             }}
           >
             GET STARTED

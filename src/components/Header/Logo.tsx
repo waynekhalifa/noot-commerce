@@ -1,12 +1,13 @@
-import { Box, Link } from "@mui/material";
+import { Box } from "@mui/material";
 
 interface Props {}
 
 import logo from "@images/logo.png";
+import Link from "next/link";
 
 const Logo: React.FC<Props> = ({}) => {
   return (
-    <Link href="/" sx={{ py: 1 }}>
+    <Link href="/" legacyBehavior>
       <Box
         component="img"
         src={logo.src}
