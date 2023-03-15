@@ -1,31 +1,35 @@
-export const schema = {
+export const schema: any = {
   models: {
     Product: {
-      description: {
-        type: "array",
-        required: false,
-        items: {
-          type: "translation",
+      fields: {
+        description: {
+          type: "array",
+          required: false,
+          items: {
+            type: "translation",
+          },
         },
-      },
-      items: {
-        type: "array",
-        required: true,
         items: {
-          type: "productItem",
+          type: "array",
+          required: true,
+          items: {
+            type: "productItem",
+          },
         },
-      },
-      category: {
-        type: "integer",
-        required: true,
+        category: {
+          type: "integer",
+          required: true,
+        },
       },
     },
     Order: {
-      items: {
-        type: "array",
-        required: true,
+      fields: {
         items: {
-          type: "orderItem",
+          type: "array",
+          required: true,
+          items: {
+            type: "orderItem",
+          },
         },
       },
     },
