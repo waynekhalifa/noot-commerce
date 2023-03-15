@@ -3,7 +3,7 @@ import StarIcon from "@mui/icons-material/Star";
 
 import CustomTitle from "../UI/CustomTitle";
 import Section from "../UI/Section";
-import AboutUsBtn from "../AboutUsBtn";
+import LinearGradientBtn from "../LinearGradientBtn";
 
 import placeholder from "@images/shutterstock_45.png";
 import { excerpt } from "@/helpers/utils";
@@ -223,7 +223,7 @@ const Testimonials: React.FC<Props> = ({}) => {
                   }
                 }}
               >
-                <AboutUsBtn />
+                <LinearGradientBtn  content={'About Us'}/>
               </Box>
             </Grid>
           </Grid>

@@ -1,13 +1,16 @@
 import type { NextPage } from "next";
-import DashboardHeader from "@/components/DashboardHeader.tsx/DashboardHeader";
+import DashboardHeader from "@/components/Dashboard/DashboardHeader.tsx/DashboardHeader";
 import { GetServerSideProps } from "next";
-import { Cookies, Pages, Routes } from "@/constants/enums";
+import { Cookies } from "@/constants/enums";
 import { CookieValueTypes, getCookie } from "cookies-next";
+import Widget from "@/components/UI/Widget";
+import DashboardWidgets from "@/components/Dashboard/DashboardWidgets";
 
 const Dashboard: NextPage = () => {
   return (
     <>
       <DashboardHeader />
+      <DashboardWidgets />
     </>
   );
 };
@@ -15,17 +18,17 @@ const Dashboard: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const cookieSession: CookieValueTypes = getCookie(Cookies.ACCESS_TOKEN, {
     req,
-    res,
+    res
   });
 
-  if (!cookieSession) {
-    return {
-      redirect: {
-        destination: `/${Routes.ACCOUNTS}/${Pages.LOGIN}`,
-        permanent: false,
-      },
-    };
-  }
+  // if (!cookieSession) {
+  //   return {
+  //     redirect: {
+  //       destination: `/${Routes.ACCOUNTS}/${Pages.LOGIN}`,
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
   return { props: {} };
 };

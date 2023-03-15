@@ -1,7 +1,7 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 
 import Section from "../UI/Section";
-import AboutUsBtn from "../AboutUsBtn";
+import LinearGradientBtn  from "../LinearGradientBtn";
 import CenterTitle from "../UI/CenterTitle";
 
 interface NumberingTitleProps {
@@ -79,7 +79,7 @@ const Services: React.FC<ServicesProps> = ({}) => {
                 }
               }}
             >
-              <AboutUsBtn />
+              <LinearGradientBtn content={'About Us'} />
             </Box>
           </Grid>
 

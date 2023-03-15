@@ -128,17 +128,12 @@ const Footer: React.FC = () => {
               }
             }}
           >
-            <Box>
-              <Box sx={{ alignSelf: "end" }}>
-                <Typography sx={{ color: "#06B7B7", pb: 2 }}>
+            <Box sx={{ alignSelf: "end" }}>
+              <Box>
+                <Typography sx={{ color: "#06B7B7", pb: 2, alignSelf: "end" }}>
                   Sign up for Special Offers!
                 </Typography>
-                {/* <TextField
-                  label="Email"
-                  id="outlined-size-small"
-                  size="small"
-                  sx={{ color: "#06B7B7" }}
-                /> */}
+
                 <form style={{ paddingBottom: "1rem" }}>
                   <input
                     type="email"

@@ -52,7 +52,7 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               mr: 2,
               display: { xs: "none", md: "flex" },
               color: "transparent",
-              textDecoration: "none",
+              textDecoration: "none"
             }}
           >
             <Logo />
@@ -72,17 +72,17 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
-                horizontal: "left",
+                horizontal: "left"
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "left",
+                horizontal: "left"
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "block", md: "none" }
               }}
             >
               {pages.map((page) => (
@@ -150,7 +150,7 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               ))}
             </Menu>
           </Box> */}
-          <Link href="/signin">
+          <Link href="/dashboard/overview">
             <button
               style={{
                 width: "10rem",
@@ -161,7 +161,7 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
                 fontSize: "16px",
                 color: "white",
                 fontWeight: "400",
-                cursor: "pointer",
+                cursor: "pointer"
               }}
             >
               GET STARTED

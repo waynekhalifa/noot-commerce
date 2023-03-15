@@ -1,8 +1,10 @@
 import { Button } from "@mui/material";
 
-interface Props {}
+interface Props {
+  content: string;
+}
 
-const AboutUsBtn: React.FC<Props> = ({}) => {
+const LinearGradientBtn: React.FC<Props> = ({content}) => {
   return (
     <Button
       variant="contained"
@@ -14,9 +16,9 @@ const AboutUsBtn: React.FC<Props> = ({}) => {
         borderRadius: "25px"
       }}
     >
-      About Us
+      {content}
     </Button>
   );
 };
 
-export default AboutUsBtn;
+export default LinearGradientBtn;
