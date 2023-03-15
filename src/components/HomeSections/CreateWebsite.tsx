@@ -61,7 +61,7 @@ const CreateWebsite: React.FC<Props> = ({}) => {
               }}
             />
             {/* --------------- */}
-            <Grid item xs={12} md={6} lg={6} >
+            <Grid item xs={12} md={6} lg={6} sx={{ pt: { xs: 8, md: 0 } }}>
               <CenterTitle>
                 CREATE A
                 <br />

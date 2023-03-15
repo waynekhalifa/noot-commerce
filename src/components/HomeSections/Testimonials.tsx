@@ -15,13 +15,7 @@ const Testimonials: React.FC<Props> = ({}) => {
   return (
     <Section background="transparent">
       <Box
-        sx={{
-          position: "relative",
-          overflow: "hidden",
-          pb: 8,
-          zIndex: "1",
-          paddingTop: "-4rem"
-        }}
+        sx={{ position: "relative", overflow: "hidden", pb: 8, zIndex: "1" }}
       >
         <Box
           sx={{
@@ -58,12 +52,12 @@ const Testimonials: React.FC<Props> = ({}) => {
             zIndex: "-1",
             left: {
               xs: "-18rem",
-              md: "57rem",
+              md: "23rem",
               lg: "92rem"
             },
             top: {
               xs: "20rem",
-              md: "9rem",
+              md: "-3rem",
               lg: "29rem"
             },
             opacity: "0.31"
@@ -104,12 +98,12 @@ const Testimonials: React.FC<Props> = ({}) => {
             zIndex: "-1",
             left: {
               xs: "-20rem",
-              md: "61rem",
+              md: "25rem",
               lg: "94rem"
             },
             top: {
               xs: "20rem",
-              md: "10rem",
+              md: "-3rem",
               lg: "30rem"
             },
             opacity: "0.64"
@@ -150,12 +144,12 @@ const Testimonials: React.FC<Props> = ({}) => {
             zIndex: "-1",
             left: {
               xs: "-24rem",
-              md: "64rem",
+              md: "27rem",
               lg: "97rem"
             },
             top: {
               xs: "20rem",
-              md: "10rem",
+              md: "20rem",
               lg: "29rem"
             },
             opacity: "1.00"
