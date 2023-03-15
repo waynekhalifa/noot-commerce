@@ -13,6 +13,7 @@ import Logo from "./Logo";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { useTheme } from "@mui/material";
+import Link from "next/link";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -150,20 +151,23 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               ))}
             </Menu>
           </Box> */}
-          <button
-            style={{
-              width: "10rem",
-              height: "40px",
-              backgroundColor: "#06B7B7",
-              border: "none",
-              borderRadius: "25px",
-              fontSize: "16px",
-              color: "white",
-              fontWeight: "400"
-            }}
-          >
-            GET STARTED
-          </button>
+          <Link href="/signin">
+            <button
+              style={{
+                width: "10rem",
+                height: "40px",
+                backgroundColor: "#06B7B7",
+                border: "none",
+                borderRadius: "25px",
+                fontSize: "16px",
+                color: "white",
+                fontWeight: "400",
+                cursor: "pointer"
+              }}
+            >
+              GET STARTED
+            </button>
+          </Link>
           <IconButton
             size="large"
             edge="end"
