@@ -1,53 +1,3 @@
-// import { AppBar, Box, IconButton, Toolbar, useTheme } from "@mui/material";
-// import MenuIcon from "@mui/icons-material/Menu";
-// import DarkModeIcon from "@mui/icons-material/DarkMode";
-// import LightModeIcon from "@mui/icons-material/LightMode";
-
-// import Logo from "./Logo";
-
-// interface Props {
-//   toggleTheme?: React.MouseEventHandler<HTMLButtonElement>;
-//   elevation?: number;
-// }
-
-// const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
-//   const theme = useTheme();
-
-//   return (
-//     <AppBar
-//       position="static"
-//       elevation={elevation ? elevation : 0}
-//       color="transparent"
-//       sx={{
-//         backgroundColor: "background.default",
-//       }}
-//     >
-//       <Toolbar>
-//         <Logo />
-//         <Box sx={{ flex: 1 }} />
-//         <IconButton
-//           size="large"
-//           edge="end"
-//           color="inherit"
-//           aria-label="mode"
-//           onClick={toggleTheme}
-//         >
-//           {theme.palette.mode === "light" ? (
-//             <DarkModeIcon />
-//           ) : (
-//             <LightModeIcon />
-//           )}
-//         </IconButton>
-//         <IconButton size="large" edge="end" color="inherit" aria-label="menu">
-//           <MenuIcon />
-//         </IconButton>
-//       </Toolbar>
-//     </AppBar>
-//   );
-// };
-
-// export default Header;
-
 import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -101,7 +51,7 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               mr: 2,
               display: { xs: "none", md: "flex" },
               color: "transparent",
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
             <Logo />
@@ -122,17 +72,17 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
-                horizontal: "left"
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "left"
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" }
+                display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
@@ -209,7 +159,7 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               borderRadius: "25px",
               fontSize: "16px",
               color: "white",
-              fontWeight: "400"
+              fontWeight: "400",
             }}
           >
             GET STARTED

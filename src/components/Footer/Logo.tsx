@@ -1,9 +1,8 @@
-import { Box } from "@mui/material";
+import { Box, Link } from "@mui/material";
 
 interface Props {}
 
 import logo from "@images/logo.png";
-import Link from "../UI/Link";
 
 const Logo: React.FC<Props> = ({}) => {
   return (

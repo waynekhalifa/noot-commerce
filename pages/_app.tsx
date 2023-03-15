@@ -1,9 +1,8 @@
-import Head from "next/head";
 import App, { AppContext, AppProps } from "next/app";
-import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { CacheProvider } from "@emotion/react";
 import createEmotionCache from "@/helpers/createEmotionCache";
+import { ThemeProvider } from "@mui/material/styles";
+import { CacheProvider } from "@emotion/react";
 import { wrapper } from "@/store/store";
 import { createTheme, GlobalStyles } from "@mui/material";
 import { CookieValueTypes, getCookie, setCookie } from "cookies-next";
@@ -34,7 +33,7 @@ import ScrollToTop from "@/components/common/ScrollToTop";
 export const metadata: Metadata = {
   title: {
     default: "Noot",
-    template: "%s | Noot"
+    template: "%s | Noot",
   },
   description:
     "Digital Solutions Provider - Our website offers a range of digital solutions for businesses seeking innovative software development, web design, and IT services",
@@ -48,11 +47,11 @@ export const metadata: Metadata = {
       {
         url: "https://noot.ae/og.jpg",
         width: 1920,
-        height: 1080
-      }
+        height: 1080,
+      },
     ],
     locale: "en-US",
-    type: "website"
+    type: "website",
   },
   robots: {
     index: true,
@@ -62,20 +61,20 @@ export const metadata: Metadata = {
       follow: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
-      "max-snippet": -1
-    }
+      "max-snippet": -1,
+    },
   },
   twitter: {
     title: "Noot",
-    card: "summary_large_image"
+    card: "summary_large_image",
   },
   icons: {
-    shortcut: "/favicon.ico"
+    shortcut: "/favicon.ico",
   },
   verification: {
     google: "eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw",
-    yandex: "14d2e73487fa6c71"
-  }
+    yandex: "14d2e73487fa6c71",
+  },
 };
 
 function getActiveTheme(themeMode: Mode, locale: any) {
@@ -108,46 +107,33 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
   const { emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
-    <html lang="en">
-      <Provider store={store}>
-        <CacheProvider value={emotionCache}>
-          <Head>
-            <meta
-              name="viewport"
-              content="initial-scale=1, width=device-width"
-            />
-          </Head>
-          <body>
-            <main>
-              <ThemeProvider theme={activeTheme}>
-                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-                <CssBaseline />
-                <GlobalStyles
-                  styles={{
-                    ".MuiAccordionSummary-root .MuiAccordionSummary-content": {
-                      margin: "12px 8px !important"
-                    },
-                    ".MuiAccordionSummary-root .MuiAccordionSummary-content.Mui-expanded":
-                      {
-                        margin: "12px 8px !important"
-                      },
-                    ".MuiAccordionSummary-root.Mui-expanded": {
-                      minHeight: "0 !important"
-                    },
-                    ".MuiAccordionSummary-root.Mui-expanded .MuiTypography-root":
-                      {
-                        marginLeft: "0 !important"
-                      }
-                  }}
-                />
-                <Component {...pageProps} toggleTheme={toggleTheme} />
-              </ThemeProvider>
-              <ScrollToTop />
-            </main>
-          </body>
-        </CacheProvider>
-      </Provider>
-    </html>
+    <Provider store={store}>
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={activeTheme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <GlobalStyles
+            styles={{
+              ".MuiAccordionSummary-root .MuiAccordionSummary-content": {
+                margin: "12px 8px !important",
+              },
+              ".MuiAccordionSummary-root .MuiAccordionSummary-content.Mui-expanded":
+                {
+                  margin: "12px 8px !important",
+                },
+              ".MuiAccordionSummary-root.Mui-expanded": {
+                minHeight: "0 !important",
+              },
+              ".MuiAccordionSummary-root.Mui-expanded .MuiTypography-root": {
+                marginLeft: "0 !important",
+              },
+            }}
+          />
+          <Component {...pageProps} toggleTheme={toggleTheme} />
+        </ThemeProvider>
+        <ScrollToTop />
+      </CacheProvider>
+    </Provider>
   );
 };
 
@@ -163,7 +149,7 @@ MyApp.getInitialProps = wrapper.getInitialAppProps(
     if (!appContext.router.route.includes(Routes.ACCOUNTS)) {
       const cookieSession: CookieValueTypes = getCookie(Cookies.SESSION, {
         req: appContext.ctx.req,
-        res: appContext.ctx.res
+        res: appContext.ctx.res,
       });
 
       if (cookieSession === undefined) {
@@ -173,13 +159,13 @@ MyApp.getInitialProps = wrapper.getInitialAppProps(
           setCookie(Cookies.SESSION, "true", {
             req: appContext.ctx.req,
             res: appContext.ctx.res,
-            maxAge: 60 * 60 * 24
+            maxAge: 60 * 60 * 24,
           });
         } else {
           setCookie(Cookies.SESSION, "false", {
             req: appContext.ctx.req,
             res: appContext.ctx.res,
-            maxAge: 60 * 60 * 24
+            maxAge: 60 * 60 * 24,
           });
         }
       } else {

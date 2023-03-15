@@ -5,6 +5,7 @@ import {
   Button,
   CircularProgress,
   Grid,
+  Link,
   Typography,
 } from "@mui/material";
 import { toast } from "react-toastify";
@@ -20,7 +21,6 @@ import {
   IResponse,
 } from "@/models/app";
 import { AuthMessages, Pages, Responses, Routes } from "@/constants/enums";
-import Link from "@/components/UI/Link";
 import useFormFields from "@/hooks/useFormFields";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";

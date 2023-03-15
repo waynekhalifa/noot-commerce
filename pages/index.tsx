@@ -1,5 +1,4 @@
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import HomeSections from "@/components/HomeSections";
 import type { NextPage } from "next";
 
@@ -16,7 +15,7 @@ const Home: NextPage<Props> = ({ toggleTheme }) => {
         <title>Noot</title>
         <meta name="description" content={"Noot"} />
       </Head>
-      <Header toggleTheme={toggleTheme} />
+      {/* <Header toggleTheme={toggleTheme} /> */}
       <HomeSections />
       <Footer />
     </>
