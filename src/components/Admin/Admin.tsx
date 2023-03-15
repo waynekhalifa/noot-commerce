@@ -11,7 +11,7 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-  Typography,
+  Typography
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -22,8 +22,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Pages, Routes } from "@/constants/enums";
 import ContentLoader from "../UI/ContentLoader";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
-import { selectSession } from "@/store/appSlice";
+// import { selectSession } from "@/store/appSlice";
 import useUpdating from "@/hooks/useUpdating";
 import ActionLoader from "../UI/ActionLoader";
 import NavMenu from "../NavMenu";
@@ -43,7 +42,7 @@ interface IState {
 const INITIAL_STATE: IState = { open: false, anchorEl: null };
 
 const Admin: FC<Props> = ({ slug }) => {
-  const session: any = useSelector(selectSession);
+  // const session: any = useSelector(selectSession);
   const [state, setState] = useState(INITIAL_STATE);
   const { open, anchorEl } = state;
   const { push } = useRouter();
@@ -54,9 +53,8 @@ const Admin: FC<Props> = ({ slug }) => {
   const handleMenuClose = () => setState({ ...state, anchorEl: null });
 
   const handleAdminProfile = async () => {
-    setState({ ...state, anchorEl: null });
-
-    push(`/${Routes.ADMIN}/${Pages.USERS}/${session.id}`);
+    // setState({ ...state, anchorEl: null });
+    // push(`/${Routes.ADMIN}/${Pages.USERS}/${session.id}`);
   };
 
   const handleLogout = () => {
@@ -86,19 +84,19 @@ const Admin: FC<Props> = ({ slug }) => {
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "bottom",
-        horizontal: "right",
+        horizontal: "right"
       }}
       id={menuId}
       keepMounted
       transformOrigin={{
         vertical: "bottom",
-        horizontal: "right",
+        horizontal: "right"
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
       sx={{
         ".MuiPaper-root": { borderRadius: 0 },
-        ".MuiList-root": { padding: 0 },
+        ".MuiList-root": { padding: 0 }
       }}
     >
       <MenuItem onClick={handleAdminProfile}>
@@ -126,7 +124,7 @@ const Admin: FC<Props> = ({ slug }) => {
           backgroundColor: "common.white",
           borderBottom: "1px solid",
           borderColor: "divider",
-          color: "primary.main",
+          color: "primary.main"
         }}
       >
         <Toolbar>
@@ -164,7 +162,7 @@ const Admin: FC<Props> = ({ slug }) => {
           height: "100vh",
           overflowY: "scroll",
           px: 2,
-          backgroundColor: "grey.100",
+          backgroundColor: "grey.100"
         }}
       >
         <Toolbar />
@@ -174,7 +172,7 @@ const Admin: FC<Props> = ({ slug }) => {
         sx={{
           zIndex: (theme) => theme.zIndex.drawer - 1,
           alignItems: "flex-start",
-          backgroundColor: "rgba(225,225,225,0.5)",
+          backgroundColor: "rgba(225,225,225,0.5)"
         }}
         open={open}
         onClick={toggleDrawer}
@@ -192,7 +190,7 @@ const Admin: FC<Props> = ({ slug }) => {
           sx={{
             display: "flex",
             justifyContent: "flex-end",
-            p: 1,
+            p: 1
           }}
         >
           <IconButton onClick={toggleDrawer}>
