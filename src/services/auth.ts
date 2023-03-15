@@ -2,10 +2,9 @@ import { AppContext } from "next/app";
 
 import { errorResponse, successResponse } from "@/helpers/responser";
 import { IRequest, IResponse } from "@/models/app";
-import { AuthMessages, Credentials, Methods } from "@/constants/enums";
+import { AuthMessages, Methods } from "@/constants/enums";
 import sendRequest from "@/helpers/api";
 import { USER_SIGNUP, USER_LOGIN } from "@/constants/endpoints";
-import credentailToken from "./credentailToken";
 /**
  * getSession: Get the current session
  *
@@ -30,11 +29,13 @@ export async function register(data: any): Promise<IResponse> {
 
   try {
     const response: Response = await sendRequest(request);
-
-    return successResponse(
-      await response.json(),
-      AuthMessages.REGISTER_SUCCESS
-    );
+    if (response.status === 201) {
+      return successResponse(
+        await response.json(),
+        AuthMessages.REGISTER_SUCCESS
+      );
+    }
+    return errorResponse(new Error("Failed to Signup"));
   } catch (err: Error | any) {
     return errorResponse(err);
   }
@@ -52,12 +53,13 @@ export async function login(data: any): Promise<IResponse> {
     url: USER_LOGIN,
     method: Methods.POST,
     data,
-    credentials: Credentials.include,
-    credentialToken: credentailToken,
   };
 
   try {
     const response: Response = await sendRequest(request);
+    if (response.status === 401) {
+      return errorResponse(new Error("Unauthorized"));
+    }
     return successResponse(await response.json(), AuthMessages.LOGIN_SUCCESS);
   } catch (err: Error | any) {
     return errorResponse(err);
