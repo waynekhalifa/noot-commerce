@@ -4,7 +4,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const CustomTitle: React.FC<Props> = ({ children }) => {
+const CenterTitle: React.FC<Props> = ({ children }) => {
   return (
     <Box
       sx={{
@@ -37,7 +37,6 @@ const CustomTitle: React.FC<Props> = ({ children }) => {
         }}
       />
       <Typography
-        variant="h5"
         fontWeight={700}
         paragraph
         sx={{
@@ -46,7 +45,13 @@ const CustomTitle: React.FC<Props> = ({ children }) => {
             md: "start",
             lg: "start"
           },
-          color:'#6DC45E'
+          color: "#6DC45E",
+          fontSize: {
+            xs: "2rem",
+            md: "3rem",
+            lg: "3rem"
+          },
+          lineHeight: "1.1"
         }}
       >
         {children}
@@ -55,4 +60,4 @@ const CustomTitle: React.FC<Props> = ({ children }) => {
   );
 };
 
-export default CustomTitle;
+export default CenterTitle;

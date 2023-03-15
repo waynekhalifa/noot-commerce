@@ -20,7 +20,6 @@ const HomeSections: React.FC<Props> = ({}) => {
       <TryNoot />
       <Dashbaord />
       <BussinessProcess />
-      <Numbers />
       <Testimonials />
     </>
   );

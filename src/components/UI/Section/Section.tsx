@@ -12,6 +12,8 @@ const Section: React.FC<Props> = ({ background, children }) => (
     sx={{
       pt: 8,
       backgroundColor: background === "white" ? "common.white" : "transparent",
+      overflow: "hidden",
+      zIndex: "1"
     }}
   >
     {children}

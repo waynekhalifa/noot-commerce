@@ -8,8 +8,13 @@ interface ClientProps {
 
 const Number: React.FC<ClientProps> = ({ number }) => {
   return (
-    <Grid item xs={6} sx={{ mb: 3 }}>
-      <Typography variant="h4" textAlign={"center"} fontWeight={700}>
+    <Grid item xs={3} sx={{ mb: 3 }}>
+      <Typography
+        variant="h4"
+        textAlign={"center"}
+        fontWeight={700}
+        sx={{ color: "#06B712" }}
+      >
         {number.number}
       </Typography>
       <Typography textAlign={"center"}>{number.title}</Typography>
@@ -24,7 +29,7 @@ const Numbers: React.FC<Props> = ({}) => {
     { number: 570, title: "Download" },
     { number: 570, title: "Active User" },
     { number: 570, title: "Positive Feedback" },
-    { number: 570, title: "+ rating" },
+    { number: 570, title: "+ rating" }
   ];
 
   return (
@@ -43,7 +48,7 @@ const Numbers: React.FC<Props> = ({}) => {
           textAlign="center"
           color="text.secondary"
         >{`our Word for it!`}</Typography>
-        <Grid container>
+        <Grid container sx={{ paddingTop: "1rem" }}>
           {numbers.map((number, index) => (
             <Number number={number} key={index} />
           ))}
