@@ -33,19 +33,13 @@ import useConfirm from "@/hooks/useConfirm";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import useUpdating from "@/hooks/useUpdating";
-import { useCookies } from "react-cookie";
-import { setSession, setUser } from "@/store/appSlice";
-interface Props {
+import { setCookie } from "cookies-next";
+import { IUser, setSession, setUser } from "@/store/appSlice";
+export interface Props {
   slug: string;
 }
 
 const Auth: React.FC<Props> = ({ slug }) => {
-  const [cookies, setCookie] = useCookies([
-    "access_token",
-    "refresh_token",
-    "session",
-  ]);
-
   const dispatch = useDispatch();
   const router = useRouter();
   const { t } = useTranslation("common");
@@ -121,6 +115,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
       case Pages.REGISTER:
         response = await register(data);
         break;
+
       default:
         break;
     }
@@ -131,22 +126,30 @@ const Auth: React.FC<Props> = ({ slug }) => {
         response.message === AuthMessages.REGISTER_SUCCESS
       ) {
         if (response.data) {
+          const user: IUser = {
+            first_name: response.data.first_name,
+            last_name: response.data.last_name,
+            username: response.data.username,
+            email: response.data.email,
+            id: response.data.id,
+          };
           console.log(response.data);
-          dispatch(setUser(response.data));
-          dispatch(setSession(response.data.access_token));
-          router.push(`/${Routes.ACCOUNTS}/${Pages.LOGIN}`);
+          dispatch(setUser(user));
+          setCookie("session", response.data.access_token);
+          router.push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
         }
       }
       if (response.message && response.message === AuthMessages.LOGIN_SUCCESS) {
         if (response.data) {
           console.log(response.data);
-
           dispatch(setUser(response.data.user));
           dispatch(setSession(response.data.access));
+          const session = {
+            access_token: response.data.access,
+            refresh_token: response.data.refresh,
+          };
+          setCookie("session", session);
 
-          setCookie("session", true);
-          setCookie("access_token", response.data.access);
-          setCookie("refresh_token", response.data.refresh);
           router.push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
         }
       }

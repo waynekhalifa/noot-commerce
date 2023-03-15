@@ -106,4 +106,5 @@ export interface IRequest {
   method: string;
   data?: any;
   credentials?: string;
+  credentialToken?: {};
 }

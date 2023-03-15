@@ -1,7 +1,8 @@
-import type { GetServerSideProps, NextPage } from "next";
+import type { NextPage } from "next";
 import DashboardHeader from "@/components/DashboardHeader.tsx/DashboardHeader";
-import { CookieValueTypes, getCookie } from "cookies-next";
+import { GetServerSideProps } from "next";
 import { Cookies, Pages, Routes } from "@/constants/enums";
+import { CookieValueTypes, getCookie } from "cookies-next";
 
 const Dashboard: NextPage = () => {
   return (

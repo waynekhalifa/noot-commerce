@@ -5,6 +5,7 @@ import { IRequest, IResponse } from "@/models/app";
 import { AuthMessages, Credentials, Methods } from "@/constants/enums";
 import sendRequest from "@/helpers/api";
 import { USER_SIGNUP, USER_LOGIN } from "@/constants/endpoints";
+import credentailToken from "./credentailToken";
 /**
  * getSession: Get the current session
  *
@@ -44,6 +45,7 @@ export async function register(data: any): Promise<IResponse> {
  *
  * @param data
  * @returns response
+ *  authorization: `Bearer ${token}`,
  */
 export async function login(data: any): Promise<IResponse> {
   const request: IRequest = {
@@ -51,6 +53,7 @@ export async function login(data: any): Promise<IResponse> {
     method: Methods.POST,
     data,
     credentials: Credentials.include,
+    credentialToken: credentailToken,
   };
 
   try {
