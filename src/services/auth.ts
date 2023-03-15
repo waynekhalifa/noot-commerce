@@ -2,10 +2,9 @@ import { AppContext } from "next/app";
 
 import { errorResponse, successResponse } from "@/helpers/responser";
 import { IRequest, IResponse } from "@/models/app";
-import { AuthMessages, Methods } from "@/constants/enums";
+import { AuthMessages, Credentials, Methods } from "@/constants/enums";
 import sendRequest from "@/helpers/api";
-import { USER_SIGNUP } from "@/constants/endpoints";
-
+import { USER_SIGNUP, USER_LOGIN } from "@/constants/endpoints";
 /**
  * getSession: Get the current session
  *
@@ -31,7 +30,10 @@ export async function register(data: any): Promise<IResponse> {
   try {
     const response: Response = await sendRequest(request);
 
-    return successResponse(response, AuthMessages.REGISTER_SUCCESS);
+    return successResponse(
+      await response.json(),
+      AuthMessages.REGISTER_SUCCESS
+    );
   } catch (err: Error | any) {
     return errorResponse(err);
   }
@@ -44,8 +46,16 @@ export async function register(data: any): Promise<IResponse> {
  * @returns response
  */
 export async function login(data: any): Promise<IResponse> {
+  const request: IRequest = {
+    url: USER_LOGIN,
+    method: Methods.POST,
+    data,
+    credentials: Credentials.include,
+  };
+
   try {
-    return successResponse({}, AuthMessages.LOGIN_SUCCESS);
+    const response: Response = await sendRequest(request);
+    return successResponse(await response.json(), AuthMessages.LOGIN_SUCCESS);
   } catch (err: Error | any) {
     return errorResponse(err);
   }

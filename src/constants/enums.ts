@@ -128,3 +128,6 @@ export enum Methods {
   PATCH = "PATCH",
   DELETE = "DELETE",
 }
+export enum Credentials {
+  include = "include",
+}

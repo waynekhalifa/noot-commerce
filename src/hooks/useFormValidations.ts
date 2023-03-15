@@ -7,9 +7,7 @@ const useFormValidations = (props: IFormFieldsVariables) => {
 
   const loginValidation = () =>
     Yup.object().shape({
-      email: Yup.string()
-        .required("Email is required")
-        .email("Email is invalid"),
+      username: Yup.string().required("Username is required"),
       password: Yup.string()
         .required("Password is required")
         .min(8, "Password must be at least 8 characters")
