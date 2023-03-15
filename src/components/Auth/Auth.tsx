@@ -7,6 +7,8 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import bg from "@images/accounts-bg.png";
 import logo from "@images/logo.png";
@@ -17,13 +19,7 @@ import {
   IMediaQuery,
   IResponse,
 } from "@/models/app";
-import {
-  AuthMessages,
-  Languages,
-  Pages,
-  Responses,
-  Routes,
-} from "@/constants/enums";
+import { AuthMessages, Pages, Responses, Routes } from "@/constants/enums";
 import Link from "@/components/UI/Link";
 import useFormFields from "@/hooks/useFormFields";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -35,17 +31,23 @@ import { useRouter } from "next/router";
 import { login, register } from "@/services/auth";
 import useConfirm from "@/hooks/useConfirm";
 import { useDispatch } from "react-redux";
-import { setSession } from "@/store/appSlice";
 import { useEffect } from "react";
 import useUpdating from "@/hooks/useUpdating";
-
+import { useCookies } from "react-cookie";
+import { setSession, setUser } from "@/store/appSlice";
 interface Props {
   slug: string;
 }
 
 const Auth: React.FC<Props> = ({ slug }) => {
+  const [cookies, setCookie] = useCookies([
+    "access_token",
+    "refresh_token",
+    "session",
+  ]);
+
   const dispatch = useDispatch();
-  const { locale, push } = useRouter();
+  const router = useRouter();
   const { t } = useTranslation("common");
   const { confirm, setConfirm } = useConfirm();
   const { updating, setUpdating } = useUpdating();
@@ -106,8 +108,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
   };
 
   const onSubmit: SubmitHandler<any> = async (data: any) => {
-    setUpdating(true);
-
+    setUpdating(false);
     let response: IResponse = {
       type: Responses.ERROR,
       message: "Default Case",
@@ -129,23 +130,37 @@ const Auth: React.FC<Props> = ({ slug }) => {
         response.message &&
         response.message === AuthMessages.REGISTER_SUCCESS
       ) {
-        push(`/${Routes.ACCOUNTS}/${Pages.LOGIN}`);
+        if (response.data) {
+          console.log(response.data);
+          dispatch(setUser(response.data));
+          dispatch(setSession(response.data.access_token));
+          router.push(`/${Routes.ACCOUNTS}/${Pages.LOGIN}`);
+        }
       }
       if (response.message && response.message === AuthMessages.LOGIN_SUCCESS) {
-        dispatch(setSession(response.data[0]));
+        if (response.data) {
+          console.log(response.data);
 
-        // push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
-        push(`/${Routes.ADMIN}/${Pages.OVERVIEW}`);
+          dispatch(setUser(response.data.user));
+          dispatch(setSession(response.data.access));
+
+          setCookie("session", true);
+          setCookie("access_token", response.data.access);
+          setCookie("refresh_token", response.data.refresh);
+          router.push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
+        }
       }
     } else {
       if (response.message && response.message === "Default Case") {
         console.log(data);
       } else {
         if (response.message!.includes("IDBDatabase")) {
-          push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
+          router.push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
         } else {
+          toast.error(response.message, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
           setConfirm(response.message!);
-          setUpdating(false);
         }
       }
     }
@@ -213,9 +228,9 @@ const Auth: React.FC<Props> = ({ slug }) => {
             <>
               <Grid
                 container
-                flexDirection={
-                  locale === Languages.ARABIC ? "row-reverse" : "row"
-                }
+                // flexDirection={
+                //   router.local === Languages.ARABIC ? "row-reverse" : "row" // local
+                // }
                 sx={{ maxWidth: "fit-content" }}
               >
                 <VerificationField

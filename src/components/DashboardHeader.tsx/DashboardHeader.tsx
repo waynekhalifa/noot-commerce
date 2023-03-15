@@ -27,6 +27,8 @@ import useUpdating from "@/hooks/useUpdating";
 import websiteTemplate from "@images/website-template.png";
 import { useRouter } from "next/router";
 import { Routes } from "@/constants/enums";
+import { selectUser } from "@/store/appSlice";
+import { useSelector } from "react-redux";
 
 interface IState {
   open: boolean;
@@ -36,6 +38,7 @@ interface IState {
 const INITIAL_STATE: IState = { open: false, anchorEl: null };
 
 const Header: React.FC = () => {
+  const user = useSelector(selectUser);
   const [state, setState] = useState(INITIAL_STATE);
   const { push } = useRouter();
   const { open, anchorEl } = state;
@@ -150,6 +153,7 @@ const Header: React.FC = () => {
             </Button>
           </Box>
         </Toolbar>
+        <Box>{user?.first_name}</Box>
       </AppBar>
       {renderMenu}
       <Box sx={{ py: 4, boxShadow: (theme) => theme.shadows[2] }}>

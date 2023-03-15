@@ -105,4 +105,5 @@ export interface IRequest {
   url: string;
   method: string;
   data?: any;
+  credentials?: string;
 }
