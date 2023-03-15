@@ -75,7 +75,7 @@ export const metadata: Metadata = {
 };
 import { CookieValueTypes, getCookie } from "cookies-next";
 import { Cookies, Routes } from "@/constants/enums";
-import { setSession } from '@/store/appSlice';
+// import { setSession } from '@/store/appSlice';
 
 function getActiveTheme(themeMode: Mode, locale: any) {
   return themeMode === "light"
@@ -142,24 +142,24 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
 // perform automatic static optimization, causing every page in your app to
 // be server-side rendered.
 
-MyApp.getInitialProps = wrapper.getInitialAppProps(
-  (store) => async (appContext: AppContext) => {
-    const ctx = await App.getInitialProps(appContext);
+// MyApp.getInitialProps = wrapper.getInitialAppProps(
+//   (store) => async (appContext: AppContext) => {
+//     const ctx = await App.getInitialProps(appContext);
 
-    if (!appContext.router.route.includes(Routes.ACCOUNTS)) {
-      const cookieSession: CookieValueTypes = getCookie(Cookies.ACCESS_TOKEN, {
-        req: appContext.ctx.req,
-        res: appContext.ctx.res,
-      });
+//     if (!appContext.router.route.includes(Routes.ACCOUNTS)) {
+//       const cookieSession: CookieValueTypes = getCookie(Cookies.ACCESS_TOKEN, {
+//         req: appContext.ctx.req,
+//         res: appContext.ctx.res,
+//       });
 
-      if (cookieSession) {
-        const session: any = JSON.parse(cookieSession as string);
-        store.dispatch(setSession(session[0]));
-      }
-    }
+//       if (cookieSession) {
+//         const session: any = JSON.parse(cookieSession as string);
+//         store.dispatch(setSession(session[0]));
+//       }
+//     }
 
-    return { ...ctx };
-  }
-);
+//     return { ...ctx };
+//   }
+// );
 
-export default MyApp;
+// export default MyApp;
