@@ -105,7 +105,17 @@ const Footer: React.FC = () => {
 
   return (
     <footer>
-      <Box sx={{ pt: 2, pb: 2, borderTop: "0.5px solid white" }}>
+      <Box
+        sx={{
+          pt: 2,
+          pb: 2,
+          borderTop: {
+            lg: "0.5px solid gray",
+            md: "0.5px solid gray",
+            xs: "0.5px solid gray"
+          }
+        }}
+      >
         <Container>
           <Box
             sx={{
