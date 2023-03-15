@@ -1,9 +1,8 @@
-import { Mode } from "@/models/app";
-import { setMode } from "@/store/appSlice";
+// import { setMode } from "@/store/appSlice";
 
 const useApp = () => {
   return {
-    changeMode: (payload: Mode) => setMode(payload),
+    // changeMode: (payload: Mode) => setMode(payload),
   };
 };
 

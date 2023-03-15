@@ -12,7 +12,7 @@ import {
   MenuItem,
   Paper,
   Toolbar,
-  Typography,
+  Typography
 } from "@mui/material";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -20,7 +20,6 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
-import Logo from "./Logo";
 import { useState } from "react";
 import useUpdating from "@/hooks/useUpdating";
 
@@ -29,6 +28,7 @@ import { useRouter } from "next/router";
 import { Pages, Routes } from "@/constants/enums";
 import { selectUser } from "@/store/appSlice";
 import { useSelector } from "react-redux";
+import Logo from "../Header/Logo";
 
 interface IState {
   open: boolean;
@@ -76,19 +76,19 @@ const Header: React.FC = () => {
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "bottom",
-        horizontal: "right",
+        horizontal: "right"
       }}
       id={menuId}
       keepMounted
       transformOrigin={{
         vertical: "bottom",
-        horizontal: "right",
+        horizontal: "right"
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
       sx={{
         ".MuiPaper-root": { borderRadius: 0 },
-        ".MuiList-root": { padding: 0 },
+        ".MuiList-root": { padding: 0 }
       }}
     >
       <MenuItem onClick={handleAdminProfile}>
@@ -113,7 +113,7 @@ const Header: React.FC = () => {
         elevation={2}
         color="transparent"
         sx={{
-          backgroundColor: "background.default",
+          backgroundColor: "background.default"
         }}
       >
         <Toolbar>
@@ -196,7 +196,7 @@ const Header: React.FC = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 flexDirection: "column",
-                pb: 5,
+                pb: 5
               }}
             >
               <Box
@@ -233,7 +233,7 @@ const Header: React.FC = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 flexDirection: "column",
-                pb: 5,
+                pb: 5
               }}
             >
               <Box
