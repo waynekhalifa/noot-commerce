@@ -33,7 +33,6 @@ const Numbers: React.FC<Props> = ({}) => {
   ];
 
   return (
-    <Section background="transparent">
       <Container maxWidth="lg">
         <Typography
           variant="h5"
@@ -54,7 +53,6 @@ const Numbers: React.FC<Props> = ({}) => {
           ))}
         </Grid>
       </Container>
-    </Section>
   );
 };
 

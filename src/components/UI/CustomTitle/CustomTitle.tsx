@@ -46,7 +46,11 @@ const CustomTitle: React.FC<Props> = ({ children }) => {
             md: "start",
             lg: "start"
           },
-          color:'#6DC45E'
+          color: {
+            lg: "#6DC45E",
+            md: "#6DC45E",
+            xs: "#267019"
+          }
         }}
       >
         {children}

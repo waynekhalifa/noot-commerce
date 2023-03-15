@@ -8,13 +8,16 @@ import circle from "@images/circle.png";
 
 const Featured: React.FC<Props> = ({}) => {
   return (
-
     <Box
       sx={{
         position: "relative",
-        pt: 8,
+        pt: {
+          lg: 8,
+          md: 8,
+          xs: "20px"
+        },
         pb: 3,
-
+        overFlow: "hidden",
         color: "common.white"
       }}
     >
@@ -42,7 +45,7 @@ const Featured: React.FC<Props> = ({}) => {
           height: {
             lg: "100%",
             md: "100%",
-            xs: "80%"
+            xs: "60%"
           },
           clipPath: {
             lg: "none",
@@ -51,18 +54,6 @@ const Featured: React.FC<Props> = ({}) => {
           }
         }}
       />
-      {/* <Box
-        sx={{
-          position: "absolute",
-          inset: 0,
-          overflow: "hidden",
-       
-          // borderRadius: "48% 52% 50% 50% / 0% 0% 100% 100%",
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 40%, 50% 100%, 0 40%)",
-          width:''
-     
-        }}
-      /> */}
       <Box sx={{ position: "absolute", inset: 0, overflow: "hidden" }}>
         <Box
           sx={{
@@ -112,58 +103,6 @@ const Featured: React.FC<Props> = ({}) => {
         />
       </Grid>
       <Box sx={{ position: "relative", zIndex: 1 }}>
-        {/* <Container
-          // maxWidth="md"
-          sx={{
-            display: {
-              lg: "flex",
-              md: "flex"
-            },
-            justifyContent: "center",
-            alignItems: {
-              md: "center",
-              lg: "center"
-            },
-            maxWidth: {
-              sx: "md"
-            }
-          }}
-        >
-          <Box flex={1}>
-            <Typography variant="h4" fontWeight={700} paragraph>
-              EVERYTHING TO
-              <br />
-              SELL ANYTHING
-            </Typography>
-            <Typography paragraph variant="h6" component="p" fontWeight={400}>
-              Start your free website trial today.
-              <br />
-              No credit card required.
-            </Typography>
-            <Button
-              variant="contained"
-              size="large"
-              sx={{
-                backgroundColor: "common.white",
-                color: "primary.main",
-                "&:hover": {
-                  backgroundColor: "common.white",
-                  color: "primary.main"
-                }
-              }}
-            >
-              get started
-            </Button>
-          </Box>
-          <Box sx={{ mt: 4 }} flex={1}>
-            <Box
-              component="img"
-              src={img.src}
-              alt="noot"
-              sx={{ display: "block", height: "auto", maxWidth: "100%" }}
-            />
-          </Box>
-        </Container> */}
         <Container
           sx={{
             display: "flex",
@@ -184,17 +123,45 @@ const Featured: React.FC<Props> = ({}) => {
               alignItems: {
                 xs: "center",
                 md: "start",
-                le: "start"
+                lg: "start"
               },
               flexDirection: "column"
             }}
           >
-            <Typography variant="h4" fontWeight={400} paragraph>
+            <Typography
+              variant="h4"
+              fontWeight={400}
+              sx={{
+                fontSize: {
+                  lg: "2.23rem",
+                  md: "2.23rem",
+                  xs: "1.5rem"
+                }
+              }}
+            >
               EVERYTHING TO
               <br />
               SELL ANYTHING
             </Typography>
-            <Typography paragraph variant="h6" component="p" fontWeight={400}>
+            <Typography
+              paragraph
+              variant="h6"
+              component="p"
+              fontWeight={400}
+              pt={1}
+              sx={{
+                lineHeight: {
+                  xs: "1",
+                  md: "1.5",
+                  lg: "1.5"
+                },
+                textAlign: {
+                  lg: "left",
+                  md: "left",
+                  xs: "center"
+                }
+              }}
+            >
               Start your free website trial today.
               <br />
               No credit card required.
