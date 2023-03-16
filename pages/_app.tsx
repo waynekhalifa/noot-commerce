@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { AppProps } from "next/app";
+import App, { AppContext, AppProps } from "next/app";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider } from "@emotion/react";
@@ -24,6 +24,9 @@ import { useRouter } from "next/router";
 import { Mode } from "@/models/app";
 import darkThemeOptions from "@/theme/darkThemeOptions";
 import { useEffect, useState } from "react";
+import { CookieValueTypes, getCookie } from "cookies-next";
+import { Cookies, Routes } from "@/constants/enums";
+import { setSession } from "@/store/appSlice";
 
 function getActiveTheme(themeMode: Mode, locale: any) {
   return themeMode === "light"
@@ -91,40 +94,24 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
 // perform automatic static optimization, causing every page in your app to
 // be server-side rendered.
 
-// MyApp.getInitialProps = wrapper.getInitialAppProps(
-//   (store) => async (appContext: AppContext) => {
-//     const ctx = await App.getInitialProps(appContext);
+MyApp.getInitialProps = wrapper.getInitialAppProps(
+  (store) => async (appContext: AppContext) => {
+    const ctx = await App.getInitialProps(appContext);
 
-//     if (!appContext.router.route.includes(Routes.ACCOUNTS)) {
-//       const cookieSession: CookieValueTypes = getCookie(Cookies.SESSION, {
-//         req: appContext.ctx.req,
-//         res: appContext.ctx.res,
-//       });
+    if (!appContext.router.route.includes(Routes.ACCOUNTS)) {
+      const cookieSession: CookieValueTypes = getCookie(Cookies.ACCESS_TOKEN, {
+        req: appContext.ctx.req,
+        res: appContext.ctx.res,
+      });
 
-//       if (cookieSession === undefined) {
-//         const sessionResponse: IResponse = await getSession(appContext);
+      if (cookieSession) {
+        const session: any = JSON.parse(cookieSession as string);
+        store.dispatch(setSession(session[0]));
+      }
+    }
 
-//         if (sessionResponse.type === Responses.SUCCESS) {
-//           setCookie(Cookies.SESSION, "true", {
-//             req: appContext.ctx.req,
-//             res: appContext.ctx.res,
-//             maxAge: 60 * 60 * 24,
-//           });
-//         } else {
-//           setCookie(Cookies.SESSION, "false", {
-//             req: appContext.ctx.req,
-//             res: appContext.ctx.res,
-//             maxAge: 60 * 60 * 24,
-//           });
-//         }
-//       } else {
-//         const session: any = JSON.parse(cookieSession as string);
-//         store.dispatch(setSession(session[0]));
-//       }
-//     }
-
-//     return { ...ctx };
-//   }
-// );
+    return { ...ctx };
+  }
+);
 
 export default MyApp;

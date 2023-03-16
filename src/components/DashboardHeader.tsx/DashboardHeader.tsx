@@ -26,7 +26,7 @@ import useUpdating from "@/hooks/useUpdating";
 
 import websiteTemplate from "@images/website-template.png";
 import { useRouter } from "next/router";
-import { Pages, Routes } from "@/constants/enums";
+import { Cookies, Routes } from "@/constants/enums";
 import { selectUser } from "@/store/appSlice";
 import { useSelector } from "react-redux";
 import { deleteCookie } from "cookies-next";
@@ -58,8 +58,10 @@ const Header: React.FC = () => {
   const handleLogout = () => {
     setState({ ...state, anchorEl: null });
     setUpdating(true);
-    deleteCookie("session");
-    push(`/${Routes.ACCOUNTS}/${Pages.LOGIN}`);
+    deleteCookie(Cookies.ACCESS_TOKEN);
+    deleteCookie(Cookies.REFRESH_TOKEN);
+    localStorage.removeItem("user");
+
     console.log("handleLogout");
   };
 

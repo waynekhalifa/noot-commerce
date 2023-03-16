@@ -13,18 +13,22 @@ export interface IUser {
 }
 
 export interface StateProps {
-  session: any;
   dateRange: any;
   mode: Mode;
   user: IUser | null;
 }
+let userValue: any;
+if (typeof window !== "undefined") {
+  userValue = JSON.parse(localStorage.getItem("user") as any)
+    ? JSON.parse(localStorage.getItem("user") as any)
+    : null;
+}
 
 // Initial state
 const initialState: StateProps = {
-  session: null,
   dateRange: null,
   mode: "light",
-  user: null,
+  user: userValue,
 };
 
 // Actual Slice
@@ -32,9 +36,6 @@ export const slice = createSlice({
   name: "app",
   initialState,
   reducers: {
-    setSession: (state: StateProps, action: PayloadAction<any>) => {
-      state.session = action.payload;
-    },
     setDateRange: (state: StateProps, action: PayloadAction<any>) => {
       state.dateRange = action.payload;
     },
@@ -56,10 +57,10 @@ export const slice = createSlice({
   },
 });
 
-export const { setSession, setDateRange, setMode, setUser } = slice.actions;
+export const { setDateRange, setMode, setUser } = slice.actions;
 
 export const selectMode = (state: AppState) => state.app.mode;
-export const selectSession = (state: AppState) => state.app.session;
+
 export const selectDateRange = (state: AppState) => state.app.dateRange;
 export const selectUser = (state: AppState) => state.app.user;
 
