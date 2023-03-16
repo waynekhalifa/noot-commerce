@@ -8,7 +8,6 @@ import {
   Link,
   Typography,
 } from "@mui/material";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import bg from "@images/accounts-bg.png";
@@ -20,7 +19,14 @@ import {
   IMediaQuery,
   IResponse,
 } from "@/models/app";
-import { AuthMessages, Pages, Responses, Routes } from "@/constants/enums";
+import {
+  AuthMessages,
+  Cookies,
+  Pages,
+  Responses,
+  Routes,
+} from "@/constants/enums";
+// import Link from "@/components/UI/Link";
 import useFormFields from "@/hooks/useFormFields";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -28,24 +34,18 @@ import useFormValidations from "@/hooks/useFormValidations";
 import FormFields from "../UI/FormFields";
 import VerificationField from "../UI/FormFields/VerficationField";
 import { useRouter } from "next/router";
-import { login, register } from "@/services/auth";
+import { login, logout, register } from "@/services/auth";
 import useConfirm from "@/hooks/useConfirm";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import useUpdating from "@/hooks/useUpdating";
-import { useCookies } from "react-cookie";
-import { setSession, setUser } from "@/store/appSlice";
-interface Props {
+import { deleteCookie, setCookie } from "cookies-next";
+import { IUser, setUser } from "@/store/appSlice";
+export interface Props {
   slug: string;
 }
 
 const Auth: React.FC<Props> = ({ slug }) => {
-  const [cookies, setCookie] = useCookies([
-    "access_token",
-    "refresh_token",
-    "session",
-  ]);
-
   const dispatch = useDispatch();
   const router = useRouter();
   const { t } = useTranslation("common");
@@ -121,6 +121,9 @@ const Auth: React.FC<Props> = ({ slug }) => {
       case Pages.REGISTER:
         response = await register(data);
         break;
+      case Pages.LOGOUT:
+        response = await logout();
+        break;
       default:
         break;
     }
@@ -131,24 +134,32 @@ const Auth: React.FC<Props> = ({ slug }) => {
         response.message === AuthMessages.REGISTER_SUCCESS
       ) {
         if (response.data) {
-          console.log(response.data);
-          dispatch(setUser(response.data));
-          dispatch(setSession(response.data.access_token));
-          router.push(`/${Routes.ACCOUNTS}/${Pages.LOGIN}`);
+          const user: IUser = {
+            first_name: response.data.first_name,
+            last_name: response.data.last_name,
+            username: response.data.username,
+            email: response.data.email,
+            id: response.data.id,
+          };
+          dispatch(setUser(user));
+          setCookie(Cookies.ACCESS_TOKEN, response.data.access_token);
+          setCookie(Cookies.REFRESH_TOKEN, response.data.refresh_token);
+          router.push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
         }
       }
       if (response.message && response.message === AuthMessages.LOGIN_SUCCESS) {
         if (response.data) {
-          console.log(response.data);
-
           dispatch(setUser(response.data.user));
-          dispatch(setSession(response.data.access));
-
-          setCookie("session", true);
-          setCookie("access_token", response.data.access);
-          setCookie("refresh_token", response.data.refresh);
+          setCookie(Cookies.ACCESS_TOKEN, response.data.access);
+          setCookie(Cookies.REFRESH_TOKEN, response.data.refresh);
           router.push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
         }
+      }
+      if (
+        response.message &&
+        response.message === AuthMessages.LOGOUT_SUCCESS
+      ) {
+        deleteCookie(Cookies.SESSION);
       }
     } else {
       if (response.message && response.message === "Default Case") {
@@ -157,9 +168,6 @@ const Auth: React.FC<Props> = ({ slug }) => {
         if (response.message!.includes("IDBDatabase")) {
           router.push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
         } else {
-          toast.error(response.message, {
-            position: toast.POSITION.TOP_RIGHT,
-          });
           setConfirm(response.message!);
         }
       }

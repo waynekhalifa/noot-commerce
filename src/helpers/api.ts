@@ -1,7 +1,7 @@
 import { IRequest } from "@/models/app";
 
 const sendRequest = async (params: IRequest): Promise<Response> => {
-  const { url, method, data, credentials } = params;
+  const { url, method, data } = params;
   const options: any = {
     method, // *GET, POST, PUT, DELETE, etc.
     headers: {
@@ -9,7 +9,7 @@ const sendRequest = async (params: IRequest): Promise<Response> => {
     },
     // mode: "cors", // no-cors, *cors, same-origin
     // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials, // include, *same-origin, omit
+    // include, *same-origin, omit
     // redirect: "follow", // manual, *follow, error
     // referrerPolicy: "no-referrer",
   };
