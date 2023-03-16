@@ -46,7 +46,6 @@ export async function register(data: any): Promise<IResponse> {
  *
  * @param data
  * @returns response
- *  authorization: `Bearer ${token}`,
  */
 export async function login(data: any): Promise<IResponse> {
   const request: IRequest = {
@@ -57,9 +56,11 @@ export async function login(data: any): Promise<IResponse> {
 
   try {
     const response: Response = await sendRequest(request);
+
     if (response.status === 401) {
       return errorResponse(new Error("Unauthorized"));
     }
+
     return successResponse(await response.json(), AuthMessages.LOGIN_SUCCESS);
   } catch (err: Error | any) {
     return errorResponse(err);

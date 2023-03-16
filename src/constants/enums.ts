@@ -110,9 +110,10 @@ export enum SortBy {
 }
 
 export enum Cookies {
-  SESSION = "session",
+  SESSION_USER = "session_user",
   ACCESS_TOKEN = "access_token",
   REFRESH_TOKEN = "refresh_token",
+  CSRF_TOKEN = "csrftoken",
 }
 
 export enum AuthMessages {

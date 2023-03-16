@@ -18,6 +18,7 @@ import {
   IFormFieldsVariables,
   IMediaQuery,
   IResponse,
+  ISessionUser,
 } from "@/models/app";
 import {
   AuthMessages,
@@ -40,7 +41,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import useUpdating from "@/hooks/useUpdating";
 import { deleteCookie, setCookie } from "cookies-next";
-import { IUser, setUser } from "@/store/appSlice";
+import { setAccessToken, setRefreshToken, setUser } from "@/store/appSlice";
 export interface Props {
   slug: string;
 }
@@ -134,24 +135,33 @@ const Auth: React.FC<Props> = ({ slug }) => {
         response.message === AuthMessages.REGISTER_SUCCESS
       ) {
         if (response.data) {
-          const user: IUser = {
+          const user: ISessionUser = {
+            id: response.data.id,
             first_name: response.data.first_name,
             last_name: response.data.last_name,
-            username: response.data.username,
             email: response.data.email,
-            id: response.data.id,
+            username: response.data.username,
           };
           dispatch(setUser(user));
+          dispatch(setAccessToken(response.data.access_token));
+          dispatch(setRefreshToken(response.data.refresh_token));
+          setCookie(Cookies.SESSION_USER, JSON.stringify(user));
           setCookie(Cookies.ACCESS_TOKEN, response.data.access_token);
           setCookie(Cookies.REFRESH_TOKEN, response.data.refresh_token);
+
           router.push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
         }
       }
       if (response.message && response.message === AuthMessages.LOGIN_SUCCESS) {
         if (response.data) {
-          dispatch(setUser(response.data.user));
+          const user: ISessionUser = { ...response.data.user };
+          dispatch(setUser(user));
+          dispatch(setAccessToken(response.data.access));
+          dispatch(setRefreshToken(response.data.refresh));
+          setCookie(Cookies.SESSION_USER, JSON.stringify(user));
           setCookie(Cookies.ACCESS_TOKEN, response.data.access);
           setCookie(Cookies.REFRESH_TOKEN, response.data.refresh);
+
           router.push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
         }
       }
@@ -159,7 +169,9 @@ const Auth: React.FC<Props> = ({ slug }) => {
         response.message &&
         response.message === AuthMessages.LOGOUT_SUCCESS
       ) {
-        deleteCookie(Cookies.SESSION);
+        deleteCookie(Cookies.SESSION_USER);
+        deleteCookie(Cookies.ACCESS_TOKEN);
+        deleteCookie(Cookies.REFRESH_TOKEN);
       }
     } else {
       if (response.message && response.message === "Default Case") {

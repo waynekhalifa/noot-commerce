@@ -20,7 +20,7 @@ const AdminPage: NextPage = () => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  const cookieSession: CookieValueTypes = getCookie(Cookies.SESSION, {
+  const cookieSession: CookieValueTypes = getCookie(Cookies.ACCESS_TOKEN, {
     req,
     res,
   });

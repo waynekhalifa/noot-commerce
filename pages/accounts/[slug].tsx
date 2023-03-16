@@ -35,6 +35,8 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   deleteCookie(Cookies.ACCESS_TOKEN, { req, res });
   deleteCookie(Cookies.REFRESH_TOKEN, { req, res });
+  deleteCookie(Cookies.SESSION_USER, { req, res });
+  deleteCookie(Cookies.CSRF_TOKEN, { req, res });
 
   if (params!.slug === Pages.LOGOUT) {
     return {

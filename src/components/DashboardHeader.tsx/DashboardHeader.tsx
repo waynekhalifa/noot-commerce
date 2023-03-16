@@ -26,10 +26,9 @@ import useUpdating from "@/hooks/useUpdating";
 
 import websiteTemplate from "@images/website-template.png";
 import { useRouter } from "next/router";
-import { Cookies, Routes } from "@/constants/enums";
+import { Pages, Routes } from "@/constants/enums";
 import { selectUser } from "@/store/appSlice";
 import { useSelector } from "react-redux";
-import { deleteCookie } from "cookies-next";
 
 interface IState {
   open: boolean;
@@ -51,18 +50,13 @@ const Header: React.FC = () => {
 
   const handleAdminProfile = async () => {
     setState({ ...state, anchorEl: null });
-
-    console.log("handleAdminProfile");
   };
 
   const handleLogout = () => {
     setState({ ...state, anchorEl: null });
     setUpdating(true);
-    deleteCookie(Cookies.ACCESS_TOKEN);
-    deleteCookie(Cookies.REFRESH_TOKEN);
-    localStorage.removeItem("user");
 
-    console.log("handleLogout");
+    push(`/${Routes.ACCOUNTS}/${Pages.LOGOUT}`);
   };
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -153,11 +147,10 @@ const Header: React.FC = () => {
               sx={{ p: 0, ml: 2 }}
               endIcon={<KeyboardArrowDownIcon fontSize="small" />}
             >
-              Wani Joseph
+              {user?.first_name} {user?.last_name}
             </Button>
           </Box>
         </Toolbar>
-        <Box>{user?.first_name}</Box>
       </AppBar>
       {renderMenu}
       <Box sx={{ py: 4, boxShadow: (theme) => theme.shadows[2] }}>

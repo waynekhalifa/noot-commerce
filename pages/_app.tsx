@@ -1,4 +1,4 @@
-import { AppProps } from "next/app";
+import App, { AppContext, AppProps } from "next/app";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import createEmotionCache from "@/helpers/createEmotionCache";
@@ -25,6 +25,9 @@ import darkThemeOptions from "@/theme/darkThemeOptions";
 import { useEffect, useState } from "react";
 import { Metadata } from "next";
 import ScrollToTop from "@/components/common/ScrollToTop";
+import { Cookies, Routes } from "@/constants/enums";
+import { CookieValueTypes, getCookie } from "cookies-next";
+import { setAccessToken, setRefreshToken, setUser } from "@/store/appSlice";
 
 export const metadata: Metadata = {
   title: {
@@ -139,24 +142,49 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
 // perform automatic static optimization, causing every page in your app to
 // be server-side rendered.
 
-// MyApp.getInitialProps = wrapper.getInitialAppProps(
-//   (store) => async (appContext: AppContext) => {
-//     const ctx = await App.getInitialProps(appContext);
+MyApp.getInitialProps = wrapper.getInitialAppProps(
+  (store) => async (appContext: AppContext) => {
+    const ctx = await App.getInitialProps(appContext);
 
-//     if (!appContext.router.route.includes(Routes.ACCOUNTS)) {
-//       const cookieSession: CookieValueTypes = getCookie(Cookies.ACCESS_TOKEN, {
-//         req: appContext.ctx.req,
-//         res: appContext.ctx.res,
-//       });
+    if (!appContext.router.route.includes(Routes.ACCOUNTS)) {
+      console.log("Not in accounts");
+      const cookieAccessToken: CookieValueTypes = getCookie(
+        Cookies.ACCESS_TOKEN,
+        {
+          req: appContext.ctx.req,
+          res: appContext.ctx.res,
+        }
+      );
+      const cookieRefreshToken: CookieValueTypes = getCookie(
+        Cookies.ACCESS_TOKEN,
+        {
+          req: appContext.ctx.req,
+          res: appContext.ctx.res,
+        }
+      );
+      const cookieSessionUser: CookieValueTypes = getCookie(
+        Cookies.SESSION_USER,
+        {
+          req: appContext.ctx.req,
+          res: appContext.ctx.res,
+        }
+      );
 
-//       if (cookieSession) {
-//         const session: any = JSON.parse(cookieSession as string);
-//         store.dispatch(setSession(session[0]));
-//       }
-//     }
+      if (
+        cookieAccessToken === undefined &&
+        cookieRefreshToken === undefined &&
+        cookieSessionUser === undefined
+      ) {
+      } else {
+        const sessionUser: any = JSON.parse(cookieSessionUser as string);
+        store.dispatch(setAccessToken(cookieAccessToken as string));
+        store.dispatch(setRefreshToken(cookieRefreshToken as string));
+        store.dispatch(setUser(sessionUser));
+      }
+    }
 
-//     return { ...ctx };
-//   }
-// );
+    return { ...ctx };
+  }
+);
 
 export default MyApp;

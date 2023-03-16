@@ -22,8 +22,6 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Pages, Routes } from "@/constants/enums";
 import ContentLoader from "../UI/ContentLoader";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
-import { selectSession } from "@/store/appSlice";
 import useUpdating from "@/hooks/useUpdating";
 import ActionLoader from "../UI/ActionLoader";
 import NavMenu from "../NavMenu";
@@ -43,7 +41,6 @@ interface IState {
 const INITIAL_STATE: IState = { open: false, anchorEl: null };
 
 const Admin: FC<Props> = ({ slug }) => {
-  const session: any = useSelector(selectSession);
   const [state, setState] = useState(INITIAL_STATE);
   const { open, anchorEl } = state;
   const { push } = useRouter();
@@ -56,7 +53,7 @@ const Admin: FC<Props> = ({ slug }) => {
   const handleAdminProfile = async () => {
     setState({ ...state, anchorEl: null });
 
-    push(`/${Routes.ADMIN}/${Pages.USERS}/${session.id}`);
+    // push(`/${Routes.ADMIN}/${Pages.USERS}/${session.id}`);
   };
 
   const handleLogout = () => {
