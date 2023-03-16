@@ -105,8 +105,7 @@ export interface IRequest {
   url: string;
   method: string;
   data?: any;
-  credentials?: string;
-  credentialToken?: {};
+  token?: string;
 }
 
 export interface ISessionUser {

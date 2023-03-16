@@ -2,6 +2,13 @@ export const schema: any = {
   models: {
     Product: {
       fields: {
+        name: {
+          type: "array",
+          required: false,
+          items: {
+            type: "translation",
+          },
+        },
         description: {
           type: "array",
           required: false,

@@ -116,7 +116,7 @@ const useApi = (slug: string, singleName: string) => {
 
           if (value.type === FieldTypes.INTEGER) {
             fields.push({
-              type: InputTypes.NUMBER,
+              type: InputTypes.TEXT,
               name: key,
               label: key,
             });

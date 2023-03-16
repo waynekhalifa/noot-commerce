@@ -1,14 +1,17 @@
 import FormFields from "@/components/UI/FormFields";
 import useApi from "@/hooks/useApi";
-import { IFormField } from "@/models/app";
-import { Box } from "@mui/material";
+import { IFormField, IResponse } from "@/models/app";
+import { selectAccessToken } from "@/store/appSlice";
+import { Box, Button, CircularProgress } from "@mui/material";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 
 interface Props {
   slug: string;
 }
 
 const Listing: React.FC<Props> = ({ slug }) => {
+  const token: string = useSelector(selectAccessToken);
   const api = useApi(slug, "Product");
 
   const DEFAULT_VALUES: any = {};
@@ -17,20 +20,19 @@ const Listing: React.FC<Props> = ({ slug }) => {
     DEFAULT_VALUES[field.name] = "";
   }
 
-  console.log(api.fields);
-
   const {
     control,
     handleSubmit,
-    watch,
-    formState: { errors },
+    formState: { isSubmitting, errors },
   } = useForm<any>({
     mode: "onChange",
     defaultValues: DEFAULT_VALUES,
   });
 
   const onSubmit: SubmitHandler<any> = async (data: any) => {
-    console.log(data);
+    const response: IResponse = await api.create(data, token);
+
+    console.log({ response });
   };
 
   return (
@@ -47,6 +49,16 @@ const Listing: React.FC<Props> = ({ slug }) => {
           errors={errors}
         />
       ))}
+      <Button
+        size="large"
+        type="submit"
+        variant="contained"
+        disableElevation
+        disableRipple
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? <CircularProgress /> : "save"}
+      </Button>
     </Box>
   );
 };

@@ -1,3 +1,8 @@
+import {
+  CreateProductInput,
+  ProductItemInput,
+  TranslationInput,
+} from "./../models/api";
 import { PRODUCTS } from "@/constants/endpoints";
 import { Methods } from "@/constants/enums";
 import sendRequest from "@/helpers/api";
@@ -50,13 +55,46 @@ export async function get(params: IGetVariables): Promise<IResponse> {
   }
 }
 
-export async function create(data: any): Promise<IResponse> {
-  const request: IRequest = { url: PRODUCTS, method: Methods.POST, data };
+export async function create(data: any, token?: string): Promise<IResponse> {
+  const name: TranslationInput = {
+    is_ltr: true,
+    text: data.name,
+    translation_type: 1,
+    lang: 1,
+  };
+  const description: TranslationInput = {
+    is_ltr: true,
+    text: data.description,
+    translation_type: 1,
+    lang: 1,
+  };
+  const item: ProductItemInput = {
+    name: [name],
+    discount: parseInt(data.discount),
+    price: parseInt(data.price),
+    quantity: parseInt(data.quantity),
+    product: parseInt(data.product),
+  };
+  const productData: CreateProductInput = {
+    description: [description],
+    items: [item],
+    category: parseInt(data.category),
+  };
+  const request: IRequest = {
+    url: PRODUCTS,
+    method: Methods.POST,
+    data: productData,
+    token,
+  };
 
   try {
     const response: Response = await sendRequest(request);
 
-    return successResponse(await response.json());
+    const responseData = await response.json();
+
+    console.log({ responseData });
+
+    return successResponse(null);
   } catch (err: Error | any) {
     return errorResponse(err);
   }

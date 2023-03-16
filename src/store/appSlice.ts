@@ -55,6 +55,8 @@ export const { setDateRange, setAccessToken, setRefreshToken, setUser } =
   slice.actions;
 
 export const selectDateRange = (state: AppState) => state.app.dateRange;
+export const selectAccessToken = (state: AppState) => state.app.accessToken;
+export const selectRefreshToken = (state: AppState) => state.app.refreshToken;
 export const selectUser = (state: AppState) => state.app.user;
 
 export default slice.reducer;
