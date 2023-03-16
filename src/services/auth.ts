@@ -29,12 +29,14 @@ export async function register(data: any): Promise<IResponse> {
 
   try {
     const response: Response = await sendRequest(request);
+
     if (response.status === 201) {
       return successResponse(
         await response.json(),
         AuthMessages.REGISTER_SUCCESS
       );
     }
+    
     return errorResponse(new Error("Failed to Signup"));
   } catch (err: Error | any) {
     return errorResponse(err);

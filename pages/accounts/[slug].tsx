@@ -33,12 +33,14 @@ export const getServerSideProps: GetServerSideProps = async ({
   req,
   res,
 }) => {
-  deleteCookie(Cookies.ACCESS_TOKEN, { req, res });
-  deleteCookie(Cookies.REFRESH_TOKEN, { req, res });
-  deleteCookie(Cookies.SESSION_USER, { req, res });
-  deleteCookie(Cookies.CSRF_TOKEN, { req, res });
+  // @TODO should check if user is logged in and redirect to dashboard
 
   if (params!.slug === Pages.LOGOUT) {
+    deleteCookie(Cookies.ACCESS_TOKEN, { req, res });
+    deleteCookie(Cookies.REFRESH_TOKEN, { req, res });
+    deleteCookie(Cookies.SESSION_USER, { req, res });
+    deleteCookie(Cookies.CSRF_TOKEN, { req, res });
+
     return {
       redirect: {
         destination: `/${Routes.ACCOUNTS}/${Pages.LOGIN}`,

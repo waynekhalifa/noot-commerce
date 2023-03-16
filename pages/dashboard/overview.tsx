@@ -3,25 +3,13 @@ import DashboardHeader from "@/components/Dashboard/DashboardHeader.tsx/Dashboar
 import { GetServerSideProps } from "next";
 import { Cookies, Pages, Routes } from "@/constants/enums";
 import { CookieValueTypes, getCookie } from "cookies-next";
-import { ParsedUrlQuery } from "querystring";
-import { useRouter } from "next/router";
-import UserDashboard from "@/components/UserDashboard";
-
-export interface PostPageQuery extends ParsedUrlQuery {
-  page?: string;
-  sort_by?: string;
-  sort_order?: string;
-  slug?: string;
-}
+import DashboardWidgets from "@/components/Dashboard/DashboardWidgets";
 
 const Dashboard: NextPage = () => {
-  const router = useRouter();
-  const query = router.query as PostPageQuery;
-
   return (
     <>
       <DashboardHeader />
-      <UserDashboard slug={query.slug!} />
+      <DashboardWidgets />
     </>
   );
 };
