@@ -8,11 +8,14 @@ import circle from "@images/circle.png";
 
 const Featured: React.FC<Props> = ({}) => {
   return (
-
     <Box
       sx={{
         position: "relative",
-        pt: 8,
+        pt: {
+          lg: 8,
+          md: 8,
+          xs: 1
+        },
         pb: 3,
 
         color: "common.white"
@@ -112,58 +115,6 @@ const Featured: React.FC<Props> = ({}) => {
         />
       </Grid>
       <Box sx={{ position: "relative", zIndex: 1 }}>
-        {/* <Container
-          // maxWidth="md"
-          sx={{
-            display: {
-              lg: "flex",
-              md: "flex"
-            },
-            justifyContent: "center",
-            alignItems: {
-              md: "center",
-              lg: "center"
-            },
-            maxWidth: {
-              sx: "md"
-            }
-          }}
-        >
-          <Box flex={1}>
-            <Typography variant="h4" fontWeight={700} paragraph>
-              EVERYTHING TO
-              <br />
-              SELL ANYTHING
-            </Typography>
-            <Typography paragraph variant="h6" component="p" fontWeight={400}>
-              Start your free website trial today.
-              <br />
-              No credit card required.
-            </Typography>
-            <Button
-              variant="contained"
-              size="large"
-              sx={{
-                backgroundColor: "common.white",
-                color: "primary.main",
-                "&:hover": {
-                  backgroundColor: "common.white",
-                  color: "primary.main"
-                }
-              }}
-            >
-              get started
-            </Button>
-          </Box>
-          <Box sx={{ mt: 4 }} flex={1}>
-            <Box
-              component="img"
-              src={img.src}
-              alt="noot"
-              sx={{ display: "block", height: "auto", maxWidth: "100%" }}
-            />
-          </Box>
-        </Container> */}
         <Container
           sx={{
             display: "flex",
@@ -189,12 +140,43 @@ const Featured: React.FC<Props> = ({}) => {
               flexDirection: "column"
             }}
           >
-            <Typography variant="h4" fontWeight={400} paragraph>
+            <Typography
+              variant="h4"
+              fontWeight={400}
+              pt={1}
+              sx={{
+                fontSize: {
+                  lg: "2.125rem",
+                  md: "2.125rem",
+                  xs: "1.5rem"
+                },
+                marginBottom: {
+                  lg: "1rem",
+                  md: "1rem",
+                  xs: "1rem"
+                }
+              }}
+            >
               EVERYTHING TO
               <br />
               SELL ANYTHING
             </Typography>
-            <Typography paragraph variant="h6" component="p" fontWeight={400}>
+            <Typography
+              sx={{
+                lineHeight: {
+                  lg: "1.25",
+                  md: "1.25",
+                  xs: "1"
+                },
+                textAlign: {
+                  lg: "start",
+                  md: "start",
+                  xs: "center"
+                }
+              }}
+              variant="h6"
+              fontWeight={400}
+            >
               Start your free website trial today.
               <br />
               No credit card required.
@@ -210,6 +192,11 @@ const Featured: React.FC<Props> = ({}) => {
                 "&:hover": {
                   backgroundColor: "common.white",
                   color: "primary.main"
+                },
+                marginTop: {
+                  lg: "1.4rem",
+                  md: "1rem",
+                  xs: "1rem"
                 }
               }}
             >

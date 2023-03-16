@@ -10,7 +10,7 @@ const Section: React.FC<Props> = ({ background, children }) => (
   <Box
     component="section"
     sx={{
-      pt: 8,
+      pt: 4,
       backgroundColor: background === "white" ? "common.white" : "transparent",
       overflow: "hidden",
       zIndex: "1"
