@@ -26,6 +26,7 @@ export enum Pages {
   USERS = "users",
   OVERVIEW = "overview",
   FEATURES = "features",
+  PRODUCTS = "products",
 }
 
 export enum FormActions {
@@ -133,4 +134,9 @@ export enum Methods {
 }
 export enum Credentials {
   include = "include",
+}
+
+export enum FieldTypes {
+  INTEGER = "integer",
+  ARRAY = "array",
 }

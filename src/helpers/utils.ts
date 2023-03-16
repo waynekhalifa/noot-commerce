@@ -218,3 +218,8 @@ export function excerpt(str: string, maxLength: number): string {
 
   return str;
 }
+
+export function camelCaseToSpaces(text: string): string {
+  const result: string = text.replace(/([A-Z])/g, " $1");
+  return result.charAt(0).toUpperCase() + result.slice(1);
+}

@@ -5,7 +5,7 @@ import { Cookies, Pages, Routes } from "@/constants/enums";
 import { CookieValueTypes, getCookie } from "cookies-next";
 import { ParsedUrlQuery } from "querystring";
 import { useRouter } from "next/router";
-import UserDashboard from "@/components/UserDashboard";
+import Admin from "@/components/Admin";
 
 export interface PostPageQuery extends ParsedUrlQuery {
   page?: string;
@@ -21,7 +21,7 @@ const Dashboard: NextPage = () => {
   return (
     <>
       <DashboardHeader />
-      <UserDashboard slug={query.slug!} />
+      <Admin slug={query.slug!} />
     </>
   );
 };

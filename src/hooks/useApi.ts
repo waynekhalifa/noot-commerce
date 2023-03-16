@@ -2,9 +2,9 @@ import { useDispatch } from "react-redux";
 
 import useResource from "@/resources/useResource";
 import { schema } from "@/models/schema";
-import { convertToCamelCase } from "@/helpers/utils";
+import { camelCaseToSpaces, convertToCamelCase } from "@/helpers/utils";
 import { IFormField } from "@/models/app";
-import { Pages } from "@/constants/enums";
+import { FieldTypes, InputTypes, Pages } from "@/constants/enums";
 import { setListing, setSelected } from "@/store/resourceSlice";
 
 const useApi = (slug: string, singleName: string) => {
@@ -67,9 +67,60 @@ const useApi = (slug: string, singleName: string) => {
           schema.models[singleName].fields
         )) {
           const key = attribute[0];
-          const value = attribute[1];
+          const value: any = attribute[1];
 
-          console.log({ key, value });
+          if (value.type === FieldTypes.ARRAY) {
+            if (value.items.type === "translation") {
+              const field: IFormField = {
+                name: key,
+                label: camelCaseToSpaces(key),
+                type:
+                  value.type === "boolean"
+                    ? InputTypes.CHECKBOX
+                    : InputTypes.TEXT,
+              };
+
+              if (fields.length === 0) {
+                field.autoFocus = true;
+              }
+
+              fields.push(field);
+            }
+
+            if (value.items.type === "productItem") {
+              fields.push(
+                {
+                  type: InputTypes.TEXT,
+                  name: "quantity",
+                  label: "Quantity",
+                  autoFocus: fields.length === 0 ? true : false,
+                },
+                {
+                  type: InputTypes.TEXT,
+                  name: "price",
+                  label: "Price",
+                },
+                {
+                  type: InputTypes.TEXT,
+                  name: "discount",
+                  label: "Discount",
+                },
+                {
+                  type: InputTypes.TEXT,
+                  name: "product",
+                  label: "Product",
+                }
+              );
+            }
+          }
+
+          if (value.type === FieldTypes.INTEGER) {
+            fields.push({
+              type: InputTypes.NUMBER,
+              name: key,
+              label: key,
+            });
+          }
         }
 
         api.fields = fields;
