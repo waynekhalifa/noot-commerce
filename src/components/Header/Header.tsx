@@ -52,15 +52,14 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               mr: 2,
               display: { xs: "none", md: "flex" },
               color: "transparent",
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
             <Logo />
           </Box>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
-              size="large"
+              edge="start"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
@@ -73,17 +72,17 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
-                horizontal: "left"
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "left"
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" }
+                display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
@@ -162,7 +161,7 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
                 fontSize: "16px",
                 color: "white",
                 fontWeight: "400",
-                cursor: "pointer"
+                cursor: "pointer",
               }}
             >
               GET STARTED

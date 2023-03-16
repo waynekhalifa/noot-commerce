@@ -1,7 +1,5 @@
 import { Container, Grid, Typography } from "@mui/material";
 
-import Section from "../UI/Section";
-
 interface ClientProps {
   number: any;
 }
@@ -29,32 +27,30 @@ const Numbers: React.FC<Props> = ({}) => {
     { number: 570, title: "Download" },
     { number: 570, title: "Active User" },
     { number: 570, title: "Positive Feedback" },
-    { number: 570, title: "+ rating" }
+    { number: 570, title: "+ rating" },
   ];
 
   return (
-    <Section background="transparent">
-      <Container maxWidth="lg">
-        <Typography
-          variant="h5"
-          fontWeight={700}
-          textAlign="center"
-          color="text.secondary"
-        >{`Don't Just Take`}</Typography>
-        <Typography
-          paragraph
-          variant="h5"
-          fontWeight={700}
-          textAlign="center"
-          color="text.secondary"
-        >{`our Word for it!`}</Typography>
-        <Grid container sx={{ paddingTop: "1rem" }}>
-          {numbers.map((number, index) => (
-            <Number number={number} key={index} />
-          ))}
-        </Grid>
-      </Container>
-    </Section>
+    <Container maxWidth="lg">
+      <Typography
+        variant="h5"
+        fontWeight={700}
+        textAlign="center"
+        color="text.secondary"
+      >{`Don't Just Take`}</Typography>
+      <Typography
+        paragraph
+        variant="h5"
+        fontWeight={700}
+        textAlign="center"
+        color="text.secondary"
+      >{`our Word for it!`}</Typography>
+      <Grid container sx={{ paddingTop: "1rem" }}>
+        {numbers.map((number, index) => (
+          <Number number={number} key={index} />
+        ))}
+      </Grid>
+    </Container>
   );
 };
 
