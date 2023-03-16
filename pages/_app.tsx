@@ -1,5 +1,4 @@
-import Head from "next/head";
-import App, { AppContext, AppProps } from "next/app";
+import { AppProps } from "next/app";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import createEmotionCache from "@/helpers/createEmotionCache";
@@ -73,8 +72,6 @@ export const metadata: Metadata = {
     yandex: "14d2e73487fa6c71",
   },
 };
-import { CookieValueTypes, getCookie } from "cookies-next";
-import { Cookies, Routes } from "@/constants/enums";
 // import { setSession } from '@/store/appSlice';
 
 function getActiveTheme(themeMode: Mode, locale: any) {
@@ -162,4 +159,4 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
 //   }
 // );
 
-// export default MyApp;
+export default MyApp;
