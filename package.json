@@ -52,5 +52,8 @@
     "next-translate": "^2.0.2",
     "next-translate-plugin": "^2.0.2",
     "typescript": "^4.9.5"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/Kareem2002Shimes/noot-commerce.git",
+  "author": "Kareem2002Shimes <kareem4shimas@gmail.com>"
 }
