@@ -20,14 +20,14 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     res,
   });
 
-  if (!cookieSession) {
-    return {
-      redirect: {
-        destination: `/${Routes.ACCOUNTS}/${Pages.LOGIN}`,
-        permanent: false,
-      },
-    };
-  }
+  // if (!cookieSession) {
+  //   return {
+  //     redirect: {
+  //       destination: `/${Routes.ACCOUNTS}/${Pages.LOGIN}`,
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
   return { props: {} };
 };

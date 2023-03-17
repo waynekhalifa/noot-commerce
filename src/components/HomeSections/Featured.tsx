@@ -5,6 +5,7 @@ interface Props {}
 import img from "@images/laptop-preview.png";
 import circles from "@images/circles.png";
 import circle from "@images/circle.png";
+import Link from "next/link";
 
 const Featured: React.FC<Props> = ({}) => {
   return (
@@ -146,7 +147,7 @@ const Featured: React.FC<Props> = ({}) => {
               pt={1}
               sx={{
                 fontSize: {
-                  lg: "2.125rem",
+                  lg: "3.125rem",
                   md: "2.125rem",
                   xs: "1.5rem"
                 },
@@ -154,6 +155,11 @@ const Featured: React.FC<Props> = ({}) => {
                   lg: "1rem",
                   md: "1rem",
                   xs: "1rem"
+                },
+                fontWeight: {
+                  lg: "700",
+                  md: "700",
+                  xs: "400"
                 }
               }}
             >
@@ -181,6 +187,8 @@ const Featured: React.FC<Props> = ({}) => {
               <br />
               No credit card required.
             </Typography>
+
+            <Link href="/dashboard/overview">
             <Button
               variant="contained"
               size="large"
@@ -199,9 +207,10 @@ const Featured: React.FC<Props> = ({}) => {
                   xs: "1rem"
                 }
               }}
-            >
+              >
               get started
             </Button>
+              </Link>
           </Box>
           <Box flex={2}>
             <Box

@@ -341,7 +341,7 @@ const Services: React.FC<ServicesProps> = ({}) => {
                   }}
                 >
                   <Typography
-                    variant="h6"
+                    variant="h5"
                     sx={{
                       margin: {
                         xs: "0px 3px",
