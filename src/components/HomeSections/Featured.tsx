@@ -15,7 +15,7 @@ const Featured: React.FC<Props> = ({}) => {
         pt: {
           lg: 8,
           md: 8,
-          xs: 1
+          xs: "4.5rem"
         },
         pb: 3,
 
@@ -52,21 +52,10 @@ const Featured: React.FC<Props> = ({}) => {
             lg: "none",
             md: "none",
             xs: "polygon(0% 0%, 100% 0%, 100% 40%, 50% 100%, 0 40%)"
-          }
+          },
+          top: "4rem"
         }}
       />
-      {/* <Box
-        sx={{
-          position: "absolute",
-          inset: 0,
-          overflow: "hidden",
-       
-          // borderRadius: "48% 52% 50% 50% / 0% 0% 100% 100%",
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 40%, 50% 100%, 0 40%)",
-          width:''
-     
-        }}
-      /> */}
       <Box sx={{ position: "absolute", inset: 0, overflow: "hidden" }}>
         <Box
           sx={{
@@ -149,7 +138,7 @@ const Featured: React.FC<Props> = ({}) => {
                 fontSize: {
                   lg: "3.125rem",
                   md: "2.125rem",
-                  xs: "1.5rem"
+                  xs: "1.7rem"
                 },
                 marginBottom: {
                   lg: "1rem",
@@ -159,7 +148,7 @@ const Featured: React.FC<Props> = ({}) => {
                 fontWeight: {
                   lg: "700",
                   md: "700",
-                  xs: "400"
+                  xs: "600"
                 }
               }}
             >
@@ -189,28 +178,28 @@ const Featured: React.FC<Props> = ({}) => {
             </Typography>
 
             <Link href="/dashboard/overview">
-            <Button
-              variant="contained"
-              size="large"
-              sx={{
-                backgroundColor: "common.white",
-                borderRadius: "25px",
-                letterSpacing: "2px",
-                color: "primary.main",
-                "&:hover": {
+              <Button
+                variant="contained"
+                size="large"
+                sx={{
                   backgroundColor: "common.white",
-                  color: "primary.main"
-                },
-                marginTop: {
-                  lg: "1.4rem",
-                  md: "1rem",
-                  xs: "1rem"
-                }
-              }}
+                  borderRadius: "25px",
+                  letterSpacing: "2px",
+                  color: "primary.main",
+                  "&:hover": {
+                    backgroundColor: "common.white",
+                    color: "primary.main"
+                  },
+                  marginTop: {
+                    lg: "1.4rem",
+                    md: "1rem",
+                    xs: "1rem"
+                  }
+                }}
               >
-              get started
-            </Button>
-              </Link>
+                get started
+              </Button>
+            </Link>
           </Box>
           <Box flex={2}>
             <Box
