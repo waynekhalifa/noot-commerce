@@ -113,7 +113,7 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                 },
 
                 width: {
-                  md: "18%",
+                  md: "22%",
                   lg: "18%"
                 },
                 height: {
@@ -127,11 +127,11 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                 transform: "rotate(45deg)",
                 zIndex: "-1",
                 left: {
-                  md: "23rem",
+                  md: "-11rem",
                   lg: "-13rem"
                 },
                 top: {
-                  md: "2rem",
+                  md: "4rem",
                   lg: "2rem"
                 },
                 opacity: "0.31"
@@ -152,7 +152,7 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                 },
 
                 width: {
-                  md: "18%",
+                  md: "22%",
                   lg: "18%"
                 },
                 height: {
@@ -166,11 +166,11 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                 transform: "rotate(45deg)",
                 zIndex: "-1",
                 left: {
-                  md: "23rem",
+                  md: "-13rem",
                   lg: "-15rem"
                 },
                 top: {
-                  md: "2rem",
+                  md: "4rem",
                   lg: "2rem"
                 },
                 opacity: "0.31"
@@ -191,7 +191,7 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                 },
 
                 width: {
-                  md: "18%",
+                  md: "22%",
                   lg: "18%"
                 },
                 height: {
@@ -205,11 +205,11 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                 transform: "rotate(45deg)",
                 zIndex: "-1",
                 left: {
-                  md: "23rem",
+                  md: "-15rem",
                   lg: "-17rem"
                 },
                 top: {
-                  md: "2rem",
+                  md: "4rem",
                   lg: "2rem"
                 },
                 opacity: "0.31"

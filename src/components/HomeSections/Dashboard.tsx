@@ -12,27 +12,6 @@ const CreateWebsite: React.FC<Props> = ({}) => {
     <Section background="transparent">
       <Box sx={{ position: "relative", overflow: "hidden", zIndex: "10" }}>
         <Container maxWidth="lg">
-          {/* <Grid container>
-            <Grid item xs={12}>
-              <CustomTitle>Best Platform for the Technological Era</CustomTitle>
-              <Typography paragraph>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                takimata sanctus est Lorem ipsum dolor sit amet
-              </Typography>
-              <AboutSuccessBtn />
-            </Grid>
-            <Grid item xs={12} sx={{ pt: { xs: 8, md: 0 } }}>
-              <Box
-                component="img"
-                src={dashboard.src}
-                alt="noot"
-                sx={{ display: "block", height: "auto", maxWidth: "100%" }}
-              />
-            </Grid>
-          </Grid> */}
           {/* ------------- on small screens--------------- */}
           <Box
             sx={{
@@ -57,7 +36,7 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                   transform: "rotate(150deg)",
                   zIndex: "-1",
                   left: "6rem",
-                  top: "24rem",
+                  top: "21rem",
                   opacity: "0.31"
                 }}
               />
@@ -74,7 +53,7 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                   transform: "rotate(150deg)",
                   zIndex: "-1",
                   left: "7rem",
-                  top: "25rem",
+                  top: "22rem",
                   opacity: "0.31"
                 }}
               />
@@ -91,11 +70,11 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                   transform: "rotate(150deg)",
                   zIndex: "-1",
                   left: "6rem",
-                  top: "25rem",
+                  top: "22rem",
                   opacity: "0.41"
                 }}
               />
-              <Grid item xs={12} md={6} lg={6} sx={{ pt: { xs: 8, md: 0 } }}>
+              <Grid item xs={12} md={6} lg={6} sx={{ pt: { md: 0 } }}>
                 <CenterTitle>
                   Best Platform for the Technological Era
                 </CenterTitle>
@@ -145,15 +124,15 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                   },
 
                   width: {
-                    md: "14%",
+                    md: "20%",
                     lg: "15%"
                   },
                   height: {
-                    md: "78%",
+                    md: "70%",
                     lg: "78%"
                   },
 
-                  transform: "rotate(45deg)",
+                  transform: "rotate(35deg)",
                   zIndex: "-1",
                   left: {
                     lg: "67rem",
@@ -161,7 +140,7 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                   },
                   top: {
                     lg: "3rem",
-                    md: "3rem"
+                    md: "5rem"
                   },
                   opacity: "0.31"
                 }}
@@ -181,25 +160,25 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                   },
 
                   width: {
-                    md: "14%",
+                    md: "20%",
                     lg: "16%"
                   },
                   height: {
-                    md: "78%",
+                    md: "70%",
                     lg: "78%"
                   },
                   clipPath: {
                     md: "none",
                     lg: "none"
                   },
-                  transform: "rotate(45deg)",
+                  transform: "rotate(35deg)",
                   zIndex: "-1",
                   left: {
                     md: "45rem",
                     lg: "65rem"
                   },
                   top: {
-                    md: "2.8rem",
+                    md: "5.8rem",
                     lg: "2.7rem"
                   },
                   opacity: "0.31"
@@ -220,25 +199,25 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                   },
 
                   width: {
-                    md: "14%",
+                    md: "20%",
                     lg: "13%"
                   },
                   height: {
-                    md: "78%",
+                    md: "70%",
                     lg: "78%"
                   },
                   clipPath: {
                     md: "none",
                     lg: "none"
                   },
-                  transform: "rotate(45deg)",
+                  transform: "rotate(35deg)",
                   zIndex: "-1",
                   left: {
                     md: "46rem",
                     lg: "66rem"
                   },
                   top: {
-                    md: "3rem",
+                    md: "5rem",
                     lg: "2.4rem"
                   },
                   opacity: "0.31"

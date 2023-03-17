@@ -2,7 +2,6 @@ import LinearGradientBtn from "@/components/LinearGradientBtn";
 import Section from "@/components/UI/Section/Section";
 import Widget from "@/components/UI/Widget/Widget";
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
-
 const DashboardWidgets = () => {
   return (
     <Section background="transparent">
@@ -14,7 +13,7 @@ const DashboardWidgets = () => {
           flexDirection="row"
         >
           <Box>
-            <Typography variant="h4" sx={{ color: "#12948f" }}>
+            <Typography variant="h5" sx={{ color: "#12948f" }}>
               Management Center
             </Typography>
             <Typography variant="h5">
@@ -40,7 +39,7 @@ const DashboardWidgets = () => {
               fontWeight: "700",
               fontSize: {
                 md: "2rem",
-                lg: "2.2rem"
+                lg: "2rem"
               },
 
               lineHeight: "1,25"
@@ -59,7 +58,7 @@ const DashboardWidgets = () => {
               fontSize: {
                 xs: "0.95rem",
                 md: "2rem",
-                lg: "1.5rem"
+                lg: "1.2rem"
               },
               maxWidth: {
                 xs: "100%",
