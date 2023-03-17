@@ -16,16 +16,16 @@ export const schema: any = {
             type: "translation",
           },
         },
+        category: {
+          type: "integer",
+          required: true,
+        },
         items: {
           type: "array",
           required: true,
           items: {
             type: "productItem",
           },
-        },
-        category: {
-          type: "integer",
-          required: true,
         },
       },
     },

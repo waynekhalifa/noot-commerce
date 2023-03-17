@@ -65,17 +65,17 @@ export async function create(data: any, token?: string): Promise<IResponse> {
   const description: TranslationInput = {
     is_ltr: true,
     text: data.description,
-    translation_type: 1,
+    translation_type: 2,
     lang: 1,
   };
   const item: ProductItemInput = {
-    name: [name],
-    discount: parseInt(data.discount),
+    // discount: parseInt(data.discount),
     price: parseInt(data.price),
     quantity: parseInt(data.quantity),
-    product: parseInt(data.product),
+    // product: parseInt(data.product),
   };
   const productData: CreateProductInput = {
+    name: [name],
     description: [description],
     items: [item],
     category: parseInt(data.category),

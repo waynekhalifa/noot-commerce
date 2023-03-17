@@ -6,15 +6,15 @@ export type TranslationInput = {
 };
 
 export type ProductItemInput = {
-  name: Array<TranslationInput>;
-  discount: number;
+  discount?: number;
   price: number;
   quantity: number;
-  product: number;
+  product?: number;
 };
 
 export type CreateProductInput = {
   id?: number;
+  name: Array<TranslationInput>;
   description: Array<TranslationInput>;
   items: Array<ProductItemInput>;
   category: number;
