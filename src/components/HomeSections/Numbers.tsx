@@ -27,11 +27,20 @@ const Numbers: React.FC<Props> = ({}) => {
     { number: 570, title: "Download" },
     { number: 570, title: "Active User" },
     { number: 570, title: "Positive Feedback" },
-    { number: 570, title: "+ rating" },
+    { number: 570, title: "+ rating" }
   ];
 
   return (
-    <Container maxWidth="lg">
+    <Container
+      maxWidth="lg"
+      sx={{
+        marginTop: {
+          lg: "2.5rem",
+          md: "2rem",
+          xs: "1rem"
+        }
+      }}
+    >
       <Typography
         variant="h5"
         fontWeight={700}

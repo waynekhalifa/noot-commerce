@@ -46,7 +46,16 @@ const Services: React.FC<ServicesProps> = ({}) => {
   return (
     <Section background="transparent">
       <Clients />
-      <Container maxWidth="lg" sx={{paddingTop:'4rem'}}>
+      <Container
+        maxWidth="lg"
+        sx={{
+          paddingTop: {
+            lg: "4rem",
+            md: "4rem",
+            xs: "1rem"
+          }
+        }}
+      >
         <Grid container>
           <Grid item xs={12} md={6} lg={6}>
             {/* on large screens */}
@@ -326,4 +335,3 @@ const Services: React.FC<ServicesProps> = ({}) => {
 };
 
 export default Services;
-

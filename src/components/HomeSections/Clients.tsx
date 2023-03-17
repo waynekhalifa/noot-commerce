@@ -13,13 +13,13 @@ interface ClientProps {
 
 const Client: React.FC<ClientProps> = ({ client }) => {
   return (
-    <Section background="transparent">
+    <>
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          zIndex: "9999"
+          zIndex: "100"
         }}
       >
         <Box
@@ -29,7 +29,7 @@ const Client: React.FC<ClientProps> = ({ client }) => {
           sx={{ display: "block", height: "auto", maxWidth: "100%" }}
         />
       </Box>
-    </Section>
+    </>
   );
 };
 
@@ -47,7 +47,11 @@ const Clients: React.FC<Props> = ({}) => {
         alignItems: "center",
         padding: "0rem 1rem",
         zIndex: "100",
-        paddingTop:'3rem'
+        paddingTop:{
+          lg:'3rem',
+          md:'3rem',
+          xs:'0rem'
+        }
       }}
     >
       {clients.map((client, index) => (
