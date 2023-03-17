@@ -46,7 +46,8 @@ const Clients: React.FC<Props> = ({}) => {
         justifyContent: "center",
         alignItems: "center",
         padding: "0rem 1rem",
-        zIndex: "9999"
+        zIndex: "100",
+        paddingTop:'3rem'
       }}
     >
       {clients.map((client, index) => (

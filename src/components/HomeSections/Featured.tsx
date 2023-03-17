@@ -78,8 +78,8 @@ const Featured: React.FC<Props> = ({}) => {
       <Box
         sx={{
           position: "absolute",
-          top: "8%",
-          left: "4%",
+          top: "13%",
+          left: "0%",
           width: "24%",
           overflow: "hidden"
         }}
@@ -177,7 +177,7 @@ const Featured: React.FC<Props> = ({}) => {
               No credit card required.
             </Typography>
 
-            <Link href="/dashboard/overview">
+            <Link href="/dashboard/overview" style={{textDecoration:'none'}}>
               <Button
                 variant="contained"
                 size="large"

@@ -124,7 +124,8 @@ const NewHeader: React.FC<Props> = ({
                 sx={{
                   fontWeight: "200",
                   marginTop: "1rem",
-                  marginLeft: "0.75rem"
+                  marginLeft: "0.75rem",
+                  cursor: "pointer"
                 }}
                 onClick={closeBurgerNav}
               />
@@ -185,38 +186,7 @@ const NewHeader: React.FC<Props> = ({
             </Box>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                edge="start"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={openBurgerNav}
-              >
-                <MenuIcon />
-              </IconButton>
-              {/* <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left"
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left"
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" }
-              }}
-            ></Menu> */}
-              {/* {pages.map((page) => (
-                                        <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                          <Typography textAlign="center">{page}</Typography>
-                                        </MenuItem>
-                                      ))} */}
+              <MenuIcon onClick={openBurgerNav} sx={{ cursor: "pointer" }} />
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (

@@ -5,6 +5,7 @@ import AboutSuccessBtn from "../AboutSuccessBtn";
 import Link from "next/link";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import CenterTitle from "../UI/CenterTitle";
+import Clients from "./Clients";
 
 interface NumberingTitleProps {
   title: string;
@@ -44,7 +45,8 @@ interface ServicesProps {}
 const Services: React.FC<ServicesProps> = ({}) => {
   return (
     <Section background="transparent">
-      <Container maxWidth="lg">
+      <Clients />
+      <Container maxWidth="lg" sx={{paddingTop:'4rem'}}>
         <Grid container>
           <Grid item xs={12} md={6} lg={6}>
             {/* on large screens */}
@@ -89,48 +91,7 @@ const Services: React.FC<ServicesProps> = ({}) => {
             </Typography>
             <AboutSuccessBtn />
           </Grid>
-          {/* <Grid item xs={12} md={6} lg={6} sx={{ pt: { xs: 8, md: 0 } }}>
-            <Grid container>
-              <Grid item xs={12} sx={{ mb: 8 }}>
-                <NumberingTitle title="1" subtitle="Create a website" />
-                <Typography>
-                  Select from any of our industry-leading website templates,
-                  designer fonts, and color palettes that best fit your personal
-                  style and professional needs.
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sx={{ mb: 8 }}>
-                <NumberingTitle title="2" subtitle="Ecommerce made easy" />
-                <Typography>
-                  Explore which tools you want to add—whether it’s setting up an
-                  online store, booking services, or adding your favorite
-                  third-party extensions.
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sx={{ mb: 8 }}>
-                <NumberingTitle title="3" subtitle="Market your business" />
-                <Typography>
-                  Stand out in every inbox and social feed. On-brand email
-                  campaigns and social tools make it easy to retain customers
-                  and grow your audience.
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sx={{ mb: 8 }}>
-                <Button
-                  size="large"
-                  sx={{ p: 0, fontSize: "1.15rem" }}
-                  endIcon={
-                    <ArrowRightAltIcon
-                      fontSize="large"
-                      sx={{ transform: "scale(1.5)" }}
-                    />
-                  }
-                >
-                  Get started
-                </Button>
-              </Grid>
-            </Grid>
-          </Grid> */}
+
           <Grid
             item
             xs={12}
@@ -205,13 +166,13 @@ const Services: React.FC<ServicesProps> = ({}) => {
                   zIndex: "-1",
                   left: {
                     xs: "16rem",
-                    md: "23rem",
+                    md: "26rem",
                     lg: "45rem"
                   },
                   top: {
                     xs: "none",
                     md: "-3rem",
-                    lg: "-3rem"
+                    lg: "-6rem"
                   },
                   opacity: "0.31"
                 }}
@@ -251,13 +212,13 @@ const Services: React.FC<ServicesProps> = ({}) => {
                   zIndex: "-1",
                   left: {
                     xs: "19rem",
-                    md: "25rem",
+                    md: "28rem",
                     lg: "48rem"
                   },
                   top: {
                     xs: "none",
                     md: "-3rem",
-                    lg: "-3rem"
+                    lg: "-6rem"
                   },
                   opacity: "0.64"
                 }}
@@ -297,13 +258,13 @@ const Services: React.FC<ServicesProps> = ({}) => {
                   zIndex: "-1",
                   left: {
                     xs: "22rem",
-                    md: "27rem",
+                    md: "30rem",
                     lg: "52rem"
                   },
                   top: {
                     xs: "none",
                     md: "-3rem",
-                    lg: "-3rem"
+                    lg: "-6rem"
                   },
                   opacity: "1.00"
                 }}
@@ -341,7 +302,7 @@ const Services: React.FC<ServicesProps> = ({}) => {
                   }}
                 >
                   <Typography
-                    variant="h5"
+                    variant="h6"
                     sx={{
                       margin: {
                         xs: "0px 3px",
@@ -366,50 +327,3 @@ const Services: React.FC<ServicesProps> = ({}) => {
 
 export default Services;
 
-// <Container maxWidth="lg">
-// <Grid container>
-//   <Grid item xs={12} md={6} lg={6}>
-//     <CustomTitle>
-//       Acceleration Process to
-//       <br />
-//       Grow Your Business
-//     </CustomTitle>
-//     <Typography paragraph>
-//       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-//       nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-//       erat, sed diam voluptua. At vero eos et accusam et justo duo
-//       dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-//       sanctus est Lorem ipsum dolor sit amet
-//     </Typography>
-//     <AboutUsBtn />
-//   </Grid>
-//   <Grid item xs={12} md={6} lg={6} sx={{ pt: { xs: 8, md: 0 } }}>
-//     <Grid container>
-//       <Grid item xs={6} md={6} lg={6} sx={{ mb: 8 }}>
-//         <NumberingTitle title="1" subtitle="Market Research" />
-//         <Typography>
-//           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-//           diam nonumy eirmod tempor invidunt ut labore et dolore magna
-//           aliquyam erat, sed diam voluptua.
-//         </Typography>
-//       </Grid>
-//       <Grid item xs={6} md={6} lg={6} sx={{ mb: 8 }}>
-//         <NumberingTitle title="2" subtitle="Market Research" />
-//         <Typography>
-//           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-//           diam nonumy eirmod tempor invidunt ut labore et dolore magna
-//           aliquyam erat, sed diam voluptua.
-//         </Typography>
-//       </Grid>
-//       <Grid item xs={6} md={6} lg={6} sx={{ mb: 8 }}>
-//         <NumberingTitle title="3" subtitle="Market Research" />
-//         <Typography>
-//           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-//           diam nonumy eirmod tempor invidunt ut labore et dolore magna
-//           aliquyam erat, sed diam voluptua.
-//         </Typography>
-//       </Grid>
-//     </Grid>
-//   </Grid>
-// </Grid>
-// </Container>

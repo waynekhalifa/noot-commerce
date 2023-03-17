@@ -15,9 +15,14 @@ interface Props {
 const HomeSections: React.FC<Props> = ({ burger }) => {
   return (
     // sx={{display:`${burger ? 'none' : 'block'}`}}
-    <Box sx={{ maxHeight: `${burger ? "calc( 100vh - 4rem )" : "100%"}` }}>
+    <Box
+      sx={{
+        height: `${burger ? "calc( 100vh - 4rem )" : "100%"}`,
+        overflow: "hidden"
+      }}
+    >
       <Featured />
-      <Clients />
+      {/* <Clients /> */}
       <Services />
       <CreateWebsite />
       <TryNoot />
