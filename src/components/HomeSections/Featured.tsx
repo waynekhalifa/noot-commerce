@@ -5,6 +5,7 @@ interface Props {}
 import img from "@images/laptop-preview.png";
 import circles from "@images/circles.png";
 import circle from "@images/circle.png";
+import Link from "next/link";
 
 const Featured: React.FC<Props> = ({}) => {
   return (
@@ -14,7 +15,7 @@ const Featured: React.FC<Props> = ({}) => {
         pt: {
           lg: 8,
           md: 8,
-          xs: 1
+          xs: "4.5rem"
         },
         pb: 3,
 
@@ -51,21 +52,10 @@ const Featured: React.FC<Props> = ({}) => {
             lg: "none",
             md: "none",
             xs: "polygon(0% 0%, 100% 0%, 100% 40%, 50% 100%, 0 40%)"
-          }
+          },
+          top: "4rem"
         }}
       />
-      {/* <Box
-        sx={{
-          position: "absolute",
-          inset: 0,
-          overflow: "hidden",
-       
-          // borderRadius: "48% 52% 50% 50% / 0% 0% 100% 100%",
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 40%, 50% 100%, 0 40%)",
-          width:''
-     
-        }}
-      /> */}
       <Box sx={{ position: "absolute", inset: 0, overflow: "hidden" }}>
         <Box
           sx={{
@@ -88,8 +78,8 @@ const Featured: React.FC<Props> = ({}) => {
       <Box
         sx={{
           position: "absolute",
-          top: "8%",
-          left: "4%",
+          top: "13%",
+          left: "0%",
           width: "24%",
           overflow: "hidden"
         }}
@@ -146,14 +136,19 @@ const Featured: React.FC<Props> = ({}) => {
               pt={1}
               sx={{
                 fontSize: {
-                  lg: "2.125rem",
+                  lg: "3.125rem",
                   md: "2.125rem",
-                  xs: "1.5rem"
+                  xs: "1.7rem"
                 },
                 marginBottom: {
                   lg: "1rem",
                   md: "1rem",
                   xs: "1rem"
+                },
+                fontWeight: {
+                  lg: "700",
+                  md: "700",
+                  xs: "600"
                 }
               }}
             >
@@ -181,27 +176,30 @@ const Featured: React.FC<Props> = ({}) => {
               <br />
               No credit card required.
             </Typography>
-            <Button
-              variant="contained"
-              size="large"
-              sx={{
-                backgroundColor: "common.white",
-                borderRadius: "25px",
-                letterSpacing: "2px",
-                color: "primary.main",
-                "&:hover": {
+
+            <Link href="/dashboard/overview" style={{textDecoration:'none'}}>
+              <Button
+                variant="contained"
+                size="large"
+                sx={{
                   backgroundColor: "common.white",
-                  color: "primary.main"
-                },
-                marginTop: {
-                  lg: "1.4rem",
-                  md: "1rem",
-                  xs: "1rem"
-                }
-              }}
-            >
-              get started
-            </Button>
+                  borderRadius: "25px",
+                  letterSpacing: "2px",
+                  color: "primary.main",
+                  "&:hover": {
+                    backgroundColor: "common.white",
+                    color: "primary.main"
+                  },
+                  marginTop: {
+                    lg: "1.4rem",
+                    md: "1rem",
+                    xs: "1rem"
+                  }
+                }}
+              >
+                get started
+              </Button>
+            </Link>
           </Box>
           <Box flex={2}>
             <Box

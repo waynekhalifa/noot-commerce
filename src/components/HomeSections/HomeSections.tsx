@@ -3,24 +3,33 @@ import CreateWebsite from "./CreateWebsite";
 import Featured from "./Featured";
 import Services from "./Services";
 import TryNoot from "./TryNoot";
-import Dashbaord from "./Dashbaord";
-import BussinessProcess from "./BussinessProcess";
+import Dashboard from "./Dashboard";
+import BusinessProcess from "./BusinessProcess";
 import Testimonials from "./Testimonials";
+import { Box } from "@mui/material";
 
-interface Props {}
+interface Props {
+  burger: boolean;
+}
 
-const HomeSections: React.FC<Props> = ({}) => {
+const HomeSections: React.FC<Props> = ({ burger }) => {
   return (
-    <>
+    // sx={{display:`${burger ? 'none' : 'block'}`}}
+    <Box
+      sx={{
+        height: `${burger ? "calc( 100vh - 4rem )" : "100%"}`,
+        overflow: "hidden"
+      }}
+    >
       <Featured />
-      <Clients />
+      {/* <Clients /> */}
       <Services />
       <CreateWebsite />
       <TryNoot />
-      <Dashbaord />
-      <BussinessProcess />
+      <Dashboard />
+      <BusinessProcess />
       <Testimonials />
-    </>
+    </Box>
   );
 };
 

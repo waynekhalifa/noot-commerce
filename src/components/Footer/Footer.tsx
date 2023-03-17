@@ -19,6 +19,9 @@ interface NumberingTitleProps {
   title: string;
   content: string;
 }
+interface FooterProps {
+  burger: boolean;
+}
 
 const ContactCircle: React.FC<NumberingTitleProps> = ({ title, content }) => {
   return (
@@ -91,7 +94,7 @@ const CustomTitle: React.FC<TitleProps> = ({ text }) => {
   );
 };
 
-const Footer: React.FC = () => {
+const Footer: React.FC<FooterProps> = ({ burger }) => {
   const usefulLinks: any[] = ["TOS", "Privacy Policy", "Refund Policy"];
   const terms: any[] = ["Blog", "Pricing", "About"];
   const support: any[] = [
@@ -104,7 +107,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer>
+    <footer style={{ display: `${burger ? "none" : "block"}` }}>
       <Box
         sx={{
           pt: 2,
