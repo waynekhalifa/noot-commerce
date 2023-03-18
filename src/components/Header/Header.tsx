@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -42,7 +41,7 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
   };
 
   return (
-    <nav  style={{ backgroundColor: "transparent", position:'sticky' }}>
+    <nav style={{ backgroundColor: "transparent", position: "sticky" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box
@@ -52,7 +51,7 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               mr: 2,
               display: { xs: "none", md: "flex" },
               color: "transparent",
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
             <Logo />
@@ -72,17 +71,17 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
-                horizontal: "left"
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "left"
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" }
+                display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
@@ -133,7 +132,7 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
                 color: "white",
                 fontWeight: "400",
                 cursor: "pointer",
-                textDecoration: "none"
+                textDecoration: "none",
               }}
             >
               GET STARTED

@@ -12,6 +12,7 @@ import { useState } from "react";
 import Logo from "../Header/Logo";
 import CloseIcon from "@mui/icons-material/Close";
 import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 const variants = {
   hidden: {
@@ -19,8 +20,8 @@ const variants = {
     height: "0vh",
     transition: {
       staggerChildren: 1.3,
-      duration: 0.4
-    }
+      duration: 0.4,
+    },
     // transitionEnd: { display: "none" }
   },
   show: {
@@ -28,29 +29,29 @@ const variants = {
     height: "100vh",
     transition: {
       staggerChildren: 1.3,
-      duration: 0.6
-    }
-  }
+      duration: 0.6,
+    },
+  },
 };
 const list = {
   show: {
     opacity: 1,
-    transition: { when: "afterChildren" }
+    transition: { when: "afterChildren" },
   },
   hide: {
     opacity: 0,
-    transition: { when: "afterChildren" }
-  }
+    transition: { when: "afterChildren" },
+  },
 };
 const item = {
   show: {
     opacity: 1,
-    transition: { when: "afterChildren" }
+    transition: { when: "afterChildren" },
   },
   hide: {
     opacity: 0,
-    transition: { duration: 0.6 }
-  }
+    transition: { duration: 0.6 },
+  },
 };
 
 const pages = ["Products", "Pricing", "Blog"];
@@ -67,10 +68,11 @@ const NewHeader: React.FC<Props> = ({
   elevation,
   openBurgerNav,
   closeBurgerNav,
-  burger
+  burger,
 }) => {
   const theme = useTheme();
   const [showNav, setShowNav] = useState<boolean>(false);
+  const { push } = useRouter();
 
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -86,6 +88,13 @@ const NewHeader: React.FC<Props> = ({
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
     setShowNav(false);
+  };
+  const handleNavigate = (page: string): any => {
+    page === "Products"
+      ? push("/products")
+      : page === "Pricing"
+      ? push("/pricing")
+      : push("blog");
   };
 
   const handleCloseUserMenu = () => {
@@ -107,7 +116,7 @@ const NewHeader: React.FC<Props> = ({
               // height: `${showNav ? "100vh" : "0"}`,
               backgroundColor: `${
                 theme.palette.mode === "light" ? "white" : "#161617"
-              }`
+              }`,
               // bottom: "100%",
               // left: 0,
               // right: 0,
@@ -117,7 +126,7 @@ const NewHeader: React.FC<Props> = ({
             <Box
               sx={{
                 width: "100%",
-                height: "3rem"
+                height: "3rem",
               }}
             >
               <CloseIcon
@@ -125,7 +134,7 @@ const NewHeader: React.FC<Props> = ({
                   fontWeight: "200",
                   marginTop: "1rem",
                   marginLeft: "0.75rem",
-                  cursor: "pointer"
+                  cursor: "pointer",
                 }}
                 onClick={closeBurgerNav}
               />
@@ -145,7 +154,7 @@ const NewHeader: React.FC<Props> = ({
                       listStyle: "none",
                       fontSize: "1.6rem",
                       font: "San Francisco, Helvetica, Arial, san-serif",
-                      fontWeight: "600"
+                      fontWeight: "600",
                     }}
                   >
                     {page}
@@ -167,7 +176,7 @@ const NewHeader: React.FC<Props> = ({
           height: "4rem",
           width: "100%",
           zIndex: 100,
-          backdropFilter: "saturate(180%) blur(20px)"
+          backdropFilter: "saturate(180%) blur(20px)",
         }}
       >
         <Container maxWidth="xl">
@@ -179,7 +188,7 @@ const NewHeader: React.FC<Props> = ({
                 mr: 2,
                 display: { xs: "none", md: "flex" },
                 color: "transparent",
-                textDecoration: "none"
+                textDecoration: "none",
               }}
             >
               <Logo />
@@ -192,7 +201,10 @@ const NewHeader: React.FC<Props> = ({
               {pages.map((page) => (
                 <Button
                   key={page}
-                  onClick={handleCloseNavMenu}
+                  onClick={() => {
+                    handleCloseNavMenu();
+                    handleNavigate(page);
+                  }}
                   sx={{ my: 2, display: "block", fontSize: "1.1rem" }}
                 >
                   {page}
@@ -212,7 +224,7 @@ const NewHeader: React.FC<Props> = ({
                   color: "white",
                   fontWeight: "400",
                   cursor: "pointer",
-                  textDecoration: "none"
+                  textDecoration: "none",
                 }}
               >
                 GET STARTED
