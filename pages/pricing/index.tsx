@@ -3,6 +3,7 @@ import { Box } from "@mui/system";
 import { useState } from "react";
 import type { NextPage } from "next";
 import { Typography } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import Wides from "@/components/pricingWidges/Wides";
 
 interface Props {
@@ -13,7 +14,8 @@ const PricicngPage: NextPage<Props> = ({ toggleTheme }) => {
     {
       header: {
         title: "Personal",
-        p: "Grow your personal brand with a professional website.",
+        p: "Grow your personal brand",
+        icon: "/images/icons/PersonalIcon.png",
       },
       features: {
         title: ["Connect your domain", "3GB storage", "2GB bandwidth"],
@@ -23,6 +25,7 @@ const PricicngPage: NextPage<Props> = ({ toggleTheme }) => {
       header: {
         title: "Premium",
         p: "Billed annually",
+        icon: "/images/icons/PremiumIcon.png",
       },
       features: {
         title: ["Connect your domain", "3GB storage", "2GB bandwidth"],
@@ -32,6 +35,7 @@ const PricicngPage: NextPage<Props> = ({ toggleTheme }) => {
       header: {
         title: "Business",
         p: "Billed annually",
+        icon: "/images/icons/BusinessIcon.png",
       },
       features: {
         title: ["Connect your domain", "3GB storage", "2GB bandwidth"],
@@ -39,8 +43,9 @@ const PricicngPage: NextPage<Props> = ({ toggleTheme }) => {
     },
     {
       header: {
-        title: "Business",
+        title: "Enterprise",
         p: "Billed annually",
+        icon: "/images/icons/EnterpriseIcon.png",
       },
       features: {
         title: ["Connect your domain", "3GB storage", "2GB bandwidth"],
@@ -270,19 +275,21 @@ const PricicngPage: NextPage<Props> = ({ toggleTheme }) => {
         </Box>
         {/* landing end */}
         {/* widges start */}
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
 
-            paddingTop: "180px",
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            padding: "180px",
+            "@media(max-width:1200px)": {
+              padding: "180px 15px 0",
+            },
           }}
         >
           {widges.map((widge: any) => (
             <Wides key={widge} widge={widge} />
           ))}
-        </Box>
+        </Grid>
 
         {/* widges end */}
       </Box>
