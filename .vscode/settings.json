@@ -12,5 +12,21 @@
   },
   "editor.codeActionsOnSave": {
     "source.removeUnusedImports": true
-  }
+  },
+  "cSpell.words": [
+    "adipiscing",
+    "adiscing",
+    "amet",
+    "dapibus",
+    "egestas",
+    "eget",
+    "elit",
+    "enim",
+    "Mauris",
+    "Pricingg",
+    "quis",
+    "sapien",
+    "ultrices",
+    "varius"
+  ]
 }

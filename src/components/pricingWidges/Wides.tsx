@@ -74,7 +74,7 @@ const Wides = ({ widge }: any) => {
             </Button>
             <Box>
               {widge.features.title.map((title: any) => (
-                <Box sx={{ display: "flex" }}>
+                <Box sx={{ display: "flex" }} key={title}>
                   <CheckIcon sx={{ color: "#6EC55E", margin: "0 5px" }} />
                   <Box component={"div"} sx={{ color: "primary.main" }}>
                     {title}
