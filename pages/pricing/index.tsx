@@ -9,7 +9,7 @@ import Wides from "@/components/pricingWidges/Wides";
 interface Props {
   toggleTheme?: React.MouseEventHandler<HTMLButtonElement>;
 }
-const PricicngPage: NextPage<Props> = ({ toggleTheme }) => {
+const PricingPage: NextPage<Props> = ({ toggleTheme }) => {
   const [widges, setWidges] = useState([
     {
       header: {
@@ -303,4 +303,4 @@ const PricicngPage: NextPage<Props> = ({ toggleTheme }) => {
   );
 };
 
-export default PricicngPage;
+export default PricingPage;

@@ -2,17 +2,16 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { useTheme } from "@mui/material";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import { useState } from "react";
 import Logo from "../Header/Logo";
 import CloseIcon from "@mui/icons-material/Close";
 import { AnimatePresence, motion } from "framer-motion";
-import { useRouter } from "next/router";
 
 const variants = {
   hidden: {
@@ -20,8 +19,8 @@ const variants = {
     height: "0vh",
     transition: {
       staggerChildren: 1.3,
-      duration: 0.4,
-    },
+      duration: 0.4
+    }
     // transitionEnd: { display: "none" }
   },
   show: {
@@ -29,78 +28,54 @@ const variants = {
     height: "100vh",
     transition: {
       staggerChildren: 1.3,
-      duration: 0.6,
-    },
-  },
+      duration: 0.6
+    }
+  }
 };
 const list = {
   show: {
     opacity: 1,
-    transition: { when: "afterChildren" },
+    transition: { when: "afterChildren" }
   },
   hide: {
     opacity: 0,
-    transition: { when: "afterChildren" },
-  },
+    transition: { when: "afterChildren" }
+  }
 };
 const item = {
   show: {
     opacity: 1,
-    transition: { when: "afterChildren" },
+    transition: { when: "afterChildren" }
   },
   hide: {
     opacity: 0,
-    transition: { duration: 0.6 },
-  },
+    transition: { duration: 0.6 }
+  }
 };
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = [
+  { name: "PRODUCTS", familiarName: "/products" },
+  { name: "TEMPLATES", familiarName: "/templates" },
+  { name: "RESOURCES", familiarName: "/resources" },
+  { name: "PRICING", familiarName: "/pricing" }
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 interface Props {
   toggleTheme?: React.MouseEventHandler<HTMLButtonElement>;
-  elevation?: number;
   openBurgerNav: () => void;
   closeBurgerNav: () => void;
   burger: boolean;
 }
 const NewHeader: React.FC<Props> = ({
   toggleTheme,
-  elevation,
   openBurgerNav,
   closeBurgerNav,
-  burger,
+  burger
 }) => {
   const theme = useTheme();
-  const [showNav, setShowNav] = useState<boolean>(false);
-  const { push } = useRouter();
-
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-    setShowNav(true);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-    setShowNav(false);
-  };
-  const handleNavigate = (page: string): any => {
-    page === "Products"
-      ? push("/products")
-      : page === "Pricing"
-      ? push("/pricing")
-      : push("blog");
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
+  const router = useRouter();
+  const { push } = router;
+  const { pathname } = router;
   return (
     <Box sx={{ position: "absolute", zIndex: "9999", minWidth: "100vw" }}>
       <AnimatePresence mode="wait">
@@ -112,21 +87,15 @@ const NewHeader: React.FC<Props> = ({
             exit="hidden"
             style={{
               width: "100%",
-              // position: "absolute",
-              // height: `${showNav ? "100vh" : "0"}`,
               backgroundColor: `${
                 theme.palette.mode === "light" ? "white" : "#161617"
-              }`,
-              // bottom: "100%",
-              // left: 0,
-              // right: 0,
-              // transition: " 1.5s ease"
+              }`
             }}
           >
             <Box
               sx={{
                 width: "100%",
-                height: "3rem",
+                height: "3rem"
               }}
             >
               <CloseIcon
@@ -134,18 +103,20 @@ const NewHeader: React.FC<Props> = ({
                   fontWeight: "200",
                   marginTop: "1rem",
                   marginLeft: "0.75rem",
-                  cursor: "pointer",
+                  cursor: "pointer"
                 }}
                 onClick={closeBurgerNav}
               />
             </Box>
-            <Box sx={{ padding: "2rem" }}>
+            <Box sx={{ padding: "2rem", width: "fit-content" }}>
               {pages.map((page) => (
                 <motion.ul
                   variants={list}
                   animate="hidden"
-                  key={page}
-                  onClick={handleCloseNavMenu}
+                  key={page.name}
+                  onClick={() => {
+                    push(`${page.familiarName}`);
+                  }}
                 >
                   <motion.li
                     initial="hidden"
@@ -154,10 +125,30 @@ const NewHeader: React.FC<Props> = ({
                       listStyle: "none",
                       fontSize: "1.6rem",
                       font: "San Francisco, Helvetica, Arial, san-serif",
-                      fontWeight: "600",
+                      fontWeight: "600"
                     }}
                   >
-                    {page}
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "start",
+                        justifyContent: "center",
+                        flexDirection: "column"
+                      }}
+                    >
+                      {page.name}
+                      <Box
+                        component="span"
+                        sx={{
+                          width: `${
+                            page.familiarName === `${pathname}` ? "100%" : "0%"
+                          }`,
+                          height: "2px",
+                          backgroundColor: "#06B7B7",
+                          borderRadius: "10px"
+                        }}
+                      />
+                    </Box>
                   </motion.li>
                 </motion.ul>
               ))}
@@ -176,7 +167,7 @@ const NewHeader: React.FC<Props> = ({
           height: "4rem",
           width: "100%",
           zIndex: 100,
-          backdropFilter: "saturate(180%) blur(20px)",
+          backdropFilter: "saturate(180%) blur(20px)"
         }}
       >
         <Container maxWidth="xl">
@@ -188,7 +179,7 @@ const NewHeader: React.FC<Props> = ({
                 mr: 2,
                 display: { xs: "none", md: "flex" },
                 color: "transparent",
-                textDecoration: "none",
+                textDecoration: "none"
               }}
             >
               <Logo />
@@ -200,14 +191,42 @@ const NewHeader: React.FC<Props> = ({
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Button
-                  key={page}
+                  disableElevation
+                  disableRipple
+                  key={page.name}
                   onClick={() => {
-                    handleCloseNavMenu();
-                    handleNavigate(page);
+                    push(`${page.familiarName}`);
                   }}
-                  sx={{ my: 2, display: "block", fontSize: "1.1rem" }}
+                  sx={{
+                    my: 2,
+                    display: "block",
+                    fontSize: "1.1rem",
+                    "&:hover": {
+                      background: "none"
+                    }
+                  }}
                 >
-                  {page}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "start",
+                      justifyContent: "center",
+                      flexDirection: "column"
+                    }}
+                  >
+                    {page.name}
+                    <Box
+                      component="span"
+                      sx={{
+                        width: `${
+                          page.familiarName === `${pathname}` ? "100%" : "0%"
+                        }`,
+                        height: "2px",
+                        backgroundColor: "#06B7B7",
+                        borderRadius: "10px"
+                      }}
+                    />
+                  </Box>
                 </Button>
               ))}
             </Box>
@@ -224,7 +243,7 @@ const NewHeader: React.FC<Props> = ({
                   color: "white",
                   fontWeight: "400",
                   cursor: "pointer",
-                  textDecoration: "none",
+                  textDecoration: "none"
                 }}
               >
                 GET STARTED
