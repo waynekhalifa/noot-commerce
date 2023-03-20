@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { NextPage } from "next";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import Header from "@/components/Header";
+import { NextSeo } from "next-seo";
 
 interface Props {
   toggleTheme?: React.MouseEventHandler<HTMLButtonElement>;
@@ -16,6 +17,10 @@ const ProductsPage: NextPage<Props> = ({ toggleTheme }) => {
   };
   return (
     <>
+     <NextSeo
+        title="Products"
+        description="Next SEO packages simplifies the SEO management in Next Apps with less configurations"
+      />
       <Header
         toggleTheme={toggleTheme}
         openBurgerNav={openBurgerNav}

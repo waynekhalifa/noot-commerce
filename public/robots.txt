@@ -1,0 +1,7 @@
+User-agent: *
+User-agent: Googlebot
+Disallow: /nogooglebot/
+Allow: /
+
+
+Sitemap: https://www.noot.ae/sitemap.xml

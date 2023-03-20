@@ -11,7 +11,7 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-  Typography,
+  Typography
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -28,6 +28,7 @@ import NavMenu from "../NavMenu";
 import LangSwitcher from "../UI/LangSwitcher";
 import { selectUser } from "@/store/appSlice";
 import { IModelName, IResourceName, ISessionUser } from "@/models/app";
+import { NextSeo } from "next-seo";
 
 const Overview = dynamic(() => import("./Overview")) as any;
 const Listing = dynamic(() => import("./Listing")) as any;
@@ -100,19 +101,19 @@ const Admin: FC<Props> = ({ resourceName, singleName, action, id }) => {
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "bottom",
-        horizontal: "right",
+        horizontal: "right"
       }}
       id={menuId}
       keepMounted
       transformOrigin={{
         vertical: "bottom",
-        horizontal: "right",
+        horizontal: "right"
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
       sx={{
         ".MuiPaper-root": { borderRadius: 0 },
-        ".MuiList-root": { padding: 0 },
+        ".MuiList-root": { padding: 0 }
       }}
     >
       <MenuItem onClick={handleAdminProfile}>
@@ -132,6 +133,7 @@ const Admin: FC<Props> = ({ resourceName, singleName, action, id }) => {
 
   return (
     <>
+      <NextSeo title="Dashboard" description="test editing seo Dashboard" />
       <AppBar
         position="absolute"
         elevation={0}
@@ -140,7 +142,7 @@ const Admin: FC<Props> = ({ resourceName, singleName, action, id }) => {
           // backgroundColor: "common.white",
           borderBottom: "1px solid",
           borderColor: "divider",
-          color: "primary.main",
+          color: "primary.main"
         }}
       >
         <Toolbar>
@@ -178,7 +180,7 @@ const Admin: FC<Props> = ({ resourceName, singleName, action, id }) => {
           width: "100vw",
           height: "100vh",
           overflowY: "scroll",
-          px: 2,
+          px: 2
           // backgroundColor: "grey.100",
         }}
       >
@@ -190,7 +192,7 @@ const Admin: FC<Props> = ({ resourceName, singleName, action, id }) => {
       <Backdrop
         sx={{
           zIndex: (theme) => theme.zIndex.drawer - 1,
-          alignItems: "flex-start",
+          alignItems: "flex-start"
           // backgroundColor: "rgba(225,225,225,0.5)",
         }}
         open={open}
@@ -209,7 +211,7 @@ const Admin: FC<Props> = ({ resourceName, singleName, action, id }) => {
           sx={{
             display: "flex",
             justifyContent: "flex-end",
-            p: 1,
+            p: 1
           }}
         >
           <IconButton onClick={toggleDrawer}>

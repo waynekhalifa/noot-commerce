@@ -6,6 +6,7 @@ import { Container, Stack, Switch } from "@mui/material";
 import PricingBox from "./PricingBox";
 import OffersList from "./OffersList";
 import Breadcrumb from "@/components/common/Breadcrumb";
+import { NextSeo } from "next-seo";
 
 interface Props {
   toggleTheme?: React.MouseEventHandler<HTMLButtonElement>;
@@ -23,6 +24,10 @@ const PricingPage: NextPage<Props> = ({ toggleTheme }) => {
 
   return (
     <>
+      <NextSeo
+        title="Pricing"
+        description="Next SEO packages simplifies the SEO management in Next Apps with less configurations"
+      />
       <Box>
         <Header
           toggleTheme={toggleTheme}
