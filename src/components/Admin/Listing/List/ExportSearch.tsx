@@ -51,7 +51,7 @@ const ExportSearch: React.FC<Props> = ({ handleChange }) => {
           justifyContent: "space-between",
           maxWidth: { xs: "calc(100% - 120px)", md: "auto" },
           flex: 1,
-          backgroundColor: "common.white",
+          // backgroundColor: "common.white",
           borderRadius: "6px",
           overflow: "hidden",
         }}

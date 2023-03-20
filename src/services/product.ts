@@ -198,6 +198,12 @@ export const headCells: readonly HeadCell[] = [
     label: "Name",
   },
   {
+    id: "description",
+    numeric: false,
+    disablePadding: false,
+    label: "Description",
+  },
+  {
     id: "createdBy",
     numeric: false,
     disablePadding: false,
@@ -209,12 +215,12 @@ export const headCells: readonly HeadCell[] = [
     disablePadding: false,
     label: "Date",
   },
-  {
-    id: "actions",
-    numeric: true,
-    disablePadding: false,
-    label: "",
-  },
+  // {
+  //   id: "actions",
+  //   numeric: true,
+  //   disablePadding: false,
+  //   label: "",
+  // },
 ];
 
-export const dataCells: readonly string[] = ["name"];
+export const dataCells: readonly string[] = ["name", "description"];

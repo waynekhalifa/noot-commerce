@@ -145,17 +145,18 @@ const Form: React.FC<Props> = ({
           <Grid item xs={12} lg={3}>
             <SubmitButton action={action} isSubmitting={isSubmitting} />
 
-            {api.images.map((field: any) => (
-              <FormFields
-                {...field}
-                key={field.name}
-                control={control}
-                errors={errors}
-                watch={watch}
-                setValue={setValue}
-                register={register}
-              />
-            ))}
+            {api.images &&
+              api.images.map((field: any) => (
+                <FormFields
+                  {...field}
+                  key={field.name}
+                  control={control}
+                  errors={errors}
+                  watch={watch}
+                  setValue={setValue}
+                  register={register}
+                />
+              ))}
           </Grid>
         </Grid>
       </form>

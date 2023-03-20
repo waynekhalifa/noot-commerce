@@ -13,7 +13,6 @@ import {
   Typography,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import DeleteIcon from "@mui/icons-material/Delete";
 
 import { IApiVariables, IModelName, IResourceName, Order } from "@/models/app";
 import ExportSearch from "./ExportSearch";
@@ -151,7 +150,7 @@ const Listing: React.FC<Props> = ({ resourceName, singleName }) => {
             borderColor: "divider",
             my: 2,
             position: "relative",
-            backgroundColor: "common.white",
+            // backgroundColor: "common.white",
             minHeight: 360,
           }}
         >
@@ -243,7 +242,7 @@ const Listing: React.FC<Props> = ({ resourceName, singleName }) => {
                               : new Date().toISOString().split("T")[0]}
                           </Typography>
                         </TableCell>
-                        <TableCell padding="checkbox">
+                        {/* <TableCell padding="checkbox">
                           <Button
                             variant="outlined"
                             color="error"
@@ -254,7 +253,7 @@ const Listing: React.FC<Props> = ({ resourceName, singleName }) => {
                           >
                             Delete
                           </Button>
-                        </TableCell>
+                        </TableCell> */}
                       </TableRow>
                     );
                   }
