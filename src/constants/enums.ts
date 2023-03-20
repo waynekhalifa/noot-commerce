@@ -32,6 +32,12 @@ export enum Pages {
   MEDIA_LIBRARY = "media-library",
 }
 
+export enum Models {
+  PRODUCT = "Product",
+  ORDER = "Order",
+  USER = "User",
+}
+
 export enum FormActions {
   CREATE = "Create",
   UPDATE = "Update",

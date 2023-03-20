@@ -2,13 +2,19 @@ import ActionLoader from "@/components/UI/ActionLoader";
 import { Responses } from "@/constants/enums";
 import useApi from "@/hooks/useApi";
 import useLoading from "@/hooks/useLoading";
-import { IApiVariables, IGetVariables, IResponse } from "@/models/app";
+import {
+  IApiVariables,
+  IGetVariables,
+  IModelName,
+  IResourceName,
+  IResponse,
+} from "@/models/app";
 import { useEffect, useState } from "react";
 import Form from "../Form";
 
 interface Props {
-  resourceName: string;
-  singleName: string;
+  resourceName: IResourceName;
+  singleName: IModelName;
   action: string;
   id: string;
 }

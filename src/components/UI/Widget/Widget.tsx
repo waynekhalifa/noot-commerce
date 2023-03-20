@@ -1,6 +1,8 @@
-import { Box, Button, Stack, useTheme } from "@mui/material";
+import { Box, Button, Stack } from "@mui/material";
 import example from "@images/example.png";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
+import { useRouter } from "next/router";
+import { Pages, Routes } from "@/constants/enums";
 
 interface Props {
   title: string;
@@ -9,7 +11,9 @@ interface Props {
 }
 
 const Widget: React.FC<Props> = ({ title, btnContent, description }) => {
-  const theme = useTheme();
+  const { push } = useRouter();
+
+  const handleClick = () => push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
 
   return (
     <>
@@ -21,7 +25,7 @@ const Widget: React.FC<Props> = ({ title, btnContent, description }) => {
           background: "transparent",
           borderRadius: "140px",
           padding: 1,
-          border: "1px solid gray"
+          border: "1px solid gray",
         }}
       >
         <Stack
@@ -31,8 +35,7 @@ const Widget: React.FC<Props> = ({ title, btnContent, description }) => {
             width: "100%",
             height: "100%",
             background: "#0d9353",
-            // hsl(152.16deg 86.21% 28.43%)
-            borderRadius: "140px"
+            borderRadius: "140px",
           }}
         >
           <Stack
@@ -48,7 +51,7 @@ const Widget: React.FC<Props> = ({ title, btnContent, description }) => {
                 height: "19rem",
                 borderRadius: "50%",
                 outline: "dashed",
-                position: "relative"
+                position: "relative",
               }}
             >
               <Box
@@ -58,7 +61,6 @@ const Widget: React.FC<Props> = ({ title, btnContent, description }) => {
                 sx={{ display: "block", width: "95%", height: "100%" }}
               />
             </Box>
-
             <Box>
               <Button
                 sx={{
@@ -69,11 +71,12 @@ const Widget: React.FC<Props> = ({ title, btnContent, description }) => {
                   borderRadius: "50px",
                   "&:hover": {
                     backgroundColor: "hsl(181.92deg 76.47% 40%)",
-                    color: "white"
+                    color: "white",
                   },
-                  alignItems: "center"
+                  alignItems: "center",
                 }}
                 startIcon={<ArrowDropDownOutlinedIcon fontSize="small" />}
+                onClick={handleClick}
               >
                 <p>{btnContent}</p>
               </Button>

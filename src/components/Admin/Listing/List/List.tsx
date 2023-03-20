@@ -15,8 +15,7 @@ import {
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import { Feature } from "@/models";
-import { DefaultFeature, IApiVariables, Order } from "@/models/app";
+import { IApiVariables, IModelName, IResourceName, Order } from "@/models/app";
 import ExportSearch from "./ExportSearch";
 import ActionLoader from "@/components/UI/ActionLoader";
 import { Pages, Routes, SortOrder } from "@/constants/enums";
@@ -32,7 +31,8 @@ import DataRow from "./DataRow";
 import { useRouter } from "next/router";
 
 interface Props {
-  feature: Feature | DefaultFeature;
+  resourceName: IResourceName;
+  singleName: IModelName;
 }
 
 interface IState {
@@ -40,10 +40,10 @@ interface IState {
   order: Order;
 }
 
-const Listing: React.FC<Props> = ({ feature }) => {
+const Listing: React.FC<Props> = ({ resourceName, singleName }) => {
   const INITIAL_STATE: IState = {
-    order: feature.slug === Pages.USERS ? SortOrder.ASC : SortOrder.DESC,
-    orderBy: feature.slug === Pages.USERS ? "name" : "createdAt",
+    order: resourceName === Pages.USERS ? SortOrder.ASC : SortOrder.DESC,
+    orderBy: resourceName === Pages.USERS ? "name" : "createdAt",
   };
   const listing: Readonly<Record<string, any>>[] = useSelector(selectListing);
   const [state, setState] = useState(INITIAL_STATE);
@@ -51,10 +51,11 @@ const Listing: React.FC<Props> = ({ feature }) => {
   const { push } = useRouter();
   const { selected, setSelected } = useSelected();
   const apiParams: IApiVariables = {
-    slug: feature.slug,
-    singleName: feature.singleName,
+    slug: resourceName,
+    singleName,
   };
   const api = useApi(apiParams);
+  console.log("api", api);
   const {
     loading,
     searchText,
@@ -66,7 +67,7 @@ const Listing: React.FC<Props> = ({ feature }) => {
     reset,
     handleSearch,
   } = useListing({
-    slug: feature.slug,
+    slug: resourceName,
     resourceModel: api.model,
     fetchListings: api.fetch,
     changeListings: api.changeListing,
@@ -119,11 +120,11 @@ const Listing: React.FC<Props> = ({ feature }) => {
     };
 
   const handleEdit = (id: string) =>
-    push(`/${Routes.ADMIN}/${feature.slug}/${id}`);
+    push(`/${Routes.DASHBOARD}/${resourceName}/${id}`);
 
   const handleDelete = (id: string) => console.log(id);
 
-  const handleClick = () => push(`/${Routes.ADMIN}/${feature.slug}/new`);
+  const handleClick = () => push(`/${Routes.DASHBOARD}/${resourceName}/new`);
 
   if (loading) return <ActionLoader position="fixed" />;
 
@@ -132,7 +133,7 @@ const Listing: React.FC<Props> = ({ feature }) => {
       <Box sx={{ pt: 2 }}>
         <Box sx={{ display: "flex", mb: 2 }}>
           <Typography variant="h5" component="h1" textTransform={"capitalize"}>
-            {feature.name}
+            {singleName}
           </Typography>
           <Button
             size="small"
@@ -141,7 +142,7 @@ const Listing: React.FC<Props> = ({ feature }) => {
             sx={{ ml: 2 }}
             onClick={handleClick}
           >
-            {feature.singleName}
+            {singleName}
           </Button>
         </Box>
         <ExportSearch handleChange={(term) => handleSearch(term)} />
@@ -276,7 +277,7 @@ const Listing: React.FC<Props> = ({ feature }) => {
               justifyContent: "center",
             }}
           >
-            <EmptyContent title={feature.name} searchText={searchText} />
+            <EmptyContent title={resourceName} searchText={searchText} />
           </Box>
         </Box>
         <PaginateNav

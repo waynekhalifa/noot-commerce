@@ -16,7 +16,7 @@ const NavMenu: React.FC<Props> = ({ handleDrawer }) => {
   const handleClick = (slug: string) => {
     handleDrawer(false);
 
-    push(`/${Routes.ADMIN}/${slug}`);
+    push(`/${Routes.DASHBOARD}/${slug}`);
   };
 
   return (

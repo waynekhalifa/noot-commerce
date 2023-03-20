@@ -8,7 +8,7 @@ import { FieldTypes, InputTypes, Pages } from "@/constants/enums";
 import { setListing, setSelected } from "@/store/resourceSlice";
 
 const useApi = (params: IApiVariables) => {
-  const { slug, singleName, multiSelects } = params;
+  const { slug, singleName } = params;
   const dispatch = useDispatch();
   const resource = useResource();
 
@@ -128,6 +128,8 @@ const useApi = (params: IApiVariables) => {
       }
     }
   }
+
+  console.log("api", api);
 
   api.changeListing = (listing: Readonly<Record<string, any>>[]) =>
     dispatch(setListing(listing));

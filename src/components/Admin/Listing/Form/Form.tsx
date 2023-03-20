@@ -11,6 +11,8 @@ import {
   IApiVariables,
   IFormFieldsVariables,
   IModal,
+  IModelName,
+  IResourceName,
   IResponse,
   ISnackBar,
   IUpdateVariables,
@@ -27,13 +29,12 @@ import { useRouter } from "next/router";
 import useApp from "@/hooks/useApp";
 import { createSnackbar } from "@/helpers/responser";
 import MainSnackbar from "@/components/UI/MainSnackbar";
-import Dropzone from "./Dropzone";
 import { selectMediaModal } from "@/store/modalSlice";
 import MainModal from "@/components/UI/MainModal";
 
 interface Props {
-  resourceName: string;
-  singleName: string;
+  resourceName: IResourceName;
+  singleName: IModelName;
   action: string;
   resource: any;
 }
@@ -94,7 +95,7 @@ const Form: React.FC<Props> = ({
     if (response.type === Responses.SUCCESS) {
       changeSnackbar(createSnackbar("success", response.message!));
 
-      push(`/${Routes.ADMIN}/${resourceName}`);
+      push(`/${Routes.DASHBOARD}/${resourceName}`);
     } else {
       changeSnackbar(createSnackbar("error", response.message!));
     }
@@ -114,9 +115,6 @@ const Form: React.FC<Props> = ({
   // console.log(api.images);
 
   const renderContent = () => {
-    if (resourceName === Pages.MEDIA_LIBRARY && action === FormActions.CREATE)
-      return <Dropzone />;
-
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container columnSpacing={3}>
@@ -170,7 +168,7 @@ const Form: React.FC<Props> = ({
       : await update(data);
   };
 
-  const handleBack = () => push(`/${Routes.ADMIN}/${resourceName}`);
+  const handleBack = () => push(`/${Routes.DASHBOARD}/${resourceName}`);
 
   return (
     <>

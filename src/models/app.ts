@@ -66,7 +66,7 @@ export interface IListingVariables {
   limit: number;
   searchText: string;
   startIndex?: number;
-  token?: Token;
+  token?: string;
   req?: AppContext["ctx"]["req"];
   isAuthenticated?: boolean;
 }
@@ -141,3 +141,6 @@ export interface ISnackBar {
   content: React.ReactNode;
   persist: boolean;
 }
+
+export type IModelName = "Overview" | "Product" | "Order" | "User";
+export type IResourceName = "overview" | "products" | "orders" | "users";

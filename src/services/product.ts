@@ -27,7 +27,8 @@ import {
 export async function fetch(
   params: IFeatureListingVariables
 ): Promise<IResponse> {
-  const request: IRequest = { url: PRODUCTS, method: Methods.GET };
+  const { token } = params;
+  const request: IRequest = { url: PRODUCTS, method: Methods.GET, token };
 
   try {
     const response: Response = await sendRequest(request);
@@ -91,8 +92,6 @@ export async function create(data: any, token?: string): Promise<IResponse> {
     const response: Response = await sendRequest(request);
 
     const responseData = await response.json();
-
-    console.log({ responseData });
 
     return successResponse(null);
   } catch (err: Error | any) {

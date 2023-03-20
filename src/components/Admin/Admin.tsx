@@ -26,15 +26,15 @@ import useUpdating from "@/hooks/useUpdating";
 import ActionLoader from "../UI/ActionLoader";
 import NavMenu from "../NavMenu";
 import LangSwitcher from "../UI/LangSwitcher";
-import useLoading from "@/hooks/useLoading";
 import { selectUser } from "@/store/appSlice";
-import { ISessionUser } from "@/models/app";
+import { IModelName, IResourceName, ISessionUser } from "@/models/app";
 
 const Overview = dynamic(() => import("./Overview")) as any;
 const Listing = dynamic(() => import("./Listing")) as any;
 
 interface Props {
-  slug: string;
+  resourceName: IResourceName;
+  singleName: IModelName;
   action?: string;
   id?: string | string[];
 }
@@ -46,12 +46,11 @@ interface IState {
 
 const INITIAL_STATE: IState = { open: false, anchorEl: null };
 
-const Admin: FC<Props> = ({ slug, action, id }) => {
+const Admin: FC<Props> = ({ resourceName, singleName, action, id }) => {
   const sessionUser: ISessionUser | null = useSelector(selectUser);
   const [state, setState] = useState(INITIAL_STATE);
   const { open, anchorEl } = state;
   const { push } = useRouter();
-  const { loading, setLoading } = useLoading();
   const { updating, setUpdating } = useUpdating();
   const menuId = "account-menu";
   const isMenuOpen = Boolean(anchorEl);
@@ -63,7 +62,7 @@ const Admin: FC<Props> = ({ slug, action, id }) => {
 
     setState({ ...state, anchorEl: null });
 
-    push(`/${Routes.ADMIN}/${Pages.USERS}/${sessionUser.id}`);
+    push(`/${Routes.DASHBOARD}/${Pages.USERS}/${sessionUser.id}`);
   };
 
   const handleLogout = () => {
@@ -80,11 +79,19 @@ const Admin: FC<Props> = ({ slug, action, id }) => {
   const toggleDrawer = () => setState({ ...state, open: !state.open });
 
   const renderContent = (): React.ReactNode => {
-    switch (slug) {
+    switch (resourceName) {
       case Pages.OVERVIEW:
         return <Overview />;
       default:
-        return <Listing key={slug} slug={slug} action={action} id={id} />;
+        return (
+          <Listing
+            key={resourceName}
+            resourceName={resourceName}
+            singleName={singleName}
+            action={action}
+            id={id}
+          />
+        );
     }
   };
 
@@ -210,7 +217,7 @@ const Admin: FC<Props> = ({ slug, action, id }) => {
           </IconButton>
         </Box>
       </Drawer>
-      {loading || (updating && <ActionLoader position="fixed" />)}
+      {updating && <ActionLoader position="fixed" />}
     </>
   );
 };
