@@ -55,7 +55,6 @@ const Listing: React.FC<Props> = ({ resourceName, singleName }) => {
     singleName,
   };
   const api = useApi(apiParams);
-  console.log("api", api);
   const {
     loading,
     searchText,
@@ -133,7 +132,7 @@ const Listing: React.FC<Props> = ({ resourceName, singleName }) => {
       <Box sx={{ pt: 2 }}>
         <Box sx={{ display: "flex", mb: 2 }}>
           <Typography variant="h5" component="h1" textTransform={"capitalize"}>
-            {singleName}
+            {resourceName}
           </Typography>
           <Button
             size="small"

@@ -137,7 +137,7 @@ const Admin: FC<Props> = ({ resourceName, singleName, action, id }) => {
         elevation={0}
         sx={{
           zIndex: (theme) => theme.zIndex.drawer + 1,
-          backgroundColor: "common.white",
+          // backgroundColor: "common.white",
           borderBottom: "1px solid",
           borderColor: "divider",
           color: "primary.main",
@@ -179,7 +179,7 @@ const Admin: FC<Props> = ({ resourceName, singleName, action, id }) => {
           height: "100vh",
           overflowY: "scroll",
           px: 2,
-          backgroundColor: "grey.100",
+          // backgroundColor: "grey.100",
         }}
       >
         <Toolbar />
@@ -191,7 +191,7 @@ const Admin: FC<Props> = ({ resourceName, singleName, action, id }) => {
         sx={{
           zIndex: (theme) => theme.zIndex.drawer - 1,
           alignItems: "flex-start",
-          backgroundColor: "rgba(225,225,225,0.5)",
+          // backgroundColor: "rgba(225,225,225,0.5)",
         }}
         open={open}
         onClick={toggleDrawer}

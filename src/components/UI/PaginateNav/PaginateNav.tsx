@@ -47,7 +47,7 @@ const PaginateNav: React.FC<Props> = ({
             changeLimit(parseInt(event.target.value))
           }
           sx={{
-            backgroundColor: "common.white",
+            // backgroundColor: "common.white",
             ml: 1,
             minWidth: 24,
             "& .MuiSelect-select": {
