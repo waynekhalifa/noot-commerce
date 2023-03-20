@@ -73,8 +73,7 @@ const Home: NextPage<Props> = ({ toggleTheme }) => {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <NextSeo
-        title="Noot | Digital Solutions Provider"
-        titleTemplate="%s | Noot"
+        title="Digital Solutions Provider"
         defaultTitle="Noot | Digital Solutions Provider"
         description="Digital Solutions Provider - Our website offers a range of digital solutions for businesses seeking innovative software development, web design, and IT services"
         canonical="https://www.noot.ae/"

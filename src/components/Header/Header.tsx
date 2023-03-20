@@ -89,7 +89,7 @@ const Header: React.FC<Props> = ({
             style={{
               width: "100%",
               backgroundColor: `${
-                theme.palette.mode === "light" ? "white" : "#161617"
+                theme.palette.mode === "light" ? "white" : "#121212"
               }`
             }}
           >
@@ -159,8 +159,14 @@ const Header: React.FC<Props> = ({
       <nav
         style={{
           backgroundColor: `${
-            theme.palette.mode === "light" ? "white" : "#161617cc"
+            theme.palette.mode === "light" ? "white" : "#121212"
           }`,
+          boxShadow: `${
+            theme.palette.mode === "light"
+              ? " 0px 1px 10px rgb(6 183 183 / 32%)"
+              : " 0px 1px 10px rgba(15, 211, 146, 0.2)"
+          }`,
+          // ' 0px 5px 10px rgba(4, 10, 34, 0.2)',
           display: `${burger ? "none" : "block"}`,
           position: "fixed",
           top: "0",

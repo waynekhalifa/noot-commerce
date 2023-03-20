@@ -85,7 +85,7 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
           {/* we can use the DefaultSeo component, instead of manually adding the properties individually to each page. We can also override any property on a page, if needed. */}
           <DefaultSeo
             title="Noot | Digital Solutions Provider"
-            titleTemplate="%s | Noot"
+            titleTemplate="Noot | %s"
             description="Digital Solutions Provider - Our website offers a range of digital solutions for businesses seeking innovative software development, web design, and IT services"
             openGraph={{
               type: "website",
