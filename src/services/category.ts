@@ -1,4 +1,9 @@
-import { ORDERS } from "@/constants/endpoints";
+import {
+  CreateProductInput,
+  ProductItemInput,
+  TranslationInput,
+} from "../models/api";
+import { CATEGORIES } from "@/constants/endpoints";
 import { Methods } from "@/constants/enums";
 import sendRequest from "@/helpers/api";
 import { errorResponse, successResponse } from "@/helpers/responser";
@@ -20,12 +25,19 @@ import {
  * @returns response :IResponse
  */
 export async function fetch(params: IListingVariables): Promise<IResponse> {
-  const request: IRequest = { url: ORDERS, method: Methods.GET };
+  const { token } = params;
+  console.log("token", token);
+  const request: IRequest = {
+    url: CATEGORIES,
+    method: Methods.GET,
+    token,
+  };
 
   try {
     const response: Response = await sendRequest(request);
+    const responseData = await response.json();
 
-    return successResponse(await response.json());
+    return successResponse(responseData);
   } catch (err: Error | any) {
     return errorResponse(err);
   }
@@ -35,7 +47,7 @@ export async function get(params: IGetVariables): Promise<IResponse> {
   const { id } = params;
 
   const request: IRequest = {
-    url: `${ORDERS}/${id}/`,
+    url: `${CATEGORIES}/${id}/`,
     method: Methods.GET,
   };
 
@@ -48,13 +60,43 @@ export async function get(params: IGetVariables): Promise<IResponse> {
   }
 }
 
-export async function create(data: any): Promise<IResponse> {
-  const request: IRequest = { url: ORDERS, method: Methods.POST, data };
+export async function create(data: any, token?: string): Promise<IResponse> {
+  const name: TranslationInput = {
+    is_ltr: true,
+    text: data.name,
+    translation_type: 1,
+    lang: 1,
+  };
+  const description: TranslationInput = {
+    is_ltr: true,
+    text: data.description,
+    translation_type: 2,
+    lang: 1,
+  };
+  const item: ProductItemInput = {
+    // discount: parseInt(data.discount),
+    price: parseInt(data.price),
+    quantity: parseInt(data.quantity),
+    // product: parseInt(data.product),
+  };
+  const productData: CreateProductInput = {
+    name: [name],
+    description: [description],
+    items: [item],
+    category: parseInt(data.category),
+  };
+  const request: IRequest = {
+    url: CATEGORIES,
+    method: Methods.POST,
+    data: productData,
+    token,
+  };
 
   try {
     const response: Response = await sendRequest(request);
+    const responseData = await response.json();
 
-    return successResponse(await response.json());
+    return successResponse(responseData);
   } catch (err: Error | any) {
     return errorResponse(err);
   }
@@ -64,15 +106,16 @@ export async function update(params: IUpdateVariables): Promise<IResponse> {
   const { id, data } = params;
 
   const request: IRequest = {
-    url: `${ORDERS}/${id}/`,
+    url: `${CATEGORIES}/${id}/`,
     method: Methods.PUT,
     data,
   };
 
   try {
     const response: Response = await sendRequest(request);
+    const responseData = await response.json();
 
-    return successResponse(await response.json());
+    return successResponse(responseData);
   } catch (err: Error | any) {
     return errorResponse(err);
   }
@@ -84,7 +127,7 @@ export async function partialUpdate(
   const { id, data } = params;
 
   const request: IRequest = {
-    url: `${ORDERS}/${id}/`,
+    url: `${CATEGORIES}/${id}/`,
     method: Methods.PATCH,
     data,
   };
@@ -127,7 +170,7 @@ export async function remove(params: IGetVariables) {
   const { id } = params;
 
   const request: IRequest = {
-    url: `${ORDERS}/${id}/`,
+    url: `${CATEGORIES}/${id}/`,
     method: Methods.DELETE,
   };
 

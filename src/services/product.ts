@@ -14,19 +14,17 @@ import {
   IOption,
   IResponse,
   IUpdateVariables,
-  IFeatureListingVariables,
+  IListingVariables,
   IRequest,
 } from "@/models/app";
 
 /**
  * fetch: List all features
  *
- * @param params :IFeatureListingVariables
+ * @param params :IListingVariables
  * @returns response :IResponse
  */
-export async function fetch(
-  params: IFeatureListingVariables
-): Promise<IResponse> {
+export async function fetch(params: IListingVariables): Promise<IResponse> {
   const { token } = params;
   const request: IRequest = { url: PRODUCTS, method: Methods.GET, token };
 
@@ -204,23 +202,11 @@ export const headCells: readonly HeadCell[] = [
     label: "Description",
   },
   {
-    id: "createdBy",
-    numeric: false,
-    disablePadding: false,
-    label: "Created By",
-  },
-  {
     id: "createdAt",
     numeric: false,
     disablePadding: false,
     label: "Date",
   },
-  // {
-  //   id: "actions",
-  //   numeric: true,
-  //   disablePadding: false,
-  //   label: "",
-  // },
 ];
 
 export const dataCells: readonly string[] = ["name", "description"];

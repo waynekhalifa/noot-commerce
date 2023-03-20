@@ -1,10 +1,10 @@
 import type { GetServerSideProps, NextPage } from "next";
-import { Cookies, Pages, Routes } from "@/constants/enums";
+import { Cookies, Models, Pages, Routes } from "@/constants/enums";
 import { CookieValueTypes, getCookie } from "cookies-next";
 import Admin from "@/components/Admin";
 
 const AdminPage: NextPage = () => (
-  <Admin resourceName={Pages.OVERVIEW} singleName={"Overview"} />
+  <Admin resourceName={Pages.OVERVIEW} singleName={Models.OVERVIEW} />
 );
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {

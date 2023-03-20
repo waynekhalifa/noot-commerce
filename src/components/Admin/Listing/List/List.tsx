@@ -225,13 +225,6 @@ const Listing: React.FC<Props> = ({ resourceName, singleName }) => {
                         />
                         <TableCell
                           align="left"
-                          sx={{ p: "8px 16px", minWidth: 140 }}
-                          onClick={() => handleEdit(row.id)}
-                        >
-                          {row.createdByName}
-                        </TableCell>
-                        <TableCell
-                          align="left"
                           sx={{ p: "4px 16px", minWidth: 196 }}
                           onClick={() => handleEdit(row)}
                         >

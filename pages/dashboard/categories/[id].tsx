@@ -25,8 +25,8 @@ const AdminPage: NextPage = () => {
 
   return (
     <Admin
-      resourceName={Resources.PRODUCTS}
-      singleName={Models.PRODUCT}
+      resourceName={Resources.CATEGORIES}
+      singleName={Models.CATEGORY}
       action={FormActions.UPDATE}
       id={query.id!}
     />

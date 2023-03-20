@@ -30,12 +30,23 @@ export enum Pages {
   ORDERS = "orders",
   SERVICES = "services",
   MEDIA_LIBRARY = "media-library",
+  CATEGORIES = "categories",
+}
+
+export enum Resources {
+  USERS = "users",
+  PRODUCTS = "products",
+  ORDERS = "orders",
+  SERVICES = "services",
+  CATEGORIES = "categories",
 }
 
 export enum Models {
+  OVERVIEW = "Overview",
   PRODUCT = "Product",
   ORDER = "Order",
   USER = "User",
+  CATEGORY = "Category",
 }
 
 export enum FormActions {

@@ -142,5 +142,10 @@ export interface ISnackBar {
   persist: boolean;
 }
 
-export type IModelName = "Overview" | "Product" | "Order" | "User";
-export type IResourceName = "overview" | "products" | "orders" | "users";
+export type IModelName = "Overview" | "Product" | "Order" | "User" | "Category";
+export type IResourceName =
+  | "overview"
+  | "products"
+  | "orders"
+  | "users"
+  | "categories";

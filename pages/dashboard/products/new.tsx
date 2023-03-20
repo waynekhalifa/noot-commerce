@@ -1,11 +1,18 @@
 import type { GetServerSideProps, NextPage } from "next";
-import { Cookies, FormActions, Models, Pages, Routes } from "@/constants/enums";
+import {
+  Cookies,
+  FormActions,
+  Models,
+  Pages,
+  Resources,
+  Routes,
+} from "@/constants/enums";
 import { CookieValueTypes, getCookie } from "cookies-next";
 import Admin from "@/components/Admin";
 
 const AdminPage: NextPage = () => (
   <Admin
-    resourceName={Pages.PRODUCTS}
+    resourceName={Resources.PRODUCTS}
     singleName={Models.PRODUCT}
     action={FormActions.CREATE}
   />
