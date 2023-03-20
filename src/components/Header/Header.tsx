@@ -13,6 +13,7 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { useTheme } from "@mui/material";
 import Link from "next/link";
+import { Pages, Routes } from "@/constants/enums";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -120,7 +121,10 @@ const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
             ))}
           </Box>
 
-          <Link href="/dashboard/overview" style={{ textDecoration: "none" }}>
+          <Link
+            href={`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`}
+            style={{ textDecoration: "none" }}
+          >
             <button
               style={{
                 width: "10rem",

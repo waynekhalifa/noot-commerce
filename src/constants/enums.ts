@@ -10,7 +10,7 @@ export enum Languages {
 
 export enum Routes {
   ROOT = "/",
-  ACCOUNTS = "accounts",
+  AUTH = "auth",
   DASHBOARD = "dashboard",
   ADMIN = "admin",
 }
@@ -27,11 +27,31 @@ export enum Pages {
   OVERVIEW = "overview",
   FEATURES = "features",
   PRODUCTS = "products",
+  ORDERS = "orders",
+  SERVICES = "services",
+  MEDIA_LIBRARY = "media-library",
+  CATEGORIES = "categories",
+}
+
+export enum Resources {
+  USERS = "users",
+  PRODUCTS = "products",
+  ORDERS = "orders",
+  SERVICES = "services",
+  CATEGORIES = "categories",
+}
+
+export enum Models {
+  OVERVIEW = "Overview",
+  PRODUCT = "Product",
+  ORDER = "Order",
+  USER = "User",
+  CATEGORY = "Category",
 }
 
 export enum FormActions {
-  ADD = "Add",
-  EDIT = "Edit",
+  CREATE = "Create",
+  UPDATE = "Update",
 }
 
 export enum AuthErrors {
@@ -81,6 +101,7 @@ export enum InputTypes {
   MONTH = "month",
   WEEK = "week",
   HIDDEN = "hidden",
+  MULTI_SELECT = "multi select",
 }
 
 export enum Navigate {
@@ -139,4 +160,9 @@ export enum Credentials {
 export enum FieldTypes {
   INTEGER = "integer",
   ARRAY = "array",
+}
+
+export enum MODAL_TYPES {
+  RESOURCE = "resource",
+  MEDIA = "media",
 }

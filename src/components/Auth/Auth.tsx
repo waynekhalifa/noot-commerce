@@ -149,7 +149,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
           setCookie(Cookies.ACCESS_TOKEN, response.data.access_token);
           setCookie(Cookies.REFRESH_TOKEN, response.data.refresh_token);
 
-          router.push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
+          router.push(`/${Routes.DASHBOARD}/${Pages.SERVICES}`);
         }
       }
       if (response.message && response.message === AuthMessages.LOGIN_SUCCESS) {
@@ -162,7 +162,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
           setCookie(Cookies.ACCESS_TOKEN, response.data.access);
           setCookie(Cookies.REFRESH_TOKEN, response.data.refresh);
 
-          router.push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
+          router.push(`/${Routes.DASHBOARD}/${Pages.SERVICES}`);
         }
       }
       if (
@@ -178,7 +178,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
         console.log(data);
       } else {
         if (response.message!.includes("IDBDatabase")) {
-          router.push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
+          router.push(`/${Routes.DASHBOARD}/${Pages.SERVICES}`);
         } else {
           setConfirm(response.message!);
         }
@@ -228,7 +228,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
           ))}
           {slug === Pages.LOGIN && (
             <Link
-              href={`/${Routes.ACCOUNTS}/${Pages.FORGOT_PASSWORD}`}
+              href={`/${Routes.AUTH}/${Pages.FORGOT_PASSWORD}`}
               sx={{
                 display: "block",
                 mb: 1,
@@ -275,7 +275,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
                   {t("dontReceiveVerificationCode")}
                 </Typography>
                 <Link
-                  href={`/${Routes.ACCOUNTS}/${Pages.REGISTER}`}
+                  href={`/${Routes.AUTH}/${Pages.REGISTER}`}
                   sx={{ display: "block", ml: 2 }}
                 >
                   {t("resendCode")}
@@ -305,7 +305,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
           <Typography sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
             <Typography component="span">{t("dontHaveAccount")}</Typography>
             <Link
-              href={`/${Routes.ACCOUNTS}/${Pages.REGISTER}`}
+              href={`/${Routes.AUTH}/${Pages.REGISTER}`}
               sx={{ display: "block", ml: 2 }}
             >
               {t("createAccount")}
@@ -316,7 +316,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
           <Typography sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
             <Typography component="span">{t("alreadyHaveAccount")}</Typography>
             <Link
-              href={`/${Routes.ACCOUNTS}/${Pages.LOGIN}`}
+              href={`/${Routes.AUTH}/${Pages.LOGIN}`}
               sx={{ display: "block", ml: 2 }}
             >
               {t("login")}
@@ -330,7 +330,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
             >
               <Typography component="span">{t("backTo")}</Typography>
               <Link
-                href={`/${Routes.ACCOUNTS}/${Pages.LOGIN}`}
+                href={`/${Routes.AUTH}/${Pages.LOGIN}`}
                 sx={{ display: "block", ml: 2 }}
               >
                 {t("login")}

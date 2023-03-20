@@ -40,5 +40,13 @@ export const schema: any = {
         },
       },
     },
+    Category: {
+      fields: {
+        name: {
+          type: "integer",
+          required: true,
+        },
+      },
+    },
   },
 };

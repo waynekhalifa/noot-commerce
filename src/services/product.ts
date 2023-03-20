@@ -14,20 +14,19 @@ import {
   IOption,
   IResponse,
   IUpdateVariables,
-  IFeatureListingVariables,
+  IListingVariables,
   IRequest,
 } from "@/models/app";
 
 /**
  * fetch: List all features
  *
- * @param params :IFeatureListingVariables
+ * @param params :IListingVariables
  * @returns response :IResponse
  */
-export async function fetch(
-  params: IFeatureListingVariables
-): Promise<IResponse> {
-  const request: IRequest = { url: PRODUCTS, method: Methods.GET };
+export async function fetch(params: IListingVariables): Promise<IResponse> {
+  const { token } = params;
+  const request: IRequest = { url: PRODUCTS, method: Methods.GET, token };
 
   try {
     const response: Response = await sendRequest(request);
@@ -91,8 +90,6 @@ export async function create(data: any, token?: string): Promise<IResponse> {
     const response: Response = await sendRequest(request);
 
     const responseData = await response.json();
-
-    console.log({ responseData });
 
     return successResponse(null);
   } catch (err: Error | any) {
@@ -199,10 +196,10 @@ export const headCells: readonly HeadCell[] = [
     label: "Name",
   },
   {
-    id: "createdBy",
+    id: "description",
     numeric: false,
     disablePadding: false,
-    label: "Created By",
+    label: "Description",
   },
   {
     id: "createdAt",
@@ -210,12 +207,6 @@ export const headCells: readonly HeadCell[] = [
     disablePadding: false,
     label: "Date",
   },
-  {
-    id: "actions",
-    numeric: true,
-    disablePadding: false,
-    label: "",
-  },
 ];
 
-export const dataCells: readonly string[] = ["name"];
+export const dataCells: readonly string[] = ["name", "description"];

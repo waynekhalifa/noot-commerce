@@ -1,18 +1,11 @@
-import type { NextPage } from "next";
-import DashboardHeader from "@/components/Dashboard/DashboardHeader.tsx/DashboardHeader";
-import { GetServerSideProps } from "next";
-import { Cookies, Pages, Routes } from "@/constants/enums";
+import type { GetServerSideProps, NextPage } from "next";
+import { Cookies, Models, Pages, Routes } from "@/constants/enums";
 import { CookieValueTypes, getCookie } from "cookies-next";
-import DashboardWidgets from "@/components/Dashboard/DashboardWidgets";
+import Admin from "@/components/Admin";
 
-const Dashboard: NextPage = () => {
-  return (
-    <>
-      <DashboardHeader />
-      <DashboardWidgets />
-    </>
-  );
-};
+const AdminPage: NextPage = () => (
+  <Admin resourceName={Pages.OVERVIEW} singleName={Models.OVERVIEW} />
+);
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const cookieSession: CookieValueTypes = getCookie(Cookies.ACCESS_TOKEN, {
@@ -20,16 +13,16 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     res,
   });
 
-  // if (!cookieSession) {
-  //   return {
-  //     redirect: {
-  //       destination: `/${Routes.ACCOUNTS}/${Pages.LOGIN}`,
-  //       permanent: false,
-  //     },
-  //   };
-  // }
+  if (!cookieSession) {
+    return {
+      redirect: {
+        destination: `/${Routes.AUTH}/${Pages.LOGIN}`,
+        permanent: false,
+      },
+    };
+  }
 
   return { props: {} };
 };
 
-export default Dashboard;
+export default AdminPage;

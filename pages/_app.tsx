@@ -78,7 +78,7 @@ export const metadata: Metadata = {
 // import { setSession } from '@/store/appSlice';
 
 function getActiveTheme(themeMode: Mode, locale: any) {
-  return themeMode === "light"
+  return themeMode === "dark"
     ? createTheme(lightThemeOptions(locale))
     : createTheme(darkThemeOptions(locale!));
 }
@@ -86,7 +86,7 @@ function getActiveTheme(themeMode: Mode, locale: any) {
 const MyApp = ({ Component, ...rest }: AppProps) => {
   const { locale } = useRouter();
   const [activeTheme, setActiveTheme] = useState(
-    getActiveTheme("light", locale!)
+    getActiveTheme("dark", locale!)
   );
   const [selectedTheme, setSelectedTheme] = useState<Mode>("light");
 
@@ -146,7 +146,7 @@ MyApp.getInitialProps = wrapper.getInitialAppProps(
   (store) => async (appContext: AppContext) => {
     const ctx = await App.getInitialProps(appContext);
 
-    if (!appContext.router.route.includes(Routes.ACCOUNTS)) {
+    if (!appContext.router.route.includes(Routes.AUTH)) {
       console.log("Not in accounts");
       const cookieAccessToken: CookieValueTypes = getCookie(
         Cookies.ACCESS_TOKEN,

@@ -1,6 +1,13 @@
 import type { GetServerSideProps, NextPage } from "next";
 import { useRouter } from "next/router";
-import { Cookies, Pages, Routes } from "@/constants/enums";
+import {
+  Cookies,
+  FormActions,
+  Models,
+  Pages,
+  Resources,
+  Routes,
+} from "@/constants/enums";
 import { CookieValueTypes, getCookie } from "cookies-next";
 import { ParsedUrlQuery } from "querystring";
 import Admin from "@/components/Admin";
@@ -16,7 +23,14 @@ const AdminPage: NextPage = () => {
   const router = useRouter();
   const query = router.query as PostPageQuery;
 
-  return <Admin slug={query.slug!} />;
+  return (
+    <Admin
+      resourceName={Resources.PRODUCTS}
+      singleName={Models.PRODUCT}
+      action={FormActions.UPDATE}
+      id={query.id!}
+    />
+  );
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
@@ -28,7 +42,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   if (!cookieSession) {
     return {
       redirect: {
-        destination: `/${Routes.ACCOUNTS}/${Pages.LOGIN}`,
+        destination: `/${Routes.AUTH}/${Pages.LOGIN}`,
         permanent: false,
       },
     };

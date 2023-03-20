@@ -1,9 +1,13 @@
-// import { setMode } from "@/store/appSlice";
+import { useDispatch } from "react-redux";
+import { ISnackBar } from "../models/app";
+import { setSnackBar } from "@/store/appSlice";
 
-const useApp = () => {
+const useModal = () => {
+  const dispatch = useDispatch();
+
   return {
-    // changeMode: (payload: Mode) => setMode(payload),
+    changeSnackbar: (payload: ISnackBar) => dispatch(setSnackBar(payload)),
   };
 };
 
-export default useApp;
+export default useModal;

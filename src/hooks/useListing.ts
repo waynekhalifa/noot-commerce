@@ -1,5 +1,6 @@
+import { selectAccessToken } from "@/store/appSlice";
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { DataStore } from "aws-amplify";
 
 import { IListingVariables, IResponse } from "@/models/app";
 import useLoading from "./useLoading";
@@ -20,11 +21,12 @@ type IState = {
 const INITIAL_STATE: IState = { searchText: "" };
 
 const useListing = (props: Props) => {
-  const { slug, fetchListings, changeListings, resourceModel } = props;
+  const { slug, fetchListings, changeListings } = props;
+  const accessToken: string = useSelector(selectAccessToken);
   const [state, setState] = useState(INITIAL_STATE);
+  const { searchText } = state;
   const { startIndex, limit, changeLimit, next, prev, reset } = usePaginate();
   const { loading, setLoading } = useLoading();
-  const { searchText } = state;
 
   const fetch = async () => {
     console.log({ slug });
@@ -34,13 +36,16 @@ const useListing = (props: Props) => {
       searchText,
       startIndex,
       limit,
+      token: accessToken,
     };
 
     const response: IResponse = await fetchListings(listingParams);
 
+    console.log("response", response);
+
     if (response.type === Responses.SUCCESS) {
-      if (response.data.length) {
-        changeListings(response.data);
+      if (response.data) {
+        changeListings(response.data.results);
       }
 
       setLoading(false);
@@ -55,14 +60,6 @@ const useListing = (props: Props) => {
 
     // eslint-disable-next-line
   }, [searchText, startIndex, limit]);
-
-  useEffect(() => {
-    const subscription = DataStore.observe(resourceModel).subscribe(() =>
-      fetch()
-    );
-
-    return () => subscription.unsubscribe();
-  });
 
   return {
     loading,

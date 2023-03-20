@@ -43,7 +43,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 
     return {
       redirect: {
-        destination: `/${Routes.ACCOUNTS}/${Pages.LOGIN}`,
+        destination: `/${Routes.AUTH}/${Pages.LOGIN}`,
         permanent: false,
       },
     };

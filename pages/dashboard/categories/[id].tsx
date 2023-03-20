@@ -1,10 +1,15 @@
-import type { NextPage } from "next";
-import DashboardHeader from "@/components/Dashboard/DashboardHeader.tsx/DashboardHeader";
-import { GetServerSideProps } from "next";
-import { Cookies, Pages, Routes } from "@/constants/enums";
+import type { GetServerSideProps, NextPage } from "next";
+import { useRouter } from "next/router";
+import {
+  Cookies,
+  FormActions,
+  Models,
+  Pages,
+  Resources,
+  Routes,
+} from "@/constants/enums";
 import { CookieValueTypes, getCookie } from "cookies-next";
 import { ParsedUrlQuery } from "querystring";
-import { useRouter } from "next/router";
 import Admin from "@/components/Admin";
 
 export interface PostPageQuery extends ParsedUrlQuery {
@@ -14,15 +19,17 @@ export interface PostPageQuery extends ParsedUrlQuery {
   slug?: string;
 }
 
-const Dashboard: NextPage = () => {
+const AdminPage: NextPage = () => {
   const router = useRouter();
   const query = router.query as PostPageQuery;
 
   return (
-    <>
-      <DashboardHeader />
-      <Admin slug={query.slug!} />
-    </>
+    <Admin
+      resourceName={Resources.CATEGORIES}
+      singleName={Models.CATEGORY}
+      action={FormActions.UPDATE}
+      id={query.id!}
+    />
   );
 };
 
@@ -35,7 +42,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   if (!cookieSession) {
     return {
       redirect: {
-        destination: `/${Routes.ACCOUNTS}/${Pages.LOGIN}`,
+        destination: `/${Routes.AUTH}/${Pages.LOGIN}`,
         permanent: false,
       },
     };
@@ -44,4 +51,4 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   return { props: {} };
 };
 
-export default Dashboard;
+export default AdminPage;

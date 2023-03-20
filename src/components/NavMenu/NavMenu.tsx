@@ -4,7 +4,7 @@ import SpeedIcon from "@mui/icons-material/Speed";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 import MenuItem from "./MenuItem";
-import { Pages, Routes } from "@/constants/enums";
+import { Pages, Resources, Routes } from "@/constants/enums";
 
 interface Props {
   handleDrawer: (value: boolean) => void;
@@ -16,7 +16,7 @@ const NavMenu: React.FC<Props> = ({ handleDrawer }) => {
   const handleClick = (slug: string) => {
     handleDrawer(false);
 
-    push(`/${Routes.ADMIN}/${slug}`);
+    push(`/${Routes.DASHBOARD}/${slug}`);
   };
 
   return (
@@ -28,9 +28,19 @@ const NavMenu: React.FC<Props> = ({ handleDrawer }) => {
           handleClick={() => handleClick(Pages.OVERVIEW)}
         />
         <MenuItem
-          title={Pages.FEATURES}
+          title={Pages.PRODUCTS}
           icon={<SettingsIcon />}
-          handleClick={() => handleClick(Pages.FEATURES)}
+          handleClick={() => handleClick(Pages.PRODUCTS)}
+        />
+        <MenuItem
+          title={Resources.CATEGORIES}
+          icon={<SettingsIcon />}
+          handleClick={() => handleClick(Resources.CATEGORIES)}
+        />
+        <MenuItem
+          title={Pages.ORDERS}
+          icon={<SettingsIcon />}
+          handleClick={() => handleClick(Pages.ORDERS)}
         />
       </List>
     </nav>

@@ -3,17 +3,18 @@ import { useDispatch } from "react-redux";
 import useResource from "@/resources/useResource";
 import { schema } from "@/models/schema";
 import { camelCaseToSpaces, convertToCamelCase } from "@/helpers/utils";
-import { IFormField } from "@/models/app";
-import { FieldTypes, InputTypes, Pages } from "@/constants/enums";
+import { IApiVariables, IFormField } from "@/models/app";
+import { FieldTypes, InputTypes, Resources } from "@/constants/enums";
 import { setListing, setSelected } from "@/store/resourceSlice";
 
-const useApi = (slug: string, singleName: string) => {
+const useApi = (params: IApiVariables) => {
+  const { slug, singleName } = params;
   const dispatch = useDispatch();
   const resource = useResource();
 
   const api: any = {};
 
-  for (let page of Object.values(Pages)) {
+  for (let page of Object.values(Resources)) {
     if (slug === page) {
       if (resource[`${convertToCamelCase(page)}Fetch`]) {
         api.fetch = resource[`${convertToCamelCase(page)}Fetch`];
@@ -127,6 +128,8 @@ const useApi = (slug: string, singleName: string) => {
       }
     }
   }
+
+  console.log("api", api);
 
   api.changeListing = (listing: Readonly<Record<string, any>>[]) =>
     dispatch(setListing(listing));

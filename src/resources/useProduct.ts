@@ -1,3 +1,4 @@
+import { IResourceName } from "./../models/app";
 import {
   fetch,
   get,
@@ -11,7 +12,7 @@ import {
   dataCells,
 } from "@/services/product";
 
-const useResource = (listingName: string) => {
+const useResource = (listingName: IResourceName) => {
   const api: any = {};
 
   api[`${listingName}Fetch`] = fetch;

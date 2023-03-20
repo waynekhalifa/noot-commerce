@@ -2,12 +2,14 @@ import { createWrapper } from "next-redux-wrapper";
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { slice as appSlice } from "./appSlice";
 import { slice as resourceSlice } from "./resourceSlice";
+import { slice as modalSlice } from "./modalSlice";
 
 const makeStore = () =>
   configureStore({
     reducer: {
       [appSlice.name]: appSlice.reducer,
       [resourceSlice.name]: resourceSlice.reducer,
+      [modalSlice.name]: modalSlice.reducer,
     },
     devTools: true,
     middleware: (getDefaultMiddleware: any) =>

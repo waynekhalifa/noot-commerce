@@ -31,6 +31,7 @@ const Wides = ({ widge }: any) => {
             minHeight: "60vh",
           }}
         >
+<<<<<<< HEAD
           {widge.header.title === "Business" && (
             <>
               <Box sx={{ position: "absolute", top: "-110px" }}>
@@ -99,6 +100,55 @@ const Wides = ({ widge }: any) => {
                     }}
                   >
                     <PlayArrowIcon sx={{ color: "#6EC55E" }} />
+=======
+          <Box
+            className="header"
+            sx={{
+              backgroundColor: "#6EC55E",
+              borderRadius: "30px",
+              padding: "10px",
+              textAlign: "center",
+            }}
+          >
+            <Box sx={{ ...flexStyle, marginBottom: "5px" }}>
+              <Typography
+                variant="h4"
+                sx={{ fontSize: "22px", margin: "0 15px", fontWeight: "500" }}
+              >
+                {widge.header.title}
+              </Typography>
+              <Box
+                component={"img"}
+                src={widge.header.icon}
+                width={"30px"}
+                height={"30px"}
+              />
+            </Box>
+            <Typography paragraph sx={{ fontSize: "16px", margin: "0" }}>
+              {widge.header.p}
+            </Typography>
+          </Box>
+          <Box>
+            <Button
+              sx={{
+                display: "block",
+                margin: "30px auto",
+                background: "linear-gradient(#41a9a5, #6EC55E)",
+                width: "98%",
+                borderRadius: "30px",
+                color: "common.white",
+                height: "45px",
+              }}
+            >
+              Try for free
+            </Button>
+            <Box>
+              {widge.features.title.map((title: any, index: number) => (
+                <Box sx={{ display: "flex" }} key={index}>
+                  <CheckIcon sx={{ color: "#6EC55E", margin: "0 5px" }} />
+                  <Box component={"div"} sx={{ color: "primary.main" }}>
+                    {title}
+>>>>>>> origin/master
                   </Box>
                 </Box>
               </Box>
