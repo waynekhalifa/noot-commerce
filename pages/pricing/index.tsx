@@ -18,7 +18,14 @@ const PricicngPage: NextPage<Props> = ({ toggleTheme }) => {
         icon: "/images/icons/PersonalIcon.png",
       },
       features: {
-        title: ["Connect your domain", "3GB storage", "2GB bandwidth"],
+        title: [
+          "Connect your domain",
+          "3GB storage",
+          "2GB bandwidth",
+          "Connect your domain",
+          "3GB storage",
+          "2GB bandwidth",
+        ],
       },
     },
     {
@@ -28,7 +35,14 @@ const PricicngPage: NextPage<Props> = ({ toggleTheme }) => {
         icon: "/images/icons/PremiumIcon.png",
       },
       features: {
-        title: ["Connect your domain", "3GB storage", "2GB bandwidth"],
+        title: [
+          "Connect your domain",
+          "3GB storage",
+          "2GB bandwidth",
+          "Connect your domain",
+          "3GB storage",
+          "2GB bandwidth",
+        ],
       },
     },
     {
@@ -38,7 +52,14 @@ const PricicngPage: NextPage<Props> = ({ toggleTheme }) => {
         icon: "/images/icons/BusinessIcon.png",
       },
       features: {
-        title: ["Connect your domain", "3GB storage", "2GB bandwidth"],
+        title: [
+          "Connect your domain",
+          "3GB storage",
+          "2GB bandwidth",
+          "Connect your domain",
+          "3GB storage",
+          "2GB bandwidth",
+        ],
       },
     },
     {
@@ -48,7 +69,14 @@ const PricicngPage: NextPage<Props> = ({ toggleTheme }) => {
         icon: "/images/icons/EnterpriseIcon.png",
       },
       features: {
-        title: ["Connect your domain", "3GB storage", "2GB bandwidth"],
+        title: [
+          "Connect your domain",
+          "3GB storage",
+          "2GB bandwidth",
+          "Connect your domain",
+          "3GB storage",
+          "2GB bandwidth",
+        ],
       },
     },
   ]);
