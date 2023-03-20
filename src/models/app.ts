@@ -1,4 +1,5 @@
 import { Responses } from "@/constants/enums";
+import { AlertColor } from "@mui/material";
 import { AppContext } from "next/app";
 
 export type Order = "asc" | "desc";
@@ -114,4 +115,29 @@ export interface ISessionUser {
   last_name: string;
   username: string;
   email?: string;
+}
+
+export interface IMultiSelect {
+  name: string;
+  modelKey: string;
+  listing: Readonly<Record<string, any>>[];
+}
+
+export interface IApiVariables {
+  slug: string;
+  singleName: string;
+  multiSelects?: IMultiSelect[];
+}
+
+export interface IModal {
+  id: string;
+  open: boolean;
+  content: React.ReactNode;
+}
+
+export interface ISnackBar {
+  open: boolean;
+  severity: AlertColor | undefined;
+  content: React.ReactNode;
+  persist: boolean;
 }

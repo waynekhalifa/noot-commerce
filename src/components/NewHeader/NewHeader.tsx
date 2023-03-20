@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import Logo from "../Header/Logo";
 import CloseIcon from "@mui/icons-material/Close";
 import { AnimatePresence, motion } from "framer-motion";
+import { Pages, Routes } from "@/constants/enums";
 
 const variants = {
   hidden: {
@@ -19,8 +20,8 @@ const variants = {
     height: "0vh",
     transition: {
       staggerChildren: 1.3,
-      duration: 0.4
-    }
+      duration: 0.4,
+    },
     // transitionEnd: { display: "none" }
   },
   show: {
@@ -28,36 +29,36 @@ const variants = {
     height: "100vh",
     transition: {
       staggerChildren: 1.3,
-      duration: 0.6
-    }
-  }
+      duration: 0.6,
+    },
+  },
 };
 const list = {
   show: {
     opacity: 1,
-    transition: { when: "afterChildren" }
+    transition: { when: "afterChildren" },
   },
   hide: {
     opacity: 0,
-    transition: { when: "afterChildren" }
-  }
+    transition: { when: "afterChildren" },
+  },
 };
 const item = {
   show: {
     opacity: 1,
-    transition: { when: "afterChildren" }
+    transition: { when: "afterChildren" },
   },
   hide: {
     opacity: 0,
-    transition: { duration: 0.6 }
-  }
+    transition: { duration: 0.6 },
+  },
 };
 
 const pages = [
   { name: "PRODUCTS", familiarName: "/products" },
   { name: "TEMPLATES", familiarName: "/templates" },
   { name: "RESOURCES", familiarName: "/resources" },
-  { name: "PRICING", familiarName: "/pricing" }
+  { name: "PRICING", familiarName: "/pricing" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 interface Props {
@@ -70,7 +71,7 @@ const NewHeader: React.FC<Props> = ({
   toggleTheme,
   openBurgerNav,
   closeBurgerNav,
-  burger
+  burger,
 }) => {
   const theme = useTheme();
   const router = useRouter();
@@ -89,13 +90,13 @@ const NewHeader: React.FC<Props> = ({
               width: "100%",
               backgroundColor: `${
                 theme.palette.mode === "light" ? "white" : "#161617"
-              }`
+              }`,
             }}
           >
             <Box
               sx={{
                 width: "100%",
-                height: "3rem"
+                height: "3rem",
               }}
             >
               <CloseIcon
@@ -103,7 +104,7 @@ const NewHeader: React.FC<Props> = ({
                   fontWeight: "200",
                   marginTop: "1rem",
                   marginLeft: "0.75rem",
-                  cursor: "pointer"
+                  cursor: "pointer",
                 }}
                 onClick={closeBurgerNav}
               />
@@ -125,7 +126,7 @@ const NewHeader: React.FC<Props> = ({
                       listStyle: "none",
                       fontSize: "1.6rem",
                       font: "San Francisco, Helvetica, Arial, san-serif",
-                      fontWeight: "600"
+                      fontWeight: "600",
                     }}
                   >
                     <Box
@@ -133,7 +134,7 @@ const NewHeader: React.FC<Props> = ({
                         display: "flex",
                         alignItems: "start",
                         justifyContent: "center",
-                        flexDirection: "column"
+                        flexDirection: "column",
                       }}
                     >
                       {page.name}
@@ -145,7 +146,7 @@ const NewHeader: React.FC<Props> = ({
                           }`,
                           height: "2px",
                           backgroundColor: "#06B7B7",
-                          borderRadius: "10px"
+                          borderRadius: "10px",
                         }}
                       />
                     </Box>
@@ -167,7 +168,7 @@ const NewHeader: React.FC<Props> = ({
           height: "4rem",
           width: "100%",
           zIndex: 100,
-          backdropFilter: "saturate(180%) blur(20px)"
+          backdropFilter: "saturate(180%) blur(20px)",
         }}
       >
         <Container maxWidth="xl">
@@ -179,7 +180,7 @@ const NewHeader: React.FC<Props> = ({
                 mr: 2,
                 display: { xs: "none", md: "flex" },
                 color: "transparent",
-                textDecoration: "none"
+                textDecoration: "none",
               }}
             >
               <Logo />
@@ -202,8 +203,8 @@ const NewHeader: React.FC<Props> = ({
                     display: "block",
                     fontSize: "1.1rem",
                     "&:hover": {
-                      background: "none"
-                    }
+                      background: "none",
+                    },
                   }}
                 >
                   <Box
@@ -211,7 +212,7 @@ const NewHeader: React.FC<Props> = ({
                       display: "flex",
                       alignItems: "start",
                       justifyContent: "center",
-                      flexDirection: "column"
+                      flexDirection: "column",
                     }}
                   >
                     {page.name}
@@ -223,15 +224,17 @@ const NewHeader: React.FC<Props> = ({
                         }`,
                         height: "2px",
                         backgroundColor: "#06B7B7",
-                        borderRadius: "10px"
+                        borderRadius: "10px",
                       }}
                     />
                   </Box>
                 </Button>
               ))}
             </Box>
-
-            <Link href="/dashboard/overview" style={{ textDecoration: "none" }}>
+            <Link
+              href={`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`}
+              style={{ textDecoration: "none" }}
+            >
               <button
                 style={{
                   width: "10rem",
@@ -243,7 +246,7 @@ const NewHeader: React.FC<Props> = ({
                   color: "white",
                   fontWeight: "400",
                   cursor: "pointer",
-                  textDecoration: "none"
+                  textDecoration: "none",
                 }}
               >
                 GET STARTED

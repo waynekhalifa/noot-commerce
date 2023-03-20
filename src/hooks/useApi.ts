@@ -3,11 +3,12 @@ import { useDispatch } from "react-redux";
 import useResource from "@/resources/useResource";
 import { schema } from "@/models/schema";
 import { camelCaseToSpaces, convertToCamelCase } from "@/helpers/utils";
-import { IFormField } from "@/models/app";
+import { IApiVariables, IFormField } from "@/models/app";
 import { FieldTypes, InputTypes, Pages } from "@/constants/enums";
 import { setListing, setSelected } from "@/store/resourceSlice";
 
-const useApi = (slug: string, singleName: string) => {
+const useApi = (params: IApiVariables) => {
+  const { slug, singleName, multiSelects } = params;
   const dispatch = useDispatch();
   const resource = useResource();
 

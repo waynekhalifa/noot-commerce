@@ -28,9 +28,14 @@ const NavMenu: React.FC<Props> = ({ handleDrawer }) => {
           handleClick={() => handleClick(Pages.OVERVIEW)}
         />
         <MenuItem
-          title={Pages.FEATURES}
+          title={Pages.PRODUCTS}
           icon={<SettingsIcon />}
-          handleClick={() => handleClick(Pages.FEATURES)}
+          handleClick={() => handleClick(Pages.PRODUCTS)}
+        />
+        <MenuItem
+          title={Pages.ORDERS}
+          icon={<SettingsIcon />}
+          handleClick={() => handleClick(Pages.ORDERS)}
         />
       </List>
     </nav>

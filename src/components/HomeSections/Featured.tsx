@@ -6,6 +6,7 @@ import img from "@images/laptop-preview.png";
 import circles from "@images/circles.png";
 import circle from "@images/circle.png";
 import Link from "next/link";
+import { Pages, Routes } from "@/constants/enums";
 
 const Featured: React.FC<Props> = ({}) => {
   return (
@@ -15,11 +16,11 @@ const Featured: React.FC<Props> = ({}) => {
         pt: {
           lg: 8,
           md: 8,
-          xs: "4.5rem"
+          xs: "4.5rem",
         },
         pb: 3,
 
-        color: "common.white"
+        color: "common.white",
       }}
     >
       <Box
@@ -30,30 +31,30 @@ const Featured: React.FC<Props> = ({}) => {
           background: {
             lg: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
             md: "linear-gradient(180deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
-            xs: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)"
+            xs: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
           },
           borderRadius: {
             lg: " 0% 0% 100% 70% / 31% 69% 100% 0% ",
             md: " 0% 0% 100% 70% / 31% 69% 100% 0% ",
-            xs: "none"
+            xs: "none",
           },
 
           width: {
             lg: "80%",
             md: "80%",
-            xs: "100%"
+            xs: "100%",
           },
           height: {
             lg: "100%",
             md: "100%",
-            xs: "80%"
+            xs: "80%",
           },
           clipPath: {
             lg: "none",
             md: "none",
-            xs: "polygon(0% 0%, 100% 0%, 100% 40%, 50% 100%, 0 40%)"
+            xs: "polygon(0% 0%, 100% 0%, 100% 40%, 50% 100%, 0 40%)",
           },
-          top: "4rem"
+          top: "4rem",
         }}
       />
       <Box sx={{ position: "absolute", inset: 0, overflow: "hidden" }}>
@@ -64,7 +65,7 @@ const Featured: React.FC<Props> = ({}) => {
             right: 0,
             width: "56%",
             transform: "translateX(50%)",
-            overflow: "hidden"
+            overflow: "hidden",
           }}
         >
           <Box
@@ -81,7 +82,7 @@ const Featured: React.FC<Props> = ({}) => {
           top: "13%",
           left: "0%",
           width: "24%",
-          overflow: "hidden"
+          overflow: "hidden",
         }}
       >
         <Box
@@ -113,8 +114,8 @@ const Featured: React.FC<Props> = ({}) => {
             flexDirection: {
               xs: "column",
               lg: "row",
-              md: "row"
-            }
+              md: "row",
+            },
           }}
         >
           <Box
@@ -125,9 +126,9 @@ const Featured: React.FC<Props> = ({}) => {
               alignItems: {
                 xs: "center",
                 md: "start",
-                le: "start"
+                le: "start",
               },
-              flexDirection: "column"
+              flexDirection: "column",
             }}
           >
             <Typography
@@ -138,18 +139,18 @@ const Featured: React.FC<Props> = ({}) => {
                 fontSize: {
                   lg: "3.125rem",
                   md: "2.125rem",
-                  xs: "1.7rem"
+                  xs: "1.7rem",
                 },
                 marginBottom: {
                   lg: "1rem",
                   md: "1rem",
-                  xs: "1rem"
+                  xs: "1rem",
                 },
                 fontWeight: {
                   lg: "700",
                   md: "700",
-                  xs: "600"
-                }
+                  xs: "600",
+                },
               }}
             >
               EVERYTHING TO
@@ -161,13 +162,13 @@ const Featured: React.FC<Props> = ({}) => {
                 lineHeight: {
                   lg: "1.25",
                   md: "1.25",
-                  xs: "1"
+                  xs: "1",
                 },
                 textAlign: {
                   lg: "start",
                   md: "start",
-                  xs: "center"
-                }
+                  xs: "center",
+                },
               }}
               variant="h6"
               fontWeight={400}
@@ -177,7 +178,10 @@ const Featured: React.FC<Props> = ({}) => {
               No credit card required.
             </Typography>
 
-            <Link href="/dashboard/overview" style={{textDecoration:'none'}}>
+            <Link
+              href={`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`}
+              style={{ textDecoration: "none" }}
+            >
               <Button
                 variant="contained"
                 size="large"
@@ -188,13 +192,13 @@ const Featured: React.FC<Props> = ({}) => {
                   color: "primary.main",
                   "&:hover": {
                     backgroundColor: "common.white",
-                    color: "primary.main"
+                    color: "primary.main",
                   },
                   marginTop: {
                     lg: "1.4rem",
                     md: "1rem",
-                    xs: "1rem"
-                  }
+                    xs: "1rem",
+                  },
                 }}
               >
                 get started
@@ -210,7 +214,7 @@ const Featured: React.FC<Props> = ({}) => {
                 display: "block",
                 height: "auto",
                 maxWidth: "100%",
-                paddingTop: "2rem"
+                paddingTop: "2rem",
               }}
             />
           </Box>

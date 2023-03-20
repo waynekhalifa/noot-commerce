@@ -32,7 +32,7 @@ import { setAccessToken, setRefreshToken, setUser } from "@/store/appSlice";
 export const metadata: Metadata = {
   title: {
     default: "Noot",
-    template: "%s | Noot"
+    template: "%s | Noot",
   },
   description:
     "Digital Solutions Provider - Our website offers a range of digital solutions for businesses seeking innovative software development, web design, and IT services",
@@ -46,11 +46,11 @@ export const metadata: Metadata = {
       {
         url: "https://noot.ae/og.jpg",
         width: 1920,
-        height: 1080
-      }
+        height: 1080,
+      },
     ],
     locale: "en-US",
-    type: "website"
+    type: "website",
   },
   robots: {
     index: true,
@@ -60,20 +60,20 @@ export const metadata: Metadata = {
       follow: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
-      "max-snippet": -1
-    }
+      "max-snippet": -1,
+    },
   },
   twitter: {
     title: "Noot",
-    card: "summary_large_image"
+    card: "summary_large_image",
   },
   icons: {
-    shortcut: "/favicon.ico"
+    shortcut: "/favicon.ico",
   },
   verification: {
     google: "eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw",
-    yandex: "14d2e73487fa6c71"
-  }
+    yandex: "14d2e73487fa6c71",
+  },
 };
 // import { setSession } from '@/store/appSlice';
 
@@ -115,18 +115,18 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
           <GlobalStyles
             styles={{
               ".MuiAccordionSummary-root .MuiAccordionSummary-content": {
-                margin: "12px 8px !important"
+                margin: "12px 8px !important",
               },
               ".MuiAccordionSummary-root .MuiAccordionSummary-content.Mui-expanded":
                 {
-                  margin: "12px 8px !important"
+                  margin: "12px 8px !important",
                 },
               ".MuiAccordionSummary-root.Mui-expanded": {
-                minHeight: "0 !important"
+                minHeight: "0 !important",
               },
               ".MuiAccordionSummary-root.Mui-expanded .MuiTypography-root": {
-                marginLeft: "0 !important"
-              }
+                marginLeft: "0 !important",
+              },
             }}
           />
           <Component {...pageProps} toggleTheme={toggleTheme} />
@@ -146,27 +146,27 @@ MyApp.getInitialProps = wrapper.getInitialAppProps(
   (store) => async (appContext: AppContext) => {
     const ctx = await App.getInitialProps(appContext);
 
-    if (!appContext.router.route.includes(Routes.ACCOUNTS)) {
+    if (!appContext.router.route.includes(Routes.AUTH)) {
       console.log("Not in accounts");
       const cookieAccessToken: CookieValueTypes = getCookie(
         Cookies.ACCESS_TOKEN,
         {
           req: appContext.ctx.req,
-          res: appContext.ctx.res
+          res: appContext.ctx.res,
         }
       );
       const cookieRefreshToken: CookieValueTypes = getCookie(
         Cookies.ACCESS_TOKEN,
         {
           req: appContext.ctx.req,
-          res: appContext.ctx.res
+          res: appContext.ctx.res,
         }
       );
       const cookieSessionUser: CookieValueTypes = getCookie(
         Cookies.SESSION_USER,
         {
           req: appContext.ctx.req,
-          res: appContext.ctx.res
+          res: appContext.ctx.res,
         }
       );
 

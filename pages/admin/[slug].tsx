@@ -28,7 +28,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   if (!cookieSession) {
     return {
       redirect: {
-        destination: `/${Routes.ACCOUNTS}/${Pages.LOGIN}`,
+        destination: `/${Routes.AUTH}/${Pages.LOGIN}`,
         permanent: false,
       },
     };

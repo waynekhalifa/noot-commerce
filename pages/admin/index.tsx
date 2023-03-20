@@ -6,7 +6,7 @@ const PageTemplate: NextPage = () => <></>;
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
     redirect: {
-      destination: `/${Routes.ADMIN}/${Pages.OVERVIEW}`,
+      destination: `/${Routes.ADMIN}/${Pages.SERVICES}`,
       permanent: false,
     },
   };

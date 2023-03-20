@@ -1,14 +1,15 @@
-import { ISessionUser } from "@/models/app";
+import { ISessionUser, ISnackBar } from "@/models/app";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 import { AppState } from "./store";
 // Type for our state
 
 export interface StateProps {
-  dateRange: any;
   user: ISessionUser | null;
   accessToken: string;
   refreshToken: string;
+  snackbar: ISnackBar;
+  dateRange: any;
 }
 
 // Initial state
@@ -17,6 +18,12 @@ const initialState: StateProps = {
   user: null,
   accessToken: "",
   refreshToken: "",
+  snackbar: {
+    open: false,
+    severity: "info",
+    content: null,
+    persist: false,
+  },
 };
 
 // Actual Slice
@@ -39,6 +46,9 @@ export const slice = createSlice({
     ) => {
       state.user = action.payload;
     },
+    setSnackBar(state: StateProps, action: PayloadAction<any>) {
+      state.snackbar = action.payload;
+    },
   },
   extraReducers: {
     [HYDRATE]: (state: StateProps, action: PayloadAction<any>) => {
@@ -58,5 +68,6 @@ export const selectDateRange = (state: AppState) => state.app.dateRange;
 export const selectAccessToken = (state: AppState) => state.app.accessToken;
 export const selectRefreshToken = (state: AppState) => state.app.refreshToken;
 export const selectUser = (state: AppState) => state.app.user;
+export const selectSnackbar = (state: AppState) => state.app.snackbar;
 
 export default slice.reducer;

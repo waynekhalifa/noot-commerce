@@ -17,15 +17,15 @@ const Dashboard: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const cookieSession: CookieValueTypes = getCookie(Cookies.ACCESS_TOKEN, {
     req,
-    res
+    res,
   });
 
   if (!cookieSession) {
     return {
       redirect: {
-        destination: `/${Routes.ACCOUNTS}/${Pages.LOGIN}`,
-        permanent: false
-      }
+        destination: `/${Routes.AUTH}/${Pages.LOGIN}`,
+        permanent: false,
+      },
     };
   }
 
