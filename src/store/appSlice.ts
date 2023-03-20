@@ -61,8 +61,13 @@ export const slice = createSlice({
   },
 });
 
-export const { setDateRange, setAccessToken, setRefreshToken, setUser } =
-  slice.actions;
+export const {
+  setDateRange,
+  setAccessToken,
+  setRefreshToken,
+  setUser,
+  setSnackBar,
+} = slice.actions;
 
 export const selectDateRange = (state: AppState) => state.app.dateRange;
 export const selectAccessToken = (state: AppState) => state.app.accessToken;

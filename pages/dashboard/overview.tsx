@@ -4,7 +4,7 @@ import { CookieValueTypes, getCookie } from "cookies-next";
 import Admin from "@/components/Admin";
 
 const AdminPage: NextPage = () => (
-  <Admin resourceName={Pages.OVERVIEW} singleName={Pages.OVERVIEW} />
+  <Admin resourceName={Pages.OVERVIEW} singleName={"Overview"} />
 );
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
