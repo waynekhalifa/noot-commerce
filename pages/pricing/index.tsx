@@ -1,4 +1,4 @@
-import NewHeader from "@/components/NewHeader";
+import Header from "@/components/Header";
 import { Box } from "@mui/system";
 import { useState } from "react";
 import type { NextPage } from "next";
@@ -24,7 +24,7 @@ const PricingPage: NextPage<Props> = ({ toggleTheme }) => {
   return (
     <>
       <Box>
-        <NewHeader
+        <Header
           toggleTheme={toggleTheme}
           openBurgerNav={openBurgerNav}
           closeBurgerNav={closeBurgerNav}

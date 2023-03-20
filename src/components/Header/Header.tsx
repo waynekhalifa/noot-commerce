@@ -1,162 +1,274 @@
-import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import Logo from "./Logo";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { useTheme } from "@mui/material";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import Logo from "./Logo";
+import CloseIcon from "@mui/icons-material/Close";
+import { AnimatePresence, motion } from "framer-motion";
 import { Pages, Routes } from "@/constants/enums";
 
-const pages = ["Products", "Pricing", "Blog"];
+const variants = {
+  hidden: {
+    opacity: 0,
+    height: "0vh",
+    transition: {
+      staggerChildren: 1.3,
+      duration: 0.4
+    }
+    // transitionEnd: { display: "none" }
+  },
+  show: {
+    opacity: 1,
+    height: "100vh",
+    transition: {
+      staggerChildren: 1.3,
+      duration: 0.6
+    }
+  }
+};
+const list = {
+  show: {
+    opacity: 1,
+    transition: { when: "afterChildren" }
+  },
+  hide: {
+    opacity: 0,
+    transition: { when: "afterChildren" }
+  }
+};
+const item = {
+  show: {
+    opacity: 1,
+    transition: { when: "afterChildren" }
+  },
+  hide: {
+    opacity: 0,
+    transition: { duration: 0.6 }
+  }
+};
+
+const pages = [
+  { name: "PRODUCTS", familiarName: "/products" },
+  { name: "TEMPLATES", familiarName: "/templates" },
+  { name: "RESOURCES", familiarName: "/resources" },
+  { name: "PRICING", familiarName: "/pricing" }
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 interface Props {
   toggleTheme?: React.MouseEventHandler<HTMLButtonElement>;
-  elevation?: number;
+  openBurgerNav: () => void;
+  closeBurgerNav: () => void;
+  burger: boolean;
 }
-const Header: React.FC<Props> = ({ toggleTheme, elevation }) => {
+const Header: React.FC<Props> = ({
+  toggleTheme,
+  openBurgerNav,
+  closeBurgerNav,
+  burger
+}) => {
   const theme = useTheme();
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
+  const router = useRouter();
+  const { push } = router;
+  const { pathname } = router;
   return (
-    <nav style={{ backgroundColor: "transparent", position: "sticky" }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Box
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              color: "transparent",
-              textDecoration: "none",
+    <Box sx={{ position: "absolute", zIndex: "9999", minWidth: "100vw" }}>
+      <AnimatePresence mode="wait">
+        {burger && (
+          <motion.div
+            variants={variants}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            style={{
+              width: "100%",
+              backgroundColor: `${
+                theme.palette.mode === "light" ? "white" : "#161617"
+              }`
             }}
           >
-            <Logo />
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              edge="start"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+            <Box
               sx={{
-                display: { xs: "block", md: "none" },
+                width: "100%",
+                height: "3rem"
               }}
             >
+              <CloseIcon
+                sx={{
+                  fontWeight: "200",
+                  marginTop: "1rem",
+                  marginLeft: "0.75rem",
+                  cursor: "pointer"
+                }}
+                onClick={closeBurgerNav}
+              />
+            </Box>
+            <Box sx={{ padding: "2rem", width: "fit-content" }}>
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <motion.ul
+                  variants={list}
+                  animate="hidden"
+                  key={page.name}
+                  onClick={() => {
+                    push(`${page.familiarName}`);
+                  }}
+                >
+                  <motion.li
+                    initial="hidden"
+                    variants={item}
+                    style={{
+                      listStyle: "none",
+                      fontSize: "1.6rem",
+                      font: "San Francisco, Helvetica, Arial, san-serif",
+                      fontWeight: "600"
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "start",
+                        justifyContent: "center",
+                        flexDirection: "column"
+                      }}
+                    >
+                      {page.name}
+                      <Box
+                        component="span"
+                        sx={{
+                          width: `${
+                            page.familiarName === `${pathname}` ? "100%" : "0%"
+                          }`,
+                          height: "2px",
+                          backgroundColor: "#06B7B7",
+                          borderRadius: "10px"
+                        }}
+                      />
+                    </Box>
+                  </motion.li>
+                </motion.ul>
               ))}
-            </Menu>
-          </Box>
-          {/* <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              textDecoration: "none"
-            }}
-          >
-            <Logo />
-          </Typography> */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, display: "block", fontSize: "1.1rem" }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          <Link
-            href={`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`}
-            style={{ textDecoration: "none" }}
-          >
-            <button
-              style={{
-                width: "10rem",
-                height: "40px",
-                backgroundColor: "#06B7B7",
-                border: "none",
-                borderRadius: "25px",
-                fontSize: "16px",
-                color: "white",
-                fontWeight: "400",
-                cursor: "pointer",
-                textDecoration: "none",
+            </Box>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <nav
+        style={{
+          backgroundColor: `${
+            theme.palette.mode === "light" ? "white" : "#161617cc"
+          }`,
+          display: `${burger ? "none" : "block"}`,
+          position: "fixed",
+          top: "0",
+          height: "4rem",
+          width: "100%",
+          zIndex: 100,
+          backdropFilter: "saturate(180%) blur(20px)"
+        }}
+      >
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Box
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                color: "transparent",
+                textDecoration: "none"
               }}
             >
-              GET STARTED
-            </button>
-          </Link>
-          <IconButton
-            size="large"
-            edge="end"
-            aria-label="mode"
-            onClick={toggleTheme}
-          >
-            {theme.palette.mode === "light" ? (
-              <DarkModeIcon />
-            ) : (
-              <LightModeIcon />
-            )}
-          </IconButton>
-        </Toolbar>
-      </Container>
-    </nav>
+              <Logo />
+            </Box>
+
+            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+              <MenuIcon onClick={openBurgerNav} sx={{ cursor: "pointer" }} />
+            </Box>
+            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+              {pages.map((page) => (
+                <Button
+                  disableElevation
+                  disableRipple
+                  key={page.name}
+                  onClick={() => {
+                    push(`${page.familiarName}`);
+                  }}
+                  sx={{
+                    my: 2,
+                    display: "block",
+                    fontSize: "1.1rem",
+                    "&:hover": {
+                      background: "none"
+                    }
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "start",
+                      justifyContent: "center",
+                      flexDirection: "column"
+                    }}
+                  >
+                    {page.name}
+                    <Box
+                      component="span"
+                      sx={{
+                        width: `${
+                          page.familiarName === `${pathname}` ? "100%" : "0%"
+                        }`,
+                        height: "2px",
+                        backgroundColor: "#06B7B7",
+                        borderRadius: "10px"
+                      }}
+                    />
+                  </Box>
+                </Button>
+              ))}
+            </Box>
+            <Link
+              href={`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`}
+              style={{ textDecoration: "none" }}
+            >
+              <button
+                style={{
+                  width: "10rem",
+                  height: "40px",
+                  backgroundColor: "#06B7B7",
+                  border: "none",
+                  borderRadius: "25px",
+                  fontSize: "16px",
+                  color: "white",
+                  fontWeight: "400",
+                  cursor: "pointer",
+                  textDecoration: "none"
+                }}
+              >
+                GET STARTED
+              </button>
+            </Link>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="mode"
+              onClick={toggleTheme}
+            >
+              {theme.palette.mode === "light" ? (
+                <DarkModeIcon />
+              ) : (
+                <LightModeIcon />
+              )}
+            </IconButton>
+          </Toolbar>
+        </Container>
+      </nav>
+    </Box>
   );
 };
+
 export default Header;

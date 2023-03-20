@@ -1,11 +1,18 @@
 import { useState } from "react";
-import type { NextPage } from "next";
+import type { Metadata, NextPage } from "next";
 import Breadcrumb from "@/components/common/Breadcrumb";
-import NewHeader from "@/components/NewHeader";
+import Header from "@/components/Header";
 
 interface Props {
   toggleTheme?: React.MouseEventHandler<HTMLButtonElement>;
 }
+
+export const metadata: Metadata = {
+  title: 'Templates',
+  description: 'Read my thoughts on software development, design, and more.',
+};
+
+
 const TemplatesPage: NextPage<Props> = ({ toggleTheme }) => {
   const [burger, setBurger] = useState<boolean>(false);
   const openBurgerNav = () => {
@@ -16,7 +23,7 @@ const TemplatesPage: NextPage<Props> = ({ toggleTheme }) => {
   };
   return (
     <>
-      <NewHeader
+      <Header
         toggleTheme={toggleTheme}
         openBurgerNav={openBurgerNav}
         closeBurgerNav={closeBurgerNav}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { NextPage } from "next";
 import Breadcrumb from "@/components/common/Breadcrumb";
-import NewHeader from "@/components/NewHeader";
+import Header from "@/components/Header";
 
 interface Props {
   toggleTheme?: React.MouseEventHandler<HTMLButtonElement>;
@@ -16,7 +16,7 @@ const ProductsPage: NextPage<Props> = ({ toggleTheme }) => {
   };
   return (
     <>
-      <NewHeader
+      <Header
         toggleTheme={toggleTheme}
         openBurgerNav={openBurgerNav}
         closeBurgerNav={closeBurgerNav}

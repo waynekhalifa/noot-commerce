@@ -5,6 +5,17 @@ import createEmotionCache from "@/helpers/createEmotionCache";
 import { CacheProvider } from "@emotion/react";
 import { wrapper } from "@/store/store";
 import { createTheme, GlobalStyles } from "@mui/material";
+import lightThemeOptions from "@/theme/lightThemeOptions";
+import { Provider } from "react-redux";
+import { useRouter } from "next/router";
+import { Mode } from "@/models/app";
+import darkThemeOptions from "@/theme/darkThemeOptions";
+import { useEffect, useState } from "react";
+import { Metadata } from "next";
+import ScrollToTop from "@/components/common/ScrollToTop";
+import { Cookies, Routes } from "@/constants/enums";
+import { CookieValueTypes, getCookie } from "cookies-next";
+import { setAccessToken, setRefreshToken, setUser } from "@/store/appSlice";
 
 // English Font Family
 import "@fontsource/roboto/300.css";
@@ -17,17 +28,6 @@ import "@fontsource/tajawal/400.css";
 import "@fontsource/tajawal/500.css";
 import "@fontsource/tajawal/700.css";
 
-import lightThemeOptions from "@/theme/lightThemeOptions";
-import { Provider } from "react-redux";
-import { useRouter } from "next/router";
-import { Mode } from "@/models/app";
-import darkThemeOptions from "@/theme/darkThemeOptions";
-import { useEffect, useState } from "react";
-import { Metadata } from "next";
-import ScrollToTop from "@/components/common/ScrollToTop";
-import { Cookies, Routes } from "@/constants/enums";
-import { CookieValueTypes, getCookie } from "cookies-next";
-import { setAccessToken, setRefreshToken, setUser } from "@/store/appSlice";
 
 export const metadata: Metadata = {
   title: {
