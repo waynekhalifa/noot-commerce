@@ -110,23 +110,22 @@ const Header: React.FC<Props> = ({
               />
             </Box>
             <Box sx={{ padding: "2rem", width: "fit-content" }}>
-              {pages.map((page) => (
-                <motion.ul
-                  variants={list}
-                  animate="hidden"
-                  key={page.name}
-                  onClick={() => {
-                    push(`${page.familiarName}`);
-                  }}
-                >
+              <motion.ul variants={list} animate="hidden">
+                {pages.map((page) => (
                   <motion.li
                     initial="hidden"
                     variants={item}
+                    key={page.name}
+                    onClick={() => {
+                      push(`${page.familiarName}`);
+                    }}
                     style={{
                       listStyle: "none",
                       fontSize: "1.6rem",
                       font: "San Francisco, Helvetica, Arial, san-serif",
-                      fontWeight: "600"
+                      fontWeight: "600",
+                      paddingBottom: "0.5rem",
+                      width: "fit-content"
                     }}
                   >
                     <Box
@@ -151,8 +150,8 @@ const Header: React.FC<Props> = ({
                       />
                     </Box>
                   </motion.li>
-                </motion.ul>
-              ))}
+                ))}
+              </motion.ul>
             </Box>
           </motion.div>
         )}
