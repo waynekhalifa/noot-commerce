@@ -3,6 +3,7 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { slice as appSlice } from "./appSlice";
 import { slice as resourceSlice } from "./resourceSlice";
 import { slice as modalSlice } from "./modalSlice";
+import { Environments } from "@/constants/enums";
 
 const makeStore = () =>
   configureStore({
@@ -11,7 +12,7 @@ const makeStore = () =>
       [resourceSlice.name]: resourceSlice.reducer,
       [modalSlice.name]: modalSlice.reducer,
     },
-    devTools: true,
+    devTools: process.env.NODE_ENV === Environments.PROD ? true : false,
     middleware: (getDefaultMiddleware: any) =>
       // getDefaultMiddleware has any type
       getDefaultMiddleware({

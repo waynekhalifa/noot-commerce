@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer";
-import NewHeader from "@/components/NewHeader";
+import Header from "@/components/Header";
 import HomeSections from "@/components/HomeSections";
 import type { NextPage } from "next";
 
@@ -24,8 +24,7 @@ const Page: NextPage<Props> = ({ toggleTheme }) => {
         <title>Noot</title>
         <meta name="description" content={"Noot"} />
       </Head>
-      {/* <Header toggleTheme={toggleTheme} /> */}
-      <NewHeader
+      <Header
         toggleTheme={toggleTheme}
         openBurgerNav={openBurgerNav}
         closeBurgerNav={closeBurgerNav}

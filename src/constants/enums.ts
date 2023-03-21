@@ -166,3 +166,8 @@ export enum MODAL_TYPES {
   RESOURCE = "resource",
   MEDIA = "media",
 }
+
+export enum Environments {
+  PROD = "production",
+  DEV = "development",
+}

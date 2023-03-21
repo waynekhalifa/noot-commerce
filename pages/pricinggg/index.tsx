@@ -1,4 +1,4 @@
-import NewHeader from "@/components/NewHeader";
+import Header from "@/components/Header";
 import { Box } from "@mui/system";
 import { useState } from "react";
 import type { NextPage } from "next";
@@ -77,7 +77,7 @@ const PricingggPage: NextPage<Props> = ({ toggleTheme }) => {
         pageName="Pricing Page"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
       /> */}
-      <Box >
+      <Box>
         {/* effect start */}
         <Box
           sx={{
@@ -144,7 +144,7 @@ const PricingggPage: NextPage<Props> = ({ toggleTheme }) => {
         ></Box>
         {/* effect end */}
 
-        <NewHeader
+        <Header
           toggleTheme={toggleTheme}
           openBurgerNav={openBurgerNav}
           closeBurgerNav={closeBurgerNav}
