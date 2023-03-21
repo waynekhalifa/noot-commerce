@@ -13,7 +13,7 @@ const CreateWebsite: React.FC<Props> = ({}) => {
         position: "relative",
         overflow: "hidden",
         paddingTop: "2rem",
-        zIndex: "10"
+        zIndex: "10",
       }}
     >
       <Container maxWidth="lg">
@@ -23,8 +23,8 @@ const CreateWebsite: React.FC<Props> = ({}) => {
             display: {
               md: "none",
               lg: "none",
-              xs: "block"
-            }
+              xs: "block",
+            },
           }}
         >
           <Grid container>
@@ -41,7 +41,7 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                 clipPath: "circle(30%)",
                 zIndex: "-1",
                 left: "12rem",
-                opacity: "0.31"
+                opacity: "0.31",
               }}
             />
             <Box
@@ -57,7 +57,7 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                 zIndex: "-1",
                 left: "10rem",
                 top: "0.9rem",
-                opacity: "0.43"
+                opacity: "0.43",
               }}
             />
             {/* --------------- */}
@@ -93,8 +93,8 @@ const CreateWebsite: React.FC<Props> = ({}) => {
             display: {
               md: "block",
               lg: "block",
-              xs: "none"
-            }
+              xs: "none",
+            },
           }}
         >
           <Grid container>
@@ -105,36 +105,36 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                 overflow: "hidden",
                 background: {
                   lg: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
-                  md: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)"
+                  md: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
                 },
                 borderRadius: {
                   md: " 10% 10% 10% 10% / 10% 10% 10% 10%",
-                  lg: " 10% 10% 10% 10% / 10% 10% 10% 10%"
+                  lg: " 10% 10% 10% 10% / 10% 10% 10% 10%",
                 },
 
                 width: {
                   md: "22%",
-                  lg: "18%"
+                  lg: "18%",
                 },
                 height: {
                   md: "100%",
-                  lg: "100%"
+                  lg: "100%",
                 },
                 clipPath: {
                   md: "none",
-                  lg: "none"
+                  lg: "none",
                 },
                 transform: "rotate(45deg)",
                 zIndex: "-1",
                 left: {
                   md: "-11rem",
-                  lg: "-13rem"
+                  lg: "-13rem",
                 },
                 top: {
                   md: "4rem",
-                  lg: "2rem"
+                  lg: "2rem",
                 },
-                opacity: "0.31"
+                opacity: "0.31",
               }}
             />
             <Box
@@ -144,36 +144,36 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                 overflow: "hidden",
                 background: {
                   lg: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
-                  md: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)"
+                  md: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
                 },
                 borderRadius: {
                   md: " 10% 10% 10% 10% / 10% 10% 10% 10%",
-                  lg: " 10% 10% 10% 10% / 10% 10% 10% 10%"
+                  lg: " 10% 10% 10% 10% / 10% 10% 10% 10%",
                 },
 
                 width: {
                   md: "22%",
-                  lg: "18%"
+                  lg: "18%",
                 },
                 height: {
                   md: "100%",
-                  lg: "100%"
+                  lg: "100%",
                 },
                 clipPath: {
                   md: "none",
-                  lg: "none"
+                  lg: "none",
                 },
                 transform: "rotate(45deg)",
                 zIndex: "-1",
                 left: {
                   md: "-13rem",
-                  lg: "-15rem"
+                  lg: "-15rem",
                 },
                 top: {
                   md: "4rem",
-                  lg: "2rem"
+                  lg: "2rem",
                 },
-                opacity: "0.31"
+                opacity: "0.31",
               }}
             />
             <Box
@@ -183,36 +183,36 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                 overflow: "hidden",
                 background: {
                   lg: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
-                  md: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)"
+                  md: "linear-gradient(90deg, \n#058e97 10.41%, \n#76c95a 100.00%)",
                 },
                 borderRadius: {
                   md: " 10% 10% 10% 10% / 10% 10% 10% 10%",
-                  lg: " 10% 10% 10% 10% / 10% 10% 10% 10%"
+                  lg: " 10% 10% 10% 10% / 10% 10% 10% 10%",
                 },
 
                 width: {
                   md: "22%",
-                  lg: "18%"
+                  lg: "18%",
                 },
                 height: {
                   md: "100%",
-                  lg: "100%"
+                  lg: "100%",
                 },
                 clipPath: {
                   md: "none",
-                  lg: "none"
+                  lg: "none",
                 },
                 transform: "rotate(45deg)",
                 zIndex: "-1",
                 left: {
                   md: "-15rem",
-                  lg: "-17rem"
+                  lg: "-17rem",
                 },
                 top: {
                   md: "4rem",
-                  lg: "2rem"
+                  lg: "2rem",
                 },
-                opacity: "0.31"
+                opacity: "0.31",
               }}
             />
             <Grid item md={6} lg={8}>
@@ -232,7 +232,7 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                alignItems: "start"
+                alignItems: "start",
               }}
             >
               <CenterTitle>

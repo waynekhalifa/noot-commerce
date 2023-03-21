@@ -10,49 +10,8 @@ import Breadcrumb from "@/components/common/Breadcrumb";
 interface Props {
   toggleTheme?: React.MouseEventHandler<HTMLButtonElement>;
 }
-const PricicngPage: NextPage<Props> = ({ toggleTheme }) => {
-  const [widges, setWidges] = useState([
-    {
-      header: {
-        title: "Personal",
-        p: "Grow your personal brand",
-        icon: "/images/icons/PersonalIcon.png",
-      },
-      features: {
-        title: ["Connect your domain", "3GB storage", "2GB bandwidth"],
-      },
-    },
-    {
-      header: {
-        title: "Premium",
-        p: "Billed annually",
-        icon: "/images/icons/PremiumIcon.png",
-      },
-      features: {
-        title: ["Connect your domain", "3GB storage", "2GB bandwidth"],
-      },
-    },
-    {
-      header: {
-        title: "Business",
-        p: "Billed annually",
-        icon: "/images/icons/BusinessIcon.png",
-      },
-      features: {
-        title: ["Connect your domain", "3GB storage", "2GB bandwidth"],
-      },
-    },
-    {
-      header: {
-        title: "Enterprise",
-        p: "Billed annually",
-        icon: "/images/icons/EnterpriseIcon.png",
-      },
-      features: {
-        title: ["Connect your domain", "3GB storage", "2GB bandwidth"],
-      },
-    },
-  ]);
+const PricingPage: NextPage<Props> = ({ toggleTheme }) => {
+  const [isMonthly, setIsMonthly] = useState<boolean>(true);
   const [burger, setBurger] = useState<boolean>(false);
 
   const openBurgerNav = () => {
