@@ -1,12 +1,11 @@
-import Clients from "./Clients";
-import CreateWebsite from "./CreateWebsite";
 import Featured from "./Featured";
-import Services from "./Services";
-import TryNoot from "./TryNoot";
-import Dashboard from "./Dashboard";
-import BusinessProcess from "./BusinessProcess";
-import Testimonials from "./Testimonials";
 import { Box } from "@mui/material";
+import TimeBox from "./TimeBox";
+import CreateWebsite from "./CreateWebsite";
+import ThreeDots from "./ThreeDots";
+import QuicklyBuild from "./QuicklyBuild";
+import WhyNoot from "./WhyNoot";
+import Reasons from "./Reasons";
 
 interface Props {
   burger: boolean;
@@ -18,17 +17,23 @@ const HomeSections: React.FC<Props> = ({ burger }) => {
     <Box
       sx={{
         height: `${burger ? "calc( 100vh - 4rem )" : "100%"}`,
-        overflow: "hidden"
+        overflow: "hidden",
       }}
     >
       <Featured />
       {/* <Clients /> */}
-      <Services />
+      {/* <Services /> */}
+      <TimeBox />
       <CreateWebsite />
-      <TryNoot />
+      <ThreeDots />
+      <QuicklyBuild />
+      <ThreeDots />
+      <WhyNoot />
+      <Reasons />
+      {/*    <TryNoot />
       <Dashboard />
-      <BusinessProcess />
-      <Testimonials />
+ <BusinessProcess /> 
+      <Testimonials />*/}
     </Box>
   );
 };

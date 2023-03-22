@@ -1,8 +1,9 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 
-import websiteTemplate from "@images/website-template.png";
+import websiteTemplate from "@images/website-template.webp";
 import CenterTitle from "../UI/CenterTitle";
 import AboutSuccessBtn from "../AboutSuccessBtn";
+import OptimizedImg from "../OptimizedImg";
 
 interface Props {}
 
@@ -97,7 +98,14 @@ const CreateWebsite: React.FC<Props> = ({}) => {
             },
           }}
         >
-          <Grid container>
+          <Grid
+            container
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <Box
               sx={{
                 position: "absolute",
@@ -215,39 +223,63 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                 opacity: "0.31",
               }}
             />
-            <Grid item md={6} lg={8}>
-              <Box
-                component="img"
-                src={websiteTemplate.src}
-                alt="noot"
-                sx={{ display: "block", height: "auto", maxWidth: "100%" }}
-              />
-            </Grid>
             <Grid
-              item
-              md={6}
-              lg={4}
               sx={{
-                pt: { xs: 8, md: 0 },
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "start",
+                textAlign: "center",
+                position: "relative",
+                ":after": {
+                  content: '""',
+                  position: "absolute",
+                  top: "-10px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "200px",
+                  height: "2px",
+                  backgroundColor: "#06B7B7",
+                },
               }}
             >
-              <CenterTitle>
-                CREATE A
-                <br />
-                WEBSITE
-              </CenterTitle>
-              <Typography paragraph>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                takimata sanctus est Lorem ipsum dolor sit amet
+              <Typography
+                variant="h6"
+                sx={{ fontSize: "36px", fontWeight: "500", color: "#06B7B7" }}
+              >
+                Create your landing Page
               </Typography>
-              <AboutSuccessBtn />
+              <Typography
+                paragraph
+                sx={{ fontSize: "18px", fontWeight: "400", color: "#06B7B7" }}
+              >
+                of your dreams in a mintues
+              </Typography>
+            </Grid>
+            <Grid
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Grid item md={6} lg={8}>
+                <OptimizedImg
+                  src="/images/website-template.webp"
+                  width={700}
+                  height={500}
+                  alt="noot"
+                  style={{ objectFit: "contain" }}
+                />
+              </Grid>
+              <Typography
+                paragraph
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: "400",
+                  letterSpacing: "0.8",
+                  lineHeight: "1.8",
+                }}
+              >
+                Creating a website is much easier than it used to be thanks to
+                our wide variety templates that consumers can now choose from
+              </Typography>
             </Grid>
           </Grid>
         </Box>

@@ -42,7 +42,9 @@ const ContactCircle: React.FC<NumberingTitleProps> = ({ title, content }) => {
             paddingRight: "1rem",
           }}
         >
-          <Typography sx={{ fontSize: "0.9rem" }} fontWeight={400}>
+          <Typography
+            sx={{ fontSize: "0.9rem", color: "#6D757D", fontWeight: "500" }}
+          >
             {content}
           </Typography>
         </Box>
@@ -107,7 +109,12 @@ const Footer: React.FC<FooterProps> = ({ burger }) => {
   ];
 
   return (
-    <footer style={{ display: `${burger ? "none" : "block"}` }}>
+    <footer
+      style={{
+        display: `${burger ? "none" : "block"}`,
+        backgroundColor: "white",
+      }}
+    >
       <Box
         sx={{
           pt: 2,
@@ -140,13 +147,15 @@ const Footer: React.FC<FooterProps> = ({ burger }) => {
                 <form style={{ paddingBottom: "1rem" }}>
                   <input
                     type="email"
-                    placeholder="     Mail"
+                    placeholder="Mail"
                     style={{
                       height: "2.5rem",
                       width: "14rem",
                       border: "2px solid #06B7B7",
                       borderRadius: "20px",
                       color: "#06B7B7",
+                      paddingLeft: "20px",
+                      outline: "none",
                     }}
                   />
                   <button
@@ -224,8 +233,12 @@ const Footer: React.FC<FooterProps> = ({ burger }) => {
           }}
         />
 
-        <Typography textAlign={"center"} color="text.secondary" mb={1}>
-          ©2022 Copyright noot.ae All Rights Reserved.
+        <Typography textAlign={"center"} color="#000000" mb={1}>
+          ©2022 Copyright{" "}
+          <Box component={"span"} color="#0D9292">
+            noot.ae
+          </Box>{" "}
+          All Rights Reserved.
         </Typography>
       </Box>
     </footer>
