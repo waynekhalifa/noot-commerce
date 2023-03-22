@@ -47,8 +47,8 @@ const PricingPage: NextPage<Props> = ({ toggleTheme }) => {
             paddingTop: {
               lg: "0rem",
               md: "0.5rem",
-              xs: "2rem"
-            }
+              xs: "2rem",
+            },
           }}
         >
           <Box sx={{ width: "100%" }}>
@@ -59,10 +59,10 @@ const PricingPage: NextPage<Props> = ({ toggleTheme }) => {
                 marginBottom: {
                   lg: "4rem",
                   md: "2rem",
-                  xs: "1rem"
+                  xs: "1rem",
                 },
                 display: "flex",
-                justifyContent: "center"
+                justifyContent: "center",
               }}
             >
               <Box
@@ -72,7 +72,7 @@ const PricingPage: NextPage<Props> = ({ toggleTheme }) => {
                   cursor: `${!isMonthly ? "pointer" : "default"}`,
                   color: `${isMonthly && "primary.main"}`,
                   fontSize: "1.25rem",
-                  fontWeight: "500"
+                  fontWeight: "500",
                 }}
               >
                 Monthly
@@ -89,7 +89,7 @@ const PricingPage: NextPage<Props> = ({ toggleTheme }) => {
                   cursor: `${isMonthly ? "pointer" : "default"}`,
                   color: `${!isMonthly && "primary.main"}`,
                   fontSize: "1.25rem",
-                  fontWeight: "500"
+                  fontWeight: "500",
                 }}
               >
                 Yearly
@@ -106,8 +106,8 @@ const PricingPage: NextPage<Props> = ({ toggleTheme }) => {
               flexWrap: {
                 lg: "nowrap",
                 md: "nowrap",
-                xs: "wrap"
-              }
+                xs: "wrap",
+              },
             }}
           >
             <Box>

@@ -20,8 +20,8 @@ const variants = {
     height: "0vh",
     transition: {
       staggerChildren: 1.3,
-      duration: 0.4
-    }
+      duration: 0.4,
+    },
     // transitionEnd: { display: "none" }
   },
   show: {
@@ -29,36 +29,36 @@ const variants = {
     height: "100vh",
     transition: {
       staggerChildren: 1.3,
-      duration: 0.6
-    }
-  }
+      duration: 0.6,
+    },
+  },
 };
 const list = {
   show: {
     opacity: 1,
-    transition: { when: "afterChildren" }
+    transition: { when: "afterChildren" },
   },
   hide: {
     opacity: 0,
-    transition: { when: "afterChildren" }
-  }
+    transition: { when: "afterChildren" },
+  },
 };
 const item = {
   show: {
     opacity: 1,
-    transition: { when: "afterChildren" }
+    transition: { when: "afterChildren" },
   },
   hide: {
     opacity: 0,
-    transition: { duration: 0.6 }
-  }
+    transition: { duration: 0.6 },
+  },
 };
 
 const pages = [
   { name: "PRODUCTS", familiarName: "/products" },
   { name: "TEMPLATES", familiarName: "/templates" },
   { name: "RESOURCES", familiarName: "/resources" },
-  { name: "PRICING", familiarName: "/pricing" }
+  { name: "PRICING", familiarName: "/pricing" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 interface Props {
@@ -71,7 +71,7 @@ const Header: React.FC<Props> = ({
   toggleTheme,
   openBurgerNav,
   closeBurgerNav,
-  burger
+  burger,
 }) => {
   const theme = useTheme();
   const router = useRouter();
@@ -90,13 +90,13 @@ const Header: React.FC<Props> = ({
               width: "100%",
               backgroundColor: `${
                 theme.palette.mode === "light" ? "white" : "#121212"
-              }`
+              }`,
             }}
           >
             <Box
               sx={{
                 width: "100%",
-                height: "3rem"
+                height: "3rem",
               }}
             >
               <CloseIcon
@@ -104,7 +104,7 @@ const Header: React.FC<Props> = ({
                   fontWeight: "200",
                   marginTop: "1rem",
                   marginLeft: "0.75rem",
-                  cursor: "pointer"
+                  cursor: "pointer",
                 }}
                 onClick={closeBurgerNav}
               />
@@ -125,7 +125,7 @@ const Header: React.FC<Props> = ({
                       font: "San Francisco, Helvetica, Arial, san-serif",
                       fontWeight: "600",
                       paddingBottom: "0.5rem",
-                      width: "fit-content"
+                      width: "fit-content",
                     }}
                   >
                     <Box
@@ -133,7 +133,7 @@ const Header: React.FC<Props> = ({
                         display: "flex",
                         alignItems: "start",
                         justifyContent: "center",
-                        flexDirection: "column"
+                        flexDirection: "column",
                       }}
                     >
                       {page.name}
@@ -145,7 +145,7 @@ const Header: React.FC<Props> = ({
                           }`,
                           height: "2px",
                           backgroundColor: "#06B7B7",
-                          borderRadius: "10px"
+                          borderRadius: "10px",
                         }}
                       />
                     </Box>
@@ -173,7 +173,7 @@ const Header: React.FC<Props> = ({
           height: "4rem",
           width: "100%",
           zIndex: 100,
-          backdropFilter: "saturate(180%) blur(20px)"
+          backdropFilter: "saturate(180%) blur(20px)",
         }}
       >
         <Container maxWidth="xl">
@@ -185,7 +185,7 @@ const Header: React.FC<Props> = ({
                 mr: 2,
                 display: { xs: "none", md: "flex" },
                 color: "transparent",
-                textDecoration: "none"
+                textDecoration: "none",
               }}
             >
               <Logo />
@@ -208,8 +208,8 @@ const Header: React.FC<Props> = ({
                     display: "block",
                     fontSize: "1.1rem",
                     "&:hover": {
-                      background: "none"
-                    }
+                      background: "none",
+                    },
                   }}
                 >
                   <Box
@@ -217,7 +217,7 @@ const Header: React.FC<Props> = ({
                       display: "flex",
                       alignItems: "start",
                       justifyContent: "center",
-                      flexDirection: "column"
+                      flexDirection: "column",
                     }}
                   >
                     {page.name}
@@ -229,13 +229,28 @@ const Header: React.FC<Props> = ({
                         }`,
                         height: "2px",
                         backgroundColor: "#06B7B7",
-                        borderRadius: "10px"
+                        borderRadius: "10px",
                       }}
                     />
                   </Box>
                 </Button>
               ))}
             </Box>
+
+            <Link
+              href={`/${Routes.AUTH}/${Pages.LOGIN}`}
+              className="login"
+              style={{
+                textDecoration: "none",
+                marginRight: "30px",
+                color: "#12948f",
+                fontSize: "1.1rem",
+                textTransform: "uppercase",
+              }}
+            >
+              Login
+            </Link>
+
             <Link
               href={`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`}
               style={{ textDecoration: "none" }}
@@ -251,7 +266,7 @@ const Header: React.FC<Props> = ({
                   color: "white",
                   fontWeight: "400",
                   cursor: "pointer",
-                  textDecoration: "none"
+                  textDecoration: "none",
                 }}
               >
                 GET STARTED

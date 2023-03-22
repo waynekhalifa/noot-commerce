@@ -4,7 +4,7 @@ import {
   Grid,
   ListItem,
   ListItemText,
-  Typography
+  Typography,
 } from "@mui/material";
 import Logo from "./Logo";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -30,7 +30,7 @@ const ContactCircle: React.FC<NumberingTitleProps> = ({ title, content }) => {
         sx={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "flex-end"
+          justifyContent: "flex-end",
         }}
       >
         <Box
@@ -39,10 +39,12 @@ const ContactCircle: React.FC<NumberingTitleProps> = ({ title, content }) => {
             alignItems: "center",
             justifyContent: "center",
             height: "100%",
-            paddingRight: "1rem"
+            paddingRight: "1rem",
           }}
         >
-          <Typography sx={{ fontSize: "0.9rem" }} fontWeight={400}>
+          <Typography
+            sx={{ fontSize: "0.9rem", color: "#6D757D", fontWeight: "500" }}
+          >
             {content}
           </Typography>
         </Box>
@@ -56,7 +58,7 @@ const ContactCircle: React.FC<NumberingTitleProps> = ({ title, content }) => {
             height: 48,
             color: "common.white",
             backgroundColor: `${title === "whatsapp" ? "#3F813C" : "#06B7B7"}`,
-            borderRadius: "50%"
+            borderRadius: "50%",
           }}
         >
           {title === "whatsapp" ? (
@@ -102,12 +104,17 @@ const Footer: React.FC<FooterProps> = ({ burger }) => {
     { title: "email", content: "info@noot.ae" },
     {
       title: "location",
-      content: "العين،ابوظبى،الامارات العربية المتحدة"
-    }
+      content: "العين،ابوظبى،الامارات العربية المتحدة",
+    },
   ];
 
   return (
-    <footer style={{ display: `${burger ? "none" : "block"}` }}>
+    <footer
+      style={{
+        display: `${burger ? "none" : "block"}`,
+        backgroundColor: "white",
+      }}
+    >
       <Box
         sx={{
           pt: 2,
@@ -115,8 +122,8 @@ const Footer: React.FC<FooterProps> = ({ burger }) => {
           borderTop: {
             lg: "0.5px solid gray",
             md: "0.5px solid gray",
-            xs: "0.5px solid gray"
-          }
+            xs: "0.5px solid gray",
+          },
         }}
       >
         <Container>
@@ -127,8 +134,8 @@ const Footer: React.FC<FooterProps> = ({ burger }) => {
               flexDirection: {
                 md: "row",
                 lg: "row",
-                xs: "column-reverse"
-              }
+                xs: "column-reverse",
+              },
             }}
           >
             <Box sx={{ alignSelf: "end" }}>
@@ -140,13 +147,15 @@ const Footer: React.FC<FooterProps> = ({ burger }) => {
                 <form style={{ paddingBottom: "1rem" }}>
                   <input
                     type="email"
-                    placeholder="     Mail"
+                    placeholder="Mail"
                     style={{
                       height: "2.5rem",
                       width: "14rem",
                       border: "2px solid #06B7B7",
                       borderRadius: "20px",
-                      color: "#06B7B7"
+                      color: "#06B7B7",
+                      paddingLeft: "20px",
+                      outline: "none",
                     }}
                   />
                   <button
@@ -159,7 +168,7 @@ const Footer: React.FC<FooterProps> = ({ burger }) => {
                       marginLeft: "-35px",
                       cursor: "pointer",
                       color: "white",
-                      backgroundColor: "#06B7B7"
+                      backgroundColor: "#06B7B7",
                     }}
                   >
                     Subscribe
@@ -174,7 +183,7 @@ const Footer: React.FC<FooterProps> = ({ burger }) => {
                   display: "flex",
                   justifyContent: "end",
                   alignItems: "end",
-                  flexDirection: "column"
+                  flexDirection: "column",
                 }}
               >
                 <Box
@@ -182,13 +191,13 @@ const Footer: React.FC<FooterProps> = ({ burger }) => {
                     alignSelf: {
                       xs: "center",
                       md: "end",
-                      lg: "end"
+                      lg: "end",
                     },
                     pb: {
                       lg: "2rem",
                       md: "2rem",
-                      xs: "1rem"
-                    }
+                      xs: "1rem",
+                    },
                   }}
                 >
                   <Logo />
@@ -211,7 +220,7 @@ const Footer: React.FC<FooterProps> = ({ burger }) => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center"
+          justifyContent: "center",
         }}
       >
         <Box
@@ -220,12 +229,16 @@ const Footer: React.FC<FooterProps> = ({ burger }) => {
             borderTop: "1px solid gray",
             width: "70%",
             height: "1px",
-            alignSelf: "center"
+            alignSelf: "center",
           }}
         />
 
-        <Typography textAlign={"center"} color="text.secondary" mb={1}>
-          ©2022 Copyright noot.ae All Rights Reserved.
+        <Typography textAlign={"center"} color="#000000" mb={1}>
+          ©2022 Copyright{" "}
+          <Box component={"span"} color="#0D9292">
+            noot.ae
+          </Box>{" "}
+          All Rights Reserved.
         </Typography>
       </Box>
     </footer>

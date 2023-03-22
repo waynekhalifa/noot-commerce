@@ -2,11 +2,11 @@ import { Box, Button, Container, Grid, Typography } from "@mui/material";
 
 interface Props {}
 
-import img from "@images/laptop-preview.png";
 import circles from "@images/circles.png";
 import circle from "@images/circle.png";
 import Link from "next/link";
 import { Pages, Routes } from "@/constants/enums";
+import OptimizedImg from "../OptimizedImg";
 
 const Featured: React.FC<Props> = ({}) => {
   return (
@@ -23,6 +23,8 @@ const Featured: React.FC<Props> = ({}) => {
         color: "common.white",
       }}
     >
+      {/* effects start */}
+
       <Box
         sx={{
           position: "absolute",
@@ -105,6 +107,7 @@ const Featured: React.FC<Props> = ({}) => {
           sx={{ display: "block", height: "auto", maxWidth: "100%" }}
         />
       </Grid>
+      {/* effects end */}
       <Box sx={{ position: "relative", zIndex: 1 }}>
         <Container
           sx={{
@@ -116,8 +119,39 @@ const Featured: React.FC<Props> = ({}) => {
               lg: "row",
               md: "row",
             },
+            position: "relative",
+            paddingTop: "60px",
           }}
         >
+          <Typography
+            paragraph
+            sx={{
+              position: "absolute",
+              top: "5%",
+              left: "50%",
+              transform: "translateX(-50%)",
+              fontSize: "18px",
+              backgroundColor: "#06B7B7",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "30px",
+              margin: "0",
+              width: "60%",
+              height: "55px",
+              padding: "0 30px",
+              "@media(max-width:992px)": {
+                top: "15px",
+                width: "75%",
+              },
+              "@media(max-width:768px)": {
+                width: "85%",
+                fontSize: "15px",
+              },
+            }}
+          >
+            Choose a website template and start your free 7 days trial today
+          </Typography>
           <Box
             flex={1}
             sx={{
@@ -129,6 +163,9 @@ const Featured: React.FC<Props> = ({}) => {
                 le: "start",
               },
               flexDirection: "column",
+              "@media(max-width:767px)": {
+                marginTop: "30px",
+              },
             }}
           >
             <Typography
@@ -206,16 +243,12 @@ const Featured: React.FC<Props> = ({}) => {
             </Link>
           </Box>
           <Box flex={2}>
-            <Box
-              component="img"
-              src={img.src}
+            <OptimizedImg
+              src="/images/laptop-preview.webp"
+              width={600}
+              height={500}
               alt="noot"
-              sx={{
-                display: "block",
-                height: "auto",
-                maxWidth: "100%",
-                paddingTop: "2rem",
-              }}
+              style={{ objectFit: "contain", maxWidth: "100%" }}
             />
           </Box>
         </Container>

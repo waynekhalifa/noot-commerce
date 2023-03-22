@@ -5,7 +5,7 @@ import client2 from "@images/client-2.png";
 import client3 from "@images/client-3.png";
 import client4 from "@images/client-4.png";
 import client5 from "@images/client-5.png";
-import Section from "../UI/Section";
+import OptimizedImg from "../OptimizedImg";
 
 interface ClientProps {
   client: any;
@@ -19,14 +19,20 @@ const Client: React.FC<ClientProps> = ({ client }) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          zIndex: "100"
+          zIndex: "100",
         }}
       >
-        <Box
-          component="img"
+        <OptimizedImg
           src={client.src}
+          width={200}
+          height={70}
           alt="noot"
-          sx={{ display: "block", height: "auto", maxWidth: "100%" }}
+          style={{
+            display: "block",
+            height: "auto",
+            maxWidth: "100%",
+            objectFit: "contain",
+          }}
         />
       </Box>
     </>
@@ -47,11 +53,11 @@ const Clients: React.FC<Props> = ({}) => {
         alignItems: "center",
         padding: "0rem 1rem",
         zIndex: "100",
-        paddingTop:{
-          lg:'3rem',
-          md:'3rem',
-          xs:'0rem'
-        }
+        paddingTop: {
+          lg: "3rem",
+          md: "3rem",
+          xs: "0rem",
+        },
       }}
     >
       {clients.map((client, index) => (
