@@ -134,7 +134,12 @@ const Reasons = () => {
         }}
       >
         {reasons.map((res) => (
-          <Reason title={res.title} desc={res.desc} icon={res.icon} />
+          <Reason
+            key={res.title}
+            title={res.title}
+            desc={res.desc}
+            icon={res.icon}
+          />
         ))}
       </Grid>
     </Container>
