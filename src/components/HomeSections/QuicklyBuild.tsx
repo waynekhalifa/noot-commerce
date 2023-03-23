@@ -1,29 +1,20 @@
 import { Box, Container, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import OptimizedImg from "../OptimizedImg";
 
 const QuicklyBuild = () => {
   return (
     <Container>
-      <Box
+      <Grid
+        container
         sx={{
           display: "flex",
-          alignItems: "center",
           justifyContent: "space-between",
+          alignItems: "center",
+          paddingTop: "60px",
         }}
       >
-        <Box
-          sx={{
-            position: "relative",
-            ":after": {
-              content: '""',
-              position: "absolute",
-              bottom: "-15px",
-              width: "100%",
-              height: "2px",
-              backgroundColor: "#6DC45E",
-            },
-          }}
-        >
+        <Grid item sm={12} md={6}>
           <Typography
             variant="h3"
             sx={{
@@ -66,29 +57,45 @@ const QuicklyBuild = () => {
               color: "white",
               margin: "15px 0 0",
               fontWeight: "400",
+              position: "relative",
+              width: "fit-content",
+              ":after": {
+                content: '""',
+                position: "absolute",
+                bottom: "-30px",
+                left: "0",
+                width: "100%",
+                height: "2px",
+                backgroundColor: "#6DC45E",
+              },
             }}
           >
             your own Website with Our Unified Platform
           </Typography>
-          <Typography
-            paragraph
-            sx={{
-              fontSize: "16px",
-              color: "white",
-              fontWeight: "400",
-            }}
-          ></Typography>
-        </Box>
-        <Box>
+        </Grid>
+        <Grid
+          item
+          sm={12}
+          md={6}
+          sx={{
+            "@media(max-width:991px)": {
+              padding: "60px 0 30px",
+            },
+          }}
+        >
           <OptimizedImg
             src="/images/quicklyBuild.webp"
             alt="noot"
             width={500}
             height={500}
-            style={{ objectFit: "contain" }}
+            style={{
+              objectFit: "contain",
+              maxWidth: "100%",
+              height: "100%",
+            }}
           />
-        </Box>
-      </Box>
+        </Grid>
+      </Grid>
       <Box sx={{ paddingBottom: "60px" }}>
         <Typography
           variant="h3"
@@ -104,6 +111,9 @@ const QuicklyBuild = () => {
             sx={{
               display: "flex",
               alignItems: "center",
+              "@media(max-width:767px)": {
+                flexDirection: "column",
+              },
             }}
           >
             <Typography
@@ -114,6 +124,9 @@ const QuicklyBuild = () => {
                 fontSize: "60px",
                 margin: "0 60px 0 0",
                 fontWeight: "500",
+                "@media(max-width:767px)": {
+                  margin: "0",
+                },
               }}
             >
               Noot

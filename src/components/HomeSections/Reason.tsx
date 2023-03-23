@@ -16,6 +16,9 @@ const Reason = ({ title, desc, icon }: any) => {
         "&:last-child": {
           paddingRight: "0",
         },
+        "@media(max-width:767px)": {
+          paddingRight: "0",
+        },
         position: "relative",
       }}
     >
@@ -24,7 +27,11 @@ const Reason = ({ title, desc, icon }: any) => {
           width: "60px",
           height: "60px",
           borderRadius: "50%",
-          backgroundColor: "#058E97",
+          backgroundColor:
+            icon === "/images/icons/reasonsIcons/6.svg" ||
+            icon === "/images/icons/reasonsIcons/10.svg"
+              ? "#6DC45E"
+              : "#058E97",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -68,7 +75,7 @@ const Reason = ({ title, desc, icon }: any) => {
           width: "100%",
           textAlign: "right",
           position: "absolute",
-          bottom: "0",
+          bottom: "-15px",
           right: "30px",
         }}
       >

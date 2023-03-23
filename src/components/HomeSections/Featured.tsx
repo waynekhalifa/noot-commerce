@@ -1,9 +1,7 @@
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 
 interface Props {}
 
-import circles from "@images/circles.png";
-import circle from "@images/circle.png";
 import Link from "next/link";
 import { Pages, Routes } from "@/constants/enums";
 import OptimizedImg from "../OptimizedImg";
@@ -59,25 +57,7 @@ const Featured: React.FC<Props> = ({}) => {
           top: "4rem",
         }}
       />
-      <Box sx={{ position: "absolute", inset: 0, overflow: "hidden" }}>
-        <Box
-          sx={{
-            position: "absolute",
-            top: "-20%",
-            right: 0,
-            width: "56%",
-            transform: "translateX(50%)",
-            overflow: "hidden",
-          }}
-        >
-          <Box
-            component="img"
-            src={circles.src}
-            alt="noot"
-            sx={{ display: "block", height: "auto", maxWidth: "100%" }}
-          />
-        </Box>
-      </Box>
+
       <Box
         sx={{
           position: "absolute",
@@ -87,26 +67,40 @@ const Featured: React.FC<Props> = ({}) => {
           overflow: "hidden",
         }}
       >
-        <Box
-          component="img"
-          src={circle.src}
+        <OptimizedImg
+          src="/images/landEffects/effect2.png"
           alt="noot"
-          sx={{ display: "block", height: "auto", maxWidth: "100%" }}
+          width={400}
+          height={300}
+          style={{ objectFit: "contain", maxWidth: "100%" }}
         />
       </Box>
-      <Grid
-        container
-        justifyContent="center"
-        alignItems="center"
-        sx={{ position: "absolute", inset: 0, img: { maxWidth: "56%" } }}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "65%",
+          left: "30%",
+          overflow: "hidden",
+
+          "@media(max-width:767px)": {
+            top: "75%",
+            left: "25%",
+            img: {
+              width: "180px",
+              height: "fit-content",
+            },
+          },
+        }}
       >
-        <Box
-          component="img"
-          src={circles.src}
+        <OptimizedImg
+          src="/images/landEffects/effect1.svg"
           alt="noot"
-          sx={{ display: "block", height: "auto", maxWidth: "100%" }}
+          width={400}
+          height={300}
+          style={{ objectFit: "contain", maxWidth: "100%" }}
         />
-      </Grid>
+      </Box>
+
       {/* effects end */}
       <Box sx={{ position: "relative", zIndex: 1 }}>
         <Container

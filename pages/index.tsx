@@ -14,7 +14,7 @@ interface Props {
 export const metadata: Metadata = {
   title: {
     default: "Noot",
-    template: "%s | Noot"
+    template: "%s | Noot",
   },
   description:
     "Digital Solutions Provider - Our website offers a range of digital solutions for businesses seeking innovative software development, web design, and IT services",
@@ -28,11 +28,11 @@ export const metadata: Metadata = {
       {
         url: "https://noot.ae/og.jpg",
         width: 1920,
-        height: 1080
-      }
+        height: 1080,
+      },
     ],
     locale: "en-US",
-    type: "website"
+    type: "website",
   },
   robots: {
     index: true,
@@ -42,20 +42,20 @@ export const metadata: Metadata = {
       follow: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
-      "max-snippet": -1
-    }
+      "max-snippet": -1,
+    },
   },
   twitter: {
     title: "Noot",
-    card: "summary_large_image"
+    card: "summary_large_image",
   },
   icons: {
-    shortcut: "/favicon.ico"
+    shortcut: "/favicon.ico",
   },
   verification: {
     google: "eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw",
-    yandex: "14d2e73487fa6c71"
-  }
+    yandex: "14d2e73487fa6c71",
+  },
 };
 const Home: NextPage<Props> = ({ toggleTheme }) => {
   const [burger, setBurger] = useState<boolean>(false);
@@ -87,9 +87,9 @@ const Home: NextPage<Props> = ({ toggleTheme }) => {
               url: "https://noot.ae/static/assets/img/logo.png",
               width: 800,
               height: 420,
-              alt: "Noot | Digital Solutions Provider"
-            }
-          ]
+              alt: "Noot | Digital Solutions Provider",
+            },
+          ],
         }}
         robotsProps={{
           nosnippet: true,
@@ -98,12 +98,12 @@ const Home: NextPage<Props> = ({ toggleTheme }) => {
           noarchive: true,
           maxSnippet: -1,
           maxImagePreview: "none",
-          maxVideoPreview: -1
+          maxVideoPreview: -1,
         }}
         twitter={{
           handle: "@Noot",
           site: "@Noot",
-          cardType: "summary_large_image"
+          cardType: "summary_large_image",
         }}
       />
       <Header
@@ -113,7 +113,7 @@ const Home: NextPage<Props> = ({ toggleTheme }) => {
         burger={burger}
       />
       <HomeSections burger={burger} />
-      <Footer burger={burger} />
+      <Footer />
     </div>
   );
 };
