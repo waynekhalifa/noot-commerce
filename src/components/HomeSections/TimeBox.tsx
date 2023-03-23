@@ -1,7 +1,9 @@
 import { Box, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import OptimizedImg from "../OptimizedImg";
 
 const TimeBox = () => {
+  const theme = useTheme();
   return (
     <Box
       sx={{

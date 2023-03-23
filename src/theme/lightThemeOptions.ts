@@ -6,6 +6,7 @@ const lightThemeOptions = (locale: string) => {
     direction: locale === Languages.ARABIC ? Directions.RTL : Directions.LTR,
     palette: {
       mode: "light",
+
       primary: {
         light: "#41a9a5",
         main: "#12948f",

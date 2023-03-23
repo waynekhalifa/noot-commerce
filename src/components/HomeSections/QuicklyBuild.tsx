@@ -26,7 +26,7 @@ const QuicklyBuild = () => {
           >
             Quickly
             <Typography
-              variant="h4"
+              paragraph
               sx={{
                 color: "#06B7B7",
                 display: "block",

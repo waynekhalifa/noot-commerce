@@ -198,6 +198,7 @@ const Footer = () => {
             </Typography>
             {info.map(({ title, icon }) => (
               <Box
+                key={title}
                 sx={{
                   display: "flex",
                   alignItems: "center",
@@ -253,6 +254,7 @@ const Footer = () => {
               <Box component={"li"}>
                 {socialIcons.map((icon) => (
                   <Link
+                    key={icon}
                     href="/"
                     style={{
                       textDecoration: "none",
