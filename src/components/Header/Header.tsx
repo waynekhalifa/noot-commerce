@@ -158,9 +158,7 @@ const Header: React.FC<Props> = ({
       </AnimatePresence>
       <nav
         style={{
-          backgroundColor: `${
-            theme.palette.mode === "light" ? "white" : "#121212"
-          }`,
+          backgroundColor: "#121212",
           boxShadow: `${
             theme.palette.mode === "light"
               ? " 0px 1px 10px rgb(6 183 183 / 32%)"
@@ -279,9 +277,9 @@ const Header: React.FC<Props> = ({
               onClick={toggleTheme}
             >
               {theme.palette.mode === "light" ? (
-                <DarkModeIcon />
+                <DarkModeIcon sx={{ color: "white" }} />
               ) : (
-                <LightModeIcon />
+                <LightModeIcon sx={{ color: "white" }} />
               )}
             </IconButton>
           </Toolbar>
