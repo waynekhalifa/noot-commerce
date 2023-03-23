@@ -31,7 +31,7 @@ const Page: NextPage<Props> = ({ toggleTheme }) => {
         burger={burger}
       />
       <HomeSections burger={burger} />
-      <Footer burger={burger} />
+      <Footer />
     </>
   );
 };
