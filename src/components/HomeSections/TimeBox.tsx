@@ -14,8 +14,36 @@ const TimeBox = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        position: "relative",
       }}
     >
+      <Box
+        sx={{
+          position: "absolute",
+          top: "35%",
+          right: "-12%",
+          overflow: "hidden",
+          zIndex: "-1",
+          "@media(max-width:1200px)": {
+            right: "-19%",
+          },
+          "@media(max-width:991px)": {
+            right: "-25%",
+          },
+          "@media(max-width:767px)": {
+            right: "-60%",
+            top: "20%",
+          },
+        }}
+      >
+        <OptimizedImg
+          src="/images/landEffects/effect1.svg"
+          alt="noot"
+          width={400}
+          height={300}
+          style={{ objectFit: "contain", maxWidth: "100%" }}
+        />
+      </Box>
       <Typography
         variant="h4"
         sx={{

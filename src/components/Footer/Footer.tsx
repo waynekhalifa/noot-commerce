@@ -1,247 +1,297 @@
-import {
-  Box,
-  Container,
-  Grid,
-  ListItem,
-  ListItemText,
-  Typography,
-} from "@mui/material";
-import Logo from "./Logo";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import EmailIcon from "@mui/icons-material/Email";
+import { Button } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { Box, Container } from "@mui/system";
+import Link from "next/link";
+import { useState } from "react";
+import OptimizedImg from "../OptimizedImg";
 
-interface Props {
-  text: string;
-  icon: string;
-}
-interface NumberingTitleProps {
-  title: string;
-  content: string;
-}
-interface FooterProps {
-  burger: boolean;
-}
-
-const ContactCircle: React.FC<NumberingTitleProps> = ({ title, content }) => {
-  return (
-    <Box sx={{ mb: 1 }}>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-end",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-            paddingRight: "1rem",
-          }}
-        >
-          <Typography
-            sx={{ fontSize: "0.9rem", color: "#6D757D", fontWeight: "500" }}
-          >
-            {content}
-          </Typography>
-        </Box>
-
-        <Grid
-          container
-          justifyContent={"center"}
-          alignItems={"center"}
-          sx={{
-            width: 48,
-            height: 48,
-            color: "common.white",
-            backgroundColor: `${title === "whatsapp" ? "#3F813C" : "#06B7B7"}`,
-            borderRadius: "50%",
-          }}
-        >
-          {title === "whatsapp" ? (
-            <WhatsAppIcon sx={{ fontSize: "2rem" }} />
-          ) : null}
-          {title === "email" ? <EmailIcon sx={{ fontSize: "2rem" }} /> : null}
-          {title === "location" ? (
-            <LocationOnIcon sx={{ fontSize: "2rem" }} />
-          ) : null}
-          {/* <Typography  fontWeight={400}>
-          </Typography> */}
-        </Grid>
-      </Box>
-    </Box>
-  );
-};
-
-const CustomListItem: React.FC<Props> = ({ text, icon }) => {
-  return (
-    <ListItem sx={{ p: 0, color: "#6D757D" }}>
-      <ListItemText>{text}</ListItemText>
-    </ListItem>
-  );
-};
-
-interface TitleProps {
-  text: string;
-}
-
-const CustomTitle: React.FC<TitleProps> = ({ text }) => {
-  return (
-    <Typography sx={{ mb: 2 }} variant="h6">
-      {text}
-    </Typography>
-  );
-};
-
-const Footer: React.FC<FooterProps> = ({ burger }) => {
-  const usefulLinks: any[] = ["TOS", "Privacy Policy", "Refund Policy"];
-  const terms: any[] = ["Blog", "Pricing", "About"];
-  const support: any[] = [
-    { title: "whatsapp", content: "971564010108+" },
-    { title: "email", content: "info@noot.ae" },
+const Footer = () => {
+  const [info, setInfo] = useState([
+    { title: "+971564010108", icon: "/images/icons/whatsappIcon.svg" },
+    { title: "Info@noot.ae", icon: "/images/icons/smsIcon.svg" },
     {
-      title: "location",
-      content: "العين،ابوظبى،الامارات العربية المتحدة",
+      title: "Al Ain, Abu Dhabi, United Arab Emirates",
+      icon: "/images/icons/locationIcon.svg",
     },
-  ];
-
+  ]);
+  const [socialIcons, setSocialIcons] = useState([
+    "/images/icons/socialIcons/facebook.png",
+    "/images/icons/socialIcons/instaIcon.png",
+    "/images/icons/socialIcons/linked-in.png",
+    "/images/icons/socialIcons/twitter.png",
+  ]);
   return (
-    <footer
-      style={{
-        display: `${burger ? "none" : "block"}`,
-        backgroundColor: "white",
+    <Box
+      sx={{
+        padding: "60px 0",
+        backgroundColor: "#F5F7FA",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
       <Box
         sx={{
-          pt: 2,
-          pb: 2,
-          borderTop: {
-            lg: "0.5px solid gray",
-            md: "0.5px solid gray",
-            xs: "0.5px solid gray",
+          marginBottom: "15px",
+          background:
+            "linear-gradient( #F5F7FA , #F5F7FA) padding-box , linear-gradient( #98CED4 , #98CED4) border-box",
+          borderWidth: "40px",
+          borderStyle: "solid",
+          borderColor: "transparent",
+          borderRadius: "50%",
+          width: "400px",
+          height: "400px",
+          position: "absolute",
+          top: "50%",
+          right: "-30%",
+
+          transform: "translate(-50% , -50%)",
+          "@media(max-width:1200px)": {
+            right: "-40%",
+          },
+          "@media(max-width:767px)": {
+            right: "-70%",
+            width: "450px",
+            height: "450px",
+          },
+          "@media(max-width:575px)": {
+            right: "-150%",
+            width: "450px",
+            height: "450px",
           },
         }}
-      >
-        <Container>
-          <Box
+      ></Box>
+      <Container>
+        <Grid
+          container
+          sx={{
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+            "@media(max-width:767px)": {
+              flexDirection: "column-reverse",
+              justifyContent: "space-between",
+            },
+          }}
+        >
+          <Grid
+            item
+            sm={6}
+            md={6}
+            sx={{
+              "@media(max-width:767px)": {
+                paddingTop: "30px",
+                width: "100%",
+                maxWidth: "100%",
+              },
+              position: "relative",
+              zIndex: "10",
+            }}
+          >
+            <Typography
+              paragraph
+              sx={{
+                fontSize: "18px",
+                color: "#06B7B7",
+                fontWeight: "500",
+                margin: "0 0 15px",
+                "@media(max-width:575px)": {
+                  textAlign: "center",
+                },
+              }}
+            >
+              Sign up for Special Offers!
+            </Typography>
+
+            <Box
+              component={"form"}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                border: "1px solid #707070",
+                width: "400px",
+                borderRadius: "30px",
+                height: "40px",
+                maxWidth: "100%",
+              }}
+            >
+              <Box
+                component={"input"}
+                type="email"
+                name="email"
+                placeholder="Mail"
+                sx={{
+                  outline: "none",
+                  width: "100%",
+                  height: "100%",
+                  border: "none",
+                  background: "none",
+                  padding: "0 20px",
+                  color: "#707070",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  "&::placeholder": {
+                    color: "#06B7B7",
+                    fontSize: "15px",
+                  },
+                }}
+              />
+              <Button
+                sx={{
+                  color: "white",
+                  fontSize: "15px",
+                  backgroundColor: "#06B7B7",
+                  height: "100%",
+                  width: "300px",
+                  borderRadius: "30px",
+                  border: "none",
+                  "&:hover": {
+                    backgroundColor: "#06B7B7",
+                  },
+                }}
+              >
+                Subscribe
+              </Button>
+            </Box>
+          </Grid>
+          <Grid
+            item
+            sm={6}
+            md={6}
             sx={{
               display: "flex",
-              justifyContent: "space-between",
-              flexDirection: {
-                md: "row",
-                lg: "row",
-                xs: "column-reverse",
+              alignItems: "flex-end",
+              flexDirection: "column",
+              position: "relative",
+              "@media(max-width:767px)": {
+                width: "100%",
+                maxWidth: "100%",
+              },
+              ":after": {
+                content: '""',
+                position: "absolute",
+                top: "-15px",
+                right: "15px",
+                width: "100px",
+                height: "2px",
+                backgroundColor: "#0D9292",
               },
             }}
           >
-            <Box sx={{ alignSelf: "end" }}>
-              <Box>
-                <Typography sx={{ color: "#06B7B7", pb: 2, alignSelf: "end" }}>
-                  Sign up for Special Offers!
-                </Typography>
-
-                <form style={{ paddingBottom: "1rem" }}>
-                  <input
-                    type="email"
-                    placeholder="Mail"
-                    style={{
-                      height: "2.5rem",
-                      width: "14rem",
-                      border: "2px solid #06B7B7",
-                      borderRadius: "20px",
-                      color: "#06B7B7",
-                      paddingLeft: "20px",
-                      outline: "none",
-                    }}
-                  />
-                  <button
-                    type="button"
-                    style={{
-                      height: "2.5rem",
-                      width: "8rem",
-                      border: "2px solid #06B7B7",
-                      borderRadius: "20px",
-                      marginLeft: "-35px",
-                      cursor: "pointer",
-                      color: "white",
-                      backgroundColor: "#06B7B7",
-                    }}
-                  >
-                    Subscribe
-                  </button>
-                </form>
-              </Box>
-            </Box>
-            {/* -------------------- */}
-            <Box>
+            <OptimizedImg
+              src="/images/logo.png"
+              alt="noot"
+              width={150}
+              height={150}
+              style={{ objectFit: "contain", height: "100%" }}
+            />
+            <Typography
+              paragraph
+              sx={{
+                color: "#6D757D",
+                fontSize: "15px",
+                paddingRight: "15px",
+                margin: "15px 0",
+                fontWeight: "500",
+              }}
+            >
+              Contact information
+            </Typography>
+            {info.map(({ title, icon }) => (
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: "end",
-                  alignItems: "end",
-                  flexDirection: "column",
+                  alignItems: "center",
+                  marginBottom: "15px",
+                  paddingRight: "15px",
                 }}
               >
-                <Box
+                <Typography
                   sx={{
-                    alignSelf: {
-                      xs: "center",
-                      md: "end",
-                      lg: "end",
-                    },
-                    pb: {
-                      lg: "2rem",
-                      md: "2rem",
-                      xs: "1rem",
+                    fontSize: "15px",
+                    color: "#6D757D",
+                    paddingRight: "20px",
+                    fontWeight: "500",
+                    "@media(max-width:575px)": {
+                      textAlign: "right",
                     },
                   }}
                 >
-                  <Logo />
-                </Box>
+                  {title}
+                </Typography>
 
-                {support.map((supportInfo, index) => (
-                  <ContactCircle
-                    title={supportInfo?.title}
-                    content={supportInfo?.content}
-                    key={index}
+                <Box
+                  sx={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    backgroundColor: "#3F813C",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <OptimizedImg
+                    src={icon}
+                    width={20}
+                    height={20}
+                    alt="noot"
+                    style={{ objectFit: "contain" }}
                   />
+                </Box>
+              </Box>
+            ))}
+            <Box
+              component={"ul"}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                listStyle: "none",
+                padding: "0 15px 0 0",
+                margin: "0",
+              }}
+            >
+              <Box component={"li"}>
+                {socialIcons.map((icon) => (
+                  <Link
+                    href="/"
+                    style={{
+                      textDecoration: "none",
+                      marginLeft: "15px",
+                    }}
+                  >
+                    <OptimizedImg
+                      src={icon}
+                      width={40}
+                      height={40}
+                      alt="noot"
+                      style={{ objectFit: "contain" }}
+                    />
+                  </Link>
                 ))}
               </Box>
             </Box>
-          </Box>
-        </Container>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+          </Grid>
+        </Grid>
         <Box
           sx={{
-            py: 1,
-            borderTop: "1px solid gray",
-            width: "70%",
-            height: "1px",
-            alignSelf: "center",
+            color: "#000000",
+            width: "100%",
+            textAlign: "center",
+            fontSize: "18px",
+            paddingTop: "30px",
           }}
-        />
-
-        <Typography textAlign={"center"} color="#000000" mb={1}>
+        >
           ©2022 Copyright{" "}
-          <Box component={"span"} color="#0D9292">
+          <Link
+            href="https://www.noot.ae/"
+            style={{ color: "#0D9292", textDecoration: "none" }}
+          >
             noot.ae
-          </Box>{" "}
+          </Link>{" "}
           All Rights Reserved.
-        </Typography>
-      </Box>
-    </footer>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

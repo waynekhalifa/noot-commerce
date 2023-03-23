@@ -94,7 +94,15 @@ const Reasons = () => {
             fontWeight: "500",
           }}
         >
-          <Box component={"span"} sx={{ fontSize: "80px" }}>
+          <Box
+            component={"span"}
+            sx={{
+              fontSize: "80px",
+              "@media(max-width:767px)": {
+                fontSize: "40px",
+              },
+            }}
+          >
             12
           </Box>
           <Box
@@ -105,6 +113,9 @@ const Reasons = () => {
               fontWeight: "400",
               textAlign: "center",
               fontSize: "40px",
+              "@media(max-width:767px)": {
+                fontSize: "20px",
+              },
             }}
           >
             Reasons <br />
@@ -115,7 +126,13 @@ const Reasons = () => {
           </Box>
         </Typography>
       </Box>
-      <Grid container sx={{ display: "flex", padding: "60px 0" }}>
+      <Grid
+        container
+        sx={{
+          display: "flex",
+          padding: "60px 0",
+        }}
+      >
         {reasons.map((res) => (
           <Reason title={res.title} desc={res.desc} icon={res.icon} />
         ))}
