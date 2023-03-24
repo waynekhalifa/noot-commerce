@@ -61,7 +61,7 @@ const Reason = ({ title, desc, icon }: any) => {
         paragraph
         sx={{
           fontSize: "15px",
-          color: "white",
+          // color: "white",
           fontWeight: "400",
           margin: "0",
           paddingBottom: "30px",

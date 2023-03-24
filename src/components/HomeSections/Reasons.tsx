@@ -109,7 +109,7 @@ const Reasons = () => {
             component={"span"}
             sx={{
               margin: "0 15px",
-              color: "white",
+              
               fontWeight: "400",
               textAlign: "center",
               fontSize: "40px",

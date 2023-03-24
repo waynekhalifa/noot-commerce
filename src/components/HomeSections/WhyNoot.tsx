@@ -60,7 +60,7 @@ const WhyNoot = () => {
               variant="h3"
               sx={{
                 fontSize: "20px",
-                color: "white",
+                // color: "white",
                 margin: "0",
                 fontWeight: "400",
               }}
@@ -110,7 +110,7 @@ const WhyNoot = () => {
                   }}
                 />
 
-                <Typography paragraph sx={{ fontSize: "16px", color: "white" }}>
+                <Typography paragraph sx={{ fontSize: "16px" }}>
                   of people were researching companies online before visiting it
                   Website makes you look professional and increases trust
                 </Typography>
@@ -144,7 +144,7 @@ const WhyNoot = () => {
                   }}
                 />
 
-                <Typography paragraph sx={{ fontSize: "16px", color: "white" }}>
+                <Typography paragraph sx={{ fontSize: "16px" }}>
                   of people don't trust a business without a good website. More
                   than 81% of businesses and companies that own a website
                   outperform their competitors in every way.
@@ -160,7 +160,7 @@ const WhyNoot = () => {
                     style={{ objectFit: "contain" }}
                   />
                 </Box>
-                <Typography paragraph sx={{ fontSize: "16px", color: "white" }}>
+                <Typography paragraph sx={{ fontSize: "16px" }}>
                   available website makes your business stay on customer’s minds
                   even after business hours. A clean, modern page that is
                   regularly updated and pops up in earch engines is an instant

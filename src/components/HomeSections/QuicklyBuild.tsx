@@ -54,7 +54,7 @@ const QuicklyBuild = () => {
             variant="h3"
             sx={{
               fontSize: "18px",
-              color: "white",
+             
               margin: "15px 0 0",
               fontWeight: "400",
               position: "relative",
@@ -142,7 +142,7 @@ const QuicklyBuild = () => {
               variant="h3"
               sx={{
                 fontSize: "18px",
-                color: "white",
+                
                 margin: "15px 0 0",
                 fontWeight: "400",
               }}

@@ -62,7 +62,7 @@ const CreateWebsite: React.FC<Props> = ({}) => {
               },
             }}
           >
-            <Typography sx={{ color: "white" }}>
+            <Typography >
               Creating a website is much easier than it used to be thanks to our
               wide variety templates that consumers can now choose from
             </Typography>

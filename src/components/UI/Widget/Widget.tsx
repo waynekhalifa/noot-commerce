@@ -25,7 +25,7 @@ const Widget: React.FC<Props> = ({ title, btnContent, description }) => {
           background: "transparent",
           borderRadius: "140px",
           padding: 1,
-          border: "1px solid gray",
+          border: "1px solid gray"
         }}
       >
         <Stack
@@ -35,13 +35,13 @@ const Widget: React.FC<Props> = ({ title, btnContent, description }) => {
             width: "100%",
             height: "100%",
             background: "#0d9353",
-            borderRadius: "140px",
+            borderRadius: "140px"
           }}
         >
           <Stack
             alignItems="center"
             justifyContent="space-between"
-            sx={{ width: "100%", height: "83%", color: "white" }}
+            sx={{ width: "100%", height: "83%" }}
           >
             <Box sx={{ fontSize: "1.3rem" }}>{title}</Box>
             <Box
@@ -51,7 +51,7 @@ const Widget: React.FC<Props> = ({ title, btnContent, description }) => {
                 height: "19rem",
                 borderRadius: "50%",
                 outline: "dashed",
-                position: "relative",
+                position: "relative"
               }}
             >
               <Box
@@ -65,15 +65,15 @@ const Widget: React.FC<Props> = ({ title, btnContent, description }) => {
               <Button
                 sx={{
                   backgroundColor: "hsl(181.92deg 76.47% 40%)",
-                  color: "white",
+
                   width: "10rem",
                   height: "2rem",
                   borderRadius: "50px",
                   "&:hover": {
                     backgroundColor: "hsl(181.92deg 76.47% 40%)",
-                    color: "white",
+                    color: "white"
                   },
-                  alignItems: "center",
+                  alignItems: "center"
                 }}
                 startIcon={<ArrowDropDownOutlinedIcon fontSize="small" />}
                 onClick={handleClick}

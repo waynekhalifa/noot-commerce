@@ -10,13 +10,13 @@ const TimeBox = () => {
         paddingTop: "120px",
         paddingBottom: "30px",
         "@media(max-width:767px)": {
-          paddingTop: "0",
+          paddingTop: "0"
         },
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        position: "relative",
+        position: "relative"
       }}
     >
       <Box
@@ -27,15 +27,15 @@ const TimeBox = () => {
           overflow: "hidden",
           zIndex: "-1",
           "@media(max-width:1200px)": {
-            right: "-19%",
+            right: "-19%"
           },
           "@media(max-width:991px)": {
-            right: "-25%",
+            right: "-25%"
           },
           "@media(max-width:767px)": {
             right: "-60%",
-            top: "20%",
-          },
+            top: "20%"
+          }
         }}
       >
         <OptimizedImg
@@ -52,7 +52,7 @@ const TimeBox = () => {
           color: "#06B7B7",
           fontSize: "36px",
           fontWeight: "400",
-          marginBottom: "20px",
+          marginBottom: "20px"
         }}
       >
         You are
@@ -71,7 +71,7 @@ const TimeBox = () => {
           color: "#06B7B7",
           fontSize: "36px",
           fontWeight: "400",
-          marginBottom: "20px",
+          marginBottom: "20px"
         }}
       >
         minutes
@@ -82,7 +82,7 @@ const TimeBox = () => {
           color: "white",
           fontSize: "20px",
           letterSpacing: "0.8",
-          fontWeight: "400",
+          fontWeight: "400"
         }}
       >
         away from bringing your vision to life
