@@ -1,8 +1,11 @@
 import { Box, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import OptimizedImg from "../OptimizedImg";
+import { useTheme } from "@mui/material/styles";
 
 const QuicklyBuild = () => {
+  const theme = useTheme();
+
   return (
     <Container>
       <Grid
@@ -11,67 +14,94 @@ const QuicklyBuild = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          paddingTop: "60px",
+          paddingTop: "60px"
         }}
       >
         <Grid item sm={12} md={6}>
-          <Typography
-            variant="h3"
+          <Box
             sx={{
-              fontSize: "35px",
-              color: "#6DC45E",
-              margin: "0",
-              fontWeight: "400",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              maxWidth: "fit-content"
             }}
           >
-            Quickly
+            <Typography
+              variant="h3"
+              sx={{
+                fontSize: "4rem",
+                color: "#6DC45E",
+                margin: "0",
+                fontWeight: "400",
+                lineHeight: "1"
+              }}
+            >
+              Quickly
+            </Typography>
             <Typography
               paragraph
               sx={{
-                color: "#06B7B7",
+                color: theme.palette.primary.main,
                 display: "block",
-                fontSize: "60px",
+                fontSize: "6rem",
                 margin: "0",
-                fontWeight: "500",
+                fontWeight: 700,
+                lineHeight: "1"
               }}
             >
               build
             </Typography>
-            <Box
-              component={"span"}
-              sx={{
-                color: "#6DC45E",
-                fontSize: "20px",
-                marginRight: "15px",
-                fontWeight: "400",
-              }}
-            >
-              and
+            <Box sx={{ display: "flex" }}>
+              <Box
+                component={"span"}
+                sx={{
+                  color: "#6DC45E",
+                  fontSize: "1.2rem",
+                  marginRight: "15px",
+                  fontWeight: "400",
+                  lineHeight: "1",
+                  alignSelf: "center",
+                  paddingTop: "6px"
+                }}
+              >
+                and
+              </Box>
+              <Typography
+                paragraph
+                sx={{
+                  color: "#6DC45E",
+                  display: "block",
+                  fontSize: "4rem",
+                  margin: "0",
+                  fontWeight: 700,
+                  lineHeight: "0.7"
+                }}
+              >
+                create
+              </Typography>
             </Box>
-            create
-          </Typography>
+          </Box>
+
           <Typography
             variant="h3"
+            pt={2}
             sx={{
-              fontSize: "18px",
-             
-              margin: "15px 0 0",
-              fontWeight: "400",
-              position: "relative",
-              width: "fit-content",
-              ":after": {
-                content: '""',
-                position: "absolute",
-                bottom: "-30px",
-                left: "0",
-                width: "100%",
-                height: "2px",
-                backgroundColor: "#6DC45E",
-              },
+              fontSize: "2rem",
+              fontWeight: "400"
             }}
           >
-            your own Website with Our Unified Platform
+            your own Website with
+            <br /> Our Unified Platform
           </Typography>
+          <Box
+            sx={{
+              marginTop: "1rem",
+              height: "0.2rem",
+              borderRadius: "30px",
+              width: "100%",
+              backgroundColor: "#6DC45E"
+            }}
+          />
         </Grid>
         <Grid
           item
@@ -79,8 +109,8 @@ const QuicklyBuild = () => {
           md={6}
           sx={{
             "@media(max-width:991px)": {
-              padding: "60px 0 30px",
-            },
+              padding: "60px 0 30px"
+            }
           }}
         >
           <OptimizedImg
@@ -91,7 +121,7 @@ const QuicklyBuild = () => {
             style={{
               objectFit: "contain",
               maxWidth: "100%",
-              height: "100%",
+              height: "100%"
             }}
           />
         </Grid>
@@ -99,11 +129,19 @@ const QuicklyBuild = () => {
       <Box sx={{ paddingBottom: "60px" }}>
         <Typography
           variant="h3"
+          // pt={10}
           sx={{
-            fontSize: "20px",
+            paddingTop:{
+              xs: "25px",
+              sm: "30px",
+              md: "40px",
+              lg: "50px",
+              xl: "60px"
+            },
+            fontSize: "2rem",
             color: "#6DC45E",
             margin: "0",
-            fontWeight: "400",
+            fontWeight: "400"
           }}
         >
           Grow your business with
@@ -112,26 +150,26 @@ const QuicklyBuild = () => {
               display: "flex",
               alignItems: "center",
               "@media(max-width:767px)": {
-                flexDirection: "column",
-              },
+                flexDirection: "column"
+              }
             }}
           >
             <Typography
               variant="h4"
               sx={{
-                color: "#06B7B7",
+                color: theme.palette.primary.main,
                 display: "block",
-                fontSize: "60px",
+                fontSize: "8rem",
                 margin: "0 60px 0 0",
-                fontWeight: "500",
+                fontWeight: "400",
                 "@media(max-width:767px)": {
-                  margin: "0",
-                },
+                  margin: "0"
+                }
               }}
             >
               Noot
               <OptimizedImg
-                style={{ position: "relative", bottom: "35px", left: "30px" }}
+                style={{ position: "relative", bottom: "80px", left: "30px" }}
                 src="/images/icons/copyRight.svg"
                 width={15}
                 height={15}
@@ -141,13 +179,14 @@ const QuicklyBuild = () => {
             <Typography
               variant="h3"
               sx={{
-                fontSize: "18px",
-                
+                fontSize: "2rem",
                 margin: "15px 0 0",
                 fontWeight: "400",
+                color: `${theme.palette.mode === "light" ? "black" : "white"}`
               }}
             >
-              and have a one place to manage all your
+              and have a one place to
+              <br /> manage all your
             </Typography>
           </Box>
         </Typography>
