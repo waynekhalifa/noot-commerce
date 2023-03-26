@@ -17,7 +17,7 @@ const QuicklyBuild = () => {
           paddingTop: "60px"
         }}
       >
-        <Grid item sm={12} md={6}>
+        <Grid item sm={12} md={6} sx={{ width: "max-content" }}>
           <Box
             sx={{
               display: "flex",
@@ -82,26 +82,28 @@ const QuicklyBuild = () => {
             </Box>
           </Box>
 
-          <Typography
-            variant="h3"
-            pt={2}
-            sx={{
-              fontSize: "2rem",
-              fontWeight: "400"
-            }}
-          >
-            your own Website with
-            <br /> Our Unified Platform
-          </Typography>
-          <Box
-            sx={{
-              marginTop: "1rem",
-              height: "0.2rem",
-              borderRadius: "30px",
-              width: "100%",
-              backgroundColor: "#6DC45E"
-            }}
-          />
+          <Box sx={{ width: "fit-content" }}>
+            <Typography
+              variant="h3"
+              pt={2}
+              sx={{
+                fontSize: "2rem",
+                fontWeight: "400"
+              }}
+            >
+              your own Website with
+              <br /> Our Unified Platform
+            </Typography>
+            <Box
+              sx={{
+                marginTop: "1rem",
+                height: "0.2rem",
+                borderRadius: "30px",
+                width: "100%",
+                backgroundColor: "#6DC45E"
+              }}
+            />
+          </Box>
         </Grid>
         <Grid
           item
@@ -131,7 +133,7 @@ const QuicklyBuild = () => {
           variant="h3"
           // pt={10}
           sx={{
-            paddingTop:{
+            paddingTop: {
               xs: "25px",
               sm: "30px",
               md: "40px",

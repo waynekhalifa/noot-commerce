@@ -1,10 +1,14 @@
 import { Box, Typography, Container, Grid } from "@mui/material";
 import OptimizedImg from "../OptimizedImg";
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 
 const WhyNoot = () => {
+  const matches = useMediaQuery('(min-width:600px)');
   return (
     <Box
       sx={{
+        paddingBottom:'2rem',
         position: "relative",
         ":after": {
           content: '""',
@@ -17,19 +21,19 @@ const WhyNoot = () => {
           background: "linear-gradient(to top ,#058E97 , #76C95A)",
           zIndex: "-1",
           "@media(max-width:1200px)": {
-            width: "300px",
+            width: "300px"
           },
           "@media(max-width:991px)": {
             top: "70%",
             height: "40%",
-            width: "350px",
+            width: "350px"
           },
           "@media(max-width:767px)": {
             top: "70%",
             width: "150px",
-            height: "40%",
-          },
-        },
+            height: "40%"
+          }
+        }
       }}
     >
       <Container>
@@ -37,48 +41,95 @@ const WhyNoot = () => {
           container
           sx={{
             display: "flex",
-            paddingTop: "60px",
+            paddingTop: {
+              xs: "0px",
+              sm: "20px",
+              md: "40px",
+              lg: "50px",
+              xl: "60px"
+            },
             justifyContent: "space-between",
-            alignItems: "flex-start",
+            alignItems: "flex-start"
           }}
         >
           <Grid item sm={12} md={6}>
-            <Typography
-              variant="h4"
-              sx={{
-                color: "#6DC45E",
-                display: "block",
-                fontSize: "60px",
-                margin: "0 60px 0 0",
-                fontWeight: "500",
-              }}
-            >
-              Why ?
-            </Typography>
-
-            <Typography
-              variant="h3"
-              sx={{
-                fontSize: "20px",
-                // color: "white",
-                margin: "0",
-                fontWeight: "400",
-              }}
-            >
-              do you need a website
-            </Typography>
             <Box
               sx={{
-                paddingTop: "60px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: {
+                  xs: "center",
+                  sm: "center",
+                  md: "flex-start",
+                  lg: "flex-start",
+                  xl: "flex-start"
+                }
+              }}
+            >
+              <Box>
+                <Typography
+                  variant="h4"
+                  sx={{
+                    color: "#6DC45E",
+                    display: "block",
+                    fontSize: {
+                      xs: "7rem",
+                      sm: "7rem",
+                      md: "8rem",
+                      lg: "9rem",
+                      xl: "9rem"
+                    },
+                    margin: "0 30px 0 0",
+                    fontWeight: "400"
+                  }}
+                >
+                  Why
+                </Typography>
+                <Typography
+                  variant="h3"
+                  sx={{
+                    fontSize: "2.7rem",
+                    fontWeight: "400"
+                  }}
+                >
+                  do you need
+                  <br />a website
+                </Typography>
+              </Box>
+
+              <Box>
+                <Typography
+                  variant="h4"
+                  sx={{
+                    alignSelf: "start",
+                    color: "#6DC45E",
+                    fontSize: {
+                      xs: "17rem",
+                      sm: "17rem",
+                      md: "18rem",
+                      lg: "19rem",
+                      xl: "19rem"
+                    },
+                    fontWeight: "400"
+                  }}
+                >
+                  ?
+                </Typography>
+              </Box>
+            </Box>
+
+            <Box
+              sx={{
+                paddingTop: "2rem",
                 "@media(max-width:767px)": {
                   div: {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                     flexDirection: "column",
-                    textAlign: "center",
-                  },
-                },
+                    textAlign: "center"
+                  }
+                }
               }}
             >
               <Box>
@@ -87,13 +138,13 @@ const WhyNoot = () => {
                     marginBottom: "15px",
                     background:
                       "linear-gradient( #121212 , #121212) padding-box , linear-gradient( #058E97 , #76C95A) border-box",
-                    borderWidth: "15px",
+                    borderWidth: "1.5rem",
                     borderStyle: "solid",
                     borderColor: "transparent",
                     borderTopColor: "#D5DBD4",
                     borderRadius: "50%",
-                    width: "100px",
-                    height: "100px",
+                    width: "10rem",
+                    height: "10rem",
                     position: "relative",
                     transform: "rotate(-45deg)",
                     ":after": {
@@ -102,15 +153,15 @@ const WhyNoot = () => {
                       top: "50%",
                       left: "50%",
                       transform: " translate(-50% , -50%) rotate(45deg) ",
-                      fontSize: "14px",
+                      fontSize: "1.8rem",
                       textAlign: "center",
                       color: "#06B7B7",
-                      fontWeight: "500",
-                    },
+                      fontWeight: "700"
+                    }
                   }}
                 />
 
-                <Typography paragraph sx={{ fontSize: "16px" }}>
+                <Typography paragraph sx={{ fontSize: "1.4rem" }}>
                   of people were researching companies online before visiting it
                   Website makes you look professional and increases trust
                 </Typography>
@@ -121,13 +172,13 @@ const WhyNoot = () => {
                     marginBottom: "15px",
                     background:
                       "linear-gradient( #121212 , #121212) padding-box , linear-gradient( #058E97 , #76C95A) border-box",
-                    borderWidth: "15px",
+                    borderWidth: "1.5rem",
                     borderStyle: "solid",
                     borderColor: "transparent",
                     borderTopColor: "#D5DBD4",
                     borderRadius: "50%",
-                    width: "100px",
-                    height: "100px",
+                    width: "10rem",
+                    height: "10rem",
                     position: "relative",
                     transform: "rotate(-45deg)",
                     ":after": {
@@ -136,18 +187,18 @@ const WhyNoot = () => {
                       top: "50%",
                       left: "50%",
                       transform: " translate(-50% , -50%) rotate(45deg) ",
-                      fontSize: "14px",
+                      fontSize: "2rem",
                       textAlign: "center",
                       color: "#06B7B7",
-                      fontWeight: "500",
-                    },
+                      fontWeight: "700"
+                    }
                   }}
                 />
 
-                <Typography paragraph sx={{ fontSize: "16px" }}>
-                  of people don't trust a business without a good website. More
-                  than 81% of businesses and companies that own a website
-                  outperform their competitors in every way.
+                <Typography paragraph sx={{ fontSize: "1.4rem" }}>
+                  of people don't trust a business without a good website.
+                  <br /> More than 81% of businesses and companies that own a
+                  website outperform their competitors in every way.
                 </Typography>
               </Box>
               <Box>
@@ -155,28 +206,28 @@ const WhyNoot = () => {
                   <OptimizedImg
                     src="/images/icons/arrowIcon.webp"
                     alt="noot"
-                    width={100}
-                    height={100}
+                    width={180}
+                    height={180}
                     style={{ objectFit: "contain" }}
                   />
                 </Box>
-                <Typography paragraph sx={{ fontSize: "16px" }}>
+                <Typography paragraph sx={{ fontSize: "1.4rem" }}>
                   available website makes your business stay on customer’s minds
-                  even after business hours. A clean, modern page that is
-                  regularly updated and pops up in earch engines is an instant
-                  credibility boost.
+                  even after business hours.
+                  <br /> A clean, modern page that is regularly updated and pops
+                  up in earch engines is an instant credibility boost.
                 </Typography>
               </Box>
             </Box>
           </Grid>
 
-          <Grid item sm={12} md={6}>
+          <Grid item sm={12} md={6} >
             <OptimizedImg
               src="/images/whyNoot.webp"
               alt="whyNoot"
-              width={600}
-              height={500}
-              style={{ objectFit: "contain", height: "100%", maxWidth: "100%" }}
+              width={900}
+              height={1000}
+              style={{ objectFit: "contain" }}
             />
           </Grid>
         </Grid>

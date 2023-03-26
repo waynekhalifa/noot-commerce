@@ -11,86 +11,101 @@ const Reason = ({ title, desc, icon }: any) => {
       md={6}
       lg={3}
       sx={{
-        paddingRight: "30px",
+        padding: "0.5rem 1.5rem",
         marginBottom: "40px",
         "&:last-child": {
-          paddingRight: "0",
+          paddingRight: "0"
         },
         "@media(max-width:767px)": {
-          paddingRight: "0",
+          paddingRight: "0"
         },
-        position: "relative",
+        position: "relative"
       }}
     >
       <Box
         sx={{
-          width: "60px",
-          height: "60px",
-          borderRadius: "50%",
-          backgroundColor:
-            icon === "/images/icons/reasonsIcons/6.svg" ||
-            icon === "/images/icons/reasonsIcons/10.svg"
-              ? "#6DC45E"
-              : "#058E97",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          maxWidth: {
+            xs: "100%",
+            sm: "100%",
+            md: "100%",
+            lg: "90%",
+            xl: "90%"
+          }
         }}
       >
-        <OptimizedImg
-          src={icon}
-          width={30}
-          height={30}
-          alt="noot"
-          style={{ objectFit: "contain" }}
-        />
-      </Box>
-      <Typography
-        variant="h4"
-        sx={{
-          fontSize: "16px",
-          color: "#06B7B7",
-          fontWeight: "400",
-          height: "30px",
-          margin: "20px 0",
-        }}
-      >
-        {title}
-      </Typography>
-      <Typography
-        paragraph
-        sx={{
-          fontSize: "15px",
-          // color: "white",
-          fontWeight: "400",
-          margin: "0",
-          paddingBottom: "30px",
-          letterSpacing: "0.8px",
-        }}
-      >
-        {desc}
-      </Typography>
-      <Box
-        sx={{
-          width: "100%",
-          textAlign: "right",
-          position: "absolute",
-          bottom: "-15px",
-          right: "30px",
-        }}
-      >
-        <Link
-          href="/learn-more"
-          style={{
-            textDecoration: "none",
-            width: "100%",
-            color: "#06B7B7",
-            fontSize: "16px",
-            fontWeight: "500",
+        <Box
+          sx={{
+            width: "5rem",
+            height: "5rem",
+            borderRadius: "50%",
+            backgroundColor:
+              icon === "/images/icons/reasonsIcons/6.svg" ||
+              icon === "/images/icons/reasonsIcons/10.svg" ||
+              icon === "/images/icons/reasonsIcons/2.svg"
+                ? "#6DC45E"
+                : "#058E97",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
           }}
         >
-          Learn More
-        </Link>
+          <OptimizedImg
+            src={icon}
+            width={40}
+            height={40}
+            alt="noot"
+            style={{ objectFit: "contain" }}
+          />
+        </Box>
+        <Typography
+          variant="h4"
+          sx={{
+            fontSize: "1.2rem",
+            color: "#06B7B7",
+            fontWeight: "500",
+            lineHeight: "1.2",
+            width: "90%",
+            margin: "20px 0"
+          }}
+        >
+          {title}
+        </Typography>
+        <Typography
+          paragraph
+          sx={{
+            fontSize: "15px",
+            // color: "white",
+            fontWeight: "400",
+            margin: "0",
+            paddingBottom: "30px",
+            letterSpacing: "0.8px"
+          }}
+        >
+          {desc}
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "end"
+            // width: "max-content",
+            // textAlign: "right",
+            // position: "absolute",
+            // bottom: "-15px",
+            // right: "30px"
+          }}
+        >
+          <Link
+            href="/learn-more"
+            style={{
+              textDecoration: "none",
+              color: "#06B7B7",
+              fontSize: "16px",
+              fontWeight: "500"
+            }}
+          >
+            Learn More
+          </Link>
+        </Box>
       </Box>
     </Grid>
   );
