@@ -47,42 +47,68 @@ const TimeBox = () => {
         />
       </Box>
       <Typography
-        variant="h4"
+        variant="h2"
         sx={{
           color: "#06B7B7",
-          fontSize: "36px",
-          fontWeight: "400",
-          marginBottom: "20px"
+          fontWeight: "400"
+          // marginBottom: "20px"
         }}
       >
         You are
       </Typography>
-      <Box>
-        <OptimizedImg
-          src="/images/timeboxIcon.svg"
-          width={150}
-          height={100}
-          alt="noot"
-        />
+      <Box
+        sx={{
+          width: "11rem",
+          height: "11rem",
+          background:
+            "linear-gradient(109deg, #058e97 10.41%, #76c95a 100.00%)",
+          border:
+            "1.5rem solid linear-gradient(109deg, #058e97 10.41%, #76c95a 100.00%)",
+          borderRadius: "50%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: theme.palette.primary.main,
+          margin: "20px 0px"
+        }}
+      >
+        <Box
+          sx={{
+            width: "8rem",
+            height: "8rem",
+            backgroundColor:
+              theme.palette.mode === "light" ? "white" : "#121212",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        >
+          <Typography sx={{ fontSize: "7.5rem", fontWeight: "700" }}>
+            3
+          </Typography>
+        </Box>
       </Box>
       <Typography
-        variant="h4"
+        variant="h2"
         sx={{
           color: "#06B7B7",
-          fontSize: "36px",
-          fontWeight: "400",
-          marginBottom: "20px"
+          fontWeight: "400"
         }}
       >
         minutes
       </Typography>
       <Typography
-        variant="h4"
+        variant="h3"
+        pt={2}
         sx={{
-          color: "white",
-          fontSize: "20px",
-          letterSpacing: "0.8",
-          fontWeight: "400"
+          fontSize: {
+            lg: "3rem",
+            md: "1.5rem",
+            xs: "1.4rem"
+          }
+          // letterSpacing: "0.8",
+          // fontWeight: "400"
         }}
       >
         away from bringing your vision to life

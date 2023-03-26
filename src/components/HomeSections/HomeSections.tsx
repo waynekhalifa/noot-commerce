@@ -17,7 +17,7 @@ const HomeSections: React.FC<Props> = ({ burger }) => {
     <Box
       sx={{
         height: `${burger ? "calc( 100vh - 4rem )" : "100%"}`,
-        overflow: "hidden",
+        overflow: "hidden"
       }}
     >
       <Featured />
@@ -30,10 +30,12 @@ const HomeSections: React.FC<Props> = ({ burger }) => {
       <ThreeDots />
       <WhyNoot />
       <Reasons />
-      {/*    <TryNoot />
+      {/*
+      <TryNoot />
       <Dashboard />
- <BusinessProcess /> 
-      <Testimonials />*/}
+      <BusinessProcess /> 
+      <Testimonials />
+      */}
     </Box>
   );
 };
