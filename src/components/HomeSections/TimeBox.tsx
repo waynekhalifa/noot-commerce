@@ -37,7 +37,7 @@ const TimeBox = () => {
             right: "-25%"
           },
           "@media(max-width:767px)": {
-            right: "-70%",
+            right: "-76%",
             top: "20%"
           }
         }}
