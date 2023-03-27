@@ -110,8 +110,8 @@ const WhyNoot = () => {
                     variant="h3"
                     sx={{
                       fontSize: {
-                        xs: "2.5rem",
-                        sm: "2.7rem",
+                        xs: "2.3rem",
+                        sm: "2.4rem",
                         md: "2.7rem",
                         lg: "2.7rem",
                         xl: "2.7rem"
