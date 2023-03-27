@@ -7,7 +7,11 @@ const TimeBox = () => {
   return (
     <Box
       sx={{
-        paddingTop: "120px",
+        paddingTop: {
+          xs: "2rem",
+          md: "0",
+          lg: "0"
+        },
         paddingBottom: "30px",
         "@media(max-width:767px)": {
           paddingTop: "0"
@@ -50,8 +54,12 @@ const TimeBox = () => {
         variant="h2"
         sx={{
           color: "#06B7B7",
-          fontWeight: "400"
-          // marginBottom: "20px"
+          fontWeight: "400",
+          fontSize: {
+            xs: "3rem",
+            md: "3rem",
+            lg: "3.75rem"
+          }
         }}
       >
         You are
@@ -93,7 +101,12 @@ const TimeBox = () => {
         variant="h2"
         sx={{
           color: "#06B7B7",
-          fontWeight: "400"
+          fontWeight: "400",
+          fontSize: {
+            xs: "3rem",
+            md: "3rem",
+            lg: "3.75rem"
+          }
         }}
       >
         minutes

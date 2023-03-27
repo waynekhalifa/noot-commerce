@@ -12,14 +12,14 @@ const Footer = () => {
     { title: "Info@noot.ae", icon: "/images/icons/smsIcon.svg" },
     {
       title: "Al Ain, Abu Dhabi, United Arab Emirates",
-      icon: "/images/icons/locationIcon.svg",
-    },
+      icon: "/images/icons/locationIcon.svg"
+    }
   ]);
   const [socialIcons, setSocialIcons] = useState([
     "/images/icons/socialIcons/facebook.png",
     "/images/icons/socialIcons/instaIcon.png",
     "/images/icons/socialIcons/linked-in.png",
-    "/images/icons/socialIcons/twitter.png",
+    "/images/icons/socialIcons/twitter.png"
   ]);
   return (
     <Box
@@ -27,7 +27,7 @@ const Footer = () => {
         padding: "60px 0",
         backgroundColor: "#F5F7FA",
         position: "relative",
-        overflow: "hidden",
+        overflow: "hidden"
       }}
     >
       <Box
@@ -43,22 +43,28 @@ const Footer = () => {
           height: "400px",
           position: "absolute",
           top: "50%",
-          right: "-30%",
+          right: {
+            xl: "-22%",
+            lg: "-35%",
+            md: "-36%",
+            sm: "-25%",
+            xs: "-30%"
+          },
 
           transform: "translate(-50% , -50%)",
           "@media(max-width:1200px)": {
-            right: "-40%",
+            right: "-40%"
           },
           "@media(max-width:767px)": {
             right: "-70%",
             width: "450px",
-            height: "450px",
+            height: "450px"
           },
           "@media(max-width:575px)": {
             right: "-150%",
             width: "450px",
-            height: "450px",
-          },
+            height: "450px"
+          }
         }}
       ></Box>
       <Container>
@@ -69,8 +75,8 @@ const Footer = () => {
             alignItems: "flex-end",
             "@media(max-width:767px)": {
               flexDirection: "column-reverse",
-              justifyContent: "space-between",
-            },
+              justifyContent: "space-between"
+            }
           }}
         >
           <Grid
@@ -81,10 +87,10 @@ const Footer = () => {
               "@media(max-width:767px)": {
                 paddingTop: "30px",
                 width: "100%",
-                maxWidth: "100%",
+                maxWidth: "100%"
               },
               position: "relative",
-              zIndex: "10",
+              zIndex: "10"
             }}
           >
             <Typography
@@ -95,8 +101,8 @@ const Footer = () => {
                 fontWeight: "500",
                 margin: "0 0 15px",
                 "@media(max-width:575px)": {
-                  textAlign: "center",
-                },
+                  textAlign: "center"
+                }
               }}
             >
               Sign up for Special Offers!
@@ -111,7 +117,7 @@ const Footer = () => {
                 width: "400px",
                 borderRadius: "30px",
                 height: "40px",
-                maxWidth: "100%",
+                maxWidth: "100%"
               }}
             >
               <Box
@@ -131,8 +137,8 @@ const Footer = () => {
                   fontWeight: "500",
                   "&::placeholder": {
                     color: "#06B7B7",
-                    fontSize: "15px",
-                  },
+                    fontSize: "15px"
+                  }
                 }}
               />
               <Button
@@ -145,8 +151,8 @@ const Footer = () => {
                   borderRadius: "30px",
                   border: "none",
                   "&:hover": {
-                    backgroundColor: "#06B7B7",
-                  },
+                    backgroundColor: "#06B7B7"
+                  }
                 }}
               >
                 Subscribe
@@ -164,7 +170,7 @@ const Footer = () => {
               position: "relative",
               "@media(max-width:767px)": {
                 width: "100%",
-                maxWidth: "100%",
+                maxWidth: "100%"
               },
               ":after": {
                 content: '""',
@@ -173,8 +179,8 @@ const Footer = () => {
                 right: "15px",
                 width: "100px",
                 height: "2px",
-                backgroundColor: "#0D9292",
-              },
+                backgroundColor: "#0D9292"
+              }
             }}
           >
             <OptimizedImg
@@ -191,7 +197,7 @@ const Footer = () => {
                 fontSize: "15px",
                 paddingRight: "15px",
                 margin: "15px 0",
-                fontWeight: "500",
+                fontWeight: "500"
               }}
             >
               Contact information
@@ -203,7 +209,7 @@ const Footer = () => {
                   display: "flex",
                   alignItems: "center",
                   marginBottom: "15px",
-                  paddingRight: "15px",
+                  paddingRight: "15px"
                 }}
               >
                 <Typography
@@ -213,8 +219,8 @@ const Footer = () => {
                     paddingRight: "20px",
                     fontWeight: "500",
                     "@media(max-width:575px)": {
-                      textAlign: "right",
-                    },
+                      textAlign: "right"
+                    }
                   }}
                 >
                   {title}
@@ -228,7 +234,7 @@ const Footer = () => {
                     backgroundColor: "#3F813C",
                     display: "flex",
                     justifyContent: "center",
-                    alignItems: "center",
+                    alignItems: "center"
                   }}
                 >
                   <OptimizedImg
@@ -248,7 +254,7 @@ const Footer = () => {
                 alignItems: "center",
                 listStyle: "none",
                 padding: "0 15px 0 0",
-                margin: "0",
+                margin: "0"
               }}
             >
               <Box component={"li"}>
@@ -258,7 +264,7 @@ const Footer = () => {
                     href="/"
                     style={{
                       textDecoration: "none",
-                      marginLeft: "15px",
+                      marginLeft: "15px"
                     }}
                   >
                     <OptimizedImg
@@ -279,8 +285,14 @@ const Footer = () => {
             color: "#000000",
             width: "100%",
             textAlign: "center",
-            fontSize: "18px",
-            paddingTop: "30px",
+            fontSize: {
+              xs: "14px",
+              sm: "14px",
+              md: "16px",
+              lg: "17px",
+              xl: "18px"
+            },
+            paddingTop: "30px"
           }}
         >
           ©2022 Copyright{" "}
