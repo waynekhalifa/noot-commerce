@@ -91,13 +91,17 @@ const Reasons = () => {
           ":after": {
             content: '""',
             position: "absolute",
-            top: "1rem",
+            top: {
+              lg: "3rem",
+              md: "3rem",
+              xs: "1rem"
+            },
             width: {
               xs: "70%",
               sm: "40%",
               md: "40%",
               lg: "40%",
-              xl: "40%"
+              xl: "45%"
             },
             height: "2px",
             backgroundColor: "#06B7B7"

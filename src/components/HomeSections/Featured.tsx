@@ -122,9 +122,9 @@ const Featured: React.FC<Props> = ({}) => {
               xs: "block"
             },
             position: "absolute",
-            top: "13%",
+            top: "8%",
             left: "0%",
-            width: "24%",
+            width: "19%",
             overflow: "hidden"
           }}
         >

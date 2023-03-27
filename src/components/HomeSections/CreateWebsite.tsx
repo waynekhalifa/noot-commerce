@@ -106,8 +106,8 @@ const CreateWebsite: React.FC<Props> = ({}) => {
             paddingBottom: "30px"
           }}
         >
-          <Grid item sm={12} md={6} sx={{ textAlign: "center",}}>
-            <Box >
+          <Grid item sm={12} md={6} sx={{ textAlign: "center" }}>
+            <Box>
               <OptimizedImg
                 src="/images/website-template.webp"
                 alt="noot"
@@ -155,7 +155,11 @@ const CreateWebsite: React.FC<Props> = ({}) => {
                     lg: "1.8rem",
                     xl: "2rem"
                   },
-                  lineHeight: 2,
+                  lineHeight: {
+                    lg: 2,
+                    md: "1.8",
+                    xs: "1.5"
+                  },
                   maxWidth: {
                     xs: "90%",
                     sm: "60%",

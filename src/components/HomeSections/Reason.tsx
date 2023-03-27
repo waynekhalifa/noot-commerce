@@ -11,8 +11,12 @@ const Reason = ({ title, desc, icon }: any) => {
       md={6}
       lg={3}
       sx={{
-        padding: "0.5rem 1.5rem",
-        marginBottom: "40px",
+        // padding: "0.5rem 1.5rem",
+        marginBottom: {
+          lg: "40px",
+          md: "40px",
+          xs: "0px"
+        },
         "&:last-child": {
           paddingRight: "0"
         },
@@ -30,7 +34,8 @@ const Reason = ({ title, desc, icon }: any) => {
             md: "100%",
             lg: "90%",
             xl: "90%"
-          }
+          },
+          padding: "0.5rem 1.5rem"
         }}
       >
         <Box
@@ -86,7 +91,12 @@ const Reason = ({ title, desc, icon }: any) => {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "end"
+            justifyContent: "end",
+            paddingRight: {
+              lg: "1rem",
+              md: "1rem",
+              xs: "1rem"
+            }
             // width: "max-content",
             // textAlign: "right",
             // position: "absolute",
