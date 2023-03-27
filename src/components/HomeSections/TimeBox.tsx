@@ -118,7 +118,7 @@ const TimeBox = () => {
           fontSize: {
             lg: "3rem",
             md: "1.5rem",
-            xs: "1.4rem"
+            xs: "1.2rem"
           }
           // letterSpacing: "0.8",
           // fontWeight: "400"

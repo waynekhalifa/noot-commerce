@@ -1,39 +1,38 @@
 import { Box, Typography, Container, Grid } from "@mui/material";
 import OptimizedImg from "../OptimizedImg";
-import useMediaQuery from '@mui/material/useMediaQuery';
-
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const WhyNoot = () => {
-  const matches = useMediaQuery('(min-width:600px)');
+  const matches = useMediaQuery("(min-width:600px)");
   return (
     <Box
       sx={{
-        paddingBottom:'2rem',
-        position: "relative",
-        ":after": {
-          content: '""',
-          position: "absolute",
-          top: "0%",
-          clipPath: "polygon(0 50%, 100% 0, 99% 100%)",
-          right: "-20px",
-          width: "500px",
-          height: "80%",
-          background: "linear-gradient(to top ,#058E97 , #76C95A)",
-          zIndex: "-1",
-          "@media(max-width:1200px)": {
-            width: "300px"
-          },
-          "@media(max-width:991px)": {
-            top: "70%",
-            height: "40%",
-            width: "350px"
-          },
-          "@media(max-width:767px)": {
-            top: "70%",
-            width: "150px",
-            height: "40%"
-          }
-        }
+        //   paddingBottom: "2rem",
+        position: "relative"
+        //   ":after": {
+        //     content: '""',
+        //     position: "absolute",
+        //     top: "0%",
+        //     clipPath: "polygon(0 50%, 100% 0, 99% 100%)",
+        //     right: "-20px",
+        //     width: "500px",
+        //     height: "80%",
+        //     background: "linear-gradient(to top ,#058E97 , #76C95A)",
+        //     zIndex: "-1",
+        //     "@media(max-width:1200px)": {
+        //       width: "300px"
+        //     },
+        //     "@media(max-width:991px)": {
+        //       top: "70%",
+        //       height: "40%",
+        //       width: "350px"
+        //     },
+        //     "@media(max-width:767px)": {
+        //       top: "70%",
+        //       width: "150px",
+        //       height: "40%"
+        //     }
+        //   }
       }}
     >
       <Container>
@@ -73,13 +72,13 @@ const WhyNoot = () => {
                     color: "#6DC45E",
                     display: "block",
                     fontSize: {
-                      xs: "7rem",
+                      xs: "6rem",
                       sm: "7rem",
                       md: "8rem",
                       lg: "9rem",
                       xl: "9rem"
                     },
-                    margin: "0 30px 0 0",
+                    // margin: "0 30px 0 0",
                     fontWeight: "400"
                   }}
                 >
@@ -88,7 +87,13 @@ const WhyNoot = () => {
                 <Typography
                   variant="h3"
                   sx={{
-                    fontSize: "2.7rem",
+                    fontSize: {
+                      xs: "2.5rem",
+                      sm: "2.7rem",
+                      md: "2.7rem",
+                      lg: "2.7rem",
+                      xl: "2.7rem"
+                    },
                     fontWeight: "400"
                   }}
                 >
@@ -104,7 +109,7 @@ const WhyNoot = () => {
                     alignSelf: "start",
                     color: "#6DC45E",
                     fontSize: {
-                      xs: "17rem",
+                      xs: "15rem",
                       sm: "17rem",
                       md: "18rem",
                       lg: "19rem",
@@ -221,14 +226,85 @@ const WhyNoot = () => {
             </Box>
           </Grid>
 
-          <Grid item sm={12} md={6} >
-            <OptimizedImg
+          <Grid item sm={12} lg={6} xs={12}>
+            {/* <OptimizedImg
               src="/images/whyNoot.webp"
               alt="whyNoot"
-              width={900}
-              height={1000}
+              width={1000}
+              height={700}
               style={{ objectFit: "contain" }}
-            />
+            /> */}
+
+            {/* only on phone */}
+            <Box
+              sx={{
+                display: {
+                  xl: "none",
+                  lg: "none",
+                  md: "none",
+                  xs: "block"
+                },
+                overflow: "hidden"
+              }}
+            >
+              <OptimizedImg
+                src="/images/whyNoot.webp"
+                alt="noot"
+                width={500}
+                height={300}
+                style={{ objectFit: "contain", maxWidth: "100%" }}
+              />
+            </Box>
+            {/* only on laptop */}
+            <Box
+              sx={{
+                display: {
+                  xl: "block",
+                  lg: "none",
+                  md: "none",
+                  xs: "none"
+                },
+                overflow: "hidden"
+              }}
+            >
+              <OptimizedImg
+                src="/images/whyNoot.webp"
+                alt="noot"
+                width={900}
+                height={700}
+                style={{
+                  objectFit: "contain",
+                  maxWidth: "100%",
+                  position: "absolute"
+                }}
+              />
+            </Box>
+
+            {/* only on tablet */}
+            <Box
+              sx={{
+                display: {
+                  xl: "none",
+                  lg: "block",
+                  md: "none",
+                  xs: "none"
+                },
+                paddingLeft: "2rem",
+                overflow: "hidden"
+              }}
+            >
+              <OptimizedImg
+                src="/images/whyNoot.webp"
+                alt="noot"
+                width={700}
+                height={500}
+                style={{
+                  objectFit: "contain",
+                  maxWidth: "100%",
+                  position: "absolute"
+                }}
+              />
+            </Box>
           </Grid>
         </Grid>
       </Container>

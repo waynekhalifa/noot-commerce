@@ -118,8 +118,20 @@ const Reasons = () => {
               display: "flex",
               alignItems: "center",
               fontWeight: "500",
-              fontSize: "10rem",
-              marginRight: "1.5rem"
+              fontSize: {
+                xs: "6rem",
+                sm: "10rem",
+                md: "12rem",
+                lg: "12rem",
+                xl: "12rem"
+              },
+              marginRight: {
+                xs: "1rem",
+                sm: "1.5rem",
+                md: "2rem",
+                lg: "2rem",
+                xl: "2rem"
+              }
             }}
           >
             12
@@ -137,7 +149,13 @@ const Reasons = () => {
                 display: "flex",
                 alignItems: "center",
                 fontWeight: "500",
-                fontSize: "5rem"
+                fontSize: {
+                  xs: "2.2rem",
+                  sm: "3rem",
+                  md: "5rem",
+                  lg: "5rem",
+                  xl: "5rem"
+                }
               }}
             >
               Reasons <br />
@@ -145,7 +163,13 @@ const Reasons = () => {
             <Box
               component={"span"}
               sx={{
-                fontSize: "3rem",
+                fontSize: {
+                  xs: "1.2rem",
+                  sm: "2rem",
+                  md: "3rem",
+                  lg: "3rem",
+                  xl: "2.8rem"
+                },
                 fontWeight: "400",
                 lineHeight: "1",
                 alignSelf: "center",
@@ -161,9 +185,27 @@ const Reasons = () => {
               display: "flex",
               alignItems: "center",
               fontWeight: "500",
-              fontSize: "10rem",
-              marginLeft: "1.5rem",
-              paddingTop: "1.5rem"
+              fontSize: {
+                xs: "7rem",
+                sm: "9rem",
+                md: "10rem",
+                lg: "10rem",
+                xl: "12rem"
+              },
+              marginLeft: {
+                xs: "1rem",
+                sm: "1.5rem",
+                md: "2rem",
+                lg: "2rem",
+                xl: "2rem"
+              },
+              paddingTop: {
+                xs: "0.3rem",
+                sm: "1.5rem",
+                md: "1.5rem",
+                lg: "1.5rem",
+                xl: "1.5rem"
+              }
             }}
           >
             ?
@@ -223,7 +265,13 @@ const Reasons = () => {
             xl: "90%"
           },
           display: "flex",
-          padding: "60px 0"
+          padding: {
+            xs: "0",
+            sm: "2rem 0",
+            md: "2rem 0",
+            lg: "2rem 0",
+            xl: "2rem 0"
+          }
         }}
       >
         {reasons.map((res) => (

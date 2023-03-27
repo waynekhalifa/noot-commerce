@@ -66,7 +66,7 @@ const CreateWebsite: React.FC<Props> = ({}) => {
           sx={{
             color: theme.palette.primary.main,
             fontSize: {
-              xs: "1.8rem",
+              xs: "1.4rem",
               sm: "2.5rem",
               md: "3.5rem",
               lg: "4.5rem",

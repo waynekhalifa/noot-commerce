@@ -140,7 +140,13 @@ const QuicklyBuild = () => {
               lg: "50px",
               xl: "60px"
             },
-            fontSize: "2rem",
+            fontSize: {
+              xs:"1.7rem",
+              sm:"2rem",
+              md:"2rem",
+              lg:"2rem",
+              xl:"2rem"
+            },
             color: "#6DC45E",
             margin: "0",
             fontWeight: "400"
@@ -161,7 +167,13 @@ const QuicklyBuild = () => {
               sx={{
                 color: theme.palette.primary.main,
                 display: "block",
-                fontSize: "8rem",
+                fontSize: {
+                  xs:"7rem",
+                  sm:"8rem",
+                  md:"8rem",
+                  lg:"8rem",
+                  xl:"8rem"
+                },
                 margin: "0 60px 0 0",
                 fontWeight: "400",
                 "@media(max-width:767px)": {
@@ -181,7 +193,13 @@ const QuicklyBuild = () => {
             <Typography
               variant="h3"
               sx={{
-                fontSize: "2rem",
+                fontSize: {
+                  xs:"1.7rem",
+                  sm:"2rem",
+                  md:"2rem",
+                  lg:"2rem",
+                  xl:"2rem"
+                },
                 margin: "15px 0 0",
                 fontWeight: "400",
                 color: `${theme.palette.mode === "light" ? "black" : "white"}`

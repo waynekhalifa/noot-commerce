@@ -173,7 +173,7 @@ const Featured: React.FC<Props> = ({}) => {
             overflow: "hidden",
             "@media(max-width:767px)": {
               top: "72%",
-              left: "27%",
+              left: "26%",
               img: {
                 width: "180px",
                 height: "fit-content"
@@ -241,10 +241,10 @@ const Featured: React.FC<Props> = ({}) => {
                 md: "row"
               },
               position: "relative",
-              paddingTop:{
+              paddingTop: {
                 xs: "3rem",
                 md: "0",
-                lg: "0",
+                lg: "0"
               }
             }}
           >
@@ -264,13 +264,12 @@ const Featured: React.FC<Props> = ({}) => {
                 borderRadius: "30px",
                 textAlign: "center",
                 margin: "0",
-                lineHeight:'1.2',
+                lineHeight: "1.2",
                 height: "55px",
                 padding: {
                   xs: "0 1rem",
                   md: "0 3rem",
-                  lg: "0 4rem",
-
+                  lg: "0 4rem"
                 },
                 "@media(max-width:992px)": {
                   top: "15px",
@@ -344,7 +343,13 @@ const Featured: React.FC<Props> = ({}) => {
                   <br /> TO BE NOTICED
                 </Typography>
                 <Typography
+                  variant="h6"
                   sx={{
+                    fontSize: {
+                      lg: "1.35rem",
+                      md: "1.35rem",
+                      xs: "1.2rem"
+                    },
                     lineHeight: {
                       lg: "1.25",
                       md: "1.25",
@@ -356,7 +361,6 @@ const Featured: React.FC<Props> = ({}) => {
                       xs: "center"
                     }
                   }}
-                  variant="h6"
                   fontWeight={400}
                 >
                   Create a customizable website or
@@ -385,7 +389,7 @@ const Featured: React.FC<Props> = ({}) => {
                         md: "1rem",
                         xs: "1rem"
                       },
-                      fontSize: "1.5rem"
+                      fontSize: "1.3rem"
                     }}
                   >
                     get started
