@@ -161,7 +161,7 @@ const Header: React.FC = () => {
               width: "100%",
               height: "100%",
               backgroundColor: `${
-                theme.palette.mode === "light" ? "white" : "#121212"
+                theme.palette.mode === "light" ? "white" : "#000000"
               }`,
               borderRadius: "50px",
               display: "flex",
@@ -330,7 +330,7 @@ const Header: React.FC = () => {
                     style={{
                       textDecoration: "none",
                       color: `${
-                        theme.palette.mode === "light" ? "#121212" : "white"
+                        theme.palette.mode === "light" ? "#000000" : "white"
                       }`
                     }}
                   >
@@ -343,7 +343,7 @@ const Header: React.FC = () => {
                     style={{
                       textDecoration: "none",
                       color: `${
-                        theme.palette.mode === "light" ? "#121212" : "white"
+                        theme.palette.mode === "light" ? "#000000" : "white"
                       }`
                     }}
                   >
@@ -357,7 +357,7 @@ const Header: React.FC = () => {
                     style={{
                       textDecoration: "none",
                       color: `${
-                        theme.palette.mode === "light" ? "#121212" : "white"
+                        theme.palette.mode === "light" ? "#000000" : "white"
                       }`
                     }}
                   >
@@ -373,7 +373,7 @@ const Header: React.FC = () => {
                     style={{
                       textDecoration: "none",
                       color: `${
-                        theme.palette.mode === "light" ? "#121212" : "white"
+                        theme.palette.mode === "light" ? "#000000" : "white"
                       }`
                     }}
                   >
@@ -389,7 +389,7 @@ const Header: React.FC = () => {
                     style={{
                       textDecoration: "none",
                       color: `${
-                        theme.palette.mode === "light" ? "#121212" : "white"
+                        theme.palette.mode === "light" ? "#000000" : "white"
                       }`
                     }}
                   >

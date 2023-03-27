@@ -15,7 +15,7 @@ const WhyNoot = () => {
             sm: "none"
           },
           position: "absolute",
-            right:'-38rem'
+          right: "-38rem"
         }}
       >
         <OptimizedImg
@@ -24,8 +24,7 @@ const WhyNoot = () => {
           height={940}
           alt="shape"
           style={{
-            objectFit: "contain",
-            
+            objectFit: "contain"
           }}
         />
       </Box>
@@ -55,7 +54,7 @@ const WhyNoot = () => {
       </Box>
       <Box
         sx={{
-          position: "relative"        
+          position: "relative"
         }}
       >
         <Container>
@@ -165,7 +164,7 @@ const WhyNoot = () => {
                     sx={{
                       marginBottom: "15px",
                       background:
-                        "linear-gradient( #121212 , #121212) padding-box , linear-gradient( #058E97 , #76C95A) border-box",
+                        "linear-gradient( #000000 , #000000) padding-box , linear-gradient( #058E97 , #76C95A) border-box",
                       borderWidth: "1.5rem",
                       borderStyle: "solid",
                       borderColor: "transparent",
@@ -199,7 +198,7 @@ const WhyNoot = () => {
                     sx={{
                       marginBottom: "15px",
                       background:
-                        "linear-gradient( #121212 , #121212) padding-box , linear-gradient( #058E97 , #76C95A) border-box",
+                        "linear-gradient( #000000 , #000000) padding-box , linear-gradient( #058E97 , #76C95A) border-box",
                       borderWidth: "1.5rem",
                       borderStyle: "solid",
                       borderColor: "transparent",

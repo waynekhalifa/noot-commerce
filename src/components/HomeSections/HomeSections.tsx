@@ -1,5 +1,5 @@
 import Featured from "./Featured";
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import TimeBox from "./TimeBox";
 import CreateWebsite from "./CreateWebsite";
 import ThreeDots from "./ThreeDots";
@@ -12,12 +12,17 @@ interface Props {
 }
 
 const HomeSections: React.FC<Props> = ({ burger }) => {
+  const theme = useTheme();
+
   return (
     // sx={{display:`${burger ? 'none' : 'block'}`}}
     <Box
       sx={{
         height: `${burger ? "calc( 100vh - 4rem )" : "100%"}`,
-        overflow: "hidden"
+        overflow: "hidden",
+        backgroundColor: `${
+          theme.palette.mode === "light" ? "white" : "#000000"
+        }`
       }}
     >
       <Featured />

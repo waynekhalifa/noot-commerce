@@ -85,7 +85,7 @@ const TimeBox = () => {
             width: "8rem",
             height: "8rem",
             backgroundColor:
-              theme.palette.mode === "light" ? "white" : "#121212",
+              theme.palette.mode === "light" ? "white" : "#000000",
             borderRadius: "50%",
             display: "flex",
             alignItems: "center",
