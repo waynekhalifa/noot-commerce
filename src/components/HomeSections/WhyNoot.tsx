@@ -131,11 +131,11 @@ const WhyNoot = () => {
                       alignSelf: "start",
                       color: "#6DC45E",
                       fontSize: {
-                        xs: "15rem",
-                        sm: "17rem",
-                        md: "18rem",
-                        lg: "19rem",
-                        xl: "19rem"
+                        xs: "12rem",
+                        sm: "13rem",
+                        md: "14rem",
+                        lg: "15rem",
+                        xl: "15rem"
                       },
                       fontWeight: "400"
                     }}

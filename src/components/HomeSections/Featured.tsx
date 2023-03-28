@@ -322,6 +322,11 @@ const Featured: React.FC<Props> = ({}) => {
                   fontWeight={400}
                   pt={1}
                   sx={{
+                    textShadow: "-2px 3px #76bb6ab5",
+                    textAlign: {
+                      lg: "start",
+                      xs: "center"
+                    },
                     fontSize: {
                       lg: "3rem",
                       md: "2.125rem",
