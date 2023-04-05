@@ -38,6 +38,7 @@ import { useDispatch } from "react-redux";
 import { setSession } from "@/store/appSlice";
 import { useEffect } from "react";
 import useUpdating from "@/hooks/useUpdating";
+import { setCookie } from "cookies-next";
 
 interface Props {
   slug: string;
@@ -115,10 +116,20 @@ const Auth: React.FC<Props> = ({ slug }) => {
 
     switch (slug) {
       case Pages.LOGIN:
-        response = await login(data);
+        response = await login({
+          username: data.email,
+          password: data.password,
+        });
         break;
       case Pages.REGISTER:
-        response = await register(data);
+        response = await register({
+          first_name: data.firstName,
+          last_name: data.lastName,
+          username: data.firstName + data.lastName,
+          email: data.email,
+          password1: data.password,
+          password2: data.confirmPassword,
+        });
         break;
       default:
         break;
@@ -129,13 +140,14 @@ const Auth: React.FC<Props> = ({ slug }) => {
         response.message &&
         response.message === AuthMessages.REGISTER_SUCCESS
       ) {
-        push(`/${Routes.ACCOUNTS}/${Pages.LOGIN}`);
+        setCookie("user", response.data.data);
+        push("http://localhost:3001/overview");
       }
       if (response.message && response.message === AuthMessages.LOGIN_SUCCESS) {
         dispatch(setSession(response.data[0]));
 
-        // push(`/${Routes.DASHBOARD}/${Pages.OVERVIEW}`);
-        push(`/${Routes.ADMIN}/${Pages.OVERVIEW}`);
+        setCookie("user", response.data.data);
+        push("http://localhost:3001/overview");
       }
     } else {
       if (response.message && response.message === "Default Case") {

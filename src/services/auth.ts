@@ -1,8 +1,10 @@
 import { AppContext } from "next/app";
+import axios from "axios";
 
 import { errorResponse, successResponse } from "@/helpers/responser";
 import { IResponse } from "@/models/app";
 import { AuthMessages } from "@/constants/enums";
+import { LoginProps, SignupProps } from "@/types/auth";
 
 /**
  * getSession: Get the current session
@@ -23,9 +25,13 @@ export async function getSession(appContext: AppContext): Promise<IResponse> {
  * @param data
  * @returns response
  */
-export async function register(data: any): Promise<IResponse> {
+export async function register(data: SignupProps): Promise<IResponse> {
   try {
-    return successResponse(null, AuthMessages.REGISTER_SUCCESS);
+    const res = await axios.post(
+      "https://ecommerce.noot.ae/user/auth/signup/",
+      data
+    );
+    return successResponse(res, AuthMessages.REGISTER_SUCCESS);
   } catch (err: Error | any) {
     return errorResponse(err);
   }
@@ -37,9 +43,13 @@ export async function register(data: any): Promise<IResponse> {
  * @param data
  * @returns response
  */
-export async function login(data: any): Promise<IResponse> {
+export async function login(data: LoginProps): Promise<IResponse> {
   try {
-    return successResponse({}, AuthMessages.LOGIN_SUCCESS);
+    let res = await axios.post(
+      "https://ecommerce.noot.ae/user/auth/login/",
+      data
+    );
+    return successResponse(res, AuthMessages.LOGIN_SUCCESS);
   } catch (err: Error | any) {
     return errorResponse(err);
   }
