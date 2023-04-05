@@ -6,7 +6,6 @@ const lightThemeOptions = (locale: string) => {
     direction: locale === Languages.ARABIC ? Directions.RTL : Directions.LTR,
     palette: {
       mode: "light",
-
       primary: {
         light: "#41a9a5",
         main: "#12948f",
@@ -17,16 +16,17 @@ const lightThemeOptions = (locale: string) => {
         main: "#047085",
         dark: "#024e5d",
       },
+      text: {
+        primary: "#1c164a",
+        secondary: "#d3d1df",
+      },
       background: {
         paper: "#fff",
-        default: "#fff",
+        default: "#e0e3ed",
       },
     },
     typography: {
-      fontFamily:
-        locale === "ar"
-          ? ["Tajawal", "serif"].join(",")
-          : ["Roboto", "serif"].join(","),
+      fontFamily: locale === "ar" ? ["Tajawal", "serif"].join(",") : ["Roboto", "serif"].join(","),
     },
   };
 
