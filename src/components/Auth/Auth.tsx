@@ -1,13 +1,5 @@
 import useTranslation from "next-translate/useTranslation";
-import {
-  Alert,
-  Box,
-  Button,
-  CircularProgress,
-  Grid,
-  Link,
-  Typography,
-} from "@mui/material";
+import { Alert, Box, Button, CircularProgress, Grid, Link, Typography } from "@mui/material";
 import "react-toastify/dist/ReactToastify.css";
 
 import bg from "@images/accounts-bg.png";
@@ -20,13 +12,7 @@ import {
   IResponse,
   ISessionUser,
 } from "@/models/app";
-import {
-  AuthMessages,
-  Cookies,
-  Pages,
-  Responses,
-  Routes,
-} from "@/constants/enums";
+import { AuthMessages, Cookies, Pages, Responses, Routes } from "@/constants/enums";
 // import Link from "@/components/UI/Link";
 import useFormFields from "@/hooks/useFormFields";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -102,8 +88,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
     if (slug === Pages.LOGIN) return t("login");
     if (slug === Pages.REGISTER) return t("createNewAccount");
     if (slug === Pages.RESET_PASSWORD) return t("changePassword");
-    if (slug === Pages.VERIFICATION_CODE || slug === Pages.FORGOT_PASSWORD)
-      return t("continue");
+    if (slug === Pages.VERIFICATION_CODE || slug === Pages.FORGOT_PASSWORD) return t("continue");
 
     return null;
   };
@@ -130,10 +115,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
     }
 
     if (response.type === Responses.SUCCESS) {
-      if (
-        response.message &&
-        response.message === AuthMessages.REGISTER_SUCCESS
-      ) {
+      if (response.message && response.message === AuthMessages.REGISTER_SUCCESS) {
         if (response.data) {
           const user: ISessionUser = {
             id: response.data.id,
@@ -149,7 +131,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
           setCookie(Cookies.ACCESS_TOKEN, response.data.access_token);
           setCookie(Cookies.REFRESH_TOKEN, response.data.refresh_token);
 
-          router.push(`/${Routes.DASHBOARD}/${Pages.SERVICES}`);
+          window.location.replace(`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/overview`);
         }
       }
       if (response.message && response.message === AuthMessages.LOGIN_SUCCESS) {
@@ -162,13 +144,10 @@ const Auth: React.FC<Props> = ({ slug }) => {
           setCookie(Cookies.ACCESS_TOKEN, response.data.access);
           setCookie(Cookies.REFRESH_TOKEN, response.data.refresh);
 
-          router.push(`/${Routes.DASHBOARD}/${Pages.SERVICES}`);
+          window.location.replace(`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/overview`);
         }
       }
-      if (
-        response.message &&
-        response.message === AuthMessages.LOGOUT_SUCCESS
-      ) {
+      if (response.message && response.message === AuthMessages.LOGOUT_SUCCESS) {
         deleteCookie(Cookies.SESSION_USER);
         deleteCookie(Cookies.ACCESS_TOKEN);
         deleteCookie(Cookies.REFRESH_TOKEN);
@@ -219,12 +198,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
           sx={{ display: "block", width: "100%" }}
         >
           {getFormFields().map((field: IFormField) => (
-            <FormFields
-              key={field.name}
-              {...field}
-              control={control}
-              errors={errors}
-            />
+            <FormFields key={field.name} {...field} control={control} errors={errors} />
           ))}
           {slug === Pages.LOGIN && (
             <Link
@@ -253,31 +227,14 @@ const Auth: React.FC<Props> = ({ slug }) => {
                 // }
                 sx={{ maxWidth: "fit-content" }}
               >
-                <VerificationField
-                  value=""
-                  handleChange={(e) => console.log(e)}
-                />
-                <VerificationField
-                  value=""
-                  handleChange={(e) => console.log(e)}
-                />
-                <VerificationField
-                  value=""
-                  handleChange={(e) => console.log(e)}
-                />
-                <VerificationField
-                  value=""
-                  handleChange={(e) => console.log(e)}
-                />
+                <VerificationField value="" handleChange={(e) => console.log(e)} />
+                <VerificationField value="" handleChange={(e) => console.log(e)} />
+                <VerificationField value="" handleChange={(e) => console.log(e)} />
+                <VerificationField value="" handleChange={(e) => console.log(e)} />
               </Grid>
               <Typography sx={{ display: "flex", mt: 4, mb: 2 }}>
-                <Typography component="span">
-                  {t("dontReceiveVerificationCode")}
-                </Typography>
-                <Link
-                  href={`/${Routes.AUTH}/${Pages.REGISTER}`}
-                  sx={{ display: "block", ml: 2 }}
-                >
+                <Typography component="span">{t("dontReceiveVerificationCode")}</Typography>
+                <Link href={`/${Routes.AUTH}/${Pages.REGISTER}`} sx={{ display: "block", ml: 2 }}>
                   {t("resendCode")}
                 </Link>
               </Typography>
@@ -304,10 +261,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
         {slug === Pages.LOGIN && (
           <Typography sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
             <Typography component="span">{t("dontHaveAccount")}</Typography>
-            <Link
-              href={`/${Routes.AUTH}/${Pages.REGISTER}`}
-              sx={{ display: "block", ml: 2 }}
-            >
+            <Link href={`/${Routes.AUTH}/${Pages.REGISTER}`} sx={{ display: "block", ml: 2 }}>
               {t("createAccount")}
             </Link>
           </Typography>
@@ -315,24 +269,16 @@ const Auth: React.FC<Props> = ({ slug }) => {
         {slug === Pages.REGISTER && (
           <Typography sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
             <Typography component="span">{t("alreadyHaveAccount")}</Typography>
-            <Link
-              href={`/${Routes.AUTH}/${Pages.LOGIN}`}
-              sx={{ display: "block", ml: 2 }}
-            >
+            <Link href={`/${Routes.AUTH}/${Pages.LOGIN}`} sx={{ display: "block", ml: 2 }}>
               {t("login")}
             </Link>
           </Typography>
         )}
         {slug === Pages.FORGOT_PASSWORD ||
           (slug === Pages.VERIFICATION_CODE && (
-            <Typography
-              sx={{ display: "flex", justifyContent: "center", mt: 4 }}
-            >
+            <Typography sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
               <Typography component="span">{t("backTo")}</Typography>
-              <Link
-                href={`/${Routes.AUTH}/${Pages.LOGIN}`}
-                sx={{ display: "block", ml: 2 }}
-              >
+              <Link href={`/${Routes.AUTH}/${Pages.LOGIN}`} sx={{ display: "block", ml: 2 }}>
                 {t("login")}
               </Link>
             </Typography>
@@ -371,14 +317,8 @@ const Auth: React.FC<Props> = ({ slug }) => {
               alt="logo"
               sx={{ display: "block", m: "0 auto", mb: 4 }}
             />
-            <Typography
-              variant="h4"
-              align="center"
-              color="common.white"
-              fontWeight={700}
-            >
-              منصتك الأولى للتحقق من صحة الأخبار المنشورة وتعلٌّم الأدوات
-              المخصصة لذلك
+            <Typography variant="h4" align="center" color="common.white" fontWeight={700}>
+              منصتك الأولى للتحقق من صحة الأخبار المنشورة وتعلٌّم الأدوات المخصصة لذلك
             </Typography>
           </Box>
         </Box>
