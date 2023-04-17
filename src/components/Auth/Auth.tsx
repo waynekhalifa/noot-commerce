@@ -95,6 +95,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
 
   const onSubmit: SubmitHandler<any> = async (data: any) => {
     setUpdating(false);
+
     let response: IResponse = {
       type: Responses.ERROR,
       message: "Default Case",
@@ -131,12 +132,17 @@ const Auth: React.FC<Props> = ({ slug }) => {
           setCookie(Cookies.ACCESS_TOKEN, response.data.access_token);
           setCookie(Cookies.REFRESH_TOKEN, response.data.refresh_token);
 
-          window.location.replace(`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/stores`);
+          window.location.replace(
+            `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/authentication/?token=${
+              response.data.access_token
+            }}&refresh=${response.data.refresh_token}&user=${JSON.stringify(user)}`
+          );
         }
       }
       if (response.message && response.message === AuthMessages.LOGIN_SUCCESS) {
         if (response.data) {
           const user: ISessionUser = { ...response.data.user };
+          console.log(user, response.data);
           dispatch(setUser(user));
           dispatch(setAccessToken(response.data.access));
           dispatch(setRefreshToken(response.data.refresh));
@@ -144,7 +150,11 @@ const Auth: React.FC<Props> = ({ slug }) => {
           setCookie(Cookies.ACCESS_TOKEN, response.data.access);
           setCookie(Cookies.REFRESH_TOKEN, response.data.refresh);
 
-          window.location.replace(`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/stores`);
+          window.location.replace(
+            `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/authentication/?token=${
+              response.data.access
+            }&refresh=${response.data.refresh}&user=${JSON.stringify(user)}`
+          );
         }
       }
       if (response.message && response.message === AuthMessages.LOGOUT_SUCCESS) {
