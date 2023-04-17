@@ -131,7 +131,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
           setCookie(Cookies.ACCESS_TOKEN, response.data.access_token);
           setCookie(Cookies.REFRESH_TOKEN, response.data.refresh_token);
 
-          window.location.replace(`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/overview`);
+          window.location.replace(`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/stores`);
         }
       }
       if (response.message && response.message === AuthMessages.LOGIN_SUCCESS) {
@@ -144,7 +144,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
           setCookie(Cookies.ACCESS_TOKEN, response.data.access);
           setCookie(Cookies.REFRESH_TOKEN, response.data.refresh);
 
-          window.location.replace(`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/overview`);
+          window.location.replace(`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/stores`);
         }
       }
       if (response.message && response.message === AuthMessages.LOGOUT_SUCCESS) {
