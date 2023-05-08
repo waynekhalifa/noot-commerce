@@ -2,7 +2,6 @@ import useTranslation from "next-translate/useTranslation";
 import { Alert, Box, Button, CircularProgress, Grid, Link, Typography } from "@mui/material";
 import "react-toastify/dist/ReactToastify.css";
 
-import bg from "@images/accounts-bg.png";
 import logo from "@images/logo.png";
 import useResponsive from "@/hooks/useResponsive";
 import {
@@ -307,7 +306,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
             height: "100vh",
             right: "0px",
             top: "0px",
-            background: `linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(${bg.src}) center center`,
+            // background: `linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(${bg.src}) center center`,
           }}
         >
           <Box
@@ -328,7 +327,7 @@ const Auth: React.FC<Props> = ({ slug }) => {
               sx={{ display: "block", m: "0 auto", mb: 4 }}
             />
             <Typography variant="h4" align="center" color="common.white" fontWeight={700}>
-              منصتك الأولى للتحقق من صحة الأخبار المنشورة وتعلٌّم الأدوات المخصصة لذلك
+              your first choice for builing your business
             </Typography>
           </Box>
         </Box>
