@@ -9,18 +9,16 @@ const withPWA = require("next-pwa")({
   buildExcludes: [/middleware-manifest.json$/],
 });
 
-// development
-// const nextConfig = {
-//   // next config
-//   reactStrictMode: true,
-//   ...nextTranslate(),
-// };
-
-// production
-const nextConfig = withPWA({
-  // next config
-  reactStrictMode: true,
-  ...nextTranslate(),
-});
+// next config production only
+const nextConfig =
+  process.env.NODE_ENV === "production"
+    ? withPWA({
+        reactStrictMode: true,
+        ...nextTranslate(),
+      })
+    : {
+        reactStrictMode: true,
+        ...nextTranslate(),
+      };
 
 module.exports = nextConfig;
